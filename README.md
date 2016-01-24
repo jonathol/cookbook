@@ -15,6 +15,7 @@ FineFare is a web application inspired by New York Times Cooking built using Rub
 - [ ] Read, bookmark, rate, and mark 'cooked' on recipes
 - [ ] Create recipe collections
 - [ ] Make public and private comments on recipes
+- [ ] Upvote comments they like
 - [ ] Search for recipes by name, tag, or author
 - [ ] Share recipes on social media
 - [ ] Watch videos for recipes (when available)
