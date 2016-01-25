@@ -19,7 +19,7 @@
 ![search]
 
 ## Component Heirarchy
-![component-heirarchy]
+![component-hierarchy]
 
 [new-user]: ./wireframes/sign-up.png
 [new-session]: ./wireframes/sign-in.png
@@ -27,4 +27,4 @@
 [recipe]: ./wireframes/recipe-view.png
 [comment]: ./wireframes/comment.png
 [search]: ./wireframes/search.png
-[component-heirarchy]: ./wireframes/component-heirarchy.png
+[component-hierarchy]: ./wireframes/component-hierarchy.png
