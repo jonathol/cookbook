@@ -2,17 +2,34 @@
 
 ## Rails
 ### Models
+* Comment
+* Rating
 
 ### Controllers
+* Api::CommentsController (create, index, destroy)
+* Api::RatingsController (create, update)
 
 ### Views
+* comments/index.json.jbuilder
 
 ## Flux
 ### Views (React Components)
+* CommentsIndex
+* CommentsIndexItem
+* CommentsForm
+* SearchForm
 
 ### Stores
+* Comments
 
 ### Actions
+* ApiActions.receiveComments
+* ApiActions.receiveRatings
+* CommentActions.createComment
+* CommentActions.destroyComment
+* RecipeActions.createRating
+* RecipeActions.updateRating
 
-## Gems/Libraries
-* react-quill (npm)
+### ApiUtil
+* ApiUtil.fetchComments
+* ApiUtil.fetchRatings

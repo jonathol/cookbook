@@ -2,43 +2,37 @@
 
 ## Rails
 ### Models
-* Notebook
+* Collection
+* CollectionRecipe
 * Tag
 * Tagging
+* RecipeBoxCollection
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Api::CollectionsController (create, destroy, show, update)
+* Api::TagsController (show)
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
+* collections/show.json.jbuilder
 * tags/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
-* SearchIndex
+* CollectionsDetail
 
 ### Stores
-* Notebook
+* Collections
 
 ### Actions
-* ApiActions.receiveAllNotebooks -> triggered by ApiUtil
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
-* NotebookActions.fetchAllNotebooks -> triggers ApiUtil
-* NotebookActions.fetchSingleNotebook
-* NotebookActions.createNotebook
-* NotebookActions.editNotebook
-* NotebookActions.destroyNotebook
+* ApiActions.receiveCollection
+* NotebookActions.createCollection
+* NotebookActions.editCollection
+* NotebookActions.destroyCollection
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.fetchCollection
+* ApiUtil.createCollection
+* ApiUtil.editCollection
+* ApiUtil.destroyCollection
 
 ## Gems/Libraries

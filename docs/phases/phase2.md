@@ -9,30 +9,19 @@
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* RecipesIndex
+  - RecipesIndexItem
 
 ### Stores
-* Note
+* Recipe
 
 ### Actions
-* ApiActions.receiveAllNotes -> triggered by ApiUtil
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
-* NoteActions.fetchAllNotes -> triggers ApiUtil
-* NoteActions.fetchSingleNote 
-* NoteActions.createNote
-* NoteActions.editNote 
-* NoteActions.destroyNote
+* ApiActions.receiveAllRecipes
+* ApiActions.receiveSingleRecipe
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllRecipes
+* ApiUtil.fetchSingleRecipe
 
 ## Gems/Libraries
 * Flux Dispatcher (npm)
-* Twitter Bootstrap

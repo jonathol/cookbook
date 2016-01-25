@@ -24,6 +24,7 @@ author_id   | integer   | not null, foreign key (references users), indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+rating      | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed, unique [recipe_id]
 recipe_id   | integer   | not null, foreign key (references recipes), indexed
 
@@ -55,9 +56,15 @@ column name | data type | details
 id          | integer   | not null, primary key
 name        | string    | not null
 
-## collection recipes
+## collection_recipes
 column name   | data type | details
 --------------|-----------|-----------------------
 id            | integer   | not null, primary key
 collection_id | integer   | not null, foreign key (references collections), indexed, unique [recipe_id]
 recipe_id     | integer   | not null, foreign key (references recipes), indexed
+
+## recipe_box_collections
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+user_id       | integer   | not null, foreign key (references user), indexed, unique [collection_id]

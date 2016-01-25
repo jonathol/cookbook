@@ -29,68 +29,37 @@ FineFare is a web application inspired by New York Times Cooking built using Rub
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Note Model and JSON API (1.5 days)
-
-In Phase 1, I will begin by implementing user signup and authentication (using
-BCrypt). There will be a basic landing page after signup that will contain the
-container for the application's root React component. Before building out the
-front end, I will begin by setting up a full JSON API for Notes.
 ### Phase 1: User Authentication, Recipe Model and JSON API (1.5 days)
 
-In Phase 1, I will create the user and recipe models. I will set up user sign up and authentication. I will begin working on the recipes index and the JSON API to retrieve recipe information from the database.
+I plan on creating the user and recipe models in phase 1. I will set up user sign up and authentication pages and a sessions controller to track current users. I will begin working on the recipes index and the JSON API to retrieve recipe information from the database.
 
 [Details][phase-one]
 
-### Phase 2: Flux Architecture and Note CRUD (2.5 days)
+### Phase 2: API Utils, Recipes Store, and first components (2 days)
 
-Phase 2 is focused on setting up Flux, the React Router, and the React view
-structure for the main application. After the basic Flux architecture has been
-set up, a Note store will be implemented and a set of actions corresponding to
-the needed CRUD functionality created. Once this is done, I will create React
-views for the Notes `Index`, `IndexItem` and `Form`. At the end of Phase 2,
-Notes can be created, read, edited and destroyed in the browser. Notes should
-save to the database when the form loses focus or is left idle after editing.
-Lastly, while constructing the views I will start using basic bootstrap for
-styling.
+In phase 2, I will begin setting up the React/Flux architecture. I will set up a Recipes Store that is updated through the Recipe API. Once recipes can be retrieved, I will start implementing the Recipes Index, IndexItems, and DetailViews. These will use recipes stored in the database, and I will begin styling the pages using CSS.
 
 [Details][phase-two]
 
-### Phase 3: Notebooks and Tags (2 days)
+### Phase 3: Recipe Box, Collections, and Tags/Taggings (1.5 days)
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook, which has
-its own `Index` view. Create JSON API for Notebooks. Notes can also now be
-tagged with multiple tags. Users can bring up notes in a separate `SearchIndex`
-view by searching for their tags. Once the tag search is implemented, I will
-extend this to a fuzzy search through every Note's content.
+With phase 3, I will begin adding extra features that revolve around the recipes. I will add `collection` and `tag` models. Since these will be dependent on recipes, I will add collection_recipes and taggings join tables. I will also add a recipe_box_collections join table for users' recipe boxes (which are essentially special collections). I add a Collections Store CollectionsDetail React component to go with these.
 
 [Details][phase-three]
 
-### Phase 4: Allow Complex Styling in Notes (1 day)
+### Phase 4: User Comments and Ratings (2.5 days)
 
-Using the react-quill library (based on Quill.js), allow for complex styling of
-notes.
+I will add a comment model in phase 4. I will create A comments store Flux component and a Comments Index, and Comments Index Item component for each Recipe Detail View, along with a Comments Form. I will also add a rating model that will be part of every recipe. I will add the search form component at this stage to search for recipes based on on names and taggings.
 
 [Details][phase-four]
 
-### Phase 5: Reminders and Garbage Collection (1 day)
+### Phase 5: Finish Styling and Seeding (1.5 days)
 
-Phase 5 introduces two new features. First, users can set reminders on notes
-which will at the time they are set for prompt the user to review and edit the
-given note. In addition, I will implement a feature that asks users to review
-notes once they reach a certain age and ask whether they should be kept,
-archived, or deleted.
-
-[Details][phase-five]
-
-### Phase 6: Styling Cleanup and Seeding (1 day)
-
-Bootstrap will have been used to keep things organized up until now, but in
-Phase 6 I will add styling flourishes and make modals out of some elements (like
-the NotebookForm).
+In phase 5 I will make add the final touches on the styling and try to put the final touches on things. I will also seed the database to fill out all the tables with dummy information.
 
 ### Bonus Features (TBD)
-- [ ] Prettify transitions
-- [ ] Use javascript library for cleaner tag selection
+- [ ] Admin Recipe creating, updating
+- [ ] Add recipes from other websites to recipe box
 - [ ] Changelogs for Notes
 - [ ] Pagination / infinite scroll for Notes Index
 - [ ] Multiple sessions
