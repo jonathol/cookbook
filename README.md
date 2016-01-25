@@ -1,4 +1,4 @@
-# FineFare
+# New York Thyme's Cookbook
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
@@ -6,7 +6,7 @@
 
 ## Minimum Viable Product
 
-FineFare is a web application inspired by New York Times Cooking built using Ruby on Rails and React.js. FineFare allows users to:
+Cookbook is a web application inspired by New York Times Cooking built using Ruby on Rails and React.js. Cookbook allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
@@ -60,9 +60,7 @@ In phase 5 I will make add the final touches on the styling and try to put the f
 ### Bonus Features (TBD)
 - [ ] Admin Recipe creating, updating
 - [ ] Add recipes from other websites to recipe box
-- [ ] Changelogs for Notes
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Multiple sessions
+- [ ] Add instructional videos
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
