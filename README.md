@@ -35,6 +35,9 @@ In Phase 1, I will begin by implementing user signup and authentication (using
 BCrypt). There will be a basic landing page after signup that will contain the
 container for the application's root React component. Before building out the
 front end, I will begin by setting up a full JSON API for Notes.
+### Phase 1: User Authentication, Recipe Model and JSON API (1.5 days)
+
+In Phase 1, I will create the user and recipe models. I will set up user sign up and authentication. I will begin working on the recipes index and the JSON API to retrieve recipe information from the database.
 
 [Details][phase-one]
 

@@ -3,18 +3,18 @@
 ## Rails
 ### Models
 * User
-* Note
+* Recipe
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* Api::RecipesController (index, show)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* recipes/index.json.jbuilder
+* recipes/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)

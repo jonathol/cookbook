@@ -48,3 +48,16 @@ column name | data type | details
 id          | integer   | not null, primary key
 recipe_id   | integer   | not null, foreign key (references recipes), indexed, unique [tag_id]
 tag_id      | integer   | not null, foreign key (references tags), indexed
+
+## collections
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+name        | string    | not null
+
+## collection recipes
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+collection_id | integer   | not null, foreign key (references collections), indexed, unique [recipe_id]
+recipe_id     | integer   | not null, foreign key (references recipes), indexed
