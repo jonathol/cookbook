@@ -22,7 +22,7 @@
 ![component-hierarchy]
 
 [new-user]: ./wireframes/sign-up.png
-[new-session]: ./wireframes/sign-in.png
+[new-session]: ./wireframes/log-in.png
 [recipe-browsing]: ./wireframes/recipe-browsing.png
 [recipe]: ./wireframes/recipe-view.png
 [comment]: ./wireframes/comment.png
