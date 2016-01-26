@@ -4,11 +4,13 @@ var React = require('react'),
     Router = ReactRouter.Router,
     Route = ReactRouter.Route,
     IndexRoute = ReactRouter.IndexRoute,
-    App = require('./components/app');
+    App = require('./components/app'),
+    RecipesIndex = require('./components/recipes_index.jsx');
 
 var router = (
   <Router>
     <Route path="/" component={App}>
+      <IndexRoute component={RecipesIndex} />
     </Route>
   </Router>
 );

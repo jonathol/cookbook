@@ -5,6 +5,7 @@ var App = React.createClass({
     return (
       <div className="cookbook">
         <header><h1><logo>t</logo> Cookbook</h1></header>
+        {this.props.children}
       </div>
     );
   }
