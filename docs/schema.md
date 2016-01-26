@@ -16,8 +16,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 description | text      |
-ingredients | text      |
-preparation | text      | not null
+cook_time   | string    |
+servings    | string    |
 author_id   | integer   | not null, foreign key (references users), indexed
 
 ## ingredients
@@ -27,6 +27,14 @@ id          | integer   | not null, primary key
 name        | string    | not null
 quantity    | float     |
 recipe_id   | integer   | not null, foreign_key, indexed
+
+## preparation_steps
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+description | text      | not null
+recipe_id   | integer   | not null, foreign_key (references recipes), indexed, unique [step_number]
+step        | integer   | not null
 
 ## ratings
 column name | data type | details
