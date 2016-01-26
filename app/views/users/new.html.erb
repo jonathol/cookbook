@@ -3,9 +3,8 @@
   <h2>Create An Account</h2>
   <p>Create a free NYThyme's account to get started</p>
 </div>
-  <%= render 'form',
+  <%= render '/layouts/user_form',
         action_url: users_url,
-        form_class: "new-user-form",
         button_text: "Create Account" %>
   <div class="user-form-footer">
     <p>

@@ -1,0 +1,14 @@
+<div class="user-form-box">
+  <div class="user-form-header">
+  <h2>Log In</h2>
+  <p>Use your NYThyme's account</p>
+</div>
+  <%= render '/layouts/user_form',
+        action_url: session_url,
+        button_text: "Log In" %>
+  <div class="user-form-footer">
+    <p>
+      Don't have a NYThyme's account? <a href="<%= new_user_url %>">Register now</a>
+    </p>
+  </div>
+</div>
