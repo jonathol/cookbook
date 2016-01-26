@@ -50,7 +50,11 @@ a:hover {
 }
 
 button:hover {
-  cursor: pointer
+  cursor: pointer;
+}
+
+logo {
+  font-family: 'UnifrakturMaguntia', cursive;
 }
 
 /* SIGN IN / SIGN UP FORMS */
