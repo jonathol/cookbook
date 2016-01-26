@@ -13,3 +13,46 @@
  *= require_tree .
  *= require_self
  */
+
+/* RESET */
+html, body, header, nav, h1, a, ul, li,
+strong, main, section, img, div, h2, p,
+form, fieldset, label, input, textarea,
+button, article, footer, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: inherit;
+
+  font: inherit;
+  color: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+
+  background: transparent;
+}
+
+/* MAIN ELEMENTS */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: black;
+  background-color: #f2f3ef;
+}
+
+/* SIGN IN / SIGN UP FORMS */
+.user-form {
+  width: 475px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.user-form-header {
+  text-align: center;
+}
+
+.user-form-header > h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
