@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20160126193827) do
 
   create_table "preparation_steps", force: :cascade do |t|
     t.text     "description", null: false
-    t.integer  "step",        null: false
+    t.integer  "step_number", null: false
     t.integer  "recipe_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "preparation_steps", ["recipe_id", "step"], name: "index_preparation_steps_on_recipe_id_and_step", unique: true, using: :btree
+  add_index "preparation_steps", ["recipe_id", "step_number"], name: "index_preparation_steps_on_recipe_id_and_step_number", unique: true, using: :btree
   add_index "preparation_steps", ["recipe_id"], name: "index_preparation_steps_on_recipe_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
