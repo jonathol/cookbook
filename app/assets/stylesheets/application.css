@@ -33,7 +33,7 @@ button, article, footer, small {
   background: transparent;
 }
 
-/* MAIN ELEMENTS */
+/* SITE-WIDE STYLES */
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -41,8 +41,12 @@ body {
   background-color: #f2f3ef;
 }
 
+a {
+  color: #e33d26
+}
+
 /* SIGN IN / SIGN UP FORMS */
-.user-form {
+.user-form-box {
   width: 475px;
   padding: 30px;
   border-radius: 5px;
@@ -55,4 +59,28 @@ body {
 .user-form-header > h2 {
   font-size: 30px;
   font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.user-form {
+  margin: 20px 0;
+}
+
+.user-form > input {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  padding: 10px;
+}
+
+.user-form > button {
+  display: block;
+  margin: 20px auto;
+  padding: 17px 40px;
+  background-color: #e33d26;
+  border-radius: 5px;
+  color: #fff;
 }
