@@ -45,6 +45,14 @@ a {
   color: #e33d26
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+button:hover {
+  cursor: pointer
+}
+
 /* SIGN IN / SIGN UP FORMS */
 .user-form-box {
   box-sizing: border-box;
@@ -84,6 +92,10 @@ a {
   background-color: #e33d26;
   border-radius: 5px;
   color: #fff;
+}
+
+.user-form > button:hover {
+  background-color: #be1e08;
 }
 
 .user-form-footer {
