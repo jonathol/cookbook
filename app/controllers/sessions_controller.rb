@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-
   end
 
   def create
@@ -9,8 +8,9 @@ class SessionsController < ApplicationController
       params[:user][:password]
     )
 
-    if log_in!(@user)
-      redirect to api_user_url(@user)
+    if @user
+      log_in!(@user)
+      redirect_to api_user_url(@user)
     else
       render :new
     end
