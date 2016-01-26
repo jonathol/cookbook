@@ -47,6 +47,7 @@ a {
 
 /* SIGN IN / SIGN UP FORMS */
 .user-form-box {
+  box-sizing: border-box;
   width: 475px;
   padding: 30px;
   border-radius: 5px;
@@ -83,4 +84,9 @@ a {
   background-color: #e33d26;
   border-radius: 5px;
   color: #fff;
+}
+
+.user-form-footer {
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
 }
