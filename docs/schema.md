@@ -20,6 +20,14 @@ ingredients | text      |
 preparation | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
 
+## ingredients
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+name        | string    | not null
+quantity    | float     |
+recipe_id   | integer   | not null, foreign_key, indexed
+
 ## ratings
 column name | data type | details
 ------------|-----------|-----------------------

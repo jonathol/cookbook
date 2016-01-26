@@ -85,3 +85,9 @@ user10 = User.new(
   email: "lspeterson@gmail.com",
   password: "cupcakes"
 )
+
+Recipe.destroy_all
+
+blueberry_muffins = Recipe.new(
+  
+)
