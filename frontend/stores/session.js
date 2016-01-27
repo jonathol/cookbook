@@ -19,16 +19,25 @@ SessionStore.userId = function () {
   return _userId;
 };
 
-SessionStore.resetUser = function (token) {
+SessionStore.logInUser = function (token) {
   _token = token;
   _userId = jwt.decode(_token).user_id;
+  this.__emitChange();
+};
+
+SessionStore.logOutUser = function () {
+  _token = null;
+  _userId = null;
   this.__emitChange();
 };
 
 SessionStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case AuthConstants.USER_LOGGED_IN:
-      this.resetUser(payload.token);
+      this.logInUser(payload.token);
+      break;
+    case AuthConstants.USER_LOGGED_OUT:
+      this.logOutUser();
       break;
   }
 };

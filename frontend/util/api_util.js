@@ -1,5 +1,6 @@
 var ApiActions = require('../actions/api_actions'),
-    AuthActions = require('../actions/auth_actions');
+    AuthActions = require('../actions/auth_actions'),
+    SessionStore = require('../stores/session');
 
 var ApiUtil = {
   fetchAllRecipes: function () {
@@ -23,6 +24,19 @@ var ApiUtil = {
       },
       error: function (error) {
         console.log(error);
+      }
+    });
+  },
+
+  logOutUser: function () {
+    var userId = SessionStore.userId();
+    var token = SessionStore.token();
+    $.ajax({
+      type: "DELETE",
+      url: "api/session",
+      data: { userId: userId, token: token },
+      success: function () {
+        AuthActions.logOutUser();
       }
     });
   }
