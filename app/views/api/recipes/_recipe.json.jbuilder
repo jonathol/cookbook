@@ -1,3 +1,4 @@
+json.id recipe.id
 json.title recipe.title
 # json.photo_url recipe.photo_url
 json.cook_time recipe.cook_time

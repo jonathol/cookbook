@@ -10,14 +10,16 @@ RecipeStore.all = function () {
   return _recipes.slice(0);
 };
 
-RecipeStore.
+RecipeStore.featured = function () {
+  return _featuredRecipe;
+};
 
 RecipeStore.resetRecipes = function (recipes) {
   _recipes = recipes;
   RecipeStore.__emitChange();
 };
 
-ResetStore.resetFeatured = function (recipe) {
+RecipeStore.resetFeatured = function (recipe) {
   _featuredRecipe = recipe;
   RecipeStore.__emitChange();
 };

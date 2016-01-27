@@ -1,5 +1,6 @@
 var React = require('react'),
-    RecipeStore = require('../stores/recipe_store');
+    RecipeStore = require('../stores/recipe'),
+    ApiUtil = require('../util/api_util');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -22,7 +23,7 @@ module.exports = React.createClass({
   render: function () {
     var recipes = this.state.recipes.map(function(recipe, idx) {
       return (
-        <li key={idx}>{recipe.title} by {recipe.author}</li>
+        <li key={idx}>{recipe.title} by {recipe.author.name}</li>
       );
     });
 
