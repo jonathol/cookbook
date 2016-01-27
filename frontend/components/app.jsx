@@ -3,6 +3,13 @@ var React = require('react'),
     AuthActions = require('../actions/auth_actions');
 
 var App = React.createClass({
+  componentDidMount: function () {
+    var token = localStorage.getItem('session_token');
+    if (token) {
+      AuthActions.logInUser(token);
+    }
+  },
+
   render: function () {
     return (
       <div className="cookbook">
