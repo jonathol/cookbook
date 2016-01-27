@@ -32,6 +32,12 @@ sophie = User.create!(
   name: "Sophie DiIorio"
 )
 
+vik_spice = User.create!(
+  email: "vik_spice@gmail.com",
+  password: "starwars",
+  name: "Vik Rai"
+)
+
 user1 = User.create!(
   email: "adam33@gmail.com",
   password: "movies"
@@ -93,7 +99,7 @@ Recipe.destroy_all
 muffins = Recipe.create!(
   title: "Banana Nut Muffins",
   description: "These banana nut muffins make for a healthy breakfast or snack, and are easy to make. Adding cinnamon and other spices gives it a more complex flavor, and adding more banana in place of sugar makes them healthier while keeping them delicious.",
-  author_id: will.id,
+  author: will,
   cook_time: "40 minutes",
   servings: "12 muffins"
 )
@@ -277,7 +283,7 @@ PreparationStep.create!(
 
 smoothie = Recipe.create!(
   title: "Strawberry-Banana Smoothie",
-  author_id: maureen.id,
+  author: maureen,
   cook_time: "5 minutes",
   servings: "3 cups"
 )
@@ -308,7 +314,7 @@ PreparationStep.create!(
 
 sesame_noodles = Recipe.create!(
   title: "Sesame Noodles",
-  author_id: maureen.id,
+  author: maureen,
   cook_time: "20 minutes",
   servings: "4 servings"
 )
@@ -354,4 +360,60 @@ pancakes = Recipe.create!(
   title: "Pecan Pancakes",
   author: will,
   cook_time: "25 minutes"
+)
+
+Recipe.create!(
+  title: "Chocolate Pecan Pie",
+  author: maureen,
+  cook_time: "2 hours",
+  servings: "6-8 slices"
+)
+
+Recipe.create!(
+  title: "Frozen Margaritas",
+  author: will,
+  cook_time: "2 hours",
+  servings: "8 drinks"
+)
+
+Recipe.create!(
+  title: "Pad Kee Mao",
+  author: david,
+  cook_time: "40 minutes",
+  servings: "4 servings"
+)
+
+Recipe.create!(
+  title: "Bean and Cheese Pupusas",
+  author: sophie,
+  cook_time: "1 hour",
+  servings: "About 15 pupusas"
+)
+
+Recipe.create!(
+  title: "Gratin Dauphinois",
+  author: will,
+  cook_time: "1 hour",
+  servings: "6 servings"
+)
+
+Recipe.create!(
+  title: "Pulled Pork Sandwich",
+  author: david,
+  cook_time: "7 hours",
+  servings: "6 sandwiches"
+)
+
+Recipe.create!(
+  title: "Baked Falafel",
+  author: maureen,
+  cook_time: "45 minutes",
+  servings: "6 sandwiches"
+)
+
+Recipe.create!(
+  title: "Pumpkin Black Bean Soup",
+  author: will,
+  cook_time: "1 hour 15 minutes",
+  servings: "5 bowls"
 )
