@@ -1,6 +1,6 @@
 json.user do
-  @user.id
-  @user.email
-  @user.name
+  json.id @user.id
+  json.email @user.email
+  json.name @user.name
 end
-json.session_token @session_token
+json.session_token @token

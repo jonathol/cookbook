@@ -4,7 +4,6 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
 module.exports = {
   logInUser: function (token, user) {
     localStorage.setItem('session_token', token);
-
     AppDispatcher.dispatch({
       actionType: AuthConstants.USER_LOGGED_IN,
       token: token,

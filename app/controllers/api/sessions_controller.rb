@@ -6,7 +6,6 @@ class Api::SessionsController < ApplicationController
       params[:user][:email],
       params[:user][:password]
     )
-    debugger
 
     if @user
       api_log_in!(@user)
