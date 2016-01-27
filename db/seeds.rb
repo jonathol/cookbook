@@ -179,7 +179,7 @@ PreparationStep.create!(
 mayo = Recipe.create!(
   title: "Dijon Mayonnaise",
   description: "Mayonnaise takes almost no time to make and tastes much better than anything from the store.",
-  author_id: will.id,
+  author: maureen,
   cook_time: "5 minutes",
   servings: "1 cup"
 )
@@ -304,4 +304,54 @@ PreparationStep.create!(
   description: "Put ingredients in blender and blend until well mixed. Add more yogurt or water to reach desired consistency.",
   step_number: 1,
   recipe: smoothie
+)
+
+sesame_noodles = Recipe.create!(
+  title: "Sesame Noodles",
+  author_id: maureen.id,
+  cook_time: "20 minutes",
+  servings: "4 servings"
+)
+
+hummus = Recipe.create!(
+  title: "Hummus",
+  author: will,
+  cook_time: "1 1/2 hours",
+  servings: "4 cups"
+)
+
+popcorn = Recipe.create!(
+  title: "Caramel Popcorn",
+  author: sophie,
+  cook_time: "30 minutes",
+)
+
+burrito = Recipe.create!(
+  title: "Catfish Burrito",
+  author: david,
+  cook_time: "45 minutes"
+)
+
+cauliflower_parm = Recipe.create!(
+  title: "Cauliflower Parmesan",
+  author: maureen,
+  cook_time: "1 1/2 hours"
+)
+
+marinara = Recipe.create!(
+  title: "San Marzano Marinara",
+  author: will,
+  cook_time: "30 minutes"
+)
+
+chicken_curry = Recipe.create!(
+  title: "Chicken Curry",
+  author: david,
+  cook_time: "1 hour"
+)
+
+pancakes = Recipe.create!(
+  title: "Pecan Pancakes",
+  author: will,
+  cook_time: "25 minutes"
 )
