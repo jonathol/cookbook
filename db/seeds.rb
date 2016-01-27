@@ -175,3 +175,133 @@ PreparationStep.create!(
   step_number: 3,
   recipe: muffins
 )
+
+mayo = Recipe.create!(
+  title: "Dijon Mayonnaise",
+  description: "Mayonnaise takes almost no time to make and tastes much better than anything from the store.",
+  author_id: will.id,
+  cook_time: "5 minutes",
+  servings: "1 cup"
+)
+
+Ingredient.create!(
+name: "teaspoons Dijon",
+quantity: "1 1/2",
+recipe: mayo
+)
+
+Ingredient.create!(
+name: "tablespoon lemon juice",
+quantity: "1",
+recipe: mayo
+)
+
+Ingredient.create!(
+  name: "egg yolk",
+  quantity: "1",
+  recipe: mayo
+)
+
+Ingredient.create!(
+  name: "teaspoon salt",
+  quantity: "1/4",
+  recipe: mayo
+)
+
+Ingredient.create!(
+  name: "cup canola oil",
+  quantity: "1",
+  recipe: mayo
+)
+
+PreparationStep.create!(
+  description: "Mix together all the ingredients except for the oil in a large bowl.",
+  step_number: 1,
+  recipe: mayo
+)
+
+PreparationStep.create!(
+  description: "While whisking the other ingredients, slowly pour the oil into the bowl.",
+  step_number: 2,
+  recipe: mayo
+)
+
+hot_sauce = Recipe.create!(
+  title: "Spicy Salsa",
+  author_id: will.id,
+  cook_time: "5 minutes",
+  servings: "3 cups"
+)
+
+Ingredient.create!(
+name: "ounce can of jalepenos",
+quantity: "8",
+recipe: hot_sauce
+)
+
+Ingredient.create!(
+name: "ounce can of tomatoes",
+quantity: "16",
+recipe: hot_sauce
+)
+
+Ingredient.create!(
+  name: "ounce can of tomato paste",
+  quantity: "8",
+  recipe: hot_sauce
+)
+
+Ingredient.create!(
+  name: "teaspoon salt",
+  quantity: "1/2",
+  recipe: hot_sauce
+)
+
+Ingredient.create!(
+  name: "tablespoon cumin",
+  quantity: "1",
+  recipe: hot_sauce
+)
+
+Ingredient.create!(
+  name: "teaspoons Tobasco",
+  quantity: "2",
+  recipe: hot_sauce
+)
+
+PreparationStep.create!(
+  description: "Put ingredients in blender and blend until well mixed.",
+  step_number: 1,
+  recipe: hot_sauce
+)
+
+smoothie = Recipe.create!(
+  title: "Strawberry-Banana Smoothie",
+  author_id: maureen.id,
+  cook_time: "5 minutes",
+  servings: "3 cups"
+)
+
+Ingredient.create!(
+name: "cups frozen strawberries",
+quantity: "2",
+recipe: smoothie
+)
+
+Ingredient.create!(
+name: "frozen banana",
+quantity: "1",
+recipe: smoothie
+)
+
+Ingredient.create!(
+  name: "cup yogurt",
+  quantity: "1",
+  recipe: smoothie
+)
+
+PreparationStep.create!(
+  description: "Put ingredients in blender and blend until well mixed. Add more yogurt or water to reach desired consistency.",
+  step_number: 1,
+  recipe: smoothie
+)
