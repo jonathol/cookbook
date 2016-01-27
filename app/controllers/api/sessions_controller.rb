@@ -9,7 +9,6 @@ class Api::SessionsController < ApplicationController
 
     if user
       api_log_in!(user)
-      debugger
       render json: @token
     else
       render json: { error: "Invalid email/password combination" }
