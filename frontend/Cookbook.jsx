@@ -12,7 +12,7 @@ var router = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={RecipesIndex} />
-      <Route path="/login" component={Login} />
+      <Route path="login" component={Login} />
     </Route>
   </Router>
 );

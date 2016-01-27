@@ -37,7 +37,6 @@ SessionStore.__onDispatch = function (payload) {
       this.logInUser(payload.token);
       break;
     case AuthConstants.USER_LOGGED_OUT:
-      debugger
       this.logOutUser();
       break;
   }

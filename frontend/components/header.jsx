@@ -1,6 +1,6 @@
 var React = require('react'),
     SessionStore = require('../stores/session'),
-    Logout = require('./logout');
+    ApiUtil = require('../util/api_util');
 
 var Header = React.createClass({
   componentDidMount: function () {
@@ -23,12 +23,41 @@ var Header = React.createClass({
     };
   },
 
+  handleLogOut: function (e) {
+    e.preventDefault();
+    ApiUtil.logOutUser();
+  },
+
+  handleLogIn: function (e) {
+    e.preventDefault();
+    this.props.newSessionClick();
+  },
+
   _sessionChanged: function () {
     this.setState(this.getSessionState());
   },
 
-  render: function () {
+  userButton: function () {
+    if (this.state.loggedIn) {
+      return (
+        <button
+          className="logout-button"
+          onClick={this.handleLogOut}>
+          Log Out
+        </button>
+      );
+    } else {
+      return (
+        <button
+          className="login-button"
+          onClick={this.handleLogIn}>
+          Log In
+        </button>
+      );
+    }
+  },
 
+  render: function () {
     return (
       <div>
         <ul className="header-nav">
@@ -46,7 +75,7 @@ var Header = React.createClass({
             <a href="#">Learn To Cook</a>
           </li>
         </ul>
-        <Logout />
+        {this.userButton()}
       </div>
     );
   }

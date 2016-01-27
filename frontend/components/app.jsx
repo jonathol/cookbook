@@ -17,15 +17,18 @@ var App = React.createClass({
   },
 
   _sessionChanged: function () {
-    debugger
     this.props.history.pushState(null, "/");
+  },
+
+  newSession: function () {
+    this.props.history.pushState(null, '/login');
   },
 
   render: function () {
     return (
       <div className="cookbook">
         <header><h1><logo>t</logo> Cookbook</h1></header>
-        <Header />
+        <Header newSessionClick={this.newSession} />
         {this.props.children}
       </div>
     );
