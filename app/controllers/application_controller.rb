@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def api_log_in!(user)
     @current_user = user
+    @token = SessionToken.encode(user_id: user.id)
     session[:session_token] = user.reset_session_token!
   end
 

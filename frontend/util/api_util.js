@@ -18,7 +18,6 @@ var ApiUtil = {
       dataType: "json",
       data: { user: credentials },
       success: function (response) {
-        debugger
         AuthActions.loginUser(response.session_token);
       },
       error: function (error) {

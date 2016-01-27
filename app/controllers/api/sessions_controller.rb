@@ -1,3 +1,5 @@
+require 'session_token'
+
 class Api::SessionsController < ApplicationController
   def create
     user = User.find_by_credentials(
@@ -6,10 +8,11 @@ class Api::SessionsController < ApplicationController
     )
 
     if user
-      @session_token = api_log_in!(user)
-      render :token
+      api_log_in!(user)
+      debugger
+      render json: @token
     else
-      render :new
+      render json: { error: "Invalid email/password combination" }
     end
   end
 

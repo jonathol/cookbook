@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
   end
 
   def reset_session_token!
-    self.session_token = User.generate_session_token
+    # self.session_token = User.generate_session_token
+    self.session_token = SessionToken.encode(user_id: user.id)
     self.save!
     self.session_token
   end
