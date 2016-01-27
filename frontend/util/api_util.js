@@ -1,4 +1,5 @@
-var ApiActions = require('../actions/api_actions');
+var ApiActions = require('../actions/api_actions'),
+    AuthActions = require('../actions/auth_actions');
 
 var ApiUtil = {
   fetchAllRecipes: function () {
@@ -18,7 +19,7 @@ var ApiUtil = {
       dataType: "json",
       data: { user: credentials },
       success: function (response) {
-        AuthActions.loginUser(response.session_token);
+        AuthActions.logInUser(response.session_token);
       },
       error: function (error) {
         console.log(error);
