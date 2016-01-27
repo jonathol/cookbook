@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'),
+    ApiUtil = require('../util/api_util');
 
 var Login = React.createClass({
   mixins: [LinkedStateMixin],
@@ -7,8 +8,10 @@ var Login = React.createClass({
     return { email: '', password: '' };
   },
 
-  attemptLogin: function (e) {
+  logIn: function (e) {
+    e.preventDefault();
 
+    ApiUtil.logInUser(this.state.email, this.state.password);
   },
 
   render: function () {
@@ -28,7 +31,7 @@ var Login = React.createClass({
             placeholder="Password"
             valueLink={this.linkState('password')} />
           <button
-            onClick={this.attemptLogin}>
+            onClick={this.logIn}>
             Log In
           </button>
         </form>
