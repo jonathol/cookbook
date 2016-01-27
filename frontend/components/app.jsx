@@ -17,6 +17,7 @@ var App = React.createClass({
   },
 
   _sessionChanged: function () {
+    debugger
     this.props.history.pushState(null, "/");
   },
 

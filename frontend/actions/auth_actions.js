@@ -11,6 +11,7 @@ module.exports = {
   },
 
   logOutUser: function () {
+    debugger
     localStorage.setItem('session_token', null);
     AppDispatcher.dispatch({
       actionType: AuthConstants.USER_LOGGED_OUT

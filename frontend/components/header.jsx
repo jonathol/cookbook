@@ -1,5 +1,6 @@
 var React = require('react'),
-    SessionStore = require('../stores/session');
+    SessionStore = require('../stores/session'),
+    Logout = require('./logout');
 
 var Header = React.createClass({
   componentDidMount: function () {
@@ -35,6 +36,7 @@ var Header = React.createClass({
           <li>User: {this.state.userId}</li>
           <li>Token: {this.state.token}</li>
         </ul>
+        <Logout />
       </div>
     );
   }

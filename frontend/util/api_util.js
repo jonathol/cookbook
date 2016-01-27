@@ -29,14 +29,17 @@ var ApiUtil = {
   },
 
   logOutUser: function () {
-    var userId = SessionStore.userId();
     var token = SessionStore.token();
     $.ajax({
       type: "DELETE",
       url: "api/session",
-      data: { userId: userId, token: token },
-      success: function () {
+      dataType: "json",
+      data: { session_token: token },
+      success: function (response) {
         AuthActions.logOutUser();
+      },
+      error: function (error) {
+        console.log(error);
       }
     });
   }

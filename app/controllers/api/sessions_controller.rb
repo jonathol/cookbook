@@ -16,9 +16,9 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-
-    user = params[:user]
+    user_email = current_user.email
     log_out!
-    redirect_to new_session_url
+
+    render json: { user_email: user_email }
   end
 end

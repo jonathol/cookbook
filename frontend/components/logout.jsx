@@ -4,13 +4,13 @@ var React = require('react'),
 
 var Logout = React.createClass({
   getInitialState: function () {
-    return { user: SessionStore.user() };
+    return { user: SessionStore.userId() };
   },
 
   handleLogOut: function (e) {
     e.preventDefault();
 
-    ApiUtil.logOutUser
+    ApiUtil.logOutUser();
   },
 
   render: function () {
@@ -23,3 +23,5 @@ var Logout = React.createClass({
     );
   }
 });
+
+module.exports = Logout;
