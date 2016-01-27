@@ -4,7 +4,7 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
 
 module.exports = {
   logInUser: function (token) {
-    RouterUtil.redirectToIndex();
+    // RouterUtil.redirectToIndex();
     // debugger
     localStorage.setItem('session_token', token);
     AppDispatcher.dispatch({

@@ -1,6 +1,7 @@
 var React = require('react'),
     Header = require('./header'),
-    AuthActions = require('../actions/auth_actions');
+    AuthActions = require('../actions/auth_actions'),
+    SessionStore = require('../stores/session');
 
 var App = React.createClass({
   componentDidMount: function () {
@@ -8,6 +9,15 @@ var App = React.createClass({
     if (token) {
       AuthActions.logInUser(token);
     }
+    var sessionListener = SessionStore.addListener(this._sessionChanged);
+  },
+
+  componentWillUnmount: function () {
+    sessionListener.remove();
+  },
+
+  _sessionChanged: function () {
+    this.props.history.pushState(null, "/");
   },
 
   render: function () {
