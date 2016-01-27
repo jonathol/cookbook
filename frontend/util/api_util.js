@@ -1,6 +1,6 @@
 var ApiActions = require('../actions/api_actions');
 
-var Recipe = {
+var ApiUtil = {
   fetchAllRecipes: function () {
     $.ajax({
       type: "GET",
@@ -11,13 +11,14 @@ var Recipe = {
     });
   },
 
-  logInUser: function (email, password) {
+  logInUser: function (credentials) {
     $.ajax({
       type: "POST",
-      url: "session",
+      url: "api/session",
       dataType: "json",
-      data: { email: email, password: password },
+      data: { user: credentials },
       success: function (response) {
+        debugger
         AuthActions.loginUser(response.session_token);
       },
       error: function (error) {

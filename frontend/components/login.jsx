@@ -1,5 +1,6 @@
 var React = require('react'),
-    ApiUtil = require('../util/api_util');
+    ApiUtil = require('../util/api_util'),
+    LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var Login = React.createClass({
   mixins: [LinkedStateMixin],
@@ -10,8 +11,12 @@ var Login = React.createClass({
 
   logIn: function (e) {
     e.preventDefault();
-
-    ApiUtil.logInUser(this.state.email, this.state.password);
+    
+    var credentials = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    ApiUtil.logInUser(credentials);
   },
 
   render: function () {
@@ -45,3 +50,5 @@ var Login = React.createClass({
   }
 
 });
+
+module.exports = Login;
