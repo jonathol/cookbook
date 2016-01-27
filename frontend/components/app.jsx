@@ -1,5 +1,6 @@
 var React = require('react'),
-    Header = require('./header');
+    Header = require('./header'),
+    AuthActions = require('../actions/auth_actions');
 
 var App = React.createClass({
   render: function () {

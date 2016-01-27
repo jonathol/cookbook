@@ -17,7 +17,7 @@ var Header = React.createClass({
   getSessionState: function () {
     return {
       loggedIn: SessionStore.loggedIn(),
-      user: SessionStore.user(),
+      userId: SessionStore.userId(),
       token: SessionStore.token()
     };
   },
@@ -27,15 +27,12 @@ var Header = React.createClass({
   },
 
   render: function () {
-    var email;
-    if (this.state.user) {
-      email = this.state.user.email;
-    }
+
     return (
       <div>
         <ul>
           <li>Logged In?: {this.state.loggedIn}</li>
-          <li>User: {email}</li>
+          <li>User: {this.state.userId}</li>
           <li>Token: {this.state.token}</li>
         </ul>
       </div>
