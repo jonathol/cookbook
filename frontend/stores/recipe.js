@@ -16,21 +16,21 @@ RecipeStore.featured = function () {
 
 RecipeStore.resetRecipes = function (recipes) {
   _recipes = recipes;
-  RecipeStore.__emitChange();
+  this.__emitChange();
 };
 
 RecipeStore.resetFeatured = function (recipe) {
   _featuredRecipe = recipe;
-  RecipeStore.__emitChange();
+  this.__emitChange();
 };
 
 RecipeStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case RecipeConstants.RECIPES_RECEIVED:
-      RecipeStore.resetRecipes(payload.recipes);
+      this.resetRecipes(payload.recipes);
       break;
     case RecipeConstants.RECIPE_RECEIVED:
-      RecipeStore.resetFeatured(payload.recipe);
+      this.resetFeatured(payload.recipe);
       break;
   }
 };
