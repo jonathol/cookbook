@@ -31,10 +31,20 @@ var Header = React.createClass({
 
     return (
       <div>
-        <ul>
-          <li>Logged In?: {this.state.loggedIn}</li>
-          <li>User: {this.state.userId}</li>
-          <li>Token: {this.state.token}</li>
+        <ul className="header-nav">
+          <li className="header-nav-sidebar-button"></li>
+          <li
+            className="header-nav-link">
+            <a href="#">Recipe Box</a>
+          </li>
+          <li
+            className="header-nav-link">
+            <a href="#">Healthy</a>
+          </li>
+          <li
+            className="header-nav-link">
+            <a href="#">Learn To Cook</a>
+          </li>
         </ul>
         <Logout />
       </div>
