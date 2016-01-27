@@ -33,6 +33,13 @@ button, article, footer, small {
   background: transparent;
 }
 
+/* CLEAR-FIX */
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 /* SITE-WIDE STYLES */
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -51,6 +58,16 @@ a:hover {
 
 button:hover {
   cursor: pointer;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+li {
+  list-style: none;
 }
 
 logo {
@@ -105,4 +122,47 @@ logo {
 .user-form-footer {
   padding-top: 15px;
   border-top: 1px solid #ccc;
+}
+
+/* RECIPES INDEX */
+.recipes-index-list {
+  width: 1000px;
+  margin: auto;
+}
+
+/* RECIPE INDEX ITEM */
+.recipe-index-item {
+  float: left;
+  width: 235px;
+  height: 275px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+}
+
+.recipe-index-item-image {
+  height: 158px;
+}
+
+.recipe-index-item-info {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.recipe-index-item-info > h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.recipe-index-item-info > h4 {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #333;
+}
+
+.recipe-index-item-info > p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #b3b3b3;
 }
