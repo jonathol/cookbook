@@ -59,8 +59,8 @@ var Header = React.createClass({
 
   render: function () {
     return (
-      <div>
-        <ul className="header-nav">
+      <div className="header">
+        <ul className="header-nav-left">
           <li className="header-nav-sidebar-button"></li>
           <li
             className="header-nav-link">
@@ -75,7 +75,20 @@ var Header = React.createClass({
             <a href="#">Learn To Cook</a>
           </li>
         </ul>
-        {this.userButton()}
+        <h1
+          className="cookbook-header-text">
+          NYThyme's Cookbook
+        </h1>
+        <ul className="header-nav-right">
+          <li
+            className="header-nav-search-button">
+            Search
+          </li>
+          <li
+            className="header-nav-user-button">
+            {this.userButton()}
+          </li>
+        </ul>
       </div>
     );
   }

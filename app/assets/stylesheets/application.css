@@ -74,6 +74,43 @@ logo {
   font-family: 'UnifrakturMaguntia', cursive;
 }
 
+/* HEADER */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.header-nav-left {
+  float: left;
+}
+
+.header-nav-left > li {
+  float: left;
+  margin: 15px 15px;
+}
+
+.header-nav-link > a {
+  padding: 15px 0;
+}
+
+.cookbook-header-text {
+  position: absolute;
+  top: 15px;
+  margin: auto;
+  text-align: center;
+}
+
+.header-nav-right {
+  float: right;
+}
+
+.header-nav-right > li {
+  float: left;
+}
+
 /* SIGN IN / SIGN UP FORMS */
 .user-form-box {
   box-sizing: border-box;
@@ -142,9 +179,9 @@ logo {
 }
 
 .recipe-index-item:hover {
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
-  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
-  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
 }
 
 .recipe-index-item-image {
