@@ -6,7 +6,7 @@ var React = require('react'),
 var App = React.createClass({
   componentDidMount: function () {
     var token = localStorage.getItem('session_token');
-    if (token) {
+    if (token && token !== "undefined") {
       AuthActions.logInUser(token);
     }
     var sessionListener = SessionStore.addListener(this._sessionChanged);
