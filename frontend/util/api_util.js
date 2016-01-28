@@ -20,7 +20,7 @@ var ApiUtil = {
       dataType: "json",
       data: { user: credentials },
       success: function (response) {
-        AuthActions.logInUser(response.session_token, response.user);
+        AuthActions.logInUser(response.session_token);
       },
       error: function (error) {
         console.log(error);
@@ -42,7 +42,22 @@ var ApiUtil = {
         console.log(error);
       }
     });
-  }
+  },
+
+  signUpUser: function (credentials) {
+    $.ajax({
+      type: "POST",
+      url: "api/users",
+      dataType: "json",
+      data: { user: credentials },
+      success: function (response) {
+        AuthActions.logInUser(response.session_token);
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+  },
 };
 
 module.exports = ApiUtil;

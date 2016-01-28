@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_session_token(params[:session_token])
   end
 
-  def log_in!(user)
-    @current_user = user
-    session[:session_token] = user.reset_session_token!
-  end
+  # def log_in!(user)
+  #   @current_user = user
+  #   session[:session_token] = user.reset_session_token!
+  # end
 
-  def api_log_in!(user)
+  def log_in!(user)
     @current_user = user
     @token = user.reset_session_token!
   end

@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user
-      api_log_in!(@user)
+      log_in!(@user)
       render :token
     else
       render json: { error: "Invalid email/password combination" }
