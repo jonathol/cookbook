@@ -2,40 +2,105 @@ var React = require('react'),
     ApiUtil = require('../util/api_util'),
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
-var signUp = {
+
+var newUser = {
   header: "Create An Account",
   headerSub: "Create a free NYThyme's account to get started",
-  handleSubmit: this.signUp,
-  submitText: "Create Account",
-  footerText: "Already have a NYTimes account? <a href='<%= new_user_url %>'>Register now</a>"
+  submitText: "Create Account"
 };
 
-var Login = React.createClass({
+var newSession = {
+  header: "Log In",
+  headerSub: "Use your NYThyme's account",
+  submitText: "Log In"
+};
+
+
+var Auth = React.createClass({
   mixins: [LinkedStateMixin],
 
-  getInitialState: function () {
+  credentials: function () {
     return {
-      credentials: { email: '', password: '', },
-      authAction: newSession
+      email: this.state.email,
+      password: this.state.password
     };
+  },
+
+  getInitialState: function () {
+    return { email: '', password: '', authAction: newSession };
+  },
+
+  handleSubmit: function () {
+    if (this.state.authAction === newSession) {
+      this.logIn();
+    } else {
+      this.signUp();
+    }
   },
 
   logIn: function (e) {
     e.preventDefault();
-    ApiUtil.logInUser(this.state.credentials);
+    ApiUtil.logInUser(this.credentials());
   },
 
   signUp: function (e) {
     e.preventDefault();
-    ApiUtil.signUpUser(this.state.credentials);
+    ApiUtil.signUpUser(this.credentials());
   },
 
+  toggleAuthAction: function () {
+    var newAuth = (this.state.authAction === newSession) ? newUser : newSession;
+    this.setState({ email: '', password: '', authAction: newAuth });
+  },
+
+  //
+  // newUser: {
+  //   header: "Create An Account",
+  //   headerSub: "Create a free NYThyme's account to get started",
+  //   handleSubmit: this.signUp,
+  //   submitText: "Create Account",
+  //   footerText: <p>
+  //     Already have a NYTimes account?
+  //     <a href="" onClick={this.toggleAuthAction}>Log In</a>
+  //   </p>
+  // },
+  //
+  // newSession: {
+  //   header: "Log In",
+  //   headerSub: "Use your NYThyme's account",
+  //   handleSubmit: this.logIn,
+  //   submitText: "Log In",
+  //   footerText: <p>
+  //     Don't have a NYThyme's account?
+  //     <a onClick={this.toggleAuthAction}>Register now</a>
+  //   </p>
+  // },
+
   render: function () {
+    var auth;
+    if (this.state.authAction === newSession) {
+      auth = newSession;
+      auth.footerText = (
+        <p>
+          Don't have a NYThyme's account?
+          <p onClick={this.toggleAuthAction}>Register now</p>
+        </p>
+      );
+    } else {
+      auth = newUser;
+      auth.footerText = (
+        <p>
+          Already have a NYTimes account?
+          <p onClick={this.toggleAuthAction}>Log In</p>
+        </p>
+      );
+    }
+
     return (
       <div className="user-form-box">
         <div className="user-form-header">
-          <h2>Log In</h2>
-          <p>Use your NYThyme's account</p>
+          <h2>{auth.header}</h2>
+          <p>{auth.headerSub}</p>
         </div>
         <form className="user-form">
           <input
@@ -47,19 +112,16 @@ var Login = React.createClass({
             placeholder="Password"
             valueLink={this.linkState('password')} />
           <button
-            onClick={this.logIn}>
-            Log In
+            onClick={this.handleSubmit}>
+            {auth.submitText}
           </button>
         </form>
         <div className="user-form-footer">
-          <p>
-            Don't have a NYThyme's account? <a href="<%= new_user_url %>">Register now</a>
-          </p>
+          {auth.footerText}
         </div>
       </div>
     );
   }
-
 });
 
-module.exports = Login;
+module.exports = Auth;
