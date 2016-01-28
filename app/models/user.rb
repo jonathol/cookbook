@@ -1,3 +1,5 @@
+require 'session_token'
+
 class User < ActiveRecord::Base
   attr_reader :password
 
