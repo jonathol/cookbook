@@ -82,6 +82,11 @@ logo {
   z-index: 20;
   background-color: rgba(0, 0, 0, 0.75);
   color: #fff;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #fff;
 }
 
 .header-nav-left {
@@ -91,21 +96,16 @@ logo {
 .header li {
   float: left;
   padding: 17px 15px 0 15px;
-  text-transform: uppercase;
 }
 
 .header-nav-left > li:first-child {
   padding-left: 0;
-  margin: -7px 15px 0 -5px;
+  margin-left: -5px;
 }
 
 
 .header-nav-link {
   padding-bottom: 15px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #fff;
 }
 
 .header-nav-link:hover {
@@ -131,6 +131,15 @@ logo {
 
 .header-nav-button {
   transform: translateY(-7px);
+}
+
+.header-nav-button:hover {
+  cursor: pointer;
+}
+
+.header-nav-button:hover .button-icon {
+  background-color: #ff2103;
+  transition: background-color 0.2s linear;
 }
 
 .button-icon {

@@ -63,7 +63,7 @@ var Header = React.createClass({
       <section className="header group">
         <ul className="header-nav-left group">
           <li>
-            <div clasName="header-nav-button">
+            <div className="header-nav-button">
               <Icon name='angle-double-right' className="button-icon" />
             </div>
           </li>
@@ -89,7 +89,7 @@ var Header = React.createClass({
             </div>
           </li>
           <li>
-            <div className="header-nav-button">
+            <div className="header-nav-button user-control">
               {this.userButton()}
             </div>
           </li>
