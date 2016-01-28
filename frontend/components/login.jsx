@@ -2,21 +2,32 @@ var React = require('react'),
     ApiUtil = require('../util/api_util'),
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
+var signUp = {
+  header: "Create An Account",
+  headerSub: "Create a free NYThyme's account to get started",
+  handleSubmit: this.signUp,
+  submitText: "Create Account",
+  footerText: "Already have a NYTimes account? <a href='<%= new_user_url %>'>Register now</a>"
+};
+
 var Login = React.createClass({
   mixins: [LinkedStateMixin],
 
   getInitialState: function () {
-    return { email: '', password: '' };
+    return {
+      credentials: { email: '', password: '', },
+      authAction: newSession
+    };
   },
 
   logIn: function (e) {
     e.preventDefault();
-    
-    var credentials = {
-      email: this.state.email,
-      password: this.state.password
-    };
-    ApiUtil.logInUser(credentials);
+    ApiUtil.logInUser(this.state.credentials);
+  },
+
+  signUp: function (e) {
+    e.preventDefault();
+    ApiUtil.signUpUser(this.state.credentials);
   },
 
   render: function () {
