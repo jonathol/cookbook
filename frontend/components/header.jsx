@@ -63,7 +63,7 @@ var Header = React.createClass({
       <section className="header group">
         <ul className="header-nav-left group">
           <li>
-            <div className="header-nav-button">
+            <div className="header-nav-button sidebar-button">
               <Icon name='angle-double-right' className="button-icon" />
             </div>
           </li>
