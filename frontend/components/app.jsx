@@ -45,7 +45,6 @@ var App = React.createClass({
     var auth = this.state.authAction ? <Auth cancel={this.cancelAuth} /> : ""
     return (
       <div className="cookbook">
-        <header><h1><logo>t</logo> Cookbook</h1></header>
         <Header newSessionClick={this.newSession} />
         {auth}
         {this.props.children}

@@ -70,9 +70,6 @@ li {
   list-style: none;
 }
 
-logo {
-  font-family: 'UnifrakturMaguntia', cursive;
-}
 
 /* HEADER */
 .header {
@@ -89,6 +86,24 @@ logo {
   color: #fff;
 }
 
+.header > h1 {
+  position: absolute;
+  width: 100%;
+  margin-top: 3px;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: 'Open Sans Condensed', serif;
+}
+
+.header > h1 > logo {
+  font-family: 'Oswald', serif;
+  padding-right: 5px;
+  border-right: 1px solid rgb(255, 255, 255);
+  border-right: 1px solid rgba(255, 255, 255, .25);
+}
+
 .header-nav-left {
   float: left;
 }
@@ -100,9 +115,8 @@ logo {
 
 .header-nav-left > li:first-child {
   padding-left: 0;
-  margin-left: -5px;
+  padding-right: 0;
 }
-
 
 .header-nav-link {
   margin-top: 17px;
@@ -115,11 +129,6 @@ logo {
   padding-bottom: 12px;
 }
 
-.cookbook-header-text {
-  position: absolute;
-  left: 50%;
-}
-
 .header-nav-right {
   float: right;
   margin-right: 15px;
@@ -128,6 +137,17 @@ logo {
 .fa-angle-double-right {
   font-size: 18px;
   font-weight: 700;
+  padding-left: 15px;
+}
+
+.sidebar-button {
+  transform: translateX(-8px);
+  transition: all 0.2s;
+}
+
+.sidebar-button:hover {
+  transform: translateX(0);
+  transition: all 0.2s;
 }
 
 .header-nav-button {
@@ -154,19 +174,15 @@ logo {
   transition: all 0.2s;
 }
 
-.sidebar-button:hover {
-  transform: translateX(5px);
-  transition: all 0.2s;
-}
-
-.search {
+.search-button-text {
   text-transform: capitalize;
   font-size: 14px;
   font-weight: 200;
   letter-spacing: 1px;
 }
 
-.header-search-icon {
+.search-icon {
+  font-size: 16px;
   margin-right: 10px;
   color: white;
 }

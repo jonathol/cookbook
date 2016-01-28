@@ -61,6 +61,10 @@ var Header = React.createClass({
   render: function () {
     return (
       <section className="header group">
+        <h1
+          className="cookbook-header-text">
+          <logo>t</logo> Cookbook
+        </h1>
         <ul className="header-nav-left group">
           <li>
             <div className="header-nav-button sidebar-button">
@@ -77,15 +81,11 @@ var Header = React.createClass({
             <p className="header-nav-link">Learn To Cook</p>
           </li>
         </ul>
-        <h1
-          className="cookbook-header-text">
-          NYThyme's Cookbook
-        </h1>
         <ul className="header-nav-right group">
           <li>
             <div className="header-nav-button search">
-              <Icon name='search' className="header-search-icon button-icon" />
-              Search 40+ recipes
+              <Icon name='search' className="search-icon button-icon" />
+              <span className="search-button-text">Search 40+ recipes</span>
             </div>
           </li>
           <li>
