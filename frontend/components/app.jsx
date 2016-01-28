@@ -5,6 +5,10 @@ var React = require('react'),
     Auth = require('./auth');
 
 var App = React.createClass({
+  cancelAuth: function () {
+    this.setState({ authAction: false });
+  },
+
   componentDidMount: function () {
     var token = localStorage.getItem('session_token');
     if (token && token !== "undefined") {
@@ -18,20 +22,27 @@ var App = React.createClass({
   },
 
   getInitialState: function () {
-    return { authState: false };
+    var state = this.getSessionState();
+    state.authAction = false;
+    return state;
+  },
+
+  getSessionState: function () {
+    return { userId: SessionStore.userId() };
   },
 
   _sessionChanged: function () {
-    this.props.history.pushState(null, "/");
+    this.setState(this.getSessionState());
+    this.setState({ authAction: false });
   },
 
   newSession: function () {
-    this.setState({ authState: true });
+    this.setState({ authAction: true });
     // this.props.history.pushState(null, '/login');
   },
 
   render: function () {
-    var auth = this.state.authState ? <Auth /> : ""
+    var auth = this.state.authAction ? <Auth cancel={this.cancelAuth} /> : ""
     return (
       <div className="cookbook">
         <header><h1><logo>t</logo> Cookbook</h1></header>

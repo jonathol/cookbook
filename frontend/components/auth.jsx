@@ -77,6 +77,7 @@ var Auth = React.createClass({
     return (
       <div className="modal">
         <section className="user-form-modal">
+          <div className="close-modal" onClick={this.props.cancel}>&times;</div>
           <div className="user-form-header">
             <h2>{auth.header}</h2>
             <p>{auth.headerSub}</p>
@@ -99,7 +100,7 @@ var Auth = React.createClass({
             {auth.footerText}
           </div>
         </section>
-        <div className="modal-screen"></div>
+        <div className="modal-screen" onClick={this.props.cancel}></div>
       </div>
     );
   }
