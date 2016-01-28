@@ -6,10 +6,12 @@ var React = require('react'),
 var Header = React.createClass({
   componentDidMount: function () {
     var sessionListener = SessionStore.addListener(this._sessionChanged);
+    document.addEventListener('scroll', this.handleScroll);
   },
 
   componentWillUnmount: function () {
     SessionStore.remove(sessionListener);
+    document.removeEventListener('scroll', this.handleScroll);
   },
 
   getInitialState: function () {
@@ -32,6 +34,14 @@ var Header = React.createClass({
   handleLogIn: function (e) {
     e.preventDefault();
     this.props.newSessionClick();
+  },
+
+  handleScroll: function (e) {
+    if ($(window).scrollTop() > 1) {
+      this.setState({ scrolled: true });
+    } else {
+      this.setState({ scrolled: false });
+    }
   },
 
   _sessionChanged: function () {
@@ -59,37 +69,38 @@ var Header = React.createClass({
   },
 
   render: function () {
+    var sticky = this.state.scrolled ? " sticky" : "";
     return (
-      <section className="header group">
+      <section className={"header group" + sticky}>
         <h1
-          className="cookbook-header-text">
+          className={"cookbook-header-text" + sticky}>
           <logo>t</logo> Cookbook
         </h1>
-        <ul className="header-nav-left group">
+        <ul className={"header-nav-left group" + sticky}>
           <li>
-            <div className="header-nav-button sidebar-button">
-              <Icon name='angle-double-right' className="button-icon" />
+            <div className={"header-nav-button sidebar-button" + sticky}>
+              <Icon name='angle-double-right' className={"button-icon" + sticky} />
             </div>
           </li>
           <li>
-            <p className="header-nav-link">Recipe Box</p>
+            <p className={"header-nav-link" + sticky}>Recipe Box</p>
           </li>
           <li>
-            <p className="header-nav-link">Healthy</p>
+            <p className={"header-nav-link" + sticky}>Healthy</p>
           </li>
           <li>
-            <p className="header-nav-link">Learn To Cook</p>
+            <p className={"header-nav-link" + sticky}>Learn To Cook</p>
           </li>
         </ul>
-        <ul className="header-nav-right group">
+        <ul className={"header-nav-right group" + sticky}>
           <li>
-            <div className="header-nav-button search">
-              <Icon name='search' className="search-icon button-icon" />
-              <span className="search-button-text">Search 40+ recipes</span>
+            <div className={"header-nav-button search" + sticky}>
+              <Icon name='search' className={"search-icon button-icon" + sticky} />
+              <span className={"search-button-text" + sticky}>Search 40+ recipes</span>
             </div>
           </li>
           <li>
-            <div className="header-nav-button user-control">
+            <div className={"header-nav-button user-control" + sticky}>
               {this.userButton()}
             </div>
           </li>

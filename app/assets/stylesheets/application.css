@@ -88,9 +88,10 @@ li {
 
 .header > h1 {
   position: absolute;
-  width: 100%;
+  /*width: 100%;*/
+  left: 50%;
+  transform: translateX(-50%);
   margin-top: 3px;
-  text-align: center;
   text-transform: capitalize;
   font-size: 24px;
   font-weight: 400;

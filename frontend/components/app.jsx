@@ -38,11 +38,10 @@ var App = React.createClass({
 
   newSession: function () {
     this.setState({ authAction: true });
-    // this.props.history.pushState(null, '/login');
   },
 
   render: function () {
-    var auth = this.state.authAction ? <Auth cancel={this.cancelAuth} /> : ""
+    var auth = this.state.authAction ? <Auth cancel={this.cancelAuth} /> : "";
     return (
       <div className="cookbook">
         <Header newSessionClick={this.newSession} />
