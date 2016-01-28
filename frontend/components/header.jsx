@@ -48,28 +48,26 @@ var Header = React.createClass({
     this.setState(this.getSessionState());
   },
 
-  userButton: function () {
-    if (this.state.loggedIn) {
-      return (
-        <button
-          className="logout-button button-icon"
-          onClick={this.handleLogOut}>
-          Log Out
-        </button>
-      );
-    } else {
-      return (
-        <button
-          className="login-button button-icon"
-          onClick={this.handleLogIn}>
-          Log In
-        </button>
-      );
-    }
-  },
-
   render: function () {
     var sticky = this.state.scrolled ? " sticky" : "";
+    var userButton;
+    if (this.state.loggedIn) {
+      userButton = (
+        <Icon
+          name="cog"
+          className={"cog-icon button-icon" + sticky}
+          onClick={this.handleLogOut} />
+      );
+    } else {
+      userButton = (
+        <div
+          className={"login-button button-icon" + sticky}
+          onClick={this.handleLogIn}>
+          Log In
+        </div>
+      );
+    }
+
     return (
       <section className={"header group" + sticky}>
         <h1
@@ -101,7 +99,7 @@ var Header = React.createClass({
           </li>
           <li>
             <div className={"header-nav-button user-control" + sticky}>
-              {this.userButton()}
+              {userButton}
             </div>
           </li>
         </ul>
