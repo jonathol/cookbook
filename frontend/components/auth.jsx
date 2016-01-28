@@ -27,7 +27,11 @@ var Auth = React.createClass({
   },
 
   getInitialState: function () {
-    return { email: '', password: '', authAction: newSession };
+    return {
+      email: '',
+      password: '',
+      authAction: newSession
+    };
   },
 
   handleSubmit: function (e) {
@@ -71,28 +75,31 @@ var Auth = React.createClass({
     }
 
     return (
-      <div className="user-form-box">
-        <div className="user-form-header">
-          <h2>{auth.header}</h2>
-          <p>{auth.headerSub}</p>
-        </div>
-        <form className="user-form">
-          <input
-            type="text"
-            placeholder="Email Address"
-            valueLink={this.linkState('email')} />
-          <input
-            type="password"
-            placeholder="Password"
-            valueLink={this.linkState('password')} />
-          <button
-            onClick={this.handleSubmit}>
-            {auth.submitText}
-          </button>
-        </form>
-        <div className="user-form-footer">
-          {auth.footerText}
-        </div>
+      <div className="modal">
+        <section className="user-form-modal">
+          <div className="user-form-header">
+            <h2>{auth.header}</h2>
+            <p>{auth.headerSub}</p>
+          </div>
+          <form className="user-form">
+            <input
+              type="text"
+              placeholder="Email Address"
+              valueLink={this.linkState('email')} />
+            <input
+              type="password"
+              placeholder="Password"
+              valueLink={this.linkState('password')} />
+            <button
+              onClick={this.handleSubmit}>
+              {auth.submitText}
+            </button>
+          </form>
+          <div className="user-form-footer">
+            {auth.footerText}
+          </div>
+        </section>
+        <div className="modal-screen"></div>
       </div>
     );
   }

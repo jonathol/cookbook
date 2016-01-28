@@ -1,7 +1,8 @@
 var React = require('react'),
     Header = require('./header'),
     AuthActions = require('../actions/auth_actions'),
-    SessionStore = require('../stores/session');
+    SessionStore = require('../stores/session'),
+    Auth = require('./auth');
 
 var App = React.createClass({
   componentDidMount: function () {
@@ -16,19 +17,26 @@ var App = React.createClass({
     sessionListener.remove();
   },
 
+  getInitialState: function () {
+    return { authState: false };
+  },
+
   _sessionChanged: function () {
     this.props.history.pushState(null, "/");
   },
 
   newSession: function () {
-    this.props.history.pushState(null, '/login');
+    this.setState({ authState: true });
+    // this.props.history.pushState(null, '/login');
   },
 
   render: function () {
+    var auth = this.state.authState ? <Auth /> : ""
     return (
       <div className="cookbook">
         <header><h1><logo>t</logo> Cookbook</h1></header>
         <Header newSessionClick={this.newSession} />
+        {auth}
         {this.props.children}
       </div>
     );
