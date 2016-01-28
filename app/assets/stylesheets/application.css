@@ -49,7 +49,7 @@ body {
 }
 
 a {
-  color: #e33d26
+  color: #e33d26;
 }
 
 a:hover {
@@ -164,6 +164,15 @@ logo {
 .user-form-footer {
   padding-top: 15px;
   border-top: 1px solid #ccc;
+}
+
+.user-form-footer .footer-link {
+  color: #e33d26;
+  cursor: pointer;
+}
+
+.user-form-footer .footer-link:hover {
+  text-decoration: underline;
 }
 
 /* RECIPES INDEX */

@@ -30,7 +30,8 @@ var Auth = React.createClass({
     return { email: '', password: '', authAction: newSession };
   },
 
-  handleSubmit: function () {
+  handleSubmit: function (e) {
+    e.preventDefault();
     if (this.state.authAction === newSession) {
       this.logIn();
     } else {
@@ -38,13 +39,11 @@ var Auth = React.createClass({
     }
   },
 
-  logIn: function (e) {
-    e.preventDefault();
+  logIn: function () {
     ApiUtil.logInUser(this.credentials());
   },
 
-  signUp: function (e) {
-    e.preventDefault();
+  signUp: function () {
     ApiUtil.signUpUser(this.credentials());
   },
 
@@ -53,45 +52,20 @@ var Auth = React.createClass({
     this.setState({ email: '', password: '', authAction: newAuth });
   },
 
-  //
-  // newUser: {
-  //   header: "Create An Account",
-  //   headerSub: "Create a free NYThyme's account to get started",
-  //   handleSubmit: this.signUp,
-  //   submitText: "Create Account",
-  //   footerText: <p>
-  //     Already have a NYTimes account?
-  //     <a href="" onClick={this.toggleAuthAction}>Log In</a>
-  //   </p>
-  // },
-  //
-  // newSession: {
-  //   header: "Log In",
-  //   headerSub: "Use your NYThyme's account",
-  //   handleSubmit: this.logIn,
-  //   submitText: "Log In",
-  //   footerText: <p>
-  //     Don't have a NYThyme's account?
-  //     <a onClick={this.toggleAuthAction}>Register now</a>
-  //   </p>
-  // },
-
   render: function () {
     var auth;
     if (this.state.authAction === newSession) {
       auth = newSession;
       auth.footerText = (
         <p>
-          Don't have a NYThyme's account?
-          <p onClick={this.toggleAuthAction}>Register now</p>
+          Don't have a NYThyme's account? <span className="footer-link" onClick={this.toggleAuthAction}>Register now</span>
         </p>
       );
     } else {
       auth = newUser;
       auth.footerText = (
         <p>
-          Already have a NYTimes account?
-          <p onClick={this.toggleAuthAction}>Log In</p>
+          Already have a NYTimes account? <span className="footer-link" onClick={this.toggleAuthAction}>Log In</span>
         </p>
       );
     }
