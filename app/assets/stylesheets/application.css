@@ -88,18 +88,30 @@ logo {
   float: left;
 }
 
-.header-nav-left > li {
+.header li {
   float: left;
-  margin: 15px 15px;
+  padding: 17px 15px 0 15px;
   text-transform: uppercase;
 }
 
-.header-nav-link > a {
-  padding: 15px 0;
+.header-nav-left > li:first-child {
+  padding-left: 0;
+  margin: -7px 15px 0 -5px;
+}
+
+
+.header-nav-link {
+  padding-bottom: 15px;
   font-size: 11px;
-  font-weight: 550;
+  font-weight: 700;
   letter-spacing: 1.5px;
   color: #fff;
+}
+
+.header-nav-link:hover {
+  cursor: pointer;
+  border-bottom: 4px solid #fff;
+  padding-bottom: 13px;
 }
 
 .cookbook-header-text {
@@ -109,11 +121,37 @@ logo {
 
 .header-nav-right {
   float: right;
+  margin-right: 15px;
 }
 
-.header-nav-right > li {
-  float: left;
-  margin: 15px 15px;
+.fa-angle-double-right {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.header-nav-button {
+  transform: translateY(-7px);
+}
+
+.button-icon {
+  padding: 5px 10px;
+  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, .25);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border-radius: 2px;
+}
+
+.search {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.header-search-icon {
+  margin-right: 10px;
+  color: white;
 }
 
 /* SIGN IN / SIGN UP FORMS */

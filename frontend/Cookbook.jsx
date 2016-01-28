@@ -5,14 +5,12 @@ var React = require('react'),
     Route = ReactRouter.Route,
     IndexRoute = ReactRouter.IndexRoute,
     App = require('./components/app'),
-    Auth = require('./components/auth'),
     RecipesIndex = require('./components/recipes_index.jsx');
 
 var router = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={RecipesIndex} />
-      <Route path="login" component={Auth} />
     </Route>
   </Router>
 );

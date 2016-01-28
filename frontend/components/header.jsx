@@ -1,5 +1,6 @@
 var React = require('react'),
     SessionStore = require('../stores/session'),
+    Icon = require('react-fontawesome'),
     ApiUtil = require('../util/api_util');
 
 var Header = React.createClass({
@@ -41,7 +42,7 @@ var Header = React.createClass({
     if (this.state.loggedIn) {
       return (
         <button
-          className="logout-button"
+          className="logout-button button-icon"
           onClick={this.handleLogOut}>
           Log Out
         </button>
@@ -49,7 +50,7 @@ var Header = React.createClass({
     } else {
       return (
         <button
-          className="login-button"
+          className="login-button button-icon"
           onClick={this.handleLogIn}>
           Log In
         </button>
@@ -59,37 +60,41 @@ var Header = React.createClass({
 
   render: function () {
     return (
-      <div className="header">
-        <ul className="header-nav-left">
-          <li className="header-nav-sidebar-button"></li>
-          <li
-            className="header-nav-link">
-            <a href="#">Recipe Box</a>
+      <section className="header group">
+        <ul className="header-nav-left group">
+          <li>
+            <div clasName="header-nav-button">
+              <Icon name='angle-double-right' className="button-icon" />
+            </div>
           </li>
-          <li
-            className="header-nav-link">
-            <a href="#">Healthy</a>
+          <li>
+            <p className="header-nav-link">Recipe Box</p>
           </li>
-          <li
-            className="header-nav-link">
-            <a href="#">Learn To Cook</a>
+          <li>
+            <p className="header-nav-link">Healthy</p>
+          </li>
+          <li>
+            <p className="header-nav-link">Learn To Cook</p>
           </li>
         </ul>
         <h1
           className="cookbook-header-text">
           NYThyme's Cookbook
         </h1>
-        <ul className="header-nav-right">
-          <li
-            className="header-nav-search-button">
-            Search
+        <ul className="header-nav-right group">
+          <li>
+            <div className="header-nav-button search">
+              <Icon name='search' className="header-search-icon button-icon" />
+              Search 40+ recipes
+            </div>
           </li>
-          <li
-            className="header-nav-user-button">
-            {this.userButton()}
+          <li>
+            <div className="header-nav-button">
+              {this.userButton()}
+            </div>
           </li>
         </ul>
-      </div>
+      </section>
     );
   }
 });
