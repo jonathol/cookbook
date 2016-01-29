@@ -11,7 +11,7 @@ RecipeStore.all = function () {
 };
 
 RecipeStore.featured = function () {
-  return _featuredRecipe;
+  return $.extend({}, _featuredRecipe);
 };
 
 RecipeStore.resetRecipes = function (recipes) {
@@ -29,7 +29,7 @@ RecipeStore.__onDispatch = function (payload) {
     case RecipeConstants.RECIPES_RECEIVED:
       this.resetRecipes(payload.recipes);
       break;
-    case RecipeConstants.RECIPE_RECEIVED:
+    case RecipeConstants.FEATURED_RECIPE_RECEIVED:
       this.resetFeatured(payload.recipe);
       break;
   }

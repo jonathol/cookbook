@@ -9,9 +9,9 @@ module.exports = {
     });
   },
 
-  receiveSingleRecipe: function (recipe) {
+  receiveFeaturedRecipe: function (recipe) {
     AppDispatcher.dispatch({
-      actionType: RecipeConstants.RECIPE_RECEIVED,
+      actionType: RecipeConstants.FEATURED_RECIPE_RECEIVED,
       recipe: recipe
     });
   }
