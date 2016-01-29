@@ -10,7 +10,7 @@ json.author @recipe.author.name
 #   json.id @recipe.author.id
 # end
 
-json.ingedients @recipe.ingredients do |ingredient|
+json.ingredients @recipe.ingredients do |ingredient|
   json.id ingredient.id
   json.quantity ingredient.quantity
   json.name ingredient.name

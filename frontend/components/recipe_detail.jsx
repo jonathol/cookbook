@@ -5,10 +5,15 @@ var React = require('react'),
 var RecipeDetail = React.createClass({
   componentDidMount: function () {
     var recipesListener = RecipeStore.addListener(this._recipesChanged);
+    ApiUtil.fetchFeaturedRecipe(this.props.params.recipeId);
   },
 
   componentWillUnmount: function () {
     recipesListener.remove();
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchFeaturedRecipe(newProps.params.recipeId);
   },
 
   getInitialState: function () {
@@ -24,20 +29,28 @@ var RecipeDetail = React.createClass({
   },
 
   render: function () {
-    var ingredients = this.state.recipe.ingredients.map(function (ingredient) {
+    var ingredients = this.state.recipe.ingredients.map(function (ingredient, idx) {
       return (
-        <li className="ingredient">
-          <div className="ingredient-quantity">{ingredient.quantity}</div>
-          <div className="ingredient-quantity">{ingredient.name}</div>
+        <li key={idx} className="ingredient">
+          <div className="ingredient-quantity">
+            {ingredient.quantity}
+          </div>
+          <div className="ingredient-quantity">
+            {ingredient.name}
+          </div>
         </li>
       );
     });
 
-    var steps = this.state.recipe.steps.map(function (step) {
+    var steps = this.state.recipe.steps.map(function (step, idx) {
       return (
-        <li className="preparation-step">
-          <h5 className="step-number">Step {step.step_number}</h5>
-          <p className="step-body">{step.description}</p>
+        <li key={idx} className="preparation-step">
+          <h5 className="step-number">
+            Step {step.step_number}
+          </h5>
+          <p className="step-body">
+            {step.description}
+          </p>
         </li>
       );
     });
