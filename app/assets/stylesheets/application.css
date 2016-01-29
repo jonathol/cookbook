@@ -415,3 +415,33 @@ logo.sticky:after {
   font-size: 10px;
   color: #b3b3b3;
 }
+
+/* RECIPE DETAIL */
+.recipe-detail {
+  width: 1000px;
+  margin: 20px auto;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+}
+
+.recipe-article > h2 {
+  margin-top: 55px;
+  font-family: georgia;
+  font-size: 40px;
+  text-align: center;
+}
+
+.recipe-article > .basic-recipe-info {
+  margin: 20px auto 30px auto;
+  width: 100%;
+  /*display: inline-block;*/
+  text-align: center;
+}
+
+.basic-recipe-info > h3 {
+    display: inline;
+}
+
+.basic-recipe-info > p {
+  display: inline;
+}
