@@ -68,6 +68,17 @@ var Header = React.createClass({
       );
     }
 
+    var recipeBox = "";
+    if (this.state.loggedIn) {
+      recipeBox = (
+        <li>
+          <a
+            href={"#/users/" + this.state.userId}
+            className={"header-nav-link" + sticky}>Recipe Box</a>
+        </li>
+      )
+    }
+
     return (
       <section className={"header group" + sticky}>
         <a href="#/">
@@ -83,14 +94,12 @@ var Header = React.createClass({
               <Icon name='angle-double-right' className={"button-icon" + sticky} />
             </div>
           </li>
+          {recipeBox}
           <li>
-            <p className={"header-nav-link" + sticky}>Recipe Box</p>
+            <a className={"header-nav-link" + sticky}>Healthy</a>
           </li>
           <li>
-            <p className={"header-nav-link" + sticky}>Healthy</p>
-          </li>
-          <li>
-            <p className={"header-nav-link" + sticky}>Learn To Cook</p>
+            <a className={"header-nav-link" + sticky}>Learn To Cook</a>
           </li>
         </ul>
         <ul className={"header-nav-right group" + sticky}>

@@ -48,9 +48,9 @@ body {
   background-color: #f2f3ef;
 }
 
-a {
+/*a {
   color: #e33d26;
-}
+}*/
 
 a:hover {
   text-decoration: underline;
@@ -178,18 +178,20 @@ logo.sticky:after {
   padding-right: 0;
 }
 
-.header-nav-link {
+a.header-nav-link {
+  display: block;
   margin-top: 17px;
   padding-bottom: 15px;
 }
 
-.header-nav-link:hover {
+a.header-nav-link:hover {
+  text-decoration: none;
   cursor: pointer;
   border-bottom: 3px solid #000;
   padding-bottom: 12px;
 }
 
-.header-nav-link.sticky:hover {
+a.header-nav-link.sticky:hover {
   cursor: pointer;
   border-bottom: 3px solid #fff;
   padding-bottom: 12px;

@@ -30,6 +30,12 @@ var RecipeDetail = React.createClass({
   },
 
   render: function () {
+    if (!this.state.recipe.title) {
+      return (
+        <section className="recipe-show missing-recipe"></section>
+      );
+    }
+
     var ingredients = this.state.recipe.ingredients.map(function (ingredient, idx) {
       return (
         <li key={idx} className="ingredient">
@@ -69,7 +75,9 @@ var RecipeDetail = React.createClass({
               className="basic-recipe-info">
               <h3
                 className="recipe-detail-author">
-                {this.state.recipe.author}
+                <a href={"#/users/" + this.state.recipe.author.id}>
+                  {this.state.recipe.author.name}
+                </a>
               </h3>
               <p
                 className="recipe-detail-more-info">

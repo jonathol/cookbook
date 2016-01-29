@@ -3,12 +3,10 @@ json.title @recipe.title
 json.cook_time @recipe.cook_time
 json.servings @recipe.servings
 
-json.author @recipe.author.name
-
-# json.author do
-#   json.name @recipe.author.name
-#   json.id @recipe.author.id
-# end
+json.author do
+  json.name @recipe.author.name
+  json.id @recipe.author.id
+end
 
 json.description @recipe.description
 

@@ -11,7 +11,7 @@ RecipeStore.all = function () {
 };
 
 RecipeStore.featured = function () {
-  return $.extend({ ingredients: [], steps: [] }, _featuredRecipe);
+  return $.extend({}, _featuredRecipe);
 };
 
 RecipeStore.resetRecipes = function (recipes) {

@@ -55,11 +55,14 @@ var ApiUtil = {
       url: "api/session",
       dataType: "json",
       data: { session_token: token },
-      success: function (response) {
+      // success: function (response) {
+      //   AuthActions.logOutUser();
+      // },
+      // error: function (error) {
+      //   AuthActions.logOutUser();
+      // },
+      complete: function (response) {
         AuthActions.logOutUser();
-      },
-      error: function (error) {
-        console.log(error);
       }
     });
   },
