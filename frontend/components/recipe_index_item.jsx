@@ -5,6 +5,7 @@ var RecipeIndexItem = React.createClass({
     return (
       <li
         className="recipe-index-item">
+        <a href={"#/recipes/" + this.props.recipe.id}>
         <div className="recipe-index-item-image"></div>
         <div
           className="recipe-index-item-info">
@@ -21,6 +22,7 @@ var RecipeIndexItem = React.createClass({
             {this.props.recipe.cook_time}
           </p>
         </div>
+        </a>
       </li>
     );
   }

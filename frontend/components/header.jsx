@@ -49,8 +49,6 @@ var Header = React.createClass({
   },
 
   render: function () {
-    // debugger
-
     var sticky = this.state.scrolled ? " sticky" : "";
     var userButton;
     if (this.state.loggedIn) {
@@ -72,11 +70,13 @@ var Header = React.createClass({
 
     return (
       <section className={"header group" + sticky}>
-        <h1
-          className={"cookbook-main-header" + sticky}>
-          <logo className={"logo" + sticky}></logo>
-          <span className={"cookbook-header-text" + sticky}>Cookbook</span>
-        </h1>
+        <a href="#/">
+          <h1
+            className={"cookbook-main-header" + sticky}>
+            <logo className={"logo" + sticky}></logo>
+            <span className={"cookbook-header-text" + sticky}>Cookbook</span>
+          </h1>
+        </a>
         <ul className={"header-nav-left group" + sticky}>
           <li>
             <div className={"header-nav-button sidebar-button" + sticky}>

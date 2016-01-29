@@ -93,7 +93,8 @@ li {
   transition: all 0.4s;
 }
 
-.header > h1 {
+.header > a > h1 {
+  color: #000;
   position: absolute;
   top: -35px;
   left: 50%;
@@ -106,7 +107,12 @@ li {
   font-weight: 700;
 }
 
-.header > h1.sticky {
+h1:hover {
+  text-decoration: none;
+}
+
+.header > a > h1.sticky {
+  color: #fff;
   position: absolute;
   top: 0;
   left: 50%;
@@ -114,7 +120,7 @@ li {
   margin-top: 3px;
 }
 
-.header > h1 > logo {
+.header > a > h1 > logo {
   font-family: 'Martel', serif;
   font-weight: 800;
   text-transform: none;
@@ -137,19 +143,19 @@ logo.sticky:after {
   display: inline;
 }
 
-.header > h1 > span {
+.header > a > h1 > span {
   display: block;
   transform: translateY(-45px);
   font-size: 60px;
   letter-spacing: 0;
 }
 
-.header > h1 > span.sticky {
+.header > a > h1 > span.sticky {
   display: inline;
   font-size: 24px;
 }
 
-.header > h1 > span.sticky:before {
+.header > a > h1 > span.sticky:before {
   content: "";
   position: absolute;
   height: 20px;
@@ -387,6 +393,14 @@ logo.sticky:after {
   margin: 15px 10px;
 }
 
+.recipe-index-item > a {
+  color: #000;
+}
+
+.recipe-index-item > a:hover {
+  text-decoration: none;
+}
+
 .recipe-index-item:hover {
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
@@ -424,7 +438,7 @@ logo.sticky:after {
 .recipe-show {
   width: 1000px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 24px;
   background-color: #fff;
   border: 1px solid #e6e6e6;
 }
@@ -479,5 +493,6 @@ logo.sticky:after {
 }
 
 .recipe-top-details {
-  padding: 35px 0px 50px 0;
+  padding: 35px 0px 42px 0;
+  border-bottom: 2px solid #000;
 }

@@ -5,12 +5,12 @@ var React = require('react'),
 
 var RecipeDetail = React.createClass({
   componentDidMount: function () {
-    var recipesListener = RecipeStore.addListener(this._recipesChanged);
+    this.recipesListener = RecipeStore.addListener(this._recipesChanged);
     ApiUtil.fetchFeaturedRecipe(this.props.params.recipeId);
   },
 
   componentWillUnmount: function () {
-    recipesListener.remove();
+    this.recipesListener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -85,21 +85,29 @@ var RecipeDetail = React.createClass({
                 </span>
               </p>
             </div>
-            <div className="recipe-description">
+            <section className="recipe-description">
               <p
                 className="recipe-description-text">
                 {this.state.recipe.description}
               </p>
-            </div>
+            </section>
           </section>
-          <div className="recipe-prep-ingredients">
+          <section className="recipe-middle-details">
+            <ul className="recipe-tags">
+              TAGS HERE
+            </ul>
+            <section className="user-interaction">
+
+            </section>
+          </section>
+          <section className="recipe-bottom-details">
             <ul className="recipe-ingredients">
               {ingredients}
             </ul>
             <ul className="recipe-steps">
               {steps}
             </ul>
-          </div>
+          </section>
         </article>
       </section>
     );
