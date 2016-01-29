@@ -10,11 +10,25 @@ module.exports = React.createClass({
 
   componentDidMount: function () {
     this.recipeListener = RecipeStore.addListener(this._recipesChanged);
-    ApiUtil.fetchAllRecipes();
+    this.updateRecipesWithProps(this.props);
   },
 
   componentWillUnmount: function () {
     this.recipeListener.remove();
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    this.updateRecipesWithProps(newProps);
+  },
+
+  updateRecipesWithProps: function (props) {
+    if (props.route.path === "recipe-box") {
+      ApiUtil.fetchRecipeBox(props.params.userId);
+    } else if (props.route.path === "my-recipes") {
+      ApiUtil.fetchAuthoredRecipes(props.params.userId);
+    } else {
+      ApiUtil.fetchAllRecipes();
+    }
   },
 
   _recipesChanged: function () {

@@ -17,10 +17,6 @@ var RecipeDetail = React.createClass({
     ApiUtil.fetchFeaturedRecipe(newProps.params.recipeId);
   },
 
-  getInitialState: function () {
-    return this.getRecipeFromStore();
-  },
-
   getRecipeFromStore: function () {
     return { recipe: RecipeStore.featured() };
   },
@@ -30,7 +26,7 @@ var RecipeDetail = React.createClass({
   },
 
   render: function () {
-    if (!this.state.recipe.title) {
+    if (!this.state) {
       return (
         <section className="recipe-show missing-recipe"></section>
       );

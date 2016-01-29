@@ -46,6 +46,7 @@ body {
   font-size: 16px;
   color: black;
   background-color: #f2f3ef;
+  overflow-y: scroll;
 }
 
 /*a {

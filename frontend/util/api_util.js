@@ -13,6 +13,16 @@ var ApiUtil = {
     });
   },
 
+  fetchAuthoredRecipes: function (userId) {
+    $.ajax({
+      type: "GET",
+      url: "api/users/" + userId + "/recipes",
+      success: function (recipes) {
+        ApiActions.receiveAllRecipes(recipes);
+      }
+    });
+  },
+
   fetchFeaturedRecipe: function (recipeId) {
     $.ajax({
       type: "GET",
