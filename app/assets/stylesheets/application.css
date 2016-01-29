@@ -436,7 +436,7 @@ logo.sticky:after {
 
 /* RECIPE DETAIL */
 .recipe-show {
-  width: 960px;
+  width: 950px;
   margin: 20px auto;
   padding: 24px;
   background-color: #fff;
@@ -520,6 +520,7 @@ section.recipe-directions h4 {
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 800;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
@@ -530,13 +531,13 @@ ul.ingredients-list {
 
 span.ingredient-quantity {
   display: inline-block;
-  width: 100px;
+  width: 65px;
   text-align: right;
 }
 
 span.ingredient-name {
   display: inline-block;
-  width: 193px;
+  width: 225px;
   margin-left: 7px;
 }
 
@@ -545,7 +546,7 @@ li.ingredient {
 }
 
 ul.preparation-steps-list {
-  font-size: 18px;
+  font-size: 17.5px;
 }
 
 span.step-number {
