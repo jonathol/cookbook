@@ -444,7 +444,6 @@ logo.sticky:after {
 }
 
 .recipe-top-details > h2 {
-  /*margin-top: 40px;*/
   font-family: georgia;
   font-size: 40px;
   text-align: center;
@@ -492,7 +491,26 @@ logo.sticky:after {
   text-align: justify;
 }
 
-.recipe-top-details {
+section.recipe-top-details {
   padding: 35px 0px 42px 0;
   border-bottom: 2px solid #000;
+}
+
+section.recipe-middle-details {
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+section.recipe-directions {
+  margin-top: 20px;
+}
+
+section.recipe-ingredients {
+  width: 300px;
+  float: left;
+}
+
+section.recipe-steps {
+  width: 600px;
+  float: right;
 }

@@ -240,7 +240,7 @@ hot_sauce = Recipe.create!(
 )
 
 Ingredient.create!(
-name: "ounce can of jalepenos",
+name: "ounce can of jalapenos",
 quantity: "8",
 recipe: hot_sauce
 )
