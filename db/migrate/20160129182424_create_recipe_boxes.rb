@@ -5,5 +5,6 @@ class CreateRecipeBoxes < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :recipe_boxes, :user_id, unique: true
   end
 end

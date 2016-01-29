@@ -3,6 +3,7 @@ require 'session_token'
 class User < ActiveRecord::Base
   attr_reader :password
 
+  after_create :create_recipe_box
   after_create :ensure_session_token
 
   validates :email, :password_digest, presence: true
@@ -11,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :recipes, foreign_key: :author_id
   has_one :recipe_box, dependent: :destroy
+  has_many :saved_recipes, through: :recipe_box
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
@@ -50,5 +52,9 @@ class User < ActiveRecord::Base
     def ensure_session_token
       # self.session_token ||= User.generate_session_token
       reset_session_token!
+    end
+
+    def create_recipe_box
+      RecipeBox.create!(user: self)
     end
 end
