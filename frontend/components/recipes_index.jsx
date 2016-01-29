@@ -22,12 +22,15 @@ module.exports = React.createClass({
   },
 
   updateRecipesWithProps: function (props) {
-    if (props.route.path === "recipe-box") {
-      ApiUtil.fetchRecipeBox(props.params.userId);
-    } else if (props.route.path === "my-recipes") {
-      ApiUtil.fetchAuthoredRecipes(props.params.userId);
-    } else {
-      ApiUtil.fetchAllRecipes();
+    switch (props.route.path) {
+      case "recipe-box":
+        ApiUtil.fetchRecipeBox(props.params.userId);
+        break;
+      case "my-recipes":
+        ApiUtil.fetchAuthoredRecipes(props.params.userId);
+        break;
+      default:
+        ApiUtil.fetchAllRecipes();
     }
   },
 

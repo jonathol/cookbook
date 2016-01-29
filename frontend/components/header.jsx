@@ -73,7 +73,7 @@ var Header = React.createClass({
       recipeBox = (
         <li>
           <a
-            href={"#/users/" + this.state.userId}
+            href={"#/users/" + this.state.userId + "/recipe-box"}
             className={"header-nav-link" + sticky}>Recipe Box</a>
         </li>
       )

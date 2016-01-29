@@ -432,8 +432,8 @@ risotto = Recipe.create!(
   servings: "4 servings"
 )
 
-brisket = Recipe.create!(
-  title: "Brisket",
+super_pig = Recipe.create!(
+  title: "Super Pig",
   author: vik_spice,
   cook_time: "7 hours",
   servings: "5 servings"
