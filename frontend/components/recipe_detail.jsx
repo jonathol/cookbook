@@ -1,6 +1,7 @@
 var React = require('react'),
     RecipeStore = require('../stores/recipe'),
-    ApiUtil = require('../util/api_util');
+    ApiUtil = require('../util/api_util'),
+    Icon = require('react-fontawesome');
 
 var RecipeDetail = React.createClass({
   componentDidMount: function () {
@@ -73,10 +74,12 @@ var RecipeDetail = React.createClass({
               className="recipe-detail-more-info">
               <span
                 className="detail-cook-time">
+                <Icon name="clock-o" className="detail-icon" />
                 {this.state.recipe.cook_time}
               </span>
               <span
                 className="detail-servings">
+                <Icon name="user" className="detail-icon" />
                 {this.state.recipe.servings}
               </span>
             </p>

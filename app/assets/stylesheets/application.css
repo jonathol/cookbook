@@ -434,14 +434,32 @@ logo.sticky:after {
 .recipe-article > .basic-recipe-info {
   margin: 20px auto 30px auto;
   width: 100%;
-  /*display: inline-block;*/
   text-align: center;
 }
 
 .basic-recipe-info > h3 {
-    display: inline;
+  display: inline;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-right: 14px;
+  border-right: 1px solid #cccccc;
 }
 
 .basic-recipe-info > p {
   display: inline;
+}
+
+.recipe-detail-more-info {
+  font-size: 14px;
+}
+
+.fa-clock-o:before {
+  margin: 0 6px 0 14px;
+  color: #e33d26;
+}
+
+.fa-user:before {
+  margin: 0 6px 0 14px;
+  color: #e33d26;
 }
