@@ -362,58 +362,256 @@ pancakes = Recipe.create!(
   cook_time: "25 minutes"
 )
 
-Recipe.create!(
+pecan_pie = Recipe.create!(
   title: "Chocolate Pecan Pie",
   author: maureen,
   cook_time: "2 hours",
   servings: "6-8 slices"
 )
 
-Recipe.create!(
+margaritas = Recipe.create!(
   title: "Frozen Margaritas",
   author: will,
   cook_time: "2 hours",
   servings: "8 drinks"
 )
 
-Recipe.create!(
+pad_kee_mao = Recipe.create!(
   title: "Pad Kee Mao",
   author: david,
   cook_time: "40 minutes",
   servings: "4 servings"
 )
 
-Recipe.create!(
+pupusas = Recipe.create!(
   title: "Bean and Cheese Pupusas",
   author: sophie,
   cook_time: "1 hour",
   servings: "About 15 pupusas"
 )
 
-Recipe.create!(
+gratin = Recipe.create!(
   title: "Gratin Dauphinois",
   author: will,
   cook_time: "1 hour",
   servings: "6 servings"
 )
 
-Recipe.create!(
+pulled_pork_sammy = Recipe.create!(
   title: "Pulled Pork Sandwich",
   author: david,
   cook_time: "7 hours",
   servings: "6 sandwiches"
 )
 
-Recipe.create!(
+falafel = Recipe.create!(
   title: "Baked Falafel",
   author: maureen,
   cook_time: "45 minutes",
   servings: "6 sandwiches"
 )
 
-Recipe.create!(
+pumpkin_soup = Recipe.create!(
   title: "Pumpkin Black Bean Soup",
   author: will,
   cook_time: "1 hour 15 minutes",
   servings: "5 bowls"
 )
+
+sundae = Recipe.create!(
+  title: "Ice Cream Sundae",
+  author: sophie,
+  cook_time: "30 minutes",
+  servings: "1 sundae"
+)
+
+risotto = Recipe.create!(
+  title: "Risotto",
+  author: will,
+  cook_time: "1 hour",
+  servings: "4 servings"
+)
+
+brisket = Recipe.create!(
+  title: "Brisket",
+  author: vik_spice,
+  cook_time: "7 hours",
+  servings: "5 servings"
+)
+
+pad_thai = Recipe.create!(
+  title: "Pad Thai",
+  author: maureen,
+  cook_time: "45 minutes",
+  servings: "4 servings"
+)
+
+pelmeni = Recipe.create!(
+  title: "Pelmeni",
+  author: will,
+  cook_time: "1 hour",
+  servings: "24 dumplings"
+)
+
+baba_ganoush = Recipe.create!(
+  title: "Baba Ganoush",
+  author: sophie,
+  cook_time: "1 hour",
+  servings: "4 cups"
+)
+
+ramen = Recipe.create!(
+  title: "Wonton Soup",
+  author: david,
+  cook_time: "1 hour 30 minutes",
+  servings: "4 servings"
+)
+
+RecipeSave.destroy_all
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: muffins
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: mayo
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: smoothie
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: hot_sauce
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: sesame_noodles
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: popcorn
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: hummus
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: burrito
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: chicken_curry
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: pad_kee_mao
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: pupusas
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: falafel
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: pumpkin_soup
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: ramen
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: hummus
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: smoothie
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: hot_sauce
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: pelmeni
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: popcorn
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: pad_thai
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: sundae
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: pumpkin_soup
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: falafel
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: pupusas
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: gratin
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: risotto
+)
+
+
+user_3_id = User.first.id + 2
+
+counter = 0
+User.all.each.with_index do |user, i|
+  next if i < 2
+  Recipe.all.each.with_index do |recipe, j|
+    if counter % 4 == 0
+      RecipeSave.create!(
+        recipe_box: user.recipe_box,
+        recipe: recipe
+      )
+    end
+    counter += 1
+  end
+end
