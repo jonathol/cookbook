@@ -71,8 +71,9 @@ var Header = React.createClass({
     return (
       <section className={"header group" + sticky}>
         <h1
-          className={"cookbook-header-text" + sticky}>
-          <logo>t</logo> Cookbook
+          className={"cookbook-main-header" + sticky}>
+          <logo className={"logo" + sticky}></logo>
+          <span className={"cookbook-header-text" + sticky}>Cookbook</span>
         </h1>
         <ul className={"header-nav-left group" + sticky}>
           <li>

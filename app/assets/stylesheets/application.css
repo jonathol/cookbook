@@ -76,10 +76,10 @@ li {
   z-index: 20;
   background-color: white;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 1.5px;
-  padding: 20px 0 10px 0;
+  padding: 55px 0 10px 0;
   transition: all 0.4s;
 }
 
@@ -95,20 +95,54 @@ li {
 
 .header > h1 {
   position: absolute;
+  top: -25px;
   left: 50%;
   transform: translateX(-50%);
   margin-top: 3px;
   text-transform: capitalize;
+  text-align: center;
   font-size: 24px;
   font-weight: 400;
   font-family: 'Open Sans Condensed', serif;
 }
 
+.header > h1.sticky {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3px;
+}
+
 .header > h1 > logo {
   font-family: 'Oswald', serif;
+  text-transform: none;
   padding-right: 5px;
   border-right: 1px solid rgb(255, 255, 255);
   border-right: 1px solid rgba(255, 255, 255, .25);
+}
+
+logo:after {
+  content: "New York Thyme's";
+  font-size: 16px;
+  display: block;
+}
+
+logo.sticky:after {
+  content: "t";
+  font-size: 24px;
+  display: inline;
+}
+
+.header > h1 > span {
+  display: block;
+  transform: translateY(-36px);
+  font-size: 46px;
+}
+
+.header > h1 > span.sticky {
+  display: inline;
+  font-size: 24px;
 }
 
 .header-nav-left {
@@ -132,6 +166,12 @@ li {
 
 .header-nav-link:hover {
   cursor: pointer;
+  border-bottom: 3px solid #000;
+  padding-bottom: 12px;
+}
+
+.header-nav-link.sticky:hover {
+  cursor: pointer;
   border-bottom: 3px solid #fff;
   padding-bottom: 12px;
 }
@@ -149,6 +189,21 @@ li {
 .sidebar-button {
   transform: translateX(-8px);
   transition: all 0.2s;
+}
+
+.fa-angle-double-right.button-icon {
+  color: #fff;
+  background-color: #e33d26;
+  border-color: #e33d26;
+}
+
+.fa-angle-double-right.button-icon:hover {
+  background-color: #e33d26;
+  border-color: #e33d26;
+}
+.header-nav-button:hover .fa-angle-double-right.button-icon {
+  background-color: #e33d26;
+  border-color: #e33d26;
 }
 
 .sidebar-button:hover {
@@ -176,6 +231,12 @@ li {
 }
 
 .header-nav-button:hover .button-icon {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.header-nav-button.sticky:hover .button-icon {
   background-color: #e33d26;
   border-color: #e33d26;
   transition: all 0.2s;
@@ -193,6 +254,7 @@ li {
 }
 
 .login-button {
+  font-size: 11.5px;
   padding-bottom: 6px;
   padding-top: 6px;
 }
