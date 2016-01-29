@@ -49,6 +49,8 @@ var Header = React.createClass({
   },
 
   render: function () {
+    // debugger
+
     var sticky = this.state.scrolled ? " sticky" : "";
     var userButton;
     if (this.state.loggedIn) {

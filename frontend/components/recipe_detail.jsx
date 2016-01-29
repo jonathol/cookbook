@@ -58,38 +58,40 @@ var RecipeDetail = React.createClass({
 
     return (
       <section
-        className="recipe-detail">
+        className="recipe-show">
         <article className="recipe-article">
-          <h2
-            className="recipe-detail-title">
-            {this.state.recipe.title}
-          </h2>
-          <div
-            className="basic-recipe-info">
-            <h3
-              className="recipe-detail-author">
-              {this.state.recipe.author}
-            </h3>
-            <p
-              className="recipe-detail-more-info">
-              <span
-                className="detail-cook-time">
-                <Icon name="clock-o" className="detail-icon" />
-                {this.state.recipe.cook_time}
-              </span>
-              <span
-                className="detail-servings">
-                <Icon name="user" className="detail-icon" />
-                {this.state.recipe.servings}
-              </span>
-            </p>
-          </div>
-          <div className="recipe-description">
-            <p
-              className="recipe-description-text">
-              {this.state.recipe.description}
-            </p>
-          </div>
+          <section className="recipe-top-details">
+            <h2
+              className="recipe-feature-title">
+              {this.state.recipe.title}
+            </h2>
+            <div
+              className="basic-recipe-info">
+              <h3
+                className="recipe-detail-author">
+                {this.state.recipe.author}
+              </h3>
+              <p
+                className="recipe-detail-more-info">
+                <span
+                  className="detail-cook-time">
+                  <Icon name="clock-o" className="detail-icon" />
+                  {this.state.recipe.cook_time}
+                </span>
+                <span
+                  className="detail-servings">
+                  <Icon name="user" className="detail-icon" />
+                  {this.state.recipe.servings}
+                </span>
+              </p>
+            </div>
+            <div className="recipe-description">
+              <p
+                className="recipe-description-text">
+                {this.state.recipe.description}
+              </p>
+            </div>
+          </section>
           <div className="recipe-prep-ingredients">
             <ul className="recipe-ingredients">
               {ingredients}

@@ -421,21 +421,22 @@ logo.sticky:after {
 }
 
 /* RECIPE DETAIL */
-.recipe-detail {
+.recipe-show {
   width: 1000px;
   margin: 20px auto;
+  padding: 20px;
   background-color: #fff;
   border: 1px solid #e6e6e6;
 }
 
-.recipe-article > h2 {
-  margin-top: 55px;
+.recipe-top-details > h2 {
+  /*margin-top: 40px;*/
   font-family: georgia;
   font-size: 40px;
   text-align: center;
 }
 
-.recipe-article > .basic-recipe-info {
+.recipe-top-details > .basic-recipe-info {
   margin: 20px auto 30px auto;
   width: 100%;
   text-align: center;
@@ -466,4 +467,17 @@ logo.sticky:after {
 .fa-user:before {
   margin: 0 6px 0 14px;
   color: #e33d26;
+}
+
+.recipe-description {
+  max-width: 570px;
+  margin: auto;
+  font-family: georgia;
+  font-size: 17px;
+  line-height: 1.3;
+  text-align: justify;
+}
+
+.recipe-top-details {
+  padding: 35px 0px 50px 0;
 }
