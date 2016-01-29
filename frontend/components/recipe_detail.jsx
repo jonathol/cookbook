@@ -33,12 +33,12 @@ var RecipeDetail = React.createClass({
     var ingredients = this.state.recipe.ingredients.map(function (ingredient, idx) {
       return (
         <li key={idx} className="ingredient">
-          <div className="ingredient-quantity">
+          <span className="ingredient-quantity">
             {ingredient.quantity}
-          </div>
-          <div className="ingredient-quantity">
+          </span>
+          <span className="ingredient-name">
             {ingredient.name}
-          </div>
+          </span>
         </li>
       );
     });
@@ -46,9 +46,9 @@ var RecipeDetail = React.createClass({
     var steps = this.state.recipe.steps.map(function (step, idx) {
       return (
         <li key={idx} className="preparation-step">
-          <h5 className="step-number">
+          <span className="step-number">
             Step {step.step_number}
-          </h5>
+          </span>
           <p className="step-body">
             {step.description}
           </p>
