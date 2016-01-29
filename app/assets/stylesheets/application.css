@@ -95,15 +95,15 @@ li {
 
 .header > h1 {
   position: absolute;
-  top: -25px;
+  top: -35px;
   left: 50%;
   transform: translateX(-50%);
   margin-top: 3px;
   text-transform: capitalize;
   text-align: center;
-  font-size: 24px;
-  font-weight: 400;
   font-family: 'Open Sans Condensed', serif;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .header > h1.sticky {
@@ -115,34 +115,47 @@ li {
 }
 
 .header > h1 > logo {
-  font-family: 'Oswald', serif;
+  font-family: 'Martel', serif;
+  font-weight: 800;
   text-transform: none;
+  letter-spacing: -1px;
   padding-right: 5px;
-  border-right: 1px solid rgb(255, 255, 255);
-  border-right: 1px solid rgba(255, 255, 255, .25);
 }
 
 logo:after {
   content: "New York Thyme's";
   font-size: 16px;
+  letter-spacing: 0.1px;
   display: block;
 }
 
 logo.sticky:after {
-  content: "t";
-  font-size: 24px;
+  content: "nyt";
+  font-size: 20px;
+  vertical-align: middle;
+  letter-spacing: 0;
   display: inline;
 }
 
 .header > h1 > span {
   display: block;
-  transform: translateY(-36px);
-  font-size: 46px;
+  transform: translateY(-45px);
+  font-size: 60px;
+  letter-spacing: 0;
 }
 
 .header > h1 > span.sticky {
   display: inline;
   font-size: 24px;
+}
+
+.header > h1 > span.sticky:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  transform: translateX(-3px) translateY(8.5px);
+  border-left: 1px solid rgb(255, 255, 255);
+  border-left: 1px solid rgba(255, 255, 255, .25);
 }
 
 .header-nav-left {
