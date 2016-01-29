@@ -543,3 +543,18 @@ span.ingredient-name {
 li.ingredient {
   margin-bottom: 15px;
 }
+
+ul.preparation-steps-list {
+  font-size: 18px;
+}
+
+span.step-number {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+p.step-body {
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
