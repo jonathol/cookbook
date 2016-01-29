@@ -23,6 +23,16 @@ var ApiUtil = {
     });
   },
 
+  fetchRecipeBox: function (userId) {
+    $.ajax({
+      type: "GET",
+      url: "api/users/" + userId + "/recipe_box",
+      success: function (recipeBox) {
+        ApiActions.receiveRecipeBox(recipeBox);
+      }
+    });
+  },
+
   logInUser: function (credentials) {
     $.ajax({
       type: "POST",

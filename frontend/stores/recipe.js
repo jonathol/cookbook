@@ -32,6 +32,9 @@ RecipeStore.__onDispatch = function (payload) {
     case RecipeConstants.FEATURED_RECIPE_RECEIVED:
       this.resetFeatured(payload.recipe);
       break;
+    case RecipeConstants.RECIPE_BOX_RECEIVED:
+      this.resetRecipes(payload.recipeBox);
+      break;
   }
 };
 

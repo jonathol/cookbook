@@ -14,5 +14,12 @@ module.exports = {
       actionType: RecipeConstants.FEATURED_RECIPE_RECEIVED,
       recipe: recipe
     });
+  },
+
+  receiveRecipeBox: function (recipeBox) {
+    AppDispatcher.dispatch({
+      actionType: RecipeConstants.RECIPE_BOX_RECEIVED,
+      recipeBox: recipeBox
+    });
   }
 };
