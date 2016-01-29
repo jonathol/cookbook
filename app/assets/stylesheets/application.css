@@ -208,15 +208,19 @@ logo.sticky:after {
   color: #fff;
   background-color: #e33d26;
   border-color: #e33d26;
+  padding-left: 20px;
+  transform: translateX(-2px);
 }
 
-.fa-angle-double-right.button-icon:hover {
+.sidebar-button:hover > .fa-angle-double-right.button-icon {
   background-color: #e33d26;
   border-color: #e33d26;
 }
-.header-nav-button:hover .fa-angle-double-right.button-icon {
-  background-color: #e33d26;
-  border-color: #e33d26;
+
+.fa-angle-double-right.button-icon.sticky {
+  background-color: transparent;
+  border-color: rgb(255, 255, 255);
+  border-color: rgba(255, 255, 255, .25);
 }
 
 .sidebar-button:hover {
