@@ -410,13 +410,17 @@ a.header-nav-link.sticky:hover {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
 }
 
-.recipe-index-item-image {
+.recipe-index-item-thumb {
   height: 158px;
   overflow: hidden;
 }
 
+.thumb-image {
+  min-height: 158px;
+}
+
 .recipe-index-item-info {
-  padding: 15px;
+  padding: 11px;
 }
 
 .recipe-index-item-info > h3 {

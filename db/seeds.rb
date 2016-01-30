@@ -191,7 +191,7 @@ PreparationStep.create!(
 )
 
 mayo = Recipe.create!(
-  title: "Dijon Mayonnaise",
+  title: "Quick Mayonnaise",
   description: "Mayonnaise takes almost no time to make and tastes much better than anything from the store.",
   author: maureen,
   cook_time: "5 minutes",
