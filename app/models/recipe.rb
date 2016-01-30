@@ -6,4 +6,5 @@ class Recipe < ActiveRecord::Base
   has_many :steps, class_name: "PreparationStep"
   has_many :recipe_saves, class_name: "RecipeSave", dependent: :destroy
   has_many :recipe_boxes, through: :recipe_saves
+  has_one :photo, class_name: "RecipePhoto", dependent: :destroy
 end
