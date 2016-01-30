@@ -443,7 +443,8 @@ a.header-nav-link.sticky:hover {
   color: #b3b3b3;
 }
 
-div.user-interaction-buttons {
+li.recipe-index-item:hover div.user-interaction-buttons {
+  display: block;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -454,8 +455,17 @@ div.user-interaction-buttons {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 }
 
-div.user-interaction-buttons.hidden {
+div.user-interaction-buttons {
   display: none;
+}
+
+li.recipe-index-item:hover div.user-interaction-true-icon {
+  display: none;
+}
+
+li.recipe-index-item div.user-interaction-true-icon {
+  display: block;
+  float: left;
 }
 
 div.index-item-button {

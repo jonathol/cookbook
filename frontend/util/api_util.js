@@ -43,6 +43,41 @@ var ApiUtil = {
     });
   },
 
+  createRecipeSave: function (recipeId) {
+    $.ajax({
+      type: "POST",
+      url: "api/recipe_saves",
+      data: { recipe_id: recipeId },
+      dataType: "json",
+      success: function (recipeSave) {
+        ApiActions.receiveRecipeSave(recipeSave);
+      }
+    });
+  }
+
+  destroyRecipeSave: function (recipeSaveId) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/recipe_saves/" + recipeSaveId,
+      success: function (recipeSave) {
+        ApiActions.receiveARecipeSave(recipeSave);
+      },
+      error: function (data) {
+        console.log("you cannot delete that recipe save")
+      }
+    });
+  }
+
+  fetchRecipeSaves: function (recipeId) {
+    $.ajax({
+      type: "GET",
+      url: "api/recipe_saves",
+      success: function (recipeSaves) {
+        ApiActions.receiveAllRecipeSaves(recipeSaves);
+      }
+    });
+  }
+
   logInUser: function (credentials) {
     $.ajax({
       type: "POST",
@@ -65,12 +100,6 @@ var ApiUtil = {
       url: "api/session",
       dataType: "json",
       data: { session_token: token },
-      // success: function (response) {
-      //   AuthActions.logOutUser();
-      // },
-      // error: function (error) {
-      //   AuthActions.logOutUser();
-      // },
       complete: function (response) {
         AuthActions.logOutUser();
       }

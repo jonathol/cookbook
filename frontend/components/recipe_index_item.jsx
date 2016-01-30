@@ -18,34 +18,35 @@ var RecipeIndexItem = React.createClass({
     this.setState(state);
   },
 
-  handleMouseEnter: function (e) {
-    this.setState({ hover: true });
-  },
-
-  handleMouseLeave: function (e) {
-    this.setState({ hover: false });
+  handleSave: function (e) {
+    
   },
 
   render: function() {
-    var hidden = this.state.hover ? "" : " hidden";
     var saveHover = this.state.saveHover ? " hover" : "";
     var cookedHover = this.state.cookedHover ? " hover" : "";
+    if (this.state.saveHover) {
+
+    }
+
+    var recipeSavedIcon;
+    var recipeCookedIcon;
+    if (this.state)
 
     return (
       <li
-        className="recipe-index-item"
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}>
+        className="recipe-index-item">
         <a href={"#/recipes/" + this.props.recipe.id}>
         <div className="recipe-index-item-thumb">
           <img
             className="thumb-image"
             src={this.props.recipe.photo.thumb_url} />
-          <div className={"user-interaction-buttons" + hidden}>
+          <div className={"user-interaction-buttons"}>
             <div
               className="index-item-save-button index-item-button"
               onMouseEnter={this.handleButtonEnter.bind(this, "save")}
-              onMouseLeave={this.handleButtonLeave.bind(this, "save")}>
+              onMouseLeave={this.handleButtonLeave.bind(this, "save")}
+              onClick={this.handleSave}>
               <Icon name="bookmark-o" className="index-item-button-icon" />
               Save
             </div>

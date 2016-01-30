@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :recipes, foreign_key: :author_id
   has_one :recipe_box, dependent: :destroy
+  has_many :recipe_saves, through: :recipe_box
   has_many :saved_recipes, through: :recipe_box
 
   def self.find_by_credentials(email, password)
