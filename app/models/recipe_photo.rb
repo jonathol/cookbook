@@ -1,5 +1,5 @@
 class RecipePhoto < ActiveRecord::Base
-  validates :small_url, presence: true
+  validates :thumb_url, :user, presence: true
 
   belongs_to :recipe
 end
