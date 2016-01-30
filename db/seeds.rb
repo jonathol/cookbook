@@ -95,6 +95,7 @@ user10 = User.create!(
 Ingredient.destroy_all
 PreparationStep.destroy_all
 Recipe.destroy_all
+RecipePhoto.destroy_all
 
 muffins = Recipe.create!(
   title: "Banana Nut Muffins",
@@ -447,13 +448,6 @@ RecipePhoto.create!(
   credit: "Young Sok Yun"
 )
 
-RecipePhoto.create!(
-  recipe: pancakes,
-  large_url: "https://c2.staticflickr.com/4/3148/2686805971_0d0a98fcbd_o.jpg",
-  thumb_url: "https://c2.staticflickr.com/4/3148/2686805971_50b03612c7_n.jpg",
-  credit: "Young Sok Yun"
-)
-
 pecan_pie = Recipe.create!(
   title: "Chocolate Pecan Pie",
   author: maureen,
@@ -689,7 +683,7 @@ RecipeSave.create!(
 
 RecipeSave.create!(
   recipe_box: will.recipe_box,
-  recipe: sesame_noodles
+  recipe: udon
 )
 
 RecipeSave.create!(
@@ -734,7 +728,7 @@ RecipeSave.create!(
 
 RecipeSave.create!(
   recipe_box: maureen.recipe_box,
-  recipe: ramen
+  recipe: wonton
 )
 
 RecipeSave.create!(
