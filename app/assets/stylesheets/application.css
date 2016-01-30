@@ -412,6 +412,7 @@ a.header-nav-link.sticky:hover {
 
 .recipe-index-item-image {
   height: 158px;
+  overflow: hidden;
 }
 
 .recipe-index-item-info {
