@@ -1,15 +1,62 @@
-var React = require('react');
+var React = require('react'),
+    Icon = require('react-fontawesome');
 
 var RecipeIndexItem = React.createClass({
+  getInitialState: function () {
+    return { hover: false };
+  },
+
+  handleButtonEnter: function (button, e) {
+    var state = {};
+    state[button + "Hover"] = true;
+    this.setState(state);
+  },
+
+  handleButtonLeave: function (button, e) {
+    var state = {};
+    state[button + "Hover"] = false;
+    this.setState(state);
+  },
+
+  handleMouseEnter: function (e) {
+    this.setState({ hover: true });
+  },
+
+  handleMouseLeave: function (e) {
+    this.setState({ hover: false });
+  },
+
   render: function() {
+    var hidden = this.state.hover ? "" : " hidden";
+    var saveHover = this.state.saveHover ? " hover" : "";
+    var cookedHover = this.state.cookedHover ? " hover" : "";
+
     return (
       <li
-        className="recipe-index-item">
+        className="recipe-index-item"
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}>
         <a href={"#/recipes/" + this.props.recipe.id}>
         <div className="recipe-index-item-thumb">
           <img
             className="thumb-image"
             src={this.props.recipe.photo.thumb_url} />
+          <div className={"user-interaction-buttons" + hidden}>
+            <div
+              className="index-item-save-button index-item-button"
+              onMouseEnter={this.handleButtonEnter.bind(this, "save")}
+              onMouseLeave={this.handleButtonLeave.bind(this, "save")}>
+              <Icon name="bookmark-o" className="index-item-button-icon" />
+              Save
+            </div>
+            <div
+              className="index-item-cooked-button index-item-button"
+              onMouseEnter={this.handleButtonEnter.bind(this, "cooked")}
+              onMouseLeave={this.handleButtonLeave.bind(this, "cooked")}>
+              <Icon name="check" className="index-item-button-icon" />
+              Cooked
+            </div>
+          </div>
         </div>
         <div
           className="recipe-index-item-info">
