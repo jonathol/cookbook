@@ -32,6 +32,25 @@ var RecipeDetail = React.createClass({
       );
     }
 
+    var recipeDescription = (
+      <section className="recipe-description">
+        <p
+          className="recipe-description-text">
+          {this.state.recipe.description}
+        </p>
+        <div className="recipe-photo-box">
+          <div className="photo-container">
+            <img src={this.state.recipe.photo.large_url} />
+          </div>
+          <a
+            className="recipe-photo-credit"
+            href={this.state.recipe.photo.large_url}>
+            {this.state.recipe.photo.credit}
+          </a>
+        </div>
+      </section>
+    );
+
     var ingredients = this.state.recipe.ingredients.map(function (ingredient, idx) {
       return (
         <li key={idx} className="ingredient">
@@ -89,7 +108,17 @@ var RecipeDetail = React.createClass({
                 </span>
               </p>
             </div>
-            <section className="recipe-description">
+            <section className="recipe-description group">
+              <div className="recipe-photo-box group">
+                <div className="photo-container">
+                  <img src={this.state.recipe.photo.large_url} />
+                </div>
+                <a
+                  className="recipe-photo-credit"
+                  href={this.state.recipe.photo.large_url}>
+                  Photo from {this.state.recipe.photo.credit} on Flickr
+                </a>
+              </div>
               <p
                 className="recipe-description-text">
                 {this.state.recipe.description}
