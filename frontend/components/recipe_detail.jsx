@@ -12,7 +12,7 @@ var RecipeDetail = React.createClass({
     this.cookListener = CookStore.addListener(this._cookChanged);
 
     ApiUtil.fetchFeaturedRecipe(this.props.params.recipeId);
-    ApiUtil.fetchAllRecipeSaves();
+    ApiUtil.fetchSingleRecipeSave(this.props.params.recipeId);
     ApiUtil.fetchAllCookedRecipes();
   },
 
@@ -24,22 +24,23 @@ var RecipeDetail = React.createClass({
 
   componentWillReceiveProps: function (newProps) {
     ApiUtil.fetchFeaturedRecipe(newProps.params.recipeId);
+    ApiUtil.fetchSingleRecipeSave();
   },
 
   _cookChanged: function () {
-    this.setState({ cook: CookStore.find(this.props.recipeId) });
+    this.setState({ cook: CookStore.find(this.props.params.recipeId) });
   },
 
   _recipeChanged: function () {
     this.setState({ recipe: RecipeStore.featured() });
   },
 
-  _saveChanged: function () {
-    this.setState({ recipeSave: RecipeSaveStore.find(this.props.recipeId) });
+  _recipeSaveChanged: function () {
+    this.setState({ recipeSave: RecipeSaveStore.find(this.props.params.recipeId) });
   },
 
   render: function () {
-    if (!this.state) {
+    if (!this.state || !this.state.recipe) {
       return (
         <section className="recipe-show missing-recipe"></section>
       );

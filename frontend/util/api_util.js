@@ -81,6 +81,19 @@ var ApiUtil = {
     });
   },
 
+  fetchSingleRecipeSave: function (recipeId) {
+    if (!SessionStore.loggedIn) {
+      return;
+    }
+    $.ajax({
+      type: "GET",
+      url: "api/recipe_saves?recipe_id=" + recipeId,
+      success: function (recipeSave) {
+        ApiActions.receiveSingleRecipeSave(recipeSave);
+      }
+    });
+  },
+
   createCook: function (recipeId) {
     $.ajax({
       type: "POST",
