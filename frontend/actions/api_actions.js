@@ -67,7 +67,7 @@ module.exports = {
     });
   },
 
-  receiveAllCooks: function (cooks) {
+  receiveAllCookedRecipes: function (cooks) {
     AppDispatcher.dispatch({
       actionType: RecipeSaveConstants.COOKS_RECEIVED,
       cooks: cooks

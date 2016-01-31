@@ -81,6 +81,44 @@ var ApiUtil = {
     });
   },
 
+  createCook: function (recipeId) {
+    $.ajax({
+      type: "POST",
+      url: "api/cooks",
+      data: { recipe_id: recipeId },
+      dataType: "json",
+      success: function (cook) {
+        ApiActions.receiveSingleCook(cook);
+      }
+    });
+  },
+
+  destroyCook: function (cookId) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/cooks/" + cookId,
+      success: function (recipeId) {
+        ApiActions.receiveDeletedCookedRecipeId(recipeId);
+      },
+      error: function (data) {
+        console.log("you cannot delete that recipe save");
+      }
+    });
+  },
+
+  fetchAllCookedRecipes: function () {
+    if (!SessionStore.loggedIn) {
+      return;
+    }
+    $.ajax({
+      type: "GET",
+      url: "api/cooks",
+      success: function (cooks) {
+        ApiActions.receiveAllCookedRecipes(cooks);
+      }
+    });
+  },
+
   fetchCurrentUser: function () {
     $.ajax({
       type: "GET",

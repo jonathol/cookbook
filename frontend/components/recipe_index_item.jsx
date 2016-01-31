@@ -7,10 +7,6 @@ var RecipeIndexItem = React.createClass({
     return { saveHover: false, cookedHover: false };
   },
 
-  componentWillReceiveProps: function (newProps) {
-
-  },
-
   handleButtonEnter: function (button, e) {
     var state = {};
     state[button + "Hover"] = true;
@@ -32,6 +28,15 @@ var RecipeIndexItem = React.createClass({
     }
   },
 
+  handleClickCooked: function (e) {
+    e.preventDefault();
+    if (this.props.cooked) {
+      ApiUtil.destroyCook(this.props.cook);
+    } else {
+      ApiUtil.createCook(this.props.recipe.id);
+    }
+  },
+
   render: function() {
     var saveHover = this.state.saveHover ? " hover" : "";
     var cookedHover = this.state.cookedHover ? " hover" : "";
@@ -49,13 +54,17 @@ var RecipeIndexItem = React.createClass({
       </div>
     );
     var cookedButtonIcon;
-    if (this.state.cookedHover || this.props.recipeCook) {
+    if (this.state.cookedHover || this.props.cooked) {
       cookedIcon = <Icon name="check" className="index-item-button-icon ui-icon" />;
     }
 
     var savedIcon;
     if (this.props.recipeSave) {
       savedIcon = <Icon name="bookmark" className="interacted-icon ui-icon" />
+    }
+    var cookedIcon;
+    if (this.props.cooked) {
+      cookedIcon = <Icon name="bookmark" className="interacted-icon ui-icon" />
     }
 
     return (
@@ -69,12 +78,14 @@ var RecipeIndexItem = React.createClass({
           <div className={"user-interaction-buttons"}>
             <div className="user-interacted-icons">
               {savedIcon}
+              {cookedIcon}
             </div>
             {saveButton}
             <div
               className="index-item-cooked-button index-item-button"
               onMouseEnter={this.handleButtonEnter.bind(this, "cooked")}
-              onMouseLeave={this.handleButtonLeave.bind(this, "cooked")}>
+              onMouseLeave={this.handleButtonLeave.bind(this, "cooked")}
+              onClick={this.handleClickCooked}>
               {cookedButtonIcon}
               Cooked
             </div>
