@@ -39,6 +39,14 @@ var RecipeDetail = React.createClass({
     this.setState({ recipeSave: RecipeSaveStore.find(this.props.params.recipeId) });
   },
 
+  handleClickSave: function (e) {
+    if (this.state.recipeSave) {
+      ApiUtil.destroyRecipeSave(this.state.recipeSave);
+    } else {
+      ApiUtil.createRecipeSave(this.state.recipe.id);
+    }
+  },
+
   render: function () {
     if (!this.state || !this.state.recipe) {
       return (
@@ -103,7 +111,9 @@ var RecipeDetail = React.createClass({
       <section
         className="recipe-show">
         <article className="recipe-article">
-          <div className="recipe-save-button recipe-button">
+          <div
+            className="recipe-save-button recipe-button"
+            onClick={this.handleClickSave}>
             {saveIcon}
             {saveText}
           </div>

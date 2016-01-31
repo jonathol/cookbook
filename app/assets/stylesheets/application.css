@@ -536,6 +536,7 @@ div.recipe-button span.recipe-button-icon {
 }
 
 div.recipe-button:hover {
+  cursor: pointer;
   background-color: #be1e08;
   border-color: #be1e08;
   color: #fff;
