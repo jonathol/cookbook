@@ -14,6 +14,10 @@ RecipeSaveStore.addRecipeSave = function (recipeSave) {
   this.__emitChange();
 };
 
+RecipeSaveStore.find = function (recipeId) {
+  return _recipeSaves[recipeId];
+};
+
 RecipeSaveStore.removeRecipeSave = function (recipeId) {
   _recipeSaves[recipeId] = undefined;
   this.__emitChange();

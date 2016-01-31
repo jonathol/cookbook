@@ -1,28 +1,41 @@
 var React = require('react'),
     RecipeStore = require('../stores/recipe'),
+    RecipeSaveStore = require('../stores/recipe_save'),
+    CookStore = require('../stores/cook'),
     ApiUtil = require('../util/api_util'),
     Icon = require('react-fontawesome');
 
 var RecipeDetail = React.createClass({
   componentDidMount: function () {
-    this.recipesListener = RecipeStore.addListener(this._recipesChanged);
+    this.recipeListener = RecipeStore.addListener(this._recipeChanged);
+    this.saveListener = RecipeSaveStore.addListener(this._recipeSaveChanged);
+    this.cookListener = CookStore.addListener(this._cookChanged);
+
     ApiUtil.fetchFeaturedRecipe(this.props.params.recipeId);
+    ApiUtil.fetchAllRecipeSaves();
+    ApiUtil.fetchAllCookedRecipes();
   },
 
   componentWillUnmount: function () {
-    this.recipesListener.remove();
+    this.recipeListener.remove();
+    this.saveListener.remove();
+    this.cookListener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
     ApiUtil.fetchFeaturedRecipe(newProps.params.recipeId);
   },
 
-  getRecipeFromStore: function () {
-    return { recipe: RecipeStore.featured() };
+  _cookChanged: function () {
+    this.setState({ cook: CookStore.find(this.props.recipeId) });
   },
 
-  _recipesChanged: function () {
-    this.setState(this.getRecipeFromStore());
+  _recipeChanged: function () {
+    this.setState({ recipe: RecipeStore.featured() });
+  },
+
+  _saveChanged: function () {
+    this.setState({ recipeSave: RecipeSaveStore.find(this.props.recipeId) });
   },
 
   render: function () {

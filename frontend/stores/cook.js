@@ -14,6 +14,10 @@ CookStore.addCook = function (cook) {
   this.__emitChange();
 };
 
+CookStore.find = function (recipeId) {
+  return _cooks[recipeId];
+};
+
 CookStore.removeCook = function (recipeId) {
   _cooks[recipeId] = undefined;
   this.__emitChange();

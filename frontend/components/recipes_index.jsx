@@ -11,9 +11,9 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function () {
-    this.recipeListener = RecipeStore.addListener(this._recipesChanged);
-    this.saveListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
-    this.cookListener = CookStore.addListener(this._cooksChanged);
+    this.recipesListener = RecipeStore.addListener(this._recipesChanged);
+    this.savesListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
+    this.cooksListener = CookStore.addListener(this._cooksChanged);
 
     this.updateRecipesWithProps(this.props);
     ApiUtil.fetchAllRecipeSaves();
@@ -21,9 +21,9 @@ module.exports = React.createClass({
   },
 
   componentWillUnmount: function () {
-    this.recipeListener.remove();
-    this.saveListener.remove();
-    this.cookListener.remove();
+    this.recipesListener.remove();
+    this.savesListener.remove();
+    this.cooksListener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -34,25 +34,25 @@ module.exports = React.createClass({
     this.setState({ cooks: CookStore.all() });
   },
 
-  updateRecipesWithProps: function (props) {
-    switch (props.route.path) {
-      case "recipe-box":
-        ApiUtil.fetchRecipeBox(props.params.userId);
-        break;
-      case "my-recipes":
-        ApiUtil.fetchAuthoredRecipes(props.params.userId);
-        break;
-      default:
-        ApiUtil.fetchAllRecipes();
-    }
-  },
-
   _recipesChanged: function () {
     this.setState({ recipes: RecipeStore.all() });
   },
 
   _recipeSavesChanged: function () {
     this.setState({ recipeSaves: RecipeSaveStore.all() });
+  },
+
+  updateRecipesWithProps: function (props) {
+    switch (props.route.path) {
+      case "recipe-box":
+      ApiUtil.fetchRecipeBox(props.params.userId);
+      break;
+      case "my-recipes":
+      ApiUtil.fetchAuthoredRecipes(props.params.userId);
+      break;
+      default:
+      ApiUtil.fetchAllRecipes();
+    }
   },
 
   render: function () {
