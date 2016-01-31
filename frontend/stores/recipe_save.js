@@ -6,7 +6,7 @@ var _recipeSaves = [];
 var RecipeSaveStore = new Store(AppDispatcher);
 
 RecipeSaveStore.all = function () {
-  return _recipeSaves.slice(0);
+  return $.extend({}, _recipeSaves);
 };
 
 RecipeSaveStore.resetRecipeSaves = function (recipeSaves) {

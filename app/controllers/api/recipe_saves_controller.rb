@@ -14,6 +14,5 @@ class Api::RecipeSavesController < ApplicationController
 
   def index
     @recipe_saves = current_user ? current_user.recipe_saves : []
-    render json: @recipe_saves
   end
 end

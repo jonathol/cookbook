@@ -69,6 +69,9 @@ var ApiUtil = {
   },
 
   fetchAllRecipeSaves: function () {
+    if (!SessionStore.loggedIn) {
+      return;
+    }
     $.ajax({
       type: "GET",
       url: "api/recipe_saves",

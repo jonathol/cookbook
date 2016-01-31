@@ -6,19 +6,19 @@ var React = require('react'),
 
 module.exports = React.createClass({
   getInitialState: function () {
-    return { recipes: [], recipeSaves: [] };
+    return { recipes: [], recipeSaves: {} };
   },
 
   componentDidMount: function () {
     this.recipeListener = RecipeStore.addListener(this._recipesChanged);
-    this.recipeSaveListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
+    this.saveListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
     this.updateRecipesWithProps(this.props);
     ApiUtil.fetchAllRecipeSaves();
   },
 
   componentWillUnmount: function () {
     this.recipeListener.remove();
-    this.recipeSaveListener.remove();
+    this.saveListener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -49,9 +49,12 @@ module.exports = React.createClass({
   render: function () {
     var recipes = this.state.recipes.map(function(recipe, idx) {
       return (
-        <RecipeIndexItem key={idx} recipe={recipe} />
+        <RecipeIndexItem
+          key={idx}
+          recipe={recipe}
+          recipeSave={this.state.recipeSaves[recipe]} />
       );
-    });
+    }.bind(this));
 
     return (
       <ul
