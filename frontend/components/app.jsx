@@ -1,5 +1,6 @@
 var React = require('react'),
     Header = require('./header'),
+    ApiUtil = require('../util/api_util'),
     AuthActions = require('../actions/auth_actions'),
     SessionStore = require('../stores/session'),
     Auth = require('./auth');
@@ -10,10 +11,7 @@ var App = React.createClass({
   },
 
   componentDidMount: function () {
-    var token = localStorage.getItem('session_token');
-    if (token && token !== "undefined") {
-      AuthActions.logInUser(token);
-    }
+    ApiUtil.fetchCurrentUser();
     var sessionListener = SessionStore.addListener(this._sessionChanged);
   },
 

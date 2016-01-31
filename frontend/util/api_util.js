@@ -53,7 +53,7 @@ var ApiUtil = {
         ApiActions.receiveRecipeSave(recipeSave);
       }
     });
-  }
+  },
 
   destroyRecipeSave: function (recipeSaveId) {
     $.ajax({
@@ -63,12 +63,12 @@ var ApiUtil = {
         ApiActions.receiveARecipeSave(recipeSave);
       },
       error: function (data) {
-        console.log("you cannot delete that recipe save")
+        console.log("you cannot delete that recipe save");
       }
     });
-  }
+  },
 
-  fetchRecipeSaves: function (recipeId) {
+  fetchAllRecipeSaves: function () {
     $.ajax({
       type: "GET",
       url: "api/recipe_saves",
@@ -76,7 +76,23 @@ var ApiUtil = {
         ApiActions.receiveAllRecipeSaves(recipeSaves);
       }
     });
-  }
+  },
+
+  fetchCurrentUser: function () {
+    $.ajax({
+      type: "GET",
+      url: "api/session",
+      success: function (response) {
+        if (!response.session_token) {
+          return;
+        }
+        AuthActions.logInUser(response.session_token);
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+  },
 
   logInUser: function (credentials) {
     $.ajax({
@@ -99,7 +115,6 @@ var ApiUtil = {
       type: "DELETE",
       url: "api/session",
       dataType: "json",
-      data: { session_token: token },
       complete: function (response) {
         AuthActions.logOutUser();
       }

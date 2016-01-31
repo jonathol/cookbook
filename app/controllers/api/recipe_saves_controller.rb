@@ -1,4 +1,4 @@
-class RecipeSavesController < ApplicationController
+class Api::RecipeSavesController < ApplicationController
   def create
     recipe_save_params = {
       recipe_id: params[:recipe_id],
@@ -9,7 +9,7 @@ class RecipeSavesController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   def index

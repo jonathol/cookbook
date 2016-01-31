@@ -1,20 +1,24 @@
 var React = require('react'),
     RecipeStore = require('../stores/recipe'),
+    RecipeSaveStore = require('../stores/recipe_save'),
     ApiUtil = require('../util/api_util'),
     RecipeIndexItem = require('./recipe_index_item');
 
 module.exports = React.createClass({
   getInitialState: function () {
-    return { recipes: [] };
+    return { recipes: [], recipeSaves: [] };
   },
 
   componentDidMount: function () {
     this.recipeListener = RecipeStore.addListener(this._recipesChanged);
+    this.recipeSaveListener = RecipeSaveStore.addListener(this._recipesChanged);
     this.updateRecipesWithProps(this.props);
+    ApiUtil.fetchAllRecipeSaves();
   },
 
   componentWillUnmount: function () {
     this.recipeListener.remove();
+    this.recipeSaveListener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -36,6 +40,10 @@ module.exports = React.createClass({
 
   _recipesChanged: function () {
     this.setState({ recipes: RecipeStore.all() });
+  },
+
+  _recipeSavesChanged: function () {
+    this.setState({ recipeSaves: RecipeSaveStore.all() });
   },
 
   render: function () {

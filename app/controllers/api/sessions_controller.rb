@@ -11,17 +11,20 @@ class Api::SessionsController < ApplicationController
       log_in!(@user)
       render :token
     else
-      render json: { error: "Invalid email/password combination" }, status: 400
+      render json: ["Invalid email/password combination"], status: 401
     end
   end
 
   def destroy
-    user = current_user
+    log_out!
+  end
+
+  def show
     if current_user
-      log_out!
-      render json: [user.email]
+      @token = current_user.session_token
+      render :token
     else
-      render json: ["Could not find user with session token"], status: 400
+      render json: {}
     end
   end
 end

@@ -8,21 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if logged_in? %>
-  <div class="">
-    <h3>
-      Logged in as
-      <a href="<%= api_user_url(current_user) %>"><%= current_user.email %></a>
-    </h3>
-    <form class="" action="<%= session_url %>" method="post">
-      <%= auth_token %>
-      <input type="hidden" name="_method" value="delete">
-      <button>Log Out</button>
-    </form>
-  </div>
-<% end %>
 <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
+<%= javascript_include_tag 'application' %>
 </body>
 </html>
