@@ -31,7 +31,7 @@ var RecipeIndexItem = React.createClass({
   handleClickCooked: function (e) {
     e.preventDefault();
     if (this.props.cooked) {
-      ApiUtil.destroyCook(this.props.cook);
+      ApiUtil.destroyCook(this.props.cooked);
     } else {
       ApiUtil.createCook(this.props.recipe.id);
     }
