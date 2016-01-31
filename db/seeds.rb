@@ -807,3 +807,15 @@ User.all.each.with_index do |user, i|
     counter += 1
   end
 end
+
+User.all.each.with_index do |user, i|
+  Recipe.all.each.with_index do |recipe, j|
+    if counter % 5 == 0
+      Cook.create!(
+        user: user,
+        recipe: recipe
+      )
+    end
+    counter += 1
+  end
+end

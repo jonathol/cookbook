@@ -21,6 +21,7 @@ CookStore.removeCook = function (recipeId) {
 
 CookStore.resetCooks = function (cooks) {
   _cooks = cooks;
+  debugger
   this.__emitChange();
 };
 

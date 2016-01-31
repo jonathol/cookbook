@@ -69,7 +69,7 @@ module.exports = {
 
   receiveAllCookedRecipes: function (cooks) {
     AppDispatcher.dispatch({
-      actionType: RecipeSaveConstants.COOKS_RECEIVED,
+      actionType: CookConstants.COOKS_RECEIVED,
       cooks: cooks
     });
   },

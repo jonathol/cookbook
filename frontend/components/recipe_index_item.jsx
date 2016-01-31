@@ -64,7 +64,7 @@ var RecipeIndexItem = React.createClass({
     }
     var cookedIcon;
     if (this.props.cooked) {
-      cookedIcon = <Icon name="bookmark" className="interacted-icon ui-icon" />
+      cookedIcon = <Icon name="check" className="interacted-icon ui-icon" />
     }
 
     return (
