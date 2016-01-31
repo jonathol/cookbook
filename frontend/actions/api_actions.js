@@ -1,6 +1,7 @@
 var AppDispatcher = require('../dispatcher/dispatcher'),
     RecipeConstants = require('../constants/recipe_constants'),
-    RecipeSaveConstants = require('../constants/recipe_save_constants');
+    RecipeSaveConstants = require('../constants/recipe_save_constants'),
+    CookConstants = require('../constants/cook_constants');
 
 module.exports = {
   receiveAllRecipes: function (recipes) {
@@ -49,6 +50,27 @@ module.exports = {
     AppDispatcher.dispatch({
       actionType: RecipeSaveConstants.RECIPE_SAVES_RECEIVED,
       recipeSaves: recipeSaves
+    });
+  },
+
+  receiveDeletedCookedRecipeId: function (recipeId) {
+    AppDispatcher.dispatch({
+      actionType: CookConstants.DELETED_COOKED_RECIPE_ID_RECEIVED,
+      recipeId: recipeId
+    });
+  },
+
+  receiveSingleCook: function (cook) {
+    AppDispatcher.dispatch({
+      actionType: CookConstants.COOK_RECEIVED,
+      cook: cook
+    });
+  },
+
+  receiveAllCooks: function (cooks) {
+    AppDispatcher.dispatch({
+      actionType: RecipeSaveConstants.COOKS_RECEIVED,
+      cooks: cooks
     });
   },
 };

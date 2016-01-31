@@ -1,4 +1,4 @@
-class RecipeCook < ActiveRecord::Base
+class Cook < ActiveRecord::Base
   validates :user, :recipe, presence: true
   validates :recipe_id, uniqueness: { scope: :user_id }
 
