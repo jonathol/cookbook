@@ -22,7 +22,11 @@ class Api::RecipeSavesController < ApplicationController
       @recipe_save = RecipeSave.find_by_recipe_box_id_and_recipe_id(
         current_user.recipe_box.id, params[:recipe_id]
       )
-      render json: { @recipe_save.recipe_id => @recipe_save.id }
+      if @recipe_save
+        render json: { @recipe_save.recipe_id => @recipe_save.id }
+      else
+        render json: {}
+      end
     else
       @recipe_saves = current_user ? current_user.recipe_saves : []
     end

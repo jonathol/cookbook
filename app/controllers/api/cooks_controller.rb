@@ -14,6 +14,17 @@ class Api::CooksController < ApplicationController
   end
 
   def index
-    @cooks = current_user ? current_user.cooked_recipes : []
+    if current_user && params[:recipe_id]
+      @cook = Cook.find_by_user_id_and_recipe_id(
+        current_user.id, params[:recipe_id]
+      )
+      if @cook
+        render json: { @cook.recipe_id => @cook.id }
+      else
+        render json: {}
+      end
+    else
+      @cooks = current_user ? current_user.cooked_recipes : []
+    end
   end
 end

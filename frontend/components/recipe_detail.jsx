@@ -13,7 +13,7 @@ var RecipeDetail = React.createClass({
 
     ApiUtil.fetchFeaturedRecipe(this.props.params.recipeId);
     ApiUtil.fetchSingleRecipeSave(this.props.params.recipeId);
-    ApiUtil.fetchAllCookedRecipes();
+    ApiUtil.fetchSingleCookedRecipe(this.props.params.recipeId);
   },
 
   componentWillUnmount: function () {
@@ -45,6 +45,14 @@ var RecipeDetail = React.createClass({
         <section className="recipe-show missing-recipe"></section>
       );
     }
+
+    var isSavedIcon = <Icon
+      name="bookmark" className="save-button-icon recipe-button-icon" />;
+    var notSavedIcon = <Icon
+      name="bookmark-o" className="save-button-icon recipe-button-icon" />;
+    var saveIcon = this.state.recipeSave ? isSavedIcon : notSavedIcon;
+    var saveText = this.state.recipeSave ? "Saved" : "Save";
+
 
     var recipeDescription = (
       <section className="recipe-description">
@@ -95,6 +103,10 @@ var RecipeDetail = React.createClass({
       <section
         className="recipe-show">
         <article className="recipe-article">
+          <div className="recipe-save-button recipe-button">
+            {saveIcon}
+            {saveText}
+          </div>
           <section className="recipe-top-details">
             <h2
               className="recipe-feature-title">

@@ -508,6 +508,40 @@ div.index-item-cooked-button {
   border: 1px solid #e6e6e6;
 }
 
+article.recipe-article {
+  position: relative;
+}
+
+div.recipe-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 115px;
+  padding: 20px 15px;
+  background-color: #f2f3ef;
+  font-size: 13.5px;
+  color: #666;
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+  transition: all 0.1s;
+}
+
+div.recipe-save-button span.save-button-icon {
+  margin-right: 10px;
+}
+
+div.recipe-button span.recipe-button-icon {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+div.recipe-button:hover {
+  background-color: #be1e08;
+  border-color: #be1e08;
+  color: #fff;
+  transition: all 0.1s;
+}
+
 .recipe-top-details > h2 {
   font-family: georgia;
   font-size: 40px;

@@ -132,6 +132,19 @@ var ApiUtil = {
     });
   },
 
+  fetchSingleCookedRecipe: function (recipeId) {
+    if (!SessionStore.loggedIn) {
+      return;
+    }
+    $.ajax({
+      type: "GET",
+      url: "api/cooks?recipe_id=" + recipeId,
+      success: function (cook) {
+        ApiActions.receiveSingleCook(cook);
+      }
+    });
+  },
+
   fetchCurrentUser: function () {
     $.ajax({
       type: "GET",
