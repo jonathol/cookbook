@@ -44,14 +44,18 @@ var RecipeIndexItem = React.createClass({
         onMouseEnter={this.handleButtonEnter.bind(this, "save")}
         onMouseLeave={this.handleButtonLeave.bind(this, "save")}
         onClick={this.handleClickSave}>
-        <Icon name={saveIcon} className="index-item-button-icon" />
+        <Icon name={saveIcon} className="index-item-button-icon ui-icon" />
         {saveText}
       </div>
     );
+    var cookedButtonIcon;
+    if (this.state.cookedHover || this.props.recipeCook) {
+      cookedIcon = <Icon name="check" className="index-item-button-icon ui-icon" />;
+    }
 
     var savedIcon;
     if (this.props.recipeSave) {
-      savedIcon = <Icon name="bookmark" className="user-interacted-icon" />
+      savedIcon = <Icon name="bookmark" className="interacted-icon ui-icon" />
     }
 
     return (
@@ -71,7 +75,7 @@ var RecipeIndexItem = React.createClass({
               className="index-item-cooked-button index-item-button"
               onMouseEnter={this.handleButtonEnter.bind(this, "cooked")}
               onMouseLeave={this.handleButtonLeave.bind(this, "cooked")}>
-              <Icon name="check" className="index-item-button-icon" />
+              {cookedButtonIcon}
               Cooked
             </div>
           </div>

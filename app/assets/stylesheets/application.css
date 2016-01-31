@@ -437,8 +437,8 @@ a.header-nav-link.sticky:hover {
 
 .recipe-index-item-info > p {
   position: absolute;
-  bottom: 15px;
-  left: 15px;
+  bottom: 11px;
+  left: 11px;
   font-size: 10px;
   color: #b3b3b3;
 }
@@ -449,9 +449,9 @@ li.recipe-index-item:hover div.user-interaction-buttons {
   bottom: 0;
   width: 100%;
   height: 62px;
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 }
 
@@ -459,12 +459,16 @@ div.user-interacted-icons {
   visibility: visible;
   color: #fff;
   position: absolute;
-  bottom: 1px;
+  bottom: 0;
 }
 
-div.user-interacted-icons .user-interacted-icon {
+div.user-interacted-icons .interacted-icon {
   padding: 7px;
   float: left;
+}
+
+span.ui-icon:before {
+  font-size: 20px;
 }
 
 li.recipe-index-item:hover div.user-interacted-icons {
@@ -475,16 +479,8 @@ div.user-interaction-buttons {
   visibility: hidden;
 }
 
-li.recipe-index-item:hover div.user-interaction-true-icon {
-  display: none;
-}
-
-li.recipe-index-item div.user-interaction-true-icon {
-  display: block;
-  float: left;
-}
-
 div.index-item-button {
+  font-size: 14px;
   color: #fff;
   position: absolute;
   bottom: 0;
