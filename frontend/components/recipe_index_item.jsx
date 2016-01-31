@@ -55,7 +55,7 @@ var RecipeIndexItem = React.createClass({
     );
     var cookedButtonIcon;
     if (this.state.cookedHover || this.props.cooked) {
-      cookedIcon = <Icon name="check" className="index-item-button-icon ui-icon" />;
+      cookedButtonIcon = <Icon name="check" className="index-item-button-icon ui-icon" />;
     }
 
     var savedIcon;
