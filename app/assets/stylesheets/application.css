@@ -462,13 +462,14 @@ div.user-interacted-icons {
   bottom: 0;
 }
 
+span.ui-icon:before {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 div.user-interacted-icons .interacted-icon {
   padding: 7px;
   float: left;
-}
-
-span.ui-icon:before {
-  font-size: 20px;
 }
 
 li.recipe-index-item:hover div.user-interacted-icons {
