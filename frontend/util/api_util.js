@@ -59,8 +59,8 @@ var ApiUtil = {
     $.ajax({
       type: "DELETE",
       url: "api/recipe_saves/" + recipeSaveId,
-      success: function (recipeSave) {
-        ApiActions.receiveSingleRecipeSave(recipeSave);
+      success: function (recipeId) {
+        ApiActions.receiveDeletedSaveRecipeId(recipeId);
       },
       error: function (data) {
         console.log("you cannot delete that recipe save");

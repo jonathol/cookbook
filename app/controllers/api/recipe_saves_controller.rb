@@ -9,9 +9,9 @@ class Api::RecipeSavesController < ApplicationController
   end
 
   def destroy
-    @recipe_save = RecipeSave.find(params[:recipe_save_id])
-    if @recipe_save.user == current_user
-      render json: @recipe_save.destroy!
+    @recipe_save = RecipeSave.find(params[:id])
+    if @recipe_save.recipe_box == current_user.recipe_box
+      render json: @recipe_save.destroy!.recipe_id
     else
       render json: ["you cannot unsave that recipe"]
     end

@@ -31,6 +31,13 @@ module.exports = {
     });
   },
 
+  receiveDeletedSaveRecipeId: function (recipeId) {
+    AppDispatcher.dispatch({
+      actionType: RecipeSaveConstants.DELETED_SAVE_RECIPE_ID_RECEIVED,
+      recipeId: recipeId
+    });
+  },
+
   receiveSingleRecipeSave: function (recipeSave) {
     AppDispatcher.dispatch({
       actionType: RecipeSaveConstants.RECIPE_SAVE_RECEIVED,

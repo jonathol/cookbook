@@ -23,9 +23,13 @@ var RecipeIndexItem = React.createClass({
     this.setState(state);
   },
 
-  handleSave: function (e) {
+  handleClickSave: function (e) {
     e.preventDefault();
-    ApiUtil.createRecipeSave(this.props.recipe.id);
+    if (this.props.recipeSave) {
+      ApiUtil.destroyRecipeSave(this.props.recipeSave);
+    } else {
+      ApiUtil.createRecipeSave(this.props.recipe.id);
+    }
   },
 
   render: function() {
@@ -39,7 +43,7 @@ var RecipeIndexItem = React.createClass({
         className="index-item-save-button index-item-button"
         onMouseEnter={this.handleButtonEnter.bind(this, "save")}
         onMouseLeave={this.handleButtonLeave.bind(this, "save")}
-        onClick={this.handleSave}>
+        onClick={this.handleClickSave}>
         <Icon name={saveIcon} className="index-item-button-icon" />
         {saveText}
       </div>
