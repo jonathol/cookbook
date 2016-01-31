@@ -11,7 +11,7 @@ module.exports = React.createClass({
 
   componentDidMount: function () {
     this.recipeListener = RecipeStore.addListener(this._recipesChanged);
-    this.recipeSaveListener = RecipeSaveStore.addListener(this._recipesChanged);
+    this.recipeSaveListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
     this.updateRecipesWithProps(this.props);
     ApiUtil.fetchAllRecipeSaves();
   },
