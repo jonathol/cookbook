@@ -444,7 +444,7 @@ a.header-nav-link.sticky:hover {
 }
 
 li.recipe-index-item:hover div.user-interaction-buttons {
-  display: block;
+  visibility: visible;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -455,8 +455,24 @@ li.recipe-index-item:hover div.user-interaction-buttons {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 }
 
+div.user-interacted-icons {
+  visibility: visible;
+  color: #fff;
+  position: absolute;
+  bottom: 1px;
+}
+
+div.user-interacted-icons .user-interacted-icon {
+  padding: 7px;
+  float: left;
+}
+
+li.recipe-index-item:hover div.user-interacted-icons {
+  visibility: hidden;
+}
+
 div.user-interaction-buttons {
-  display: none;
+  visibility: hidden;
 }
 
 li.recipe-index-item:hover div.user-interaction-true-icon {

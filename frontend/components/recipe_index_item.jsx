@@ -49,6 +49,11 @@ var RecipeIndexItem = React.createClass({
       </div>
     );
 
+    var savedIcon;
+    if (this.props.recipeSave) {
+      savedIcon = <Icon name="bookmark" className="user-interacted-icon" />
+    }
+
     return (
       <li
         className="recipe-index-item">
@@ -58,6 +63,9 @@ var RecipeIndexItem = React.createClass({
             className="thumb-image"
             src={this.props.recipe.photo.thumb_url} />
           <div className={"user-interaction-buttons"}>
+            <div className="user-interacted-icons">
+              {savedIcon}
+            </div>
             {saveButton}
             <div
               className="index-item-cooked-button index-item-button"
