@@ -2,14 +2,19 @@ class Api::RecipeSavesController < ApplicationController
   def create
     recipe_save_params = {
       recipe_id: params[:recipe_id],
-      user_id: current_user.id
+      recipe_box: current_user.recipe_box
     }
     @recipe_save = RecipeSave.create!(recipe_save_params)
-    render json: @recipe_save
+    render json: { @recipe_save.recipe_id => @recipe_save.id }
   end
 
   def destroy
-
+    @recipe_save = RecipeSave.find(params[:recipe_save_id])
+    if @recipe_save.user == current_user
+      render json: @recipe_save.destroy!
+    else
+      render json: ["you cannot unsave that recipe"]
+    end
   end
 
   def index

@@ -50,7 +50,7 @@ var ApiUtil = {
       data: { recipe_id: recipeId },
       dataType: "json",
       success: function (recipeSave) {
-        ApiActions.receiveRecipeSave(recipeSave);
+        ApiActions.receiveSingleRecipeSave(recipeSave);
       }
     });
   },
@@ -60,7 +60,7 @@ var ApiUtil = {
       type: "DELETE",
       url: "api/recipe_saves/" + recipeSaveId,
       success: function (recipeSave) {
-        ApiActions.receiveARecipeSave(recipeSave);
+        ApiActions.receiveSingleRecipeSave(recipeSave);
       },
       error: function (data) {
         console.log("you cannot delete that recipe save");

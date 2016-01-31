@@ -52,7 +52,7 @@ module.exports = React.createClass({
         <RecipeIndexItem
           key={idx}
           recipe={recipe}
-          recipeSave={this.state.recipeSaves[recipe]} />
+          recipeSave={this.state.recipeSaves[recipe.id]} />
       );
     }.bind(this));
 

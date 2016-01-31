@@ -8,8 +8,4 @@ class Api::RecipeBoxesController < ApplicationController
       render json: ["Could not find recipe box"]
     end
   end
-
-  def update
-
-  end
 end

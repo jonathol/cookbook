@@ -1,9 +1,14 @@
 var React = require('react'),
-    Icon = require('react-fontawesome');
+    Icon = require('react-fontawesome'),
+    ApiUtil = require('../util/api_util');
 
 var RecipeIndexItem = React.createClass({
   getInitialState: function () {
-    return { hover: false };
+    return { saveHover: false, cookedHover: false };
+  },
+
+  componentWillReceiveProps: function (newProps) {
+
   },
 
   handleButtonEnter: function (button, e) {
@@ -19,19 +24,26 @@ var RecipeIndexItem = React.createClass({
   },
 
   handleSave: function (e) {
-    
+    e.preventDefault();
+    ApiUtil.createRecipeSave(this.props.recipe.id);
   },
 
   render: function() {
     var saveHover = this.state.saveHover ? " hover" : "";
     var cookedHover = this.state.cookedHover ? " hover" : "";
-    if (this.state.saveHover) {
 
-    }
-
-    var recipeSavedIcon;
-    var recipeCookedIcon;
-    if (this.state)
+    var saveIcon = this.props.recipeSave || this.state.saveHover ? "bookmark" : "bookmark-o";
+    var saveText = this.props.recipeSave ? "Saved" : "Save";
+    var saveButton = (
+      <div
+        className="index-item-save-button index-item-button"
+        onMouseEnter={this.handleButtonEnter.bind(this, "save")}
+        onMouseLeave={this.handleButtonLeave.bind(this, "save")}
+        onClick={this.handleSave}>
+        <Icon name={saveIcon} className="index-item-button-icon" />
+        {saveText}
+      </div>
+    );
 
     return (
       <li
@@ -42,14 +54,7 @@ var RecipeIndexItem = React.createClass({
             className="thumb-image"
             src={this.props.recipe.photo.thumb_url} />
           <div className={"user-interaction-buttons"}>
-            <div
-              className="index-item-save-button index-item-button"
-              onMouseEnter={this.handleButtonEnter.bind(this, "save")}
-              onMouseLeave={this.handleButtonLeave.bind(this, "save")}
-              onClick={this.handleSave}>
-              <Icon name="bookmark-o" className="index-item-button-icon" />
-              Save
-            </div>
+            {saveButton}
             <div
               className="index-item-cooked-button index-item-button"
               onMouseEnter={this.handleButtonEnter.bind(this, "cooked")}

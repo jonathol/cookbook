@@ -668,7 +668,7 @@ RecipeSave.create!(
 
 RecipeSave.create!(
   recipe_box: will.recipe_box,
-  recipe: mayo
+  recipe: wonton
 )
 
 RecipeSave.create!(

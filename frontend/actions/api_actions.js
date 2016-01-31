@@ -31,6 +31,13 @@ module.exports = {
     });
   },
 
+  receiveSingleRecipeSave: function (recipeSave) {
+    AppDispatcher.dispatch({
+      actionType: RecipeSaveConstants.RECIPE_SAVE_RECEIVED,
+      recipeSave: recipeSave
+    });
+  },
+
   receiveAllRecipeSaves: function (recipeSaves) {
     AppDispatcher.dispatch({
       actionType: RecipeSaveConstants.RECIPE_SAVES_RECEIVED,
