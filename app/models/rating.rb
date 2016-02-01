@@ -7,6 +7,6 @@ class Rating < ActiveRecord::Base
 
   def self.avg_score_and_count(recipe_id)
     ratings = Rating.where(recipe_id: recipe_id)
-    { average: ratings.average(:score), count: ratings.count }
+    { average: ratings.average(:score).to_f.round, count: ratings.count }
   end
 end
