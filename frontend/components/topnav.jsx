@@ -3,7 +3,7 @@ var React = require('react'),
     Icon = require('react-fontawesome'),
     ApiUtil = require('../util/api_util');
 
-var Header = React.createClass({
+var TopNav = React.createClass({
   componentDidMount: function () {
     var sessionListener = SessionStore.addListener(this._sessionChanged);
     document.addEventListener('scroll', this.handleScroll);
@@ -74,43 +74,43 @@ var Header = React.createClass({
         <li>
           <a
             href={"#/users/" + this.state.userId + "/recipe-box"}
-            className={"header-nav-link" + sticky}>Recipe Box</a>
+            className={"topnav-link" + sticky}>Recipe Box</a>
         </li>
       )
     }
 
     return (
-      <section className={"header group" + sticky}>
+      <section className={"topnav group" + sticky}>
         <a href="#/">
           <h1
             className={"cookbook-main-header" + sticky}>
             <logo className={"logo" + sticky}></logo>
-            <span className={"cookbook-header-text" + sticky}>Cookbook</span>
+            <span className={"cookbook-topnav-text" + sticky}>Cookbook</span>
           </h1>
         </a>
-        <ul className={"header-nav-left group" + sticky}>
+        <ul className={"topnav-left group" + sticky}>
           <li>
-            <div className={"header-nav-button sidebar-button" + sticky}>
+            <div className={"topnav-button sidebar-button" + sticky}>
               <Icon name='angle-double-right' className={"button-icon" + sticky} />
             </div>
           </li>
           {recipeBox}
           <li>
-            <a className={"header-nav-link" + sticky}>Healthy</a>
+            <a className={"topnav-link" + sticky}>Healthy</a>
           </li>
           <li>
-            <a className={"header-nav-link" + sticky}>Learn To Cook</a>
+            <a className={"topnav-link" + sticky}>Learn To Cook</a>
           </li>
         </ul>
-        <ul className={"header-nav-right group" + sticky}>
+        <ul className={"topnav-right group" + sticky}>
           <li>
-            <div className={"header-nav-button search" + sticky}>
+            <div className={"topnav-button search" + sticky}>
               <Icon name='search' className={"search-icon button-icon" + sticky} />
               <span className={"search-button-text" + sticky}>Search 40+ recipes</span>
             </div>
           </li>
           <li>
-            <div className={"header-nav-button user-control" + sticky}>
+            <div className={"topnav-button user-control" + sticky}>
               {userButton}
             </div>
           </li>
@@ -120,4 +120,4 @@ var Header = React.createClass({
   }
 });
 
-module.exports = Header;
+module.exports = TopNav;

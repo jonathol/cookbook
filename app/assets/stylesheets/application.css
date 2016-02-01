@@ -68,7 +68,7 @@ li {
 }
 
 /* HEADER */
-section.header {
+section.topnav {
   z-index: 20;
   background-color: white;
   text-transform: uppercase;
@@ -79,7 +79,7 @@ section.header {
   transition: all 0.4s;
 }
 
-section.header.sticky {
+section.topnav.sticky {
   position: fixed;
   width: 100%;
   top: 0;
@@ -89,7 +89,7 @@ section.header.sticky {
   transition: all 0.4s;
 }
 
-.header > a > h1 {
+section.topnav > a > h1 {
   color: #000;
   position: absolute;
   top: -35px;
@@ -107,7 +107,7 @@ h1:hover {
   text-decoration: none;
 }
 
-.header > a > h1.sticky {
+section.topnav > a > h1.sticky {
   color: #fff;
   position: absolute;
   top: 0;
@@ -116,7 +116,7 @@ h1:hover {
   margin-top: 3px;
 }
 
-.header > a > h1 > logo {
+section.topnav > a > h1 > logo {
   font-family: 'Martel', 'Times New Roman', serif;
   font-weight: 800;
   text-transform: none;
@@ -139,19 +139,19 @@ logo.sticky:after {
   display: inline;
 }
 
-.header > a > h1 > span {
+section.topnav > a > h1 > span {
   display: block;
   transform: translateY(-45px);
   font-size: 60px;
   letter-spacing: 0;
 }
 
-.header > a > h1 > span.sticky {
+section.topnav > a > h1 > span.sticky {
   display: inline;
   font-size: 24px;
 }
 
-.header > a > h1 > span.sticky:before {
+section.topnav > a > h1 > span.sticky:before {
   content: "";
   position: absolute;
   height: 20px;
@@ -160,55 +160,55 @@ logo.sticky:after {
   border-left: 1px solid rgba(255, 255, 255, .25);
 }
 
-.header-nav-left {
+ul.topnav-left {
   float: left;
 }
 
-.header li {
+section.topnav li {
   float: left;
   padding: 0 15px;
 }
 
-.header-nav-left > li:first-child {
+ul.topnav-left > li:first-child {
   padding-left: 0;
   padding-right: 0;
 }
 
-a.header-nav-link {
+a.topnav-link {
   display: block;
   margin-top: 17px;
   padding-bottom: 15px;
 }
 
-a.header-nav-link:hover {
+a.topnav-link:hover {
   text-decoration: none;
   cursor: pointer;
   border-bottom: 3px solid #000;
   padding-bottom: 12px;
 }
 
-a.header-nav-link.sticky:hover {
+a.topnav-link.sticky:hover {
   cursor: pointer;
   border-bottom: 3px solid #fff;
   padding-bottom: 12px;
 }
 
-.header-nav-right {
+ul.topnav-right {
   float: right;
   margin-right: 15px;
 }
 
-.fa-angle-double-right:before {
+span.fa-angle-double-right:before {
   font-weight: 700;
   padding-left: 5px;
 }
 
-.sidebar-button {
+div.sidebar-button {
   transform: translateX(-8px);
   transition: all 0.2s;
 }
 
-.fa-angle-double-right.button-icon {
+span.fa-angle-double-right.button-icon {
   color: #fff;
   background-color: #e33d26;
   border-color: #e33d26;
@@ -216,27 +216,27 @@ a.header-nav-link.sticky:hover {
   border-bottom-left-radius: 0;
 }
 
-.sidebar-button:hover > .fa-angle-double-right.button-icon {
+div.sidebar-button:hover > span.fa-angle-double-right.button-icon {
   background-color: #e33d26;
   border-color: #e33d26;
 }
 
-.fa-angle-double-right.button-icon.sticky {
+span.fa-angle-double-right.button-icon.sticky {
   background-color: transparent;
   border-color: rgb(255, 255, 255);
   border-color: rgba(255, 255, 255, .25);
 }
 
-.sidebar-button:hover {
+div.sidebar-button:hover {
   transform: translateX(0);
   transition: all 0.2s;
 }
 
-.header-nav-button {
+div.topnav-button {
   margin-top: 8px;
 }
 
-.button-icon {
+span.button-icon {
   font-size: 16px;
   padding: 5px 10px;
   border: 1px solid rgb(255, 255, 255);
@@ -247,34 +247,34 @@ a.header-nav-link.sticky:hover {
   border-radius: 2px;
 }
 
-.header-nav-button:hover {
+div.topnav-button:hover {
   cursor: pointer;
 }
 
-.header-nav-button:hover .button-icon {
+div.topnav-button:hover .button-icon {
   background-color: rgba(0, 0, 0, 0.1);
   border-color: rgba(0, 0, 0, 0.1);
   transition: all 0.2s;
 }
 
-.header-nav-button.sticky:hover .button-icon {
+div.topnav-button.sticky:hover .button-icon {
   background-color: #e33d26;
   border-color: #e33d26;
   transition: all 0.2s;
 }
 
-.search-button-text {
+span.search-button-text {
   text-transform: capitalize;
   font-size: 14px;
   font-weight: 200;
   letter-spacing: 1px;
 }
 
-.search-icon {
+span.search-icon {
   margin-right: 10px;
 }
 
-.login-button {
+div.login-button {
   font-size: 11.5px;
   padding-bottom: 6px;
   padding-top: 6px;

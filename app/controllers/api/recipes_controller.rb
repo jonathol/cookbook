@@ -8,6 +8,10 @@ class Api::RecipesController < ApplicationController
       user = User.find(params[:user_id])
       @recipes = user ? user.recipes : []
     else
+      @owner = {
+        type: "all",
+        name: "index"
+      }
       @recipes = Recipe.all;
     end
   end

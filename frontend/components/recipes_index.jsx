@@ -49,13 +49,16 @@ module.exports = React.createClass({
   updateRecipesWithProps: function (props) {
     switch (props.route.path) {
       case "recipe-box":
-      ApiUtil.fetchRecipeBox(props.params.userId);
-      break;
+        ApiUtil.fetchRecipeBox(props.params.userId);
+        break;
       case "my-recipes":
-      ApiUtil.fetchAuthoredRecipes(props.params.userId);
-      break;
+        ApiUtil.fetchAuthoredRecipes(props.params.userId);
+        break;
+      case "tags/:tagId":
+        ApiUtil.fetchTaggedRecipes(props.params.tagId);
+        break;
       default:
-      ApiUtil.fetchAllRecipes();
+        ApiUtil.fetchAllRecipes();
     }
   },
 

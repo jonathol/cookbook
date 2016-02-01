@@ -1,5 +1,5 @@
 var React = require('react'),
-    Header = require('./header'),
+    TopNav = require('./topnav'),
     ApiUtil = require('../util/api_util'),
     AuthActions = require('../actions/auth_actions'),
     SessionStore = require('../stores/session'),
@@ -61,7 +61,7 @@ var App = React.createClass({
     var auth = this.state.authAction ? <Auth cancel={this.cancelAuth} /> : "";
     return (
       <div className="cookbook">
-        <Header newSessionClick={this.newSession} />
+        <TopNav newSessionClick={this.newSession} />
         {auth}
         {this.renderChildren()}
       </div>

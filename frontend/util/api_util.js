@@ -7,8 +7,8 @@ var ApiUtil = {
     $.ajax({
       type: "GET",
       url: "api/recipes",
-      success: function (recipes) {
-        ApiActions.receiveAllRecipes(recipes);
+      success: function (data) {
+        ApiActions.receiveAllRecipes(data.recipes);
       }
     });
   },
@@ -37,8 +37,18 @@ var ApiUtil = {
     $.ajax({
       type: "GET",
       url: "api/users/" + userId + "/recipe_box",
-      success: function (recipeBox) {
-        ApiActions.receiveRecipeBox(recipeBox);
+      success: function (data) {
+        ApiActions.receiveRecipeBox(data.recipes);
+      }
+    });
+  },
+
+  fetchTaggedRecipes: function (tagId) {
+    $.ajax({
+      type: "GET",
+      url: "api/tags/" + tagId,
+      success: function (recipes) {
+        ApiActions.receiveAllRecipes(data.recipes);
       }
     });
   },
