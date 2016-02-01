@@ -177,7 +177,6 @@ var ApiUtil = {
   },
 
   logOutUser: function () {
-    var token = SessionStore.token();
     $.ajax({
       type: "DELETE",
       url: "api/session",

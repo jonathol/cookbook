@@ -62,7 +62,8 @@ module.exports = React.createClass({
           key={idx}
           recipe={recipe}
           recipeSave={this.state.recipeSaves[recipe.id]}
-          cooked={this.state.cooks[recipe.id]} />
+          cooked={this.state.cooks[recipe.id]}
+          enforceAuth={this.props.enforceAuth} />
       );
     }.bind(this));
 

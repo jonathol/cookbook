@@ -1,6 +1,7 @@
 var React = require('react'),
     Icon = require('react-fontawesome'),
-    ApiUtil = require('../util/api_util');
+    ApiUtil = require('../util/api_util'),
+    SessionStore = require('../stores/session');
 
 var RecipeIndexItem = React.createClass({
   getInitialState: function () {
@@ -21,7 +22,10 @@ var RecipeIndexItem = React.createClass({
 
   handleClickSave: function (e) {
     e.preventDefault();
-    if (this.props.recipeSave) {
+    // debugger
+    if (!this.props.enforceAuth()) {
+      return;
+    } else if (this.props.recipeSave) {
       ApiUtil.destroyRecipeSave(this.props.recipeSave);
     } else {
       ApiUtil.createRecipeSave(this.props.recipe.id);

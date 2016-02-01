@@ -35,8 +35,7 @@ var Auth = React.createClass({
 
   handleDemo: function (e) {
     e.preventDefault();
-    this.setState({ email: "kylew90@comcast.net", password: "ilovefood" });
-    this.logIn();
+    ApiUtil.logInUser({ email: "kylew90@comcast.net", password: "ilovefood" });
   },
 
   handleSubmit: function (e) {
