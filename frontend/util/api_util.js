@@ -47,7 +47,7 @@ var ApiUtil = {
     $.ajax({
       type: "GET",
       url: "api/tags/" + tagId,
-      success: function (recipes) {
+      success: function (data) {
         ApiActions.receiveAllRecipes(data.recipes);
       }
     });

@@ -236,7 +236,7 @@ div.topnav-button {
   margin-top: 8px;
 }
 
-span.button-icon {
+.button-icon {
   font-size: 16px;
   padding: 5px 10px;
   border: 1px solid rgb(255, 255, 255);
@@ -713,6 +713,11 @@ ul.rating-stars > li {
 
 ul.rating-stars:hover {
   cursor: pointer;
+}
+
+li.rating-star:active > span.fa-star  {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #e33d26;
 }
 
 ul.rating-stars > li.filled {
