@@ -71,9 +71,8 @@ li {
   list-style: none;
 }
 
-
 /* HEADER */
-.header {
+section.header {
   z-index: 20;
   background-color: white;
   text-transform: uppercase;
@@ -84,13 +83,23 @@ li {
   transition: all 0.4s;
 }
 
-.header.sticky {
+section.header.sticky {
   position: fixed;
   width: 100%;
   top: 0;
   background-color: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 0;
+  transition: all 0.4s;
+}
+
+div.header-margin.sticky {
+  padding-top: 50px;
+  transition: all 0.4s;
+}
+
+div.header-margin {
+  padding-top: 0;
   transition: all 0.4s;
 }
 
@@ -352,16 +361,21 @@ a.header-nav-link.sticky:hover {
   padding: 10px;
 }
 
-.user-form > button {
-  display: block;
-  margin: 20px auto;
+div.submit-buttons {
+  margin: 20px;
+  text-align: center;
+}
+
+div.submit-buttons > button {
+  display: inline-block;
+  margin: 20px 10px;
   padding: 17px 40px;
   background-color: #e33d26;
   border-radius: 5px;
   color: #fff;
 }
 
-.user-form > button:hover {
+div.submit-buttons > button:hover {
   background-color: #be1e08;
 }
 

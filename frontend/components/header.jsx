@@ -80,42 +80,44 @@ var Header = React.createClass({
     }
 
     return (
-      <section className={"header group" + sticky}>
-        <a href="#/">
-          <h1
-            className={"cookbook-main-header" + sticky}>
-            <logo className={"logo" + sticky}></logo>
-            <span className={"cookbook-header-text" + sticky}>Cookbook</span>
-          </h1>
-        </a>
-        <ul className={"header-nav-left group" + sticky}>
-          <li>
-            <div className={"header-nav-button sidebar-button" + sticky}>
-              <Icon name='angle-double-right' className={"button-icon" + sticky} />
-            </div>
-          </li>
-          {recipeBox}
-          <li>
-            <a className={"header-nav-link" + sticky}>Healthy</a>
-          </li>
-          <li>
-            <a className={"header-nav-link" + sticky}>Learn To Cook</a>
-          </li>
-        </ul>
-        <ul className={"header-nav-right group" + sticky}>
-          <li>
-            <div className={"header-nav-button search" + sticky}>
-              <Icon name='search' className={"search-icon button-icon" + sticky} />
-              <span className={"search-button-text" + sticky}>Search 40+ recipes</span>
-            </div>
-          </li>
-          <li>
-            <div className={"header-nav-button user-control" + sticky}>
-              {userButton}
-            </div>
-          </li>
-        </ul>
-      </section>
+      <div className={"header-margin" + sticky}>
+        <section className={"header group" + sticky}>
+          <a href="#/">
+            <h1
+              className={"cookbook-main-header" + sticky}>
+              <logo className={"logo" + sticky}></logo>
+              <span className={"cookbook-header-text" + sticky}>Cookbook</span>
+            </h1>
+          </a>
+          <ul className={"header-nav-left group" + sticky}>
+            <li>
+              <div className={"header-nav-button sidebar-button" + sticky}>
+                <Icon name='angle-double-right' className={"button-icon" + sticky} />
+              </div>
+            </li>
+            {recipeBox}
+            <li>
+              <a className={"header-nav-link" + sticky}>Healthy</a>
+            </li>
+            <li>
+              <a className={"header-nav-link" + sticky}>Learn To Cook</a>
+            </li>
+          </ul>
+          <ul className={"header-nav-right group" + sticky}>
+            <li>
+              <div className={"header-nav-button search" + sticky}>
+                <Icon name='search' className={"search-icon button-icon" + sticky} />
+                <span className={"search-button-text" + sticky}>Search 40+ recipes</span>
+              </div>
+            </li>
+            <li>
+              <div className={"header-nav-button user-control" + sticky}>
+                {userButton}
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
     );
   }
 });

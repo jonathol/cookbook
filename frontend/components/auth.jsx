@@ -34,6 +34,12 @@ var Auth = React.createClass({
     };
   },
 
+  handleDemo: function (e) {
+    e.preventDefault();
+    this.setState({ email: "kylew90@comcast.net", password: "ilovefood" });
+    this.logIn();
+  },
+
   handleSubmit: function (e) {
     e.preventDefault();
     if (this.state.authAction === newSession) {
@@ -91,10 +97,17 @@ var Auth = React.createClass({
               type="password"
               placeholder="Password"
               valueLink={this.linkState('password')} />
-            <button
-              onClick={this.handleSubmit}>
-              {auth.submitText}
-            </button>
+            <div
+              className="submit-buttons group">
+              <button
+                onClick={this.handleSubmit}>
+                {auth.submitText}
+              </button>
+              <button
+                onClick={this.handleDemo}>
+                Demo
+              </button>
+            </div>
           </form>
           <div className="user-form-footer">
             {auth.footerText}
