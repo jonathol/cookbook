@@ -518,7 +518,7 @@ RecipePhoto.create!(
   credit: "JaBB"
 )
 
-pulled_pork_sammy = Recipe.create!(
+pulled_pork_sandwich = Recipe.create!(
   title: "Pulled Pork Sandwich",
   author: david,
   cook_time: "7 hours",
@@ -526,7 +526,7 @@ pulled_pork_sammy = Recipe.create!(
 )
 
 RecipePhoto.create!(
-  recipe: pulled_pork_sammy,
+  recipe: pulled_pork_sandwich,
   large_url: "https://c2.staticflickr.com/6/5042/5252935828_7427ca3865_o.jpg",
   thumb_url: "https://c2.staticflickr.com/6/5042/5252935828_43b489834c_n.jpg",
   credit: "jeffreyw"
@@ -791,34 +791,32 @@ RecipeSave.create!(
   recipe: risotto
 )
 
-
-user_3_id = User.first.id + 2
-
-counter = 0
 User.all.each.with_index do |user, i|
   next if i < 2
   Recipe.all.each.with_index do |recipe, j|
-    if counter % 4 == 0
+    if rand > 0.75
       RecipeSave.create!(
         recipe_box: user.recipe_box,
         recipe: recipe
       )
     end
-    counter += 1
   end
 end
 
+Cook.destroy_all
+
 User.all.each.with_index do |user, i|
   Recipe.all.each.with_index do |recipe, j|
-    if counter % 5 == 0
+    if rand > 0.8
       Cook.create!(
         user: user,
         recipe: recipe
       )
     end
-    counter += 1
   end
 end
+
+Rating.destroy_all
 
 User.all.each.with_index do |user, i|
   Recipe.all.each.with_index do |recipe, j|
@@ -831,3 +829,98 @@ User.all.each.with_index do |user, i|
     end
   end
 end
+
+Tag.destroy_all
+
+healthy = Tag.create!(name: "Healthy")
+vegetarian = Tag.create!(name: "Vegetarian")
+muffins = Tag.create!(name: "Muffins")
+rice = Tag.create!(name: "Rice")
+dumplings = Tag.create!(name: "Dumplings")
+pork = Tag.create!(name: "Pork")
+pie = Tag.create!(name: "Pie")
+sauce = Tag.create!(name: "Sauce")
+noodles = Tag.create!(name: "Noodles")
+potatoes = Tag.create!(name: "Potatoes")
+condiment = Tag.create!(name: "Condiment")
+soup = Tag.create!(name: "Soup")
+sandwich = Tag.create!(name: "Sandwich")
+ice_cream = Tag.create!(name: "Ice Cream")
+french = Tag.create!(name: "French")
+italian = Tag.create!(name: "Italian")
+latin = Tag.create!(name: "Latin")
+mexican = Tag.create!(name: "Mexican")
+middle_eastern = Tag.create!(name: "Middle Eastern")
+indian = Tag.create!(name: "Indian")
+thai = Tag.create!(name: "Thai")
+spicy = Tag.create!(name: "Spicy")
+sweet = Tag.create!(name: "Sweet")
+breakfast = Tag.create!(name: "Breakfast")
+lunch = Tag.create!(name: "Lunch")
+dinner = Tag.create!(name: "Dinner")
+dessert = Tag.create!(name: "Dessert")
+snack = Tag.create!(name: "Snack")
+drink = Tag.create!(name: "Drink")
+alcohol = Tag.create!(name: "Alcohol")
+
+Tagging.destroy_all
+
+Tagging.create!(recipe: muffins, tag: healthy)
+Tagging.create!(recipe: muffins, tag: vegetarian)
+Tagging.create!(recipe: muffins, tag: muffins)
+Tagging.create!(recipe: muffins, tag: snack)
+Tagging.create!(recipe: muffins, tag: snack)
+Tagging.create!(recipe: mayo, tag: condiment)
+Tagging.create!(recipe: mayo, tag: condiment)
+Tagging.create!(recipe: hot_sauce, tag: spicy)
+Tagging.create!(recipe: hot_sauce, tag: sauce)
+Tagging.create!(recipe: hot_sauce, tag: condiment)
+Tagging.create!(recipe: smoothie, tag: healthy)
+Tagging.create!(recipe: smoothie, tag: drink)
+Tagging.create!(recipe: smoothie, tag: snack)
+Tagging.create!(recipe: udon, tag: soup)
+Tagging.create!(recipe: udon, tag: noodles)
+Tagging.create!(recipe: hummus, tag: middle_eastern)
+Tagging.create!(recipe: hummus, tag: vegetarian)
+Tagging.create!(recipe: popcorn, tag: snack)
+Tagging.create!(recipe: burrito, tag: mexican)
+Tagging.create!(recipe: burrito, tag: lunch)
+Tagging.create!(recipe: eggplant_parm, tag: dinner)
+Tagging.create!(recipe: eggplant_parm, tag: italian)
+Tagging.create!(recipe: eggplant_parm, tag: vegetarian)
+Tagging.create!(recipe: marinara, tag: sauce)
+Tagging.create!(recipe: marinara, tag: italian)
+Tagging.create!(recipe: chicken_curry, tag: indian)
+Tagging.create!(recipe: pancakes, tag: breakfast)
+Tagging.create!(recipe: pecan_pie, tag: dessert)
+Tagging.create!(recipe: pecan_pie, tag: pie)
+Tagging.create!(recipe: margaritas, tag: alcohol)
+Tagging.create!(recipe: margaritas, tag: drink)
+Tagging.create!(recipe: margaritas, tag: mexican)
+Tagging.create!(recipe: pad_kee_mao, tag: thai)
+Tagging.create!(recipe: pad_kee_mao, tag: noodles)
+Tagging.create!(recipe: pad_kee_mao, tag: spicy)
+Tagging.create!(recipe: pupusas, tag: latin)
+Tagging.create!(recipe: gratin, tag: french)
+Tagging.create!(recipe: gratin, tag: potatoes)
+Tagging.create!(recipe: gratin, tag: dinner)
+Tagging.create!(recipe: pulled_pork_sandwich, tag: pork)
+Tagging.create!(recipe: pulled_pork_sandwich, tag: sandwich)
+Tagging.create!(recipe: falafel, tag: vegetarian)
+Tagging.create!(recipe: falafel, tag: middle_eastern)
+Tagging.create!(recipe: pumpkin_soup, tag: soup)
+Tagging.create!(recipe: pumpkin_soup, tag: vegetarian)
+Tagging.create!(recipe: pumpkin_soup, tag: healthy)
+Tagging.create!(recipe: sundae, tag: dessert)
+Tagging.create!(recipe: sundae, tag: ice_cream)
+Tagging.create!(recipe: risotto, tag: rice)
+Tagging.create!(recipe: risotto, tag: italian)
+Tagging.create!(recipe: super_pig, tag: pork)
+Tagging.create!(recipe: pad_thai, tag: thai)
+Tagging.create!(recipe: pad_thai, tag: noodles)
+Tagging.create!(recipe: pad_thai, tag: dinner)
+Tagging.create!(recipe: pelmeni, tag: dumplings)
+Tagging.create!(recipe: pelmeni, tag: breakfast)
+Tagging.create!(recipe: baba_ganoush, tag: middle_eastern)
+Tagging.create!(recipe: wonton, tag: soup)
+Tagging.create!(recipe: wonton, tag: vegetarian)
