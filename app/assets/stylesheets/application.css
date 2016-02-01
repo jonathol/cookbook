@@ -710,6 +710,16 @@ ul.rating-stars > li {
   float: left;
   padding: 2px;
   font-size: 18px;
+  color: #e2e2e2;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #e2e2e2;
+}
+
+ul.rating-stars > li.filled {
+  color: #e33d26;
+  -webkit-text-stroke-width: 0;
+  -webkit-text-fill-color: #e33d26;
 }
 
 section.recipe-directions {

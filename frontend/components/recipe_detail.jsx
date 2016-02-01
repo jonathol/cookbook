@@ -132,7 +132,7 @@ var RecipeDetail = React.createClass({
     });
 
     var ratingStars = [1,2,3,4,5].map(function (num) {
-      var filled = num > this.state.ratings.average ? " filled" : "";
+      var filled = num <= this.state.ratings.average ? " filled" : "";
 
       return (
         <li className={"rating-star star-" + num + filled} key={num}>
