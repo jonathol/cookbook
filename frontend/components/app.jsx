@@ -15,13 +15,18 @@ var App = React.createClass({
     var sessionListener = SessionStore.addListener(this._sessionChanged);
   },
 
+  componentWillReceiveProps: function (newProps) {
+    var authAction = (newProps.location.pathname === "/login");
+    this.setState({ authAction: authAction });
+  },
+
   componentWillUnmount: function () {
     sessionListener.remove();
   },
 
   getInitialState: function () {
     var state = this.getSessionState();
-    state.authAction = false;
+    state.authAction = (this.props.location.pathname === "/login");
     return state;
   },
 

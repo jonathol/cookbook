@@ -14,8 +14,8 @@ var router = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={RecipesIndex} />
-      <Route path="login" component={Auth} />
-      <Route path="register" component={Auth} />
+      <Route path="login" component={RecipesIndex} />
+      <Route path="register" component={RecipesIndex} />
       <Route path="recipes/:recipeId" component={RecipeDetail} />
       <Route path="users/:userId" component={UserShow} >
         <Route path="recipe-box" component={RecipesIndex} />

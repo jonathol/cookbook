@@ -1,11 +1,8 @@
 var React = require('react'),
     Icon = require('react-fontawesome'),
-    ApiUtil = require('../util/api_util'),
-    AuthMixin = require('../util/auth_mixin');
+    ApiUtil = require('../util/api_util');
 
 var RecipeIndexItem = React.createClass({
-  mixins: [AuthMixin],
-
   getInitialState: function () {
     return { saveHover: false, cookedHover: false };
   },
