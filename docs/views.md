@@ -18,7 +18,7 @@
 ## Search Form
 ![search]
 
-## Component Heirarchy
+## Component Hierarchy
 ![component-hierarchy]
 
 [new-user]: ./wireframes/sign-up.png
