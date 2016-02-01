@@ -716,11 +716,35 @@ ul.rating-stars > li {
   -webkit-text-stroke-color: #e2e2e2;
 }
 
+ul.rating-stars:hover {
+  cursor: pointer;
+}
+
 ul.rating-stars > li.filled {
   color: #e33d26;
   -webkit-text-stroke-width: 0;
   -webkit-text-fill-color: #e33d26;
 }
+
+ul.rating-stars:hover > li.rating-star:hover ~ li.rating-star {
+  color: #e2e2e2;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #e2e2e2;
+}
+
+ul.rating-stars:hover > li.rating-star {
+  color: #e33d26;
+  -webkit-text-fill-color: #e33d26;
+  -webkit-text-stroke-width: 0;
+}
+
+
+/*ul.ratings-stars:hover > li:hover + li {
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #e2e2e2;
+}*/
 
 section.recipe-directions {
   margin-top: 20px;

@@ -217,7 +217,7 @@ var RecipeDetail = React.createClass({
                   <p className="ratings-text">
                     {this.state.ratings.count} ratings
                   </p>
-                  <ul className="rating-stars">
+                  <ul className="rating-stars group">
                     {ratingStars}
                   </ul>
                 </div>
