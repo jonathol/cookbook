@@ -668,6 +668,12 @@ div.detail-cooked-button:hover > span.fa-check {
 
 div.detail-cooked-button:active > span.fa-check {
   text-shadow: -3px 0 #ffb700, 0 3px #ffb700, 3px 0 #ffb700, 0 -3px #ffb700;
+  color: #ffb700;
+}
+
+div.detail-cooked-button:active > span.fa-check.checked {
+  text-shadow: -3px 0 #ffb700, 0 3px #ffb700, 3px 0 #ffb700, 0 -3px #ffb700;
+  color: #ffb700;
 }
 
 div.detail-cooked-button > span.fa-check {
@@ -676,6 +682,11 @@ div.detail-cooked-button > span.fa-check {
   vertical-align: middle;
   font-size: 24px;
   margin-right: 5px;
+}
+
+div.detail-cooked-button > span.fa-check.checked {
+  text-shadow: -1px 0 #ffb700, 0 1px #ffb700, 1px 0 #ffb700, 0 -1px #ffb700;
+  color: #ffb700;
 }
 
 div.detail-cooked-button > span.cooked-text {

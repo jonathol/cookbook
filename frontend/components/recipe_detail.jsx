@@ -96,7 +96,7 @@ var RecipeDetail = React.createClass({
       </section>
     );
 
-    var checked = this.props.cooked ? " checked" : "";
+    var checked = this.state.cooked ? " checked" : "";
 
     var ingredients = this.state.recipe.ingredients.map(function (ingredient, idx) {
       return (
@@ -187,10 +187,11 @@ var RecipeDetail = React.createClass({
             </ul>
             <ul className="recipe-ratings-cooked">
               <li
-                className="recipe-cooked"
-                onClick={this.handleClickCooked}>
-                <div className="detail-cooked-button">
-                  <Icon name="check" className={"meta-data-icon" + checked} />
+                className="recipe-cooked">
+                <div
+                  className="detail-cooked-button"
+                  onClick={this.handleClickCooked}>
+                  <Icon name="check" className={checked} />
                   <span className="cooked-text">Cooked</span>
                 </div>
               </li>
