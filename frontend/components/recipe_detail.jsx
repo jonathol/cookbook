@@ -20,7 +20,7 @@ var RecipeDetail = React.createClass({
     this.recipeListener.remove();
     this.saveListener.remove();
     this.cookListener.remove();
-    this.ratingListener = RatingStore.addListener(this._ratingsChanged);
+    this.ratingListener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {

@@ -630,6 +630,15 @@ ul.recipe-tags {
   float: left;
 }
 
+ul.recipe-tags > li {
+  float: left;
+  margin-right: 4px;
+}
+
+ul.recipe-tags > li > a {
+  color: #e33d26;
+}
+
 ul.recipe-ratings-cooked {
   float: right;
 }
@@ -724,13 +733,6 @@ ul.rating-stars:hover > li.rating-star {
   -webkit-text-fill-color: #e33d26;
   -webkit-text-stroke-width: 0;
 }
-
-
-/*ul.ratings-stars:hover > li:hover + li {
-  -webkit-text-fill-color: #fff;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #e2e2e2;
-}*/
 
 section.recipe-directions {
   margin-top: 20px;
