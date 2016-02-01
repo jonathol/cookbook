@@ -11,8 +11,8 @@ var App = React.createClass({
   },
 
   componentDidMount: function () {
+    this.sessionListener = SessionStore.addListener(this._sessionChanged);
     ApiUtil.fetchCurrentUser();
-    var sessionListener = SessionStore.addListener(this._sessionChanged);
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -21,7 +21,7 @@ var App = React.createClass({
   },
 
   componentWillUnmount: function () {
-    sessionListener.remove();
+    this.sessionListener.remove();
   },
 
   enforceAuth: function () {

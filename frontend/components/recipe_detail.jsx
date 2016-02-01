@@ -24,7 +24,7 @@ var RecipeDetail = React.createClass({
 
   componentWillReceiveProps: function (newProps) {
     ApiUtil.fetchFeaturedRecipe(newProps.params.recipeId);
-    ApiUtil.fetchSingleRecipeSave();
+    ApiUtil.fetchSingleRecipeSave(newProps.params.recipeId);
   },
 
   _cookChanged: function () {
@@ -45,6 +45,12 @@ var RecipeDetail = React.createClass({
     } else {
       ApiUtil.createRecipeSave(this.state.recipe.id);
     }
+  },
+
+  updateStateWithProps: function (props) {
+    this.updateRecipesWithProps(props);
+    ApiUtil.fetchAllRecipeSaves();
+    ApiUtil.fetchAllCookedRecipes();
   },
 
   render: function () {
@@ -80,6 +86,8 @@ var RecipeDetail = React.createClass({
         </div>
       </section>
     );
+
+    var checked = this.props.cooked ? " checked" : "";
 
     var ingredients = this.state.recipe.ingredients.map(function (ingredient, idx) {
       return (
@@ -167,6 +175,14 @@ var RecipeDetail = React.createClass({
           <section className="recipe-middle-details">
             <ul className="recipe-tags">
               TAGS HERE
+            </ul>
+            <ul className="recipe-meta-data">
+              <li className="recipe-cooked-button">
+               <Icon name="check" className={"meta-data-icon" + checked} />
+              </li>
+              <ul className="recipe-ratings">
+                Ratings
+              </ul>
             </ul>
             <section className="user-interaction">
 

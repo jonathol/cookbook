@@ -640,6 +640,12 @@ section.recipe-middle-details {
   border-bottom: 1px solid #ccc;
 }
 
+ul.recipe
+
+ul.recipe-meta-data {
+  float: right;
+}
+
 section.recipe-directions {
   margin-top: 20px;
 }
