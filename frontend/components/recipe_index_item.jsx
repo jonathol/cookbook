@@ -22,7 +22,6 @@ var RecipeIndexItem = React.createClass({
 
   handleClickSave: function (e) {
     e.preventDefault();
-    // debugger
     if (!this.props.enforceAuth()) {
       return;
     } else if (this.props.recipeSave) {
@@ -34,7 +33,9 @@ var RecipeIndexItem = React.createClass({
 
   handleClickCooked: function (e) {
     e.preventDefault();
-    if (this.props.cooked) {
+    if (!this.props.enforceAuth()) {
+      return;
+    } else if (this.props.cooked) {
       ApiUtil.destroyCook(this.props.cooked);
     } else {
       ApiUtil.createCook(this.props.recipe.id);

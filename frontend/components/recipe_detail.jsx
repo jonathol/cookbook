@@ -37,7 +37,9 @@ var RecipeDetail = React.createClass({
   },
 
   handleClickSave: function (e) {
-    if (this.state.recipeSave) {
+    if (!this.props.enforceAuth()) {
+      return;
+    } else if (this.state.recipeSave) {
       ApiUtil.destroyRecipeSave(this.state.recipeSave);
     } else {
       ApiUtil.createRecipeSave(this.state.recipe.id);
