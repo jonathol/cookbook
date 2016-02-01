@@ -677,11 +677,17 @@ div.detail-cooked-button:active > span.fa-check.checked {
 }
 
 div.detail-cooked-button > span.fa-check {
+  display: block;
+  float: left;
   text-shadow: -1px 0 #e2e2e2, 0 1px #e2e2e2, 1px 0 #e2e2e2, 0 -1px #e2e2e2;
   color: #fff;
-  vertical-align: middle;
   font-size: 24px;
   margin-right: 5px;
+}
+
+p.cooked-text {
+  float: left;
+  margin-top: 4px;
 }
 
 div.detail-cooked-button > span.fa-check.checked {
@@ -689,8 +695,21 @@ div.detail-cooked-button > span.fa-check.checked {
   color: #ffb700;
 }
 
-div.detail-cooked-button > span.cooked-text {
+p.ratings-text {
+  margin-top: 4px;
+  float: left;
+}
+
+ul.rating-stars {
+  margin-left: 10px;
+  float: right;
   vertical-align: middle;
+}
+
+ul.rating-stars > li {
+  float: left;
+  padding: 2px;
+  font-size: 18px;
 }
 
 section.recipe-directions {

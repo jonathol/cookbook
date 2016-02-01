@@ -209,14 +209,18 @@ var RecipeDetail = React.createClass({
                   className="detail-cooked-button"
                   onClick={this.handleClickCooked}>
                   <Icon name="check" className={checked} />
-                  <span className="cooked-text">Cooked</span>
+                  <p className="cooked-text">Cooked</p>
                 </div>
               </li>
               <li className="recipe-ratings">
-                {this.state.ratings.count} Ratings
-                <ul className="rating-stars">
-                  {ratingStars}
-                </ul>
+                <div className="ratings-button">
+                  <p className="ratings-text">
+                    {this.state.ratings.count} ratings
+                  </p>
+                  <ul className="rating-stars">
+                    {ratingStars}
+                  </ul>
+                </div>
               </li>
             </ul>
             <section className="user-interaction">
