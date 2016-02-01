@@ -2,7 +2,7 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
     RecipeConstants = require('../constants/recipe_constants'),
     RecipeSaveConstants = require('../constants/recipe_save_constants'),
     CookConstants = require('../constants/cook_constants'),
-    RatingConstants = require('../constants/ratings');
+    RatingConstants = require('../constants/rating_constants');
 
 module.exports = {
   receiveAllRecipes: function (recipes) {

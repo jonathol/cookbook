@@ -1,6 +1,6 @@
 var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
-    RatingConstants = require('../constants/cook_constants');
+    RatingConstants = require('../constants/rating_constants');
 
 var _ratings = {};
 var RatingStore = new Store(AppDispatcher);
@@ -11,7 +11,7 @@ RatingStore.ratings = function () {
 
 RatingStore.addRating = function (rating) {
   _ratings = {
-    average: Math.round((_ratings.count * _ratings.average) + rating.score),
+    average: Math.round(_ratings.average + (rating.score / _ratings.count + 1)),
     count: _ratings.count + 1
   };
 

@@ -822,13 +822,12 @@ end
 
 User.all.each.with_index do |user, i|
   Recipe.all.each.with_index do |recipe, j|
-    if counter % 3 == 0
+    if rand > 0.66
       Rating.create!(
         user: user,
         recipe: recipe,
         score: rand(5) + 1
       )
     end
-    counter += 1
   end
 end

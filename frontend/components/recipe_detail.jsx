@@ -2,6 +2,7 @@ var React = require('react'),
     RecipeStore = require('../stores/recipe'),
     RecipeSaveStore = require('../stores/recipe_save'),
     CookStore = require('../stores/cook'),
+    RatingStore = require('../stores/rating'),
     ApiUtil = require('../util/api_util'),
     Icon = require('react-fontawesome');
 
@@ -10,6 +11,7 @@ var RecipeDetail = React.createClass({
     this.recipeListener = RecipeStore.addListener(this._recipeChanged);
     this.saveListener = RecipeSaveStore.addListener(this._recipeSaveChanged);
     this.cookListener = CookStore.addListener(this._cookChanged);
+    this.ratingListener = RatingStore.addListener(this._ratingsChanged);
 
     this.updateStateWithProps(this.props);
   },
@@ -26,6 +28,10 @@ var RecipeDetail = React.createClass({
 
   _cookChanged: function () {
     this.setState({ cooked: CookStore.find(this.props.params.recipeId) });
+  },
+
+  _ratingsChanged: function () {
+    this.setState({ ratings: RatingStore.ratings() });
   },
 
   _recipeChanged: function () {
@@ -60,10 +66,11 @@ var RecipeDetail = React.createClass({
     ApiUtil.fetchFeaturedRecipe(props.params.recipeId);
     ApiUtil.fetchAllRecipeSaves();
     ApiUtil.fetchAllCookedRecipes();
+    ApiUtil.fetchRatings(props.params.recipeId);
   },
 
   render: function () {
-    if (!this.state || !this.state.recipe) {
+    if (!this.state || !this.state.recipe || !this.state.ratings) {
       return (
         <section className="recipe-show missing-recipe"></section>
       );
@@ -123,6 +130,16 @@ var RecipeDetail = React.createClass({
         </li>
       );
     });
+
+    var ratingStars = [1,2,3,4,5].map(function (num) {
+      var filled = num > this.state.ratings.average ? " filled" : "";
+
+      return (
+        <li className={"rating-star star-" + num + filled} key={num}>
+          <Icon name="star" />
+        </li>
+      );
+    }.bind(this));
 
     return (
       <section
@@ -196,7 +213,10 @@ var RecipeDetail = React.createClass({
                 </div>
               </li>
               <li className="recipe-ratings">
-                Ratings
+                {this.state.ratings.count} Ratings
+                <ul className="rating-stars">
+                  {ratingStars}
+                </ul>
               </li>
             </ul>
             <section className="user-interaction">

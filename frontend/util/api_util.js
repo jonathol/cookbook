@@ -149,8 +149,8 @@ var ApiUtil = {
     $.ajax({
       type: "GET",
       url: "api/ratings?recipe_id=" + recipeId,
-      success: function (rating) {
-        ApiActions.receiveRatings(rating);
+      success: function (ratings) {
+        ApiActions.receiveRatings(ratings);
       }
     });
   },
