@@ -10,5 +10,6 @@ class Recipe < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+  has_many :notes, dependent: :destroy
   has_one :photo, class_name: "RecipePhoto", dependent: :destroy
 end

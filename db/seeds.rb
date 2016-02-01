@@ -945,7 +945,7 @@ child_comments = [
   "Really? Interesting."
 ]
 
-private_comments = [
+private_notes = [
   "Add more butter",
   "Throw some chopped nuts in at the end",
   "Good with a bit of pepper",
@@ -958,7 +958,7 @@ i = 0
 Recipe.all.each do |recipe|
   User.all.each do |user|
     if rand > 0.8
-      comments << Recipe.comments.create!(
+      comments << recipe.notes.create!(
         user: user,
         body: dummy_comments[i % dummy_comments.length]
       )
@@ -970,10 +970,10 @@ end
 i = 0
 comments.each do |parent_comment|
   if rand > 0.7
-    parent_comment.child_comments.create!(
+    parent_comment.child_notes.create!(
       user: User.find(rand(User.first.id..User.last.id)),
       recipe: parent_comment.recipe,
-      body: child_comments[i % dummy_comments.length]
+      body: child_comments[i % child_comments.length]
     )
     i += 1
   end
@@ -981,9 +981,10 @@ end
 
 User.all.each do |user|
   15.times do |i|
-    user.comments.create!(
+    user.notes.create!(
       recipe: Recipe.find(rand(Recipe.first.id..Recipe.last.id)),
-      body: private_comments[i % private_comments.length]
+      body: private_notes[i % private_notes.length],
+      private: true
     )
   end
 end
