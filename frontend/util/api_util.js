@@ -145,6 +145,16 @@ var ApiUtil = {
     });
   },
 
+  fetchRatings: function (recipeId) {
+    $.ajax({
+      type: "GET",
+      url: "api/ratings?recipe_id=" + recipeId,
+      success: function (rating) {
+        ApiActions.receiveRatings(rating);
+      }
+    });
+  },
+
   fetchCurrentUser: function () {
     $.ajax({
       type: "GET",
