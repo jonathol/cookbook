@@ -114,8 +114,11 @@ var RecipeDetail = React.createClass({
           <div
             className="recipe-save-button recipe-button"
             onClick={this.handleClickSave}>
-            {saveIcon}
-            {saveText}
+            <div
+              className="recipe-button-icon-text">
+              {saveIcon}
+              <span className="recipe-button-text">{saveText}</span>
+            </div>
           </div>
           <section className="recipe-top-details">
             <h2

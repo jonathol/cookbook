@@ -527,8 +527,14 @@ div.recipe-button {
   transition: all 0.1s;
 }
 
-div.recipe-save-button span.save-button-icon {
-  margin-right: 10px;
+div.recipe-button-icon-text {
+  position: relative
+}
+
+span.recipe-button-text {
+  position: absolute;
+  left: 20px;
+  top: 1px;
 }
 
 div.recipe-button span.recipe-button-icon {
