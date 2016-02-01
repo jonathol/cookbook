@@ -112,7 +112,28 @@ var RecipeDetail = React.createClass({
       </section>
     );
 
+    var tags = this.state.recipe.tags.map(function (tag, idx) {
+      if (idx === this.state.recipe.tags.length - 1) {
+        return <li key={idx}><a href={"#/tags/" + tag.id}>{tag.name}</a></li>;
+      } else {
+        return <li key={idx}><a href={"#/tags/" + tag.id}>{tag.name}</a>, </li>;
+      }
+    }.bind(this));
+
     var checked = this.state.cooked ? " checked" : "";
+
+    var ratingStars = [1,2,3,4,5].map(function (num) {
+      var filled = num <= this.state.ratings.average ? " filled" : "";
+
+      return (
+        <li
+          className={"rating-star star-" + num + filled}
+          key={num}
+          value={num}>
+          <Icon name="star" value={num} />
+        </li>
+      );
+    }.bind(this));
 
     var ingredients = this.state.recipe.ingredients.map(function (ingredient, idx) {
       return (
@@ -139,19 +160,6 @@ var RecipeDetail = React.createClass({
         </li>
       );
     });
-
-    var ratingStars = [1,2,3,4,5].map(function (num) {
-      var filled = num <= this.state.ratings.average ? " filled" : "";
-
-      return (
-        <li
-          className={"rating-star star-" + num + filled}
-          key={num}
-          value={num}>
-          <Icon name="star" value={num} />
-        </li>
-      );
-    }.bind(this));
 
     return (
       <section
@@ -212,7 +220,7 @@ var RecipeDetail = React.createClass({
           </section>
           <section className="recipe-middle-details group">
             <ul className="recipe-tags">
-              TAGS HERE
+              {tags}
             </ul>
             <ul className="recipe-ratings-cooked">
               <li

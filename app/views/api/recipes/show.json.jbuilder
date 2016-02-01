@@ -14,6 +14,11 @@ json.photo do
   json.credit @recipe.photo.credit
 end
 
+json.tags @recipe.tags do |tag|
+  json.id tag.id
+  json.name tag.name
+end
+
 json.ingredients @recipe.ingredients do |ingredient|
   json.id ingredient.id
   json.quantity ingredient.quantity

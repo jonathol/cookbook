@@ -834,7 +834,7 @@ Tag.destroy_all
 
 healthy = Tag.create!(name: "Healthy")
 vegetarian = Tag.create!(name: "Vegetarian")
-muffins = Tag.create!(name: "Muffins")
+muffins_tag = Tag.create!(name: "Muffins")
 rice = Tag.create!(name: "Rice")
 dumplings = Tag.create!(name: "Dumplings")
 pork = Tag.create!(name: "Pork")
@@ -867,10 +867,8 @@ Tagging.destroy_all
 
 Tagging.create!(recipe: muffins, tag: healthy)
 Tagging.create!(recipe: muffins, tag: vegetarian)
-Tagging.create!(recipe: muffins, tag: muffins)
+Tagging.create!(recipe: muffins, tag: muffins_tag)
 Tagging.create!(recipe: muffins, tag: snack)
-Tagging.create!(recipe: muffins, tag: snack)
-Tagging.create!(recipe: mayo, tag: condiment)
 Tagging.create!(recipe: mayo, tag: condiment)
 Tagging.create!(recipe: hot_sauce, tag: spicy)
 Tagging.create!(recipe: hot_sauce, tag: sauce)
