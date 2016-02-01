@@ -11,9 +11,7 @@ var RecipeDetail = React.createClass({
     this.saveListener = RecipeSaveStore.addListener(this._recipeSaveChanged);
     this.cookListener = CookStore.addListener(this._cookChanged);
 
-    ApiUtil.fetchFeaturedRecipe(this.props.params.recipeId);
-    ApiUtil.fetchSingleRecipeSave(this.props.params.recipeId);
-    ApiUtil.fetchSingleCookedRecipe(this.props.params.recipeId);
+    this.updateStateWithProps(this.props);
   },
 
   componentWillUnmount: function () {
@@ -23,8 +21,7 @@ var RecipeDetail = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    ApiUtil.fetchFeaturedRecipe(newProps.params.recipeId);
-    ApiUtil.fetchSingleRecipeSave(newProps.params.recipeId);
+    this.updateStateWithProps(newProps);
   },
 
   _cookChanged: function () {
@@ -48,7 +45,7 @@ var RecipeDetail = React.createClass({
   },
 
   updateStateWithProps: function (props) {
-    this.updateRecipesWithProps(props);
+    ApiUtil.fetchFeaturedRecipe(props.params.recipeId);
     ApiUtil.fetchAllRecipeSaves();
     ApiUtil.fetchAllCookedRecipes();
   },
