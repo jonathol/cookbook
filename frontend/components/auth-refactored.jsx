@@ -18,10 +18,18 @@ var newSession = {
 var Auth = React.createClass({
   mixins: [LinkedStateMixin],
 
+  getAuthActionFromParams: function (props) {
+    return props.params.route.path === "login" ? newSession : newUser;
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    this.setState({ authAction: this.getAuthActionFromParams(newProps) });
+  },
+
   credentials: function () {
     return {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
     };
   },
 
@@ -29,7 +37,7 @@ var Auth = React.createClass({
     return {
       email: '',
       password: '',
-      authAction: newSession
+      authAction: this.getAuthActionFromParams(this.props)
     };
   },
 
@@ -96,17 +104,17 @@ var Auth = React.createClass({
               type="password"
               placeholder="Password"
               valueLink={this.linkState('password')} />
-            <div
-              className="submit-buttons group">
-              <button
-                onClick={this.handleSubmit}>
-                {auth.submitText}
-              </button>
-              <button
-                onClick={this.handleDemo}>
-                Demo
-              </button>
+            <div>
+
             </div>
+            <button
+              onClick={this.handleSubmit}>
+              {auth.submitText}
+            </button>
+            <button
+              onClick={this.handleDemo}>
+              Demo Log In
+            </button>
           </form>
           <div className="user-form-footer">
             {auth.footerText}
