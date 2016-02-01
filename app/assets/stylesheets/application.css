@@ -49,10 +49,6 @@ body {
   overflow-y: scroll;
 }
 
-/*a {
-  color: #e33d26;
-}*/
-
 a:hover {
   text-decoration: underline;
 }
@@ -90,16 +86,6 @@ section.header.sticky {
   background-color: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 0;
-  transition: all 0.4s;
-}
-
-div.header-margin.sticky {
-  padding-top: 50px;
-  transition: all 0.4s;
-}
-
-div.header-margin {
-  padding-top: 0;
   transition: all 0.4s;
 }
 
