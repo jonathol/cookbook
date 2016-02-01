@@ -1,7 +1,18 @@
 class Api::RatingsController < ApplicationController
   def create
-    @rating = current_user.ratings.create!(recipe_id: params[:recipe_id])
-    render json: { @rating.recipe_id => @rating.id }
+    @rating = Rating.find_by(
+      recipe_id: rating_params[:recipe_id],
+      user_id: current_user.id
+    )
+    if @rating
+      @rating.score = rating_params[:score]
+      @rating.save!
+    else
+      @rating = current_user.ratings.create!(rating_params)
+    end
+
+    @score_info = Rating.avg_score_and_count(rating_params[:recipe_id])
+    render json: @score_info
   end
 
   def index
@@ -10,4 +21,9 @@ class Api::RatingsController < ApplicationController
       render json: @score_info
     end
   end
+
+  private
+    def rating_params
+      params.require(:rating).permit(:recipe_id, :score)
+    end
 end

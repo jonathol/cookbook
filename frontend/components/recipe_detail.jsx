@@ -20,6 +20,7 @@ var RecipeDetail = React.createClass({
     this.recipeListener.remove();
     this.saveListener.remove();
     this.cookListener.remove();
+    this.ratingListener = RatingStore.addListener(this._ratingsChanged);
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -49,6 +50,14 @@ var RecipeDetail = React.createClass({
       ApiUtil.destroyCook(this.state.cooked);
     } else {
       ApiUtil.createCook(this.state.recipe.id);
+    }
+  },
+
+  handleClickRate: function (e) {
+    if (!this.props.enforceAuth()) {
+      return;
+    } else {
+      ApiUtil.createRating(this.state.recipe.id, e.target.getAttribute("value"));
     }
   },
 
@@ -135,8 +144,11 @@ var RecipeDetail = React.createClass({
       var filled = num <= this.state.ratings.average ? " filled" : "";
 
       return (
-        <li className={"rating-star star-" + num + filled} key={num}>
-          <Icon name="star" />
+        <li
+          className={"rating-star star-" + num + filled}
+          key={num}
+          value={num}>
+          <Icon name="star" value={num} />
         </li>
       );
     }.bind(this));
@@ -217,7 +229,9 @@ var RecipeDetail = React.createClass({
                   <p className="ratings-text">
                     {this.state.ratings.count} ratings
                   </p>
-                  <ul className="rating-stars group">
+                  <ul
+                    className="rating-stars group"
+                    onClick={this.handleClickRate}>
                     {ratingStars}
                   </ul>
                 </div>
