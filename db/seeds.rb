@@ -922,3 +922,68 @@ Tagging.create!(recipe: pelmeni, tag: breakfast)
 Tagging.create!(recipe: baba_ganoush, tag: middle_eastern)
 Tagging.create!(recipe: wonton, tag: soup)
 Tagging.create!(recipe: wonton, tag: vegetarian)
+
+Note.destroy_all
+
+dummy_comments = [
+  "This was really good! Next time I make it I'm going to add more salt, though",
+  "One of my new weekday go-tos",
+  "I found this to be a bit too sweet",
+  "I liked this, but it took me much longer than the directions state.",
+  "I had high hopes for this, but in the end it was rather bland",
+  "I'd make it again",
+  "I doubled the ingredients put the leftovers in the freezer. Lunch for weeks!",
+  "Delicious!!!",
+  "Could use some more spices, but pretty good overall",
+  "Nothing to get excited about I thought"
+]
+
+child_comments = [
+  "Did you find it savory enough?",
+  "Thanks for the info",
+  "I'll have to try it myself",
+  "Really? Interesting."
+]
+
+private_comments = [
+  "Add more butter",
+  "Throw some chopped nuts in at the end",
+  "Good with a bit of pepper",
+  "Made this for grandma's birthday"
+]
+
+comments = []
+
+i = 0
+Recipe.all.each do |recipe|
+  User.all.each do |user|
+    if rand > 0.8
+      comments << Recipe.comments.create!(
+        user: user,
+        body: dummy_comments[i % dummy_comments.length]
+      )
+      i += 1
+    end
+  end
+end
+
+i = 0
+comments.each do |parent_comment|
+  if rand > 0.7
+    parent_comment.child_comments.create!(
+      user: User.find(rand(User.first.id..User.last.id)),
+      recipe: parent_comment.recipe,
+      body: child_comments[i % dummy_comments.length]
+    )
+    i += 1
+  end
+end
+
+User.all.each do |user|
+  15.times do |i|
+    user.comments.create!(
+      recipe: Recipe.find(rand(Recipe.first.id..Recipe.last.id)),
+      body: private_comments[i % private_comments.length]
+    )
+  end
+end
