@@ -640,10 +640,46 @@ section.recipe-middle-details {
   border-bottom: 1px solid #ccc;
 }
 
-ul.recipe
+ul.recipe-tags {
+  float: left;
+}
 
-ul.recipe-meta-data {
+ul.recipe-ratings-cooked {
   float: right;
+}
+
+ul.recipe-ratings-cooked > li {
+  float: left;
+  padding: 0 15px;
+}
+
+li.recipe-cooked {
+  border-right: 1px solid #e2e2e2;
+}
+
+div.detail-cooked-button:hover {
+  cursor: pointer;
+}
+
+div.detail-cooked-button:hover > span.fa-check {
+  text-shadow: -1px 0 #ffb700, 0 1px #ffb700, 1px 0 #ffb700, 0 -1px #ffb700;
+  color: #ffb700;
+}
+
+div.detail-cooked-button:active > span.fa-check {
+  text-shadow: -3px 0 #ffb700, 0 3px #ffb700, 3px 0 #ffb700, 0 -3px #ffb700;
+}
+
+div.detail-cooked-button > span.fa-check {
+  text-shadow: -1px 0 #e2e2e2, 0 1px #e2e2e2, 1px 0 #e2e2e2, 0 -1px #e2e2e2;
+  color: #fff;
+  vertical-align: middle;
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+div.detail-cooked-button > span.cooked-text {
+  vertical-align: middle;
 }
 
 section.recipe-directions {

@@ -25,7 +25,7 @@ var RecipeDetail = React.createClass({
   },
 
   _cookChanged: function () {
-    this.setState({ cook: CookStore.find(this.props.params.recipeId) });
+    this.setState({ cooked: CookStore.find(this.props.params.recipeId) });
   },
 
   _recipeChanged: function () {
@@ -34,6 +34,16 @@ var RecipeDetail = React.createClass({
 
   _recipeSaveChanged: function () {
     this.setState({ recipeSave: RecipeSaveStore.find(this.props.params.recipeId) });
+  },
+
+  handleClickCooked: function (e) {
+    if (!this.props.enforceAuth()) {
+      return;
+    } else if (this.state.cooked) {
+      ApiUtil.destroyCook(this.state.cooked);
+    } else {
+      ApiUtil.createCook(this.state.recipe.id);
+    }
   },
 
   handleClickSave: function (e) {
@@ -171,17 +181,22 @@ var RecipeDetail = React.createClass({
               </p>
             </section>
           </section>
-          <section className="recipe-middle-details">
+          <section className="recipe-middle-details group">
             <ul className="recipe-tags">
               TAGS HERE
             </ul>
-            <ul className="recipe-meta-data">
-              <li className="recipe-cooked-button">
-               <Icon name="check" className={"meta-data-icon" + checked} />
+            <ul className="recipe-ratings-cooked">
+              <li
+                className="recipe-cooked"
+                onClick={this.handleClickCooked}>
+                <div className="detail-cooked-button">
+                  <Icon name="check" className={"meta-data-icon" + checked} />
+                  <span className="cooked-text">Cooked</span>
+                </div>
               </li>
-              <ul className="recipe-ratings">
+              <li className="recipe-ratings">
                 Ratings
-              </ul>
+              </li>
             </ul>
             <section className="user-interaction">
 
