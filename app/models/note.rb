@@ -1,5 +1,6 @@
 class Note < ActiveRecord::Base
   before_create :ensure_parent_has_no_parent
+  before_create :ensure_parent_belongs_to_same_recipe
 
   validates :author, :recipe, :body, presence: true
   validates :body, length: { minimum: 10 }
@@ -32,6 +33,12 @@ class Note < ActiveRecord::Base
     def ensure_parent_has_no_parent
       if self.parent_note && self.parent_note.parent_note
         raise "Comment cannot be nested that deeply"
+      end
+    end
+
+    def ensure_parent_belongs_to_same_recipe
+      if self.parent && self.parent.recipe != self.recipe
+        raise "Comment must belong to same recipe as parent"
       end
     end
 end
