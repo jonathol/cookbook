@@ -68,12 +68,21 @@ var TopNav = React.createClass({
       );
     }
 
-    var recipeBox = "";
+    var recipeBox;
     if (this.state.loggedIn) {
       recipeBox = (
         <li>
           <a
             href={"#/users/" + this.state.userId + "/recipe-box"}
+            className={"topnav-link" + sticky}>Recipe Box</a>
+        </li>
+      )
+    } else {
+      recipeBox = (
+        <li>
+          <a
+            href="#"
+            onClick={this.handleLogIn}
             className={"topnav-link" + sticky}>Recipe Box</a>
         </li>
       )
