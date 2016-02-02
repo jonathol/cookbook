@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :recipe_saves, only:[:create, :destroy, :index]
     resources :cooks, only:[:create, :destroy, :index]
     resources :ratings, only:[:create, :index]
-    resources :recipes, only:[:index, :show]
+    resources :recipes, only:[:index, :show] do
+      resources :notes, only:[:index, :create]
+    end
     resources :tags, only: :show
     resource :session, only:[:create, :destroy, :show]
   end
