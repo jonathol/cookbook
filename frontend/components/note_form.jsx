@@ -41,30 +41,41 @@ var NoteForm = React.createClass({
 
   render: function () {
     return (
-      <form
-        className="active-note-form">
-        <h5>{this.state.user.name}</h5>
-        <textarea
-          className="note-form-body"
-          valueLink={this.linkState('body')} />
-        <div className="note-form-private">
-          <input
-            type="checkbox"
-            valueLink={this.linkState('private')}/>
-          Make this note private?
-        </div>
+      <section
+        className="active-note-section group">
         <div
-          className="note-form-finish">
-          <button
-            onClick={this.handleCancel}>
-            Cancel
-          </button>
-          <button
-            onClick={this.handleSubmit}>
-            Add
-          </button>
+          className="note-user-image">
         </div>
-      </form>
+        <form
+          className="active-note-form">
+          <h5>{this.state.user.name}</h5>
+          <textarea
+            className="note-form-body"
+            valueLink={this.linkState('body')} />
+          <ul
+            className="note-form-bottom-options group">
+            <li className="note-form-private">
+              <label>
+                <input
+                  type="checkbox"
+                  valueLink={this.linkState('private')}/>
+                Make this note private?
+              </label>
+            </li>
+            <li
+              className="note-form-finish">
+              <button
+                onClick={this.handleSubmit}>
+                Add
+              </button>
+              <button
+                onClick={this.handleCancel}>
+                Cancel
+              </button>
+            </li>
+          </ul>
+        </form>
+      </section>
     );
   }
 });

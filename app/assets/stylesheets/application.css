@@ -820,10 +820,79 @@ p.step-body {
 textarea.inactive-note-form {
   box-sizing: border-box;
   width: 100%;
-  padding: 30px 15px;
-  border: 1px solid #ccc;
+  padding: 30px 15px 15px 15px;
+  border: 1px solid #E1E1E1;
+  font-size: 15px;
+  font-weight: 200;
+  font-style: italic;
 }
 
+section.active-note-section {
+  padding: 18px 28px 18px 14px;
+  border-radius: 3px;
+  background-color: #F6F6F6;
+  border: 1px solid #E1E1E1;
+}
+
+div.note-user-image {
+  width: 75px;
+  height: 250px;
+  float: left;
+}
+
+form.active-note-form {
+  width: 470px;
+  float: right;
+}
+
+form.active-note-form > h5 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+textarea.note-form-body {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #E1E1E1;
+}
+
+ul.note-form-bottom-options {
+  margin-top: 18px;
+  font-size: 15px;
+  color: #4B4B4B;
+}
+
+li.note-form-private {
+  float: left;
+}
+
+li.note-form-private > label > input {
+  position: relative;
+  bottom: 1.5px;
+  margin-right: 7px;
+}
+
+li.note-form-finish {
+  float: right;
+}
+
+li.note-form-finish > button {
+  float: right;
+  padding: 0 10px;
+  color: #959595;
+}
+
+li.note-form-finish > button:first-child {
+  border-left: 1px solid #DCDCDC;
+  color: #E33D1F;
+}
+
+/* Notes Index */
 li.note-index-item {
   padding: 20px 0;
   border-bottom: 1px solid #f4f4f4;
