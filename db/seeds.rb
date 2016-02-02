@@ -7,6 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Ingredient.destroy_all
+PreparationStep.destroy_all
+Recipe.destroy_all
+RecipePhoto.destroy_all
+Cook.destroy_all
+Rating.destroy_all
+Tag.destroy_all
+Tagging.destroy_all
+Note.destroy_all
 
 will = User.create!(
   email: "wrmcmeans@gmail.com",
@@ -91,11 +100,6 @@ user10 = User.create!(
   email: "lspeterson@gmail.com",
   password: "cupcakes"
 )
-
-Ingredient.destroy_all
-PreparationStep.destroy_all
-Recipe.destroy_all
-RecipePhoto.destroy_all
 
 muffins = Recipe.create!(
   title: "Banana Nut Muffins",
@@ -803,7 +807,6 @@ User.all.each.with_index do |user, i|
   end
 end
 
-Cook.destroy_all
 
 User.all.each.with_index do |user, i|
   Recipe.all.each.with_index do |recipe, j|
@@ -816,7 +819,6 @@ User.all.each.with_index do |user, i|
   end
 end
 
-Rating.destroy_all
 
 User.all.each.with_index do |user, i|
   Recipe.all.each.with_index do |recipe, j|
@@ -830,7 +832,6 @@ User.all.each.with_index do |user, i|
   end
 end
 
-Tag.destroy_all
 
 healthy = Tag.create!(name: "Healthy")
 vegetarian = Tag.create!(name: "Vegetarian")
@@ -863,7 +864,6 @@ snack = Tag.create!(name: "Snack")
 drink = Tag.create!(name: "Drink")
 alcohol = Tag.create!(name: "Alcohol")
 
-Tagging.destroy_all
 
 Tagging.create!(recipe: muffins, tag: healthy)
 Tagging.create!(recipe: muffins, tag: vegetarian)
@@ -923,7 +923,6 @@ Tagging.create!(recipe: baba_ganoush, tag: middle_eastern)
 Tagging.create!(recipe: wonton, tag: soup)
 Tagging.create!(recipe: wonton, tag: vegetarian)
 
-Note.destroy_all
 
 dummy_comments = [
   "This was really good! Next time I make it I'm going to add more salt, though",
@@ -959,7 +958,7 @@ Recipe.all.each do |recipe|
   User.all.each do |user|
     if rand > 0.8
       comments << recipe.notes.create!(
-        user: user,
+        author: user,
         body: dummy_comments[i % dummy_comments.length]
       )
       i += 1
@@ -971,7 +970,7 @@ i = 0
 comments.each do |parent_comment|
   if rand > 0.7
     parent_comment.child_notes.create!(
-      user: User.find(rand(User.first.id..User.last.id)),
+      author: User.find(rand(User.first.id..User.last.id)),
       recipe: parent_comment.recipe,
       body: child_comments[i % child_comments.length]
     )

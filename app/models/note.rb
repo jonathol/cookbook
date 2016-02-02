@@ -1,11 +1,13 @@
 class Note < ActiveRecord::Base
-  validates :user, :recipe, :body, presence: true
+  before_create :ensure_parent_has_no_parent
+
+  validates :author, :recipe, :body, presence: true
   validates :body, length: { minimum: 10 }
 
-  belongs_to :author, class_name: "User", foreign_key: :user_id
+  belongs_to :author, class_name: "User", foreign_key: :author_id
   belongs_to :recipe
   has_many :child_notes, class_name: "Note", foreign_key: :parent_id
-  belongs_to :parent_note, class_name: "Note"
+  belongs_to :parent_note, class_name: "Note", foreign_key: :parent_id
 
   def time_ago
     time_ago = (Time.now - self.created_at).to_i
@@ -25,4 +27,11 @@ class Note < ActiveRecord::Base
       "#{time_ago / 31536000} years ago"
     end
   end
+
+  private
+    def ensure_parent_has_no_parent
+      if self.parent_note && self.parent_note.parent_note
+        raise "Comment cannot be nested that deeply"
+      end
+    end
 end
