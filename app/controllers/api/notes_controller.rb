@@ -1,15 +1,11 @@
 class Api::NotesController < ApplicationController
   def create
-    # note_params = {
-    #   recipe_id: params[:recipe_id],
-    #   user: current_user,
-    #   parent_note_id: params[:parent_note_id]
-    # }
-    # @recipe_save = RecipeSave.create!(recipe_save_params)
-    # render json: { @recipe_save.recipe_id => @recipe_save.id }
-    note_params = {
-      recipe_id: params[:recipe_id]
-    }
+    @note = Note.create!(note_params)
+    if @note
+      return self.index
+    else
+      render json: ["There was an error creating your note"]
+    end
   end
 
   def index
@@ -23,4 +19,9 @@ class Api::NotesController < ApplicationController
         .where("private = FALSE")
     end
   end
+
+  private
+    def note_params
+      params.require(:note).permit(:recipe_id, :parent_id)
+    end
 end

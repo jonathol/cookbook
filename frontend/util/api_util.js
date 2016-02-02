@@ -187,7 +187,12 @@ var ApiUtil = {
     $.ajax({
       type: "POST",
       url: "api/notes",
-      data: $.extend({ recipe_id: recipeId }, note),
+      data: { note: {
+        recipe_id: recipeId,
+        body: note.body,
+        private: note.private,
+        parent_id: note.parentId
+      }},
       dataType: "json",
       success: function (notes) {
         ApiActions.receiveAllNotes(notes);
