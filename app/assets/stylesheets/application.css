@@ -816,6 +816,14 @@ p.step-body {
 }
 
 /* NOTES */
+/* Note Form */
+textarea.inactive-note-form {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 15px;
+  border: 1px solid #ccc;
+}
+
 li.note-index-item {
   padding: 20px 0;
   border-bottom: 1px solid #f4f4f4;

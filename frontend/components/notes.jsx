@@ -25,11 +25,10 @@ var Notes = React.createClass({
     };
   },
 
-  toggleForm: function (e) {
-    e.preventDefault();
+  toggleForm: function () {
     if (!this.props.enforceAuth()) {
       return;
-    } else if (!this.state.active) {
+    } else if (!this.state.formActive) {
       this.setState({ formActive: true });
     } else {
       this.setState({ formActive: false });
@@ -37,6 +36,7 @@ var Notes = React.createClass({
   },
 
   submitNote: function (note) {
+    this.setState({ formActive: false });
     ApiUtil.createNote(this.props.recipeId, note);
   },
 
@@ -55,9 +55,9 @@ var Notes = React.createClass({
     } else {
       noteForm = (
         <textarea
-        className="inactive-note-form"
-        placeholder="Leave a note about this recipe"
-        onClick={this.handleToggleForm} />
+          className="inactive-note-form"
+          placeholder="Leave a note about this recipe"
+          onClick={this.toggleForm} />
       );
     }
 

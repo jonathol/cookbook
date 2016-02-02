@@ -4,7 +4,7 @@ class Note < ActiveRecord::Base
   before_create :ensure_parent_isnt_private_comment
 
   validates :author, :recipe, :body, presence: true
-  validates :body, length: { minimum: 10 }
+  # validates :body, length: { minimum: 10 }
 
   belongs_to :author, class_name: "User", foreign_key: :author_id
   belongs_to :recipe
