@@ -9,8 +9,8 @@ New York Thyme's Cookbook is a clone of [New York Times Cooking](http://www.cook
 ## Features
 
 * Authentication
-••* Session is authenticated in the backend. All queries return data that corresponds to the proper user.
-••* User can log in from any page in the app. Clicking on a link to save a recipe, access recipe box, etc. prompt the user for log in (as on the original app).
+  * Session is authenticated in the backend. All queries return data that corresponds to the proper user.
+  * User can log in from any page in the app. Clicking on a link to save a recipe, access recipe box, etc. prompt the user for log in (as on the original app).
 * Save recipes
 * Mark recipes as cooked
 * Comment on recipes
