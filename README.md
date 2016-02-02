@@ -6,12 +6,6 @@ New York Thyme's Cookbook is a clone of [New York Times Cooking](http://www.cook
 
 [live]: http://www.thymes-cookbook.com
 
-## App
-
-My website begins in my React Router, which lives in my [Cookbook.jsx file](frontend/Cookbook.jsx). All my components live inside my [App](frontend/components/app.jsx) component. Aside from rendering children, the App keeps track of auth state (whether the user is trying to authenticate or not). It also passes down a callback to its children to set auth state to true if a user is trying to do something that requires them to be logged in.
-
-The App gets the session information through the [Api::SessionsController](app/controllers/api/sessions_controller), which it sends a request to after mounting. The [SessionStore](frontend/stores/session.js) holds information about the user on the frontend, though security ensures that no requests send up anything involving delicate user params (e.g. no creating comments for another user).
-
 ## Features
 
 * Authentication
