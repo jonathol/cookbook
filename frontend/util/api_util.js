@@ -176,9 +176,21 @@ var ApiUtil = {
   fetchRatings: function (recipeId) {
     $.ajax({
       type: "GET",
-      url: "api/ratings?recipe_id=" + recipeId,
+      url: "api/recipes/" + recipeId + "/ratings",
       success: function (ratings) {
         ApiActions.receiveRatings(ratings);
+      }
+    });
+  },
+
+  createNote: function (recipeId, note) {
+    $.ajax({
+      type: "POST",
+      url: "api/notes",
+      data: $.extend({ recipe_id: recipeId }, note),
+      dataType: "json",
+      success: function (notes) {
+        ApiActions.receiveAllNotes(notes);
       }
     });
   },

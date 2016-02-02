@@ -7,6 +7,9 @@ class Api::NotesController < ApplicationController
     # }
     # @recipe_save = RecipeSave.create!(recipe_save_params)
     # render json: { @recipe_save.recipe_id => @recipe_save.id }
+    note_params = {
+      recipe_id: params[:recipe_id]
+    }
   end
 
   def index

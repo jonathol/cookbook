@@ -16,10 +16,8 @@ class Api::RatingsController < ApplicationController
   end
 
   def index
-    if params[:recipe_id]
-      @score_info = Rating.avg_score_and_count(params[:recipe_id])
-      render json: @score_info
-    end
+    @score_info = Rating.avg_score_and_count(params[:recipe_id])
+    render json: @score_info
   end
 
   private

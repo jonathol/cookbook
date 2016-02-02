@@ -6,40 +6,70 @@ var NoteForm = React.createClass({
   mixins: [LinkedStateMixin],
 
   getInitialState: function () {
-    return { active: false, user: SessionStore.currentUser() };
+    return {
+      user: SessionStore.currentUser(),
+      body: '',
+      private: false
+    };
   },
 
   componentDidMount: function () {
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
   },
 
-  _handleToggleForm: function (e) {
-    if (!this.props.enforceAuth()) {
-      return;
-    } else if (!this.state.active) {
-      this.setState({ active: true });
-    } else {
-      this.setState({ active: false });
-    }
+  componentWillUnmount: function () {
+    this.sessionListener.remove();
   },
 
   _sessionChanged: function () {
     this.setState({ user: SessionStore.currentUser() });
   },
 
+  handleCancel: function (e) {
+    e.preventDefault();
+    this.props.cancelNote();
+  },
+
+  handleSubmit: function (e) {
+    e.preventDefault();
+    this.props.submitForm({
+      body: this.state.body,
+      private: this.state.private,
+      parent_id: this.props.parent_id
+    });
+  },
+
   render: function () {
     if (!this.state.active) {
       return (
-        <textarea
-          className="inactive-note-form"
-          onClick={this._handleToggleForm} />
+
       );
     } else {
       return (
         <form
           className="active-note-form">
           <h5>{this.state.user.name}</h5>
-          <textarea className="note-form-body" />
+          <textarea
+            className="note-form-body"
+            valueLink={this.linkState('body')/>
+          <div className="note-form-private">
+            <input
+              type="checkbox"
+              valueLink={this.linkState('private')}/>
+            Make this note private?
+          </div>
+          <div
+            className="note-form-finish">
+            <button
+              onClick={this.cancelNote}>
+              Cancel
+            </button>
+            <button
+              onClick={this.handleSubmit}>
+              Add
+            </button>
+          </div>
+
 
         </form>
 
