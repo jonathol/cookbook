@@ -188,7 +188,7 @@ var ApiUtil = {
       type: "GET",
       url: "api/recipes/" + recipeId + "/notes",
       success: function (notes) {
-        ApiAction.receiveAllNotes(notes);
+        ApiActions.receiveAllNotes(notes);
       }
     });
   },

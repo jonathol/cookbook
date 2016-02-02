@@ -4,7 +4,8 @@ var React = require('react'),
     CookStore = require('../stores/cook'),
     RatingStore = require('../stores/rating'),
     ApiUtil = require('../util/api_util'),
-    Icon = require('react-fontawesome');
+    Icon = require('react-fontawesome'),
+    Notes = require('./notes');
 
 var RecipeDetail = React.createClass({
   componentDidMount: function () {
@@ -264,6 +265,7 @@ var RecipeDetail = React.createClass({
             </section>
           </section>
         </article>
+        <Notes recipeId={this.props.params.recipeId} />
       </section>
     );
   }

@@ -32,13 +32,13 @@ class Note < ActiveRecord::Base
   private
     def ensure_parent_has_no_parent
       if self.parent_note && self.parent_note.parent_note
-        raise "Comment cannot be nested that deeply"
+        raise "Note cannot be nested that deeply"
       end
     end
 
     def ensure_parent_belongs_to_same_recipe
-      if self.parent && self.parent.recipe != self.recipe
-        raise "Comment must belong to same recipe as parent"
+      if self.parent_note && self.parent_note.recipe != self.recipe
+        raise "Note must belong to same recipe as parent"
       end
     end
 end

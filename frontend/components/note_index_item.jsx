@@ -2,9 +2,13 @@ var React = require('react');
 
 var NoteIndexItem = React.createClass({
   render: function () {
-    <li className="note-index-item">
-      note.user
-    </li>
+    return (
+      <li className="note-index-item">
+        {this.props.note.author.name}
+        {this.props.note.time_ago}
+        {this.props.note.body}
+      </li>
+    );
   }
 });
 

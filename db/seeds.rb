@@ -956,7 +956,7 @@ comments = []
 i = 0
 Recipe.all.each do |recipe|
   User.all.each do |user|
-    if rand > 0.8
+    if rand > 0.7
       comments << recipe.notes.create!(
         author: user,
         body: dummy_comments[i % dummy_comments.length]
@@ -979,7 +979,7 @@ comments.each do |parent_comment|
 end
 
 User.all.each do |user|
-  15.times do |i|
+  6.times do |i|
     user.notes.create!(
       recipe: Recipe.find(rand(Recipe.first.id..Recipe.last.id)),
       body: private_notes[i % private_notes.length],

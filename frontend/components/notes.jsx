@@ -1,6 +1,7 @@
 var React = require('react'),
     NoteStore = require('../stores/note'),
-    NotesIndex = require('./notes_index');
+    NotesIndex = require('./notes_index'),
+    ApiUtil = require('../util/api_util');
 
 var Notes = React.createClass({
   getInitialState: function () {
@@ -9,7 +10,7 @@ var Notes = React.createClass({
 
   componentDidMount: function () {
     this.notesListener = NoteStore.addListener(this._notesChanged);
-    ApiUtil.fetchAllNotes(recipeId);
+    ApiUtil.fetchAllNotes(this.props.recipeId);
   },
 
   componentWillUnmount: function () {

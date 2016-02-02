@@ -1,11 +1,11 @@
 var React = require('react'),
-    NoteIndexItem = require('./notes_index_item');
+    NoteIndexItem = require('./note_index_item');
 
 
 var NotesIndex = React.createClass({
   render: function () {
-    var notes = this.props.notes.map(function(note) {
-      return <NoteIndexItem note={note} />;
+    var notes = this.props.notes.map(function(note, idx) {
+      return <NoteIndexItem note={note} key={idx} />;
     });
     return (
       <ul className="notes-index">
