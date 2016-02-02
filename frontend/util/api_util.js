@@ -183,6 +183,16 @@ var ApiUtil = {
     });
   },
 
+  fetchAllNotes: function (recipeId) {
+    $.ajax({
+      type: "GET",
+      url: "api/recipes/" + recipeId + "/notes",
+      success: function (notes) {
+        ApiAction.receiveAllNotes(notes);
+      }
+    });
+  },
+
   fetchCurrentUser: function () {
     $.ajax({
       type: "GET",

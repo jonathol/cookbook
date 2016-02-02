@@ -2,7 +2,8 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
     RecipeConstants = require('../constants/recipe_constants'),
     RecipeSaveConstants = require('../constants/recipe_save_constants'),
     CookConstants = require('../constants/cook_constants'),
-    RatingConstants = require('../constants/rating_constants');
+    RatingConstants = require('../constants/rating_constants'),
+    NoteConstants = require('../constants/notes');
 
 module.exports = {
   receiveAllRecipes: function (recipes) {
@@ -79,6 +80,13 @@ module.exports = {
     AppDispatcher.dispatch({
       actionType: RatingConstants.RATINGS_RECEIVED,
       ratings: ratings
+    });
+  },
+
+  receiveAllNotes: function (notes) {
+    AppDispatcher.dispatch({
+      actionType: NoteConstants.NOTES_RECEIVED,
+      notes: notes
     });
   }
 };

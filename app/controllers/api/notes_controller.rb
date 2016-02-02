@@ -13,11 +13,13 @@ class Api::NotesController < ApplicationController
     if current_user
       @notes = Recipe.find(params[:recipe_id])
         .notes
-        .where("private = 0 OR user_id = (?)", current_user.id)
+        .where("private = FALSE OR user_id = (?)", current_user.id)
     else
       @notes = Recipe.find(params[:recipe_id])
         .notes
-        .where("private = 0")
+        .where("private = TRUE")
     end
+
+    render json: @notes
   end
 end
