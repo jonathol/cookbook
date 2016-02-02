@@ -6,7 +6,10 @@ var React = require('react'),
 
 var Notes = React.createClass({
   getInitialState: function () {
-    return $.extend({ formActive: false }, this.getNotesFromStore());
+    var state = this.getNotesFromStore();
+    state.formActive = false;
+    state.activeIndex = 0;
+    return state;
   },
 
   componentDidMount: function () {
@@ -40,6 +43,10 @@ var Notes = React.createClass({
     ApiUtil.createNote(this.props.recipeId, note);
   },
 
+  toggleIndexTab: function (idx) {
+    this.setState({ activeIndex: idx });
+  },
+
   _notesChanged: function () {
     this.setState(this.getNotesFromStore());
   },
@@ -60,7 +67,46 @@ var Notes = React.createClass({
           onClick={this.toggleForm} />
       );
     }
+    var notesIndex;
+    switch (this.state.activeIndex) {
+      case 0:
+        notesIndex = <NotesIndex notes={this.state.publicNotes} />;
+        break;
+      case 1:
+        notesIndex = <NotesIndex notes={this.state.privateNotes} />;
+        break;
+    }
 
+    var activeIdx;
+    var publicNotesTab;
+    if (this.state.publicNotes.length > 0) {
+      activeIdx = this.state.activeIndex === 0 ? " active-index" : ""
+      publicNotesTab = (
+        <li
+          className={"notes-index-tab" + activeIdx}
+          onClick={this.toggleIndexTab.bind(this, 0)}>
+          All <span className="note-count">{this.state.publicNotes.length}</span>
+        </li>
+      );
+    }
+
+    var privateNotesTab;
+    if (this.state.privateNotes.length > 0) {
+      activeIdx = this.state.activeIndex === 1 ? " active-index" : ""
+      privateNotesTab = (
+        <li
+          className={"notes-index-tab" + activeIdx}
+          onClick={this.toggleIndexTab.bind(this, 1)}>
+          Private <span className="note-count">{this.state.privateNotes.length}</span>
+        </li>
+      );
+    }
+
+    if (!publicNotesTab && !privateNotesTab) {
+      notesIndex = (
+        <div>No one has left a note yet. Be the first!</div>
+      )
+    }
 
     return (
       <section className="notes">
@@ -68,8 +114,12 @@ var Notes = React.createClass({
           Notes
         </h4>
         {noteForm}
-        <NotesIndex notes={this.state.publicNotes} />
-        <NotesIndex notes={this.state.privateNotes} />
+        <ul
+          className="notes-index-tabs group">
+          {publicNotesTab}
+          {privateNotesTab}
+        </ul>
+        {notesIndex}
       </section>
     );
   }

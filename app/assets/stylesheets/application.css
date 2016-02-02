@@ -893,6 +893,41 @@ li.note-form-finish > button:first-child {
 }
 
 /* Notes Index */
+ul.notes-index-tabs {
+  margin-top: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+li.notes-index-tab {
+  font-size: 14px;
+  color: #464646;
+  float: left;
+  padding: 15px 25px;
+  margin-bottom: -1px;
+}
+
+li.notes-index-tab:hover {
+  cursor: pointer;
+}
+
+li.notes-index-tab.active-index {
+  font-weight: 700;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+li.notes-index-tab > span.note-count {
+  font-weight: 400;
+  color: #8A8787;
+}
+
+ul.notes-index {
+  margin-top: 10px;
+}
+
 li.note-index-item {
   padding: 20px 0;
   border-bottom: 1px solid #f4f4f4;
