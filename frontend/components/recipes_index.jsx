@@ -76,7 +76,7 @@ module.exports = React.createClass({
 
     return (
       <ul
-        className="recipes-index-list">
+        className="recipes-index-list group">
         {recipes}
       </ul>
     );

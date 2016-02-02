@@ -197,11 +197,11 @@ var ApiUtil = {
     $.ajax({
       type: "GET",
       url: "api/session",
-      success: function (response) {
-        if (!response.session_token) {
+      success: function (user) {
+        if (!user.id) {
           return;
         }
-        AuthActions.logInUser(response.session_token);
+        AuthActions.logInUser(user);
       },
       error: function (error) {
         console.log(error);
@@ -215,8 +215,8 @@ var ApiUtil = {
       url: "api/session",
       dataType: "json",
       data: { user: credentials },
-      success: function (response) {
-        AuthActions.logInUser(response.session_token);
+      success: function (user) {
+        AuthActions.logInUser(user);
       },
       error: function (error) {
         console.log(error);

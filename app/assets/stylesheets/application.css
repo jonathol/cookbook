@@ -381,8 +381,25 @@ div.submit-buttons > button:hover {
 
 /* RECIPES INDEX */
 .recipes-index-list {
-  width: 1000px;
   margin: auto;
+}
+
+@media (min-width: 500px) {
+  ul.recipes-index-list {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1000px) {
+  ul.recipes-index-list {
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1500px) {
+  ul.recipes-index-list {
+    width: 1500px;
+  }
 }
 
 /* RECIPE INDEX ITEM */
@@ -798,7 +815,7 @@ p.step-body {
   margin-bottom: 30px;
 }
 
-/* COMMENTS */
+/* NOTES */
 li.note-index-item {
   padding: 20px 0;
   border-bottom: 1px solid #f4f4f4;
@@ -827,6 +844,5 @@ div.note-time {
 
 p.note-body {
   clear: both;
-  margin: 5px 0;
-  /*font-size: 16px;*/
+  margin-top: 5px;
 }

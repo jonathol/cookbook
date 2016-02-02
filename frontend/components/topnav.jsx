@@ -5,12 +5,12 @@ var React = require('react'),
 
 var TopNav = React.createClass({
   componentDidMount: function () {
-    var sessionListener = SessionStore.addListener(this._sessionChanged);
+    this.sessionListener = SessionStore.addListener(this._sessionChanged);
     document.addEventListener('scroll', this.handleScroll);
   },
 
   componentWillUnmount: function () {
-    SessionStore.remove(sessionListener);
+    this.sessionListener.remove();
     document.removeEventListener('scroll', this.handleScroll);
   },
 
@@ -21,8 +21,7 @@ var TopNav = React.createClass({
   getSessionState: function () {
     return {
       loggedIn: SessionStore.loggedIn(),
-      userId: SessionStore.userId(),
-      token: SessionStore.token()
+      user: SessionStore.currentUser()
     };
   },
 
@@ -73,7 +72,7 @@ var TopNav = React.createClass({
       recipeBox = (
         <li>
           <a
-            href={"#/users/" + this.state.userId + "/recipe-box"}
+            href={"#/users/" + this.state.user.id + "/recipe-box"}
             className={"topnav-link" + sticky}>Recipe Box</a>
         </li>
       )

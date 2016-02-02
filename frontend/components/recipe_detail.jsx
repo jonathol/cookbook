@@ -252,14 +252,18 @@ var RecipeDetail = React.createClass({
           </section>
           <section className="recipe-bottom-details group">
             <section className="recipe-ingredients">
-              <h4>Ingredients</h4>
+              <h4 className="recipe-bottom-details-header">
+                Ingredients
+              </h4>
               <ul className="ingredients-list">
                 {ingredients}
               </ul>
             </section>
             <section className="details-bottom-right-column">
               <section className="recipe-steps">
-                <h4>Preparation</h4>
+                <h4 className="recipe-bottom-details-header">
+                  Preparation
+                </h4>
                 <ul className="preparation-steps-list">
                   {steps}
                 </ul>

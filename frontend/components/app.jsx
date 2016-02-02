@@ -16,8 +16,7 @@ var App = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    var authAction = (newProps.location.pathname === "/login");
-    this.setState({ authAction: authAction });
+    this.setState({ authAction: false });
   },
 
   componentWillUnmount: function () {
@@ -34,12 +33,11 @@ var App = React.createClass({
 
   getInitialState: function () {
     var state = this.getSessionState();
-    state.authAction = (this.props.location.pathname === "/login");
     return state;
   },
 
   getSessionState: function () {
-    return { userId: SessionStore.userId() };
+    return { user: SessionStore.currentUser() };
   },
 
   _sessionChanged: function () {

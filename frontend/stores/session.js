@@ -5,36 +5,30 @@ var Store = require('flux/utils').Store,
 
 var SessionStore = new Store(AppDispatcher);
 
-var _userId, _token;
+var _currentUser = {};
 
 SessionStore.loggedIn = function () {
-  return !!_userId;
+  return !!_currentUser.id;
 };
 
-SessionStore.token = function () {
-  return _token;
+SessionStore.currentUser = function () {
+  return $.extend({}, _currentUser);
 };
 
-SessionStore.userId = function () {
-  return _userId;
-};
-
-SessionStore.logInUser = function (token) {
-  _token = token;
-  _userId = jwt.decode(_token).user_id;
+SessionStore.logInUser = function (user) {
+  _currentUser = user;
   this.__emitChange();
 };
 
 SessionStore.logOutUser = function () {
-  _token = null;
-  _userId = null;
+  _currentUser = {};
   this.__emitChange();
 };
 
 SessionStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case AuthConstants.USER_LOGGED_IN:
-      this.logInUser(payload.token);
+      this.logInUser(payload.user);
       break;
     case AuthConstants.USER_LOGGED_OUT:
       this.logOutUser();
