@@ -1,6 +1,7 @@
 class Note < ActiveRecord::Base
   before_create :ensure_parent_has_no_parent
   before_create :ensure_parent_belongs_to_same_recipe
+  before_create :ensure_parent_isnt_private_comment
 
   validates :author, :recipe, :body, presence: true
   validates :body, length: { minimum: 10 }
@@ -39,6 +40,12 @@ class Note < ActiveRecord::Base
     def ensure_parent_belongs_to_same_recipe
       if self.parent_note && self.parent_note.recipe != self.recipe
         raise "Note must belong to same recipe as parent"
+      end
+    end
+
+    def ensure_parent_isnt_private_comment
+      if self.parent_note && self.parent_note.private
+        raise "Cannot reply to private note"
       end
     end
 end

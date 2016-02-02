@@ -19,13 +19,13 @@ NoteStore.resetNotes = function (notes) {
   _publicNotes = [];
   _privateNotes = [];
   notes.forEach(function (note) {
-    debugger
     if (note.private) {
       _privateNotes.push(note);
     } else {
       _publicNotes.push(note);
     }
   });
+  this.__emitChange();
 };
 
 NoteStore.__onDispatch = function (payload) {

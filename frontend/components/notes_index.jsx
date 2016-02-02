@@ -9,7 +9,7 @@ var NotesIndex = React.createClass({
     });
     return (
       <ul className="notes-index">
-
+        {notes}
       </ul>
     );
   }

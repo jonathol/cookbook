@@ -5,7 +5,7 @@ var React = require('react'),
 
 var Notes = React.createClass({
   getInitialState: function () {
-    return { publicNotes: [], privateNotes: [] };
+    return this.getNotesFromStore();
   },
 
   componentDidMount: function () {

@@ -17,7 +17,7 @@ class Api::NotesController < ApplicationController
     else
       @notes = Recipe.find(params[:recipe_id])
         .notes
-        .where("private = TRUE")
+        .where("private = FALSE")
     end
   end
 end

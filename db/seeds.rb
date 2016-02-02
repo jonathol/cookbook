@@ -968,7 +968,7 @@ end
 
 i = 0
 comments.each do |parent_comment|
-  if rand > 0.7
+  if rand > 0.65 && !parent_comment.private
     parent_comment.child_notes.create!(
       author: User.find(rand(User.first.id..User.last.id)),
       recipe: parent_comment.recipe,
