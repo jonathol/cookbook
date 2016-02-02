@@ -4,9 +4,17 @@ var NoteIndexItem = React.createClass({
   render: function () {
     return (
       <li className="note-index-item">
-        {this.props.note.author.name}
-        {this.props.note.time_ago}
-        {this.props.note.body}
+        <div className="note-details group">
+          <div className="note-author-name">
+            {this.props.note.author.name}
+          </div>
+          <div className="note-time">
+            {this.props.note.time_ago}
+          </div>
+        </div>
+        <p className="note-body">
+          {this.props.note.body}
+        </p>
       </li>
     );
   }

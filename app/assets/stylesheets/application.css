@@ -739,7 +739,7 @@ ul.rating-stars:hover > li.rating-star {
   -webkit-text-stroke-width: 0;
 }
 
-section.recipe-directions {
+section.recipe-bottom-details {
   margin-top: 20px;
 }
 
@@ -748,12 +748,12 @@ section.recipe-ingredients {
   float: left;
 }
 
-section.recipe-steps {
+section.details-bottom-right-column {
   width: 600px;
   float: right;
 }
 
-section.recipe-directions h4 {
+section.recipe-bottom-details h4 {
   margin-bottom: 30px;
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 14px;
@@ -796,4 +796,37 @@ span.step-number {
 p.step-body {
   line-height: 1.5;
   margin-bottom: 30px;
+}
+
+/* COMMENTS */
+li.note-index-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+li.note-index-item:last-child {
+  border-bottom: none;
+}
+
+div.note-details {
+  font-size: 14px;
+}
+
+div.note-author-name {
+  float: left;
+  font-weight: 700;
+  padding-right: 12px;
+  border-right: 1px solid #ccc;
+}
+
+div.note-time {
+  float: left;
+  margin-left: 12px;
+  color: #666;
+}
+
+p.note-body {
+  clear: both;
+  margin: 5px 0;
+  /*font-size: 16px;*/
 }
