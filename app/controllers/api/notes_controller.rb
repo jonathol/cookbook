@@ -13,7 +13,7 @@ class Api::NotesController < ApplicationController
     if current_user
       @notes = Recipe.find(params[:recipe_id])
         .notes
-        .where("private = FALSE OR user_id = (?)", current_user.id)
+        .where("private = FALSE OR author_id = (?)", current_user.id)
     else
       @notes = Recipe.find(params[:recipe_id])
         .notes

@@ -268,7 +268,9 @@ var RecipeDetail = React.createClass({
                   {steps}
                 </ul>
               </section>
-              <Notes recipeId={this.props.params.recipeId} />
+              <Notes
+                recipeId={this.props.params.recipeId}
+                enforceAuth={this.props.enforceAuth} />
             </section>
           </section>
         </article>

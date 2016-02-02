@@ -1,7 +1,7 @@
 var React = require('react'),
     NoteStore = require('../stores/note'),
     NotesIndex = require('./notes_index'),
-    SessionStore = require('../stores/session'),
+    NoteForm = require('./note_form'),
     ApiUtil = require('../util/api_util');
 
 var Notes = React.createClass({
@@ -35,9 +35,7 @@ var Notes = React.createClass({
         <h4 className="recipe-bottom-details-header">
           Notes
         </h4>
-        <form className="add-note-form">
-
-        </form>
+        <NoteForm enforceAuth={this.props.enforceAuth} />
         <NotesIndex notes={this.state.publicNotes} />
         <NotesIndex notes={this.state.privateNotes} />
       </section>
