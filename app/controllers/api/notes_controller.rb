@@ -19,7 +19,5 @@ class Api::NotesController < ApplicationController
         .notes
         .where("private = TRUE")
     end
-
-    render json: @notes
   end
 end
