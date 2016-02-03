@@ -86,6 +86,7 @@ var ApiUtil = {
       type: "GET",
       url: "api/recipe_saves",
       success: function (recipeSaves) {
+        debugger
         ApiActions.receiveAllRecipeSaves(recipeSaves);
       }
     });
@@ -97,7 +98,7 @@ var ApiUtil = {
     }
     $.ajax({
       type: "GET",
-      url: "api/recipe_saves?recipe_id=" + recipeId,
+      url: "api/recipes/" + recipeId + "/recipe_saves",
       success: function (recipeSave) {
         ApiActions.receiveSingleRecipeSave(recipeSave);
       }
@@ -226,11 +227,10 @@ var ApiUtil = {
     $.ajax({
       type: "GET",
       url: "api/session",
-      success: function (user) {
-        if (!user.id) {
-          return;
-        }
-        AuthActions.logInUser(user);
+      success: function (userData) {
+        AuthActions.logInUser(userData.user);
+        ApiActions.receiveAllRecipeSaves(userData.recipeSaves);
+        ApiActions.receiveAllCookedRecipes(userData.cooks);
       },
       error: function (error) {
         console.log(error);

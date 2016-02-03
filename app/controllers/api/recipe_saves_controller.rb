@@ -28,7 +28,7 @@ class Api::RecipeSavesController < ApplicationController
         render json: {}
       end
     else
-      @recipe_saves = current_user ? current_user.recipe_saves : []
+      @recipe_saves = current_user ? current_user.recipe_saves : {}
     end
   end
 end

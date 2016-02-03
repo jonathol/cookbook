@@ -1,6 +1,6 @@
 class Api::CooksController < ApplicationController
   def create
-    @cook = current_user.cooked_recipes.create!(recipe_id: params[:recipe_id])
+    @cook = current_user.recipe_cooks.create!(recipe_id: params[:recipe_id])
     render json: { @cook.recipe_id => @cook.id }
   end
 
@@ -24,7 +24,7 @@ class Api::CooksController < ApplicationController
         render json: {}
       end
     else
-      @cooks = current_user ? current_user.cooked_recipes : []
+      @cooks = current_user ? current_user.recipe_cooks : []
     end
   end
 end

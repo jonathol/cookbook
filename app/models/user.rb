@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :recipe_saves, through: :recipe_box
   has_many :saved_recipes, through: :recipe_box
   has_many :recipe_cooks, class_name: "Cook", dependent: :destroy
-  has_many :cooked_recipes, through: :recipe_cooks
+  has_many :cooked_recipes, through: :recipe_cooks, source: :recipe
   has_many :ratings, dependent: :destroy
   has_many :notes, dependent: :destroy, foreign_key: :author_id
   has_many :note_likes
