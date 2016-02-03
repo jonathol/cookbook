@@ -10,6 +10,7 @@ class Note < ActiveRecord::Base
   belongs_to :recipe
   has_many :child_notes, class_name: "Note", foreign_key: :parent_id
   belongs_to :parent_note, class_name: "Note", foreign_key: :parent_id
+  has_many :likes, class_name: "NoteLike"
 
   def time_ago
     time_ago = (Time.now - self.created_at).to_i
@@ -28,6 +29,10 @@ class Note < ActiveRecord::Base
     else
       "#{time_ago / 31536000} years ago"
     end
+  end
+
+  def like_count
+    NoteLike.where(note_id: self.id).count
   end
 
   private

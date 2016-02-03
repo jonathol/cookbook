@@ -16,6 +16,7 @@ Rating.destroy_all
 Tag.destroy_all
 Tagging.destroy_all
 Note.destroy_all
+NoteLike.destroy_all
 
 will = User.create!(
   email: "wrmcmeans@gmail.com",
@@ -967,14 +968,24 @@ Recipe.all.each do |recipe|
 end
 
 i = 0
+child_notes = []
+
 comments.each do |parent_comment|
   if rand > 0.65 && !parent_comment.private
-    parent_comment.child_notes.create!(
+    child_notes << parent_comment.child_notes.create!(
       author: User.find(rand(User.first.id..User.last.id)),
       recipe: parent_comment.recipe,
       body: child_comments[i % child_comments.length]
     )
     i += 1
+  end
+end
+
+comments.concat(child_notes).each do |comment|
+  User.all.each do |user|
+    if rand > 0.2
+      comment.likes.create!(user: user)
+    end
   end
 end
 

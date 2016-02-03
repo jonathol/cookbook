@@ -2,11 +2,20 @@ var React = require('react'),
     Icon = require('react-fontawesome'),
     NoteForm = require('./note_form'),
     NotesIndex = require('./notes_index'),
-    ApiUtil = require('../util/api_util');
+    ApiUtil = require('../util/api_util'),
+    SessionStore = require('../stores/session');
 
 var NoteIndexItem = React.createClass({
   getInitialState: function () {
-    return { formActive: false };
+    return { formActive: false, currentUserId = SessionStore.currentUser().id };
+  },
+
+  componentDidMount: function () {
+    this.sessionListener = SessionStore.addListener(this._sessionChanged);
+  },
+
+  componentWillUnmount: function () {
+    this.sessionListener.remove();
   },
 
   cancelReply: function () {
@@ -18,12 +27,20 @@ var NoteIndexItem = React.createClass({
     ApiUtil.createNote(this.props.note.recipe_id, note);
   },
 
+  toggleLike: function () {
+
+  },
+
   toggleReply: function () {
     if (!this.props.enforceAuth()) {
       return;
     } else {
       this.setState({ formActive: true });
     }
+  },
+
+  _sessionChanged: function () {
+    this.setState({ currentUserId: SessionStore.currentUser().id });
   },
 
   render: function () {
@@ -40,6 +57,13 @@ var NoteIndexItem = React.createClass({
           </li>
         );
       }
+      var likeButton = (
+        <li
+          onClick={this.toggleLike}>
+          <Icon name="thumbs-up" />
+          Helpful
+        </li>
+      );
 
       return (
         <section className={noteClass}>
