@@ -8,7 +8,8 @@ var React = require('react'),
     Auth = require('./components/auth'),
     RecipesIndex = require('./components/recipes_index.jsx'),
     RecipeDetail = require('./components/recipe_detail'),
-    UserShow = require('./components/user_show');
+    UserShow = require('./components/user_show'),
+    AccountEdit = require('./components/account_edit');
 
 var router = (
   <Router>
@@ -20,6 +21,7 @@ var router = (
         <Route path="my-recipes" component={RecipesIndex} />
       </Route>
       <Route path="tags/:tagId" component={RecipesIndex} />
+      <Route path="account/edit" component={AccountEdit} />
     </Route>
   </Router>
 );
