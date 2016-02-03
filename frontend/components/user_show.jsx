@@ -10,10 +10,16 @@ module.exports = React.createClass({
     }
   },
 
+  renderChildren: function () {
+    return React.Children.map(this.props.children, function (child) {
+      return React.cloneElement(child, { enforceAuth: this.props.enforceAuth });
+    }.bind(this));
+  },
+
   render: function () {
     return (
       <main className="user-information">
-        {this.props.children}
+        {this.renderChildren()}
       </main>
     );
   }

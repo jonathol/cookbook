@@ -48,7 +48,6 @@ var NoteIndexItem = React.createClass({
   },
 
   render: function () {
-    var toggleLike = this.toggleLike;
     var isParent = !this.props.note.parent_id;
     var noteClass = isParent ? "note" : "note child-note";
 
