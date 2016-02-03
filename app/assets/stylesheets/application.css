@@ -1009,11 +1009,13 @@ ul.note-interaction-links > li > span {
 }
 
 ul.note-interaction-links > li:hover > span.fa-reply {
-  margin-right: 5px;
   color: #e33d26;
 }
 
 ul.note-interaction-links > li:hover > span.fa-thumbs-up {
-  margin-right: 5px;
+  color: #ffb700;
+}
+
+ul.note-interaction-links > li > span.fa-thumbs-up.liked {
   color: #ffb700;
 }

@@ -82,10 +82,11 @@ var NoteIndexItem = React.createClass({
       );
     }
 
+    var liked = this.state.like ? " liked" : "";
     var likeButton = (
       <li
         onClick={this.toggleLike}>
-        <Icon name="thumbs-up" />
+        <Icon name="thumbs-up" className={liked} />
         {this.state.numLikes} Helpful
       </li>
     );
