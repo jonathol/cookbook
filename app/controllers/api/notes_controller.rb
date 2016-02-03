@@ -18,17 +18,17 @@ class Api::NotesController < ApplicationController
       params.require(:note).permit(:recipe_id, :parent_id, :body)
     end
 
-    def get_all_notes(recipe_id)
-      if current_user
-        @notes = Recipe.find(recipe_id)
-          .notes
-          .where("private = FALSE OR author_id = (?)", current_user.id)
-          .order(created_at: :desc)
-      else
-        @notes = Recipe.find(recipe_id)
-          .notes
-          .where("private = FALSE")
-          .order(created_at: :desc)
-      end
-    end
+    # def get_all_notes(recipe_id)
+    #   if current_user
+    #     @notes = Recipe.find(recipe_id)
+    #       .notes
+    #       .where("private = FALSE OR author_id = (?)", current_user.id)
+    #       .order(created_at: :desc)
+    #   else
+    #     @notes = Recipe.find(recipe_id)
+    #       .notes
+    #       .where("private = FALSE")
+    #       .order(created_at: :desc)
+    #   end
+    # end
 end

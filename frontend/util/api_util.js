@@ -210,6 +210,18 @@ var ApiUtil = {
     });
   },
 
+  toggleNoteLike: function (noteId) {
+    $.ajax({
+      type: "POST",
+      url: "api/note_likes",
+      dataType: "json",
+      data: { note_id: noteId },
+      success: function (notes) {
+        ApiActions.receiveAllNotes(notes);
+      }
+    });
+  },
+
   fetchCurrentUser: function () {
     $.ajax({
       type: "GET",

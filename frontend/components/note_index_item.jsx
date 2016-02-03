@@ -7,7 +7,7 @@ var React = require('react'),
 
 var NoteIndexItem = React.createClass({
   getInitialState: function () {
-    return { formActive: false, currentUserId = SessionStore.currentUser().id };
+    return { formActive: false, currentUserId: SessionStore.currentUser().id };
   },
 
   componentDidMount: function () {
@@ -27,8 +27,12 @@ var NoteIndexItem = React.createClass({
     ApiUtil.createNote(this.props.note.recipe_id, note);
   },
 
-  toggleLike: function () {
-
+  toggleLike: function (noteId) {
+    if (!this.props.enforceAuth()) {
+      return;
+    } else {
+      ApiUtil.toggleNoteLike(noteId);
+    }
   },
 
   toggleReply: function () {
@@ -44,6 +48,8 @@ var NoteIndexItem = React.createClass({
   },
 
   render: function () {
+    var toggleLike = this.toggleLike;
+
     var createNote = function (note) {
       var isParent = !note.parent_id;
       var noteClass = isParent ? "note" : "note child-note";
@@ -59,9 +65,9 @@ var NoteIndexItem = React.createClass({
       }
       var likeButton = (
         <li
-          onClick={this.toggleLike}>
+          onClick={toggleLike.bind(null, note.id)}>
           <Icon name="thumbs-up" />
-          Helpful
+          {note.likes.length} Helpful
         </li>
       );
 
@@ -81,10 +87,7 @@ var NoteIndexItem = React.createClass({
           <ul
             className="note-interaction-links group">
             {replyButton}
-            <li>
-              <Icon name="thumbs-up" />
-              Helpful
-            </li>
+            {likeButton}
           </ul>
         </section>
       );
