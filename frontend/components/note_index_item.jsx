@@ -66,7 +66,7 @@ var NoteIndexItem = React.createClass({
       );
     };
 
-    var parentNote = createNote(this.props.note);
+    var parentNote = createNote.call(this, this.props.note);
 
     var replyForm;
     if (this.state.formActive) {
@@ -80,20 +80,20 @@ var NoteIndexItem = React.createClass({
 
     var childNotes;
     if (this.props.note.child_notes.length > 0) {
-      this.props.note.child_notes.map(function (note, idx) {
+      childNotes = this.props.note.child_notes.map(function (note, idx) {
         var child_note = createNote(note);
         return <li key={idx}>{child_note}</li>;
       });
     }
 
     return (
-      <section className="note-index-item">
+      <li className="note-index-item">
         {parentNote}
         {replyForm}
         <ul>
           {childNotes}
         </ul>
-      </section>
+      </li>
     );
   }
 });
