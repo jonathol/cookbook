@@ -834,6 +834,12 @@ section.active-note-section {
   border: 1px solid #E1E1E1;
 }
 
+section.active-note-section.reply-form {
+  padding: 18px 28px 18px 14px;
+  background-color: transparent;
+  border: none;
+}
+
 div.note-user-image {
   width: 75px;
   height: 250px;
@@ -940,6 +946,10 @@ li.note-index-item:last-child {
 
 section.note {
   padding-top: 20px;
+}
+
+section.note.child-note {
+  margin-left: 65px;
 }
 
 div.note-details {

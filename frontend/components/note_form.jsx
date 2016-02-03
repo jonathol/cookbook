@@ -40,9 +40,10 @@ var NoteForm = React.createClass({
   },
 
   render: function () {
+    var childClass = (this.props.parentId + 1) ? " reply-form" : "";
     return (
       <section
-        className="active-note-section group">
+        className={"active-note-section group" + childClass}>
         <div
           className="note-user-image">
         </div>
