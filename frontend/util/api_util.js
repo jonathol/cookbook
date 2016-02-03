@@ -244,8 +244,10 @@ var ApiUtil = {
       url: "api/session",
       dataType: "json",
       data: { user: credentials },
-      success: function (user) {
-        AuthActions.logInUser(user);
+      success: function (userData) {
+        AuthActions.logInUser(userData.user);
+        ApiActions.receiveAllRecipeSaves(userData.recipeSaves);
+        ApiActions.receiveAllCookedRecipes(userData.cooks);
       },
       error: function (error) {
         console.log(error);

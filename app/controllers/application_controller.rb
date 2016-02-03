@@ -41,4 +41,16 @@ class ApplicationController < ActionController::Base
         .order(created_at: :desc)
     end
   end
+
+  def get_meta_data_for_current_user
+    @recipe_saves = {}
+    @recipe_cooks = {}
+    return unless logged_in?
+    current_user.recipe_saves.each do |recipe_save|
+      @recipe_saves[recipe_save.recipe_id] = recipe_save.id
+    end
+    current_user.recipe_cooks.each do |recipe_cook|
+      @recipe_cooks[recipe_cook.recipe_id] = recipe_cook.id
+    end
+  end
 end

@@ -14,6 +14,10 @@ RecipeStore.featured = function () {
   return $.extend({}, _featuredRecipe);
 };
 
+RecipeStore.find = function () {
+  return $.extend({}, _featuredRecipe);
+};
+
 RecipeStore.resetRecipes = function (recipes) {
   _recipes = recipes;
   this.__emitChange();

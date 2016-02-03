@@ -9,10 +9,8 @@ class Api::SessionsController < ApplicationController
 
     if @user
       log_in!(@user)
-      render json: {
-        id: current_user.id,
-        name: current_user.name || current_user.email
-      }
+      get_meta_data_for_current_user
+      render :show
     else
       render json: ["Invalid email/password combination"], status: 401
     end
@@ -24,14 +22,7 @@ class Api::SessionsController < ApplicationController
   end
 
   def show
-    if current_user
-      @token = current_user.session_token
-      render json: {
-        id: current_user.id,
-        name: current_user.name || current_user.email
-      }
-    else
-      render json: {}
-    end
+    current_user
+    get_meta_data_for_current_user
   end
 end
