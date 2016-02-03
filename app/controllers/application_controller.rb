@@ -47,6 +47,7 @@ class ApplicationController < ActionController::Base
     @recipe_saves = {}
     @recipe_cooks = {}
     @ratings = {}
+    @note_likes = {}
     return unless logged_in?
 
     @user_info[:id] = current_user.id
@@ -63,6 +64,10 @@ class ApplicationController < ActionController::Base
 
     current_user.ratings.each do |rating|
       @ratings[rating.recipe_id] = rating.score
+    end
+
+    current_user.note_likes.each do |like|
+      @note_likes[like.note_id] = like.id
     end
   end
 end

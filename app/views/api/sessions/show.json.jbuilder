@@ -7,3 +7,4 @@ end
 json.recipe_saves @recipe_saves
 json.recipe_cooks @recipe_cooks
 json.ratings @ratings
+json.note_likes @note_likes

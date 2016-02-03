@@ -1,15 +1,15 @@
 class Api::NoteLikesController < ApplicationController
   def create
-    @like = NoteLike.find_by_user_id_and_note_id(
-      current_user.id,
-      params[:note_id]
-    )
-    if @like
-      @like.destroy!
+    @like = current_user.note_likes.create!(params[:note_id])
+    render json: { @like.note_id => @like.id }
+  end
+
+  def destroy
+    @like = NoteLike.find(params[:id])
+    if @like.user == current_user
+      render json: @like.destroy!.recipe_id
     else
-      @like = current_user.note_likes.create!(note_id: params[:note_id])
+      render json: ["you cannot unmark that recipe as cooked"]
     end
-    @notes = get_all_notes(Note.find(params[:note_id]).recipe_id)
-    render 'api/notes/index'
   end
 end

@@ -90,6 +90,27 @@ module.exports = {
     });
   },
 
+  receiveUserNoteLikes: function (noteLikes) {
+    AppDispatcher.dispatch({
+      actionType: LikeConstants.LIKES_RECEIVED,
+      likes: likes
+    });
+  },
+
+  receiveUserNoteLike: function (noteLike) {
+    AppDispatcher.dispatch({
+      actionType: LikeConstants.LIKE_RECEIVED,
+      like: like
+    });
+  },
+
+  receiveDeletedLikeNoteId: function (noteId) {
+    AppDispatcher.dispatch({
+      actionType: LikeConstants.DELETED_LIKE_NOTE_ID_RECEIVED,
+      noteId: noteId
+    });
+  },
+
   receiveAllNotes: function (notes) {
     AppDispatcher.dispatch({
       actionType: NoteConstants.NOTES_RECEIVED,

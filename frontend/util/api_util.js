@@ -210,14 +210,24 @@ var ApiUtil = {
     });
   },
 
-  toggleNoteLike: function (noteId) {
+  createNoteLike: function (noteId) {
     $.ajax({
       type: "POST",
       url: "api/note_likes",
       dataType: "json",
       data: { note_id: noteId },
-      success: function (notes) {
-        ApiActions.receiveAllNotes(notes);
+      success: function (noteLike) {
+        ApiActions.receiveUserNoteLike(noteLike);
+      }
+    });
+  },
+
+  destroyNoteLike: function (noteLikeId) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/note_likes/" + noteLikeId,
+      success: function (noteId) {
+        ApiActions.receiveDeletedLikeNoteId(noteId);
       }
     });
   },
@@ -231,6 +241,7 @@ var ApiUtil = {
         ApiActions.receiveAllRecipeSaves(userData.recipe_saves);
         ApiActions.receiveAllCookedRecipes(userData.recipe_cooks);
         ApiActions.receiveUserRatings(userData.ratings);
+        ApiActions.receiveUserNoteLikes(userData.note_likes);
       },
       error: function (error) {
         console.log(error);
@@ -249,6 +260,7 @@ var ApiUtil = {
         ApiActions.receiveAllRecipeSaves(userData.recipe_saves);
         ApiActions.receiveAllCookedRecipes(userData.recipe_cooks);
         ApiActions.receiveUserRatings(userData.ratings);
+        ApiActions.receiveUserNoteLikes(userData.note_likes);
       },
       error: function (error) {
         console.log(error);
