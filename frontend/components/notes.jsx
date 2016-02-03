@@ -70,10 +70,18 @@ var Notes = React.createClass({
     var notesIndex;
     switch (this.state.activeIndex) {
       case 0:
-        notesIndex = <NotesIndex notes={this.state.publicNotes} />;
+        notesIndex = (
+          <NotesIndex
+            notes={this.state.publicNotes}
+            enforceAuth={this.props.enforceAuth} />
+        );
         break;
       case 1:
-        notesIndex = <NotesIndex notes={this.state.privateNotes} />;
+        notesIndex = (
+          <NotesIndex
+            notes={this.state.privateNotes}
+            enforceAuth={this.props.enforceAuth} />
+        );
         break;
     }
 

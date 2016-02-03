@@ -35,7 +35,7 @@ var NoteForm = React.createClass({
     this.props.submitForm({
       body: this.state.body,
       private: this.state.private,
-      parentId: this.props.parent_id
+      parentId: this.props.parentId
     });
   },
 

@@ -929,12 +929,12 @@ ul.notes-index {
   margin-top: 10px;
 }
 
-li.note-index-item {
+section.note-index-item {
   padding: 20px 0;
   border-bottom: 1px solid #f4f4f4;
 }
 
-li.note-index-item:last-child {
+section.note-index-item:last-child {
   border-bottom: none;
 }
 
