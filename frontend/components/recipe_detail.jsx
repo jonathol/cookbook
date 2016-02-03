@@ -119,7 +119,6 @@ var RecipeDetail = React.createClass({
     var rating = this.state.rating || this.state.recipe.ratings.average
     var rated = this.state.rating ? " rated" : "";
 
-    var ratingText = this.state.rating ? "" : this.state.recipe.ratings.count + " ratings"
     var ratingStars = [1,2,3,4,5].map(function (num) {
       var filled = num <= rating ? " filled" : "";
 
@@ -232,8 +231,8 @@ var RecipeDetail = React.createClass({
               </li>
               <li className="recipe-ratings">
                 <div className="ratings-button">
-                  <p className="ratings-text">
-                    {ratingText}
+                  <p className={"ratings-text" + rated}>
+                    {this.state.recipe.ratings.count} ratings
                   </p>
                   <ul
                     className="rating-stars group"

@@ -662,7 +662,7 @@ ul.recipe-ratings-cooked {
 
 ul.recipe-ratings-cooked > li {
   float: left;
-  padding: 0 15px;
+  padding: 0 15px 0 0;
 }
 
 li.recipe-cooked {
@@ -708,8 +708,13 @@ div.detail-cooked-button > span.fa-check.checked {
 }
 
 p.ratings-text {
+  padding-left: 15px;
   margin-top: 4px;
   float: left;
+}
+
+p.ratings-text.rated {
+  display: none;
 }
 
 ul.rating-stars {

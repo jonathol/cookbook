@@ -5,10 +5,6 @@ var Store = require('flux/utils').Store,
 var _userRatings = {};
 var RatingStore = new Store(AppDispatcher);
 
-RatingStore.recipeRating = function () {
-  return $.extend({}, _recipeRating);
-};
-
 RatingStore.addRating = function (rating) {
   $.extend(_userRatings, rating);
   this.__emitChange();
