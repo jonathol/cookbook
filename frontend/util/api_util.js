@@ -29,7 +29,6 @@ var ApiUtil = {
       url: "api/recipes/" + recipeId,
       success: function (recipe) {
         ApiActions.receiveFeaturedRecipe(recipe);
-        ApiActions.receiveRecipeRatings(recipe.ratings);
       }
     });
   },

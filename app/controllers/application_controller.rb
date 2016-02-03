@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
     end
 
     current_user.ratings.each do |rating|
-      @ratings[rating.recipe_id] = rating.id
+      @ratings[rating.recipe_id] = rating.score
     end
   end
 end

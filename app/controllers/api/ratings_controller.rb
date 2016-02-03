@@ -4,6 +4,6 @@ class Api::RatingsController < ApplicationController
     @rating.score = params[:rating][:score]
     @rating.save!
 
-    render json: { @rating.recipe_id => @rating.id}
+    render json: { @rating.recipe_id => @rating.score}
   end
 end

@@ -116,12 +116,16 @@ var RecipeDetail = React.createClass({
 
     var checked = this.state.cooked ? " checked" : "";
 
+    var rating = this.state.rating || this.state.recipe.ratings.average
+    var rated = this.state.rating ? " rated" : "";
+
+    var ratingText = this.state.rating ? "" : this.state.recipe.ratings.count + " ratings"
     var ratingStars = [1,2,3,4,5].map(function (num) {
-      var filled = num <= this.state.recipe.ratings.average ? " filled" : "";
+      var filled = num <= rating ? " filled" : "";
 
       return (
         <li
-          className={"rating-star star-" + num + filled}
+          className={"rating-star star-" + num + filled + rated}
           key={num}
           value={num}>
           <Icon name="star" value={num} />
@@ -229,7 +233,7 @@ var RecipeDetail = React.createClass({
               <li className="recipe-ratings">
                 <div className="ratings-button">
                   <p className="ratings-text">
-                    {this.state.recipe.ratings.count} ratings
+                    {ratingText}
                   </p>
                   <ul
                     className="rating-stars group"

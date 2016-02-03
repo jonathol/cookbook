@@ -76,13 +76,6 @@ module.exports = {
     });
   },
 
-  receiveRecipeRatings: function (ratings) {
-    AppDispatcher.dispatch({
-      actionType: RatingConstants.RECIPE_RATINGS_RECEIVED,
-      ratings: ratings
-    });
-  },
-
   receiveUserRatings: function (ratings) {
     AppDispatcher.dispatch({
       actionType: RatingConstants.USER_RATINGS_RECEIVED,

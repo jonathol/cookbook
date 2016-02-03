@@ -734,13 +734,19 @@ ul.rating-stars:hover {
 
 li.rating-star:active > span.fa-star  {
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #e33d26;
+  -webkit-text-stroke-color: #ffb700;
 }
 
 ul.rating-stars > li.filled {
   color: #e33d26;
   -webkit-text-stroke-width: 0;
   -webkit-text-fill-color: #e33d26;
+}
+
+ul.rating-stars > li.filled.rated {
+  color: #ffb700;
+  -webkit-text-stroke-width: 0;
+  -webkit-text-fill-color: #ffb700;
 }
 
 ul.rating-stars:hover > li.rating-star:hover ~ li.rating-star {
@@ -751,8 +757,8 @@ ul.rating-stars:hover > li.rating-star:hover ~ li.rating-star {
 }
 
 ul.rating-stars:hover > li.rating-star {
-  color: #e33d26;
-  -webkit-text-fill-color: #e33d26;
+  color: #ffb700;
+  -webkit-text-fill-color: #ffb700;
   -webkit-text-stroke-width: 0;
 }
 
