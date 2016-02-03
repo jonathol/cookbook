@@ -1,7 +1,7 @@
 json.user do
-  json.id current_user.id
-  json.email current_user.email
-  json.name current_user.name
+  json.id @user_info[:id]
+  json.email @user_info[:email]
+  json.name @user_info[:name]
 end
 
 json.recipe_saves @recipe_saves

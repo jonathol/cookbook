@@ -15,7 +15,6 @@ RecipeSaveStore.addRecipeSave = function (recipeSave) {
 };
 
 RecipeSaveStore.find = function (recipeId) {
-  debugger
   return _recipeSaves[recipeId];
 };
 

@@ -78,19 +78,18 @@ var ApiUtil = {
     });
   },
 
-  fetchAllRecipeSaves: function () {
-    if (!SessionStore.loggedIn) {
-      return;
-    }
-    $.ajax({
-      type: "GET",
-      url: "api/recipe_saves",
-      success: function (recipeSaves) {
-        debugger
-        ApiActions.receiveAllRecipeSaves(recipeSaves);
-      }
-    });
-  },
+  // fetchAllRecipeSaves: function () {
+  //   if (!SessionStore.loggedIn) {
+  //     return;
+  //   }
+  //   $.ajax({
+  //     type: "GET",
+  //     url: "api/recipe_saves",
+  //     success: function (recipeSaves) {
+  //       ApiActions.receiveAllRecipeSaves(recipeSaves);
+  //     }
+  //   });
+  // },
 
   fetchSingleRecipeSave: function (recipeId) {
     if (!SessionStore.loggedIn) {
@@ -130,18 +129,18 @@ var ApiUtil = {
     });
   },
 
-  fetchAllCookedRecipes: function () {
-    if (!SessionStore.loggedIn) {
-      return;
-    }
-    $.ajax({
-      type: "GET",
-      url: "api/cooks",
-      success: function (cooks) {
-        ApiActions.receiveAllCookedRecipes(cooks);
-      }
-    });
-  },
+  // fetchAllCookedRecipes: function () {
+  //   if (!SessionStore.loggedIn) {
+  //     return;
+  //   }
+  //   $.ajax({
+  //     type: "GET",
+  //     url: "api/cooks",
+  //     success: function (cooks) {
+  //       ApiActions.receiveAllCookedRecipes(cooks);
+  //     }
+  //   });
+  // },
 
   fetchSingleCookedRecipe: function (recipeId) {
     if (!SessionStore.loggedIn) {
@@ -229,8 +228,8 @@ var ApiUtil = {
       url: "api/session",
       success: function (userData) {
         AuthActions.logInUser(userData.user);
-        ApiActions.receiveAllRecipeSaves(userData.recipeSaves);
-        ApiActions.receiveAllCookedRecipes(userData.cooks);
+        ApiActions.receiveAllRecipeSaves(userData.recipe_saves);
+        ApiActions.receiveAllCookedRecipes(userData.recipe_cooks);
       },
       error: function (error) {
         console.log(error);
@@ -246,8 +245,8 @@ var ApiUtil = {
       data: { user: credentials },
       success: function (userData) {
         AuthActions.logInUser(userData.user);
-        ApiActions.receiveAllRecipeSaves(userData.recipeSaves);
-        ApiActions.receiveAllCookedRecipes(userData.cooks);
+        ApiActions.receiveAllRecipeSaves(userData.recipe_saves);
+        ApiActions.receiveAllCookedRecipes(userData.recipe_cooks);
       },
       error: function (error) {
         console.log(error);

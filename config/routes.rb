@@ -6,13 +6,12 @@ Rails.application.routes.draw do
       resource :recipe_box, only:[:show]
       resources :recipes, only:[:index]
     end
-    resources :recipe_saves, only: [:index, :destroy]
+    resources :recipe_saves, only: [:create, :index, :destroy]
     resources :cooks, only:[:create, :destroy, :index]
     resources :ratings, only: :create
     resources :recipes, only:[:index, :show] do
       resources :notes, only:[:index]
       resources :ratings, only: :index
-      resources :recipe_saves, only: :create
     end
     resources :notes, only: :create
     resources :note_likes, only: [:create, :destroy]

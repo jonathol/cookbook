@@ -15,7 +15,7 @@ module.exports = React.createClass({
     this.savesListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
     this.cooksListener = CookStore.addListener(this._cooksChanged);
 
-    this.updateStateWithProps(this.props);
+    this.updateRecipesWithProps(this.props);
   },
 
   componentWillUnmount: function () {
@@ -25,7 +25,7 @@ module.exports = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    this.updateStateWithProps(newProps);
+    this.updateRecipesWithProps(newProps);
   },
 
   _cooksChanged: function () {
@@ -38,12 +38,6 @@ module.exports = React.createClass({
 
   _recipeSavesChanged: function () {
     this.setState({ recipeSaves: RecipeSaveStore.all() });
-  },
-
-  updateStateWithProps: function (props) {
-    this.updateRecipesWithProps(props);
-    ApiUtil.fetchAllRecipeSaves();
-    ApiUtil.fetchAllCookedRecipes();
   },
 
   updateRecipesWithProps: function (props) {

@@ -74,8 +74,6 @@ var RecipeDetail = React.createClass({
 
   updateStateWithProps: function (props) {
     ApiUtil.fetchFeaturedRecipe(props.params.recipeId);
-    ApiUtil.fetchAllRecipeSaves();
-    ApiUtil.fetchAllCookedRecipes();
     ApiUtil.fetchRatings(props.params.recipeId);
   },
 

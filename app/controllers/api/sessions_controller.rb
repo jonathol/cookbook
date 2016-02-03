@@ -22,7 +22,6 @@ class Api::SessionsController < ApplicationController
   end
 
   def show
-    current_user
     get_meta_data_for_current_user
   end
 end
