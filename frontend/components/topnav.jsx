@@ -65,6 +65,7 @@ var TopNav = React.createClass({
             name="cog"
             className={"cog-icon button-icon" + sticky}
             onClick={this.toggleUserDropDown} />
+          <div className={"dropdown-triangle" + active}></div>
           <ul
             className={"topnav-user-dropdown" + active}>
             <li>

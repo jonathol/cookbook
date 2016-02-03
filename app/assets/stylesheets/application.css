@@ -287,7 +287,7 @@ div.topnav-user-button {
 ul.topnav-user-dropdown {
   display: none;
   position: absolute;
-  top: 40px;
+  top: 39px;
   right: 0;
   z-index: 100;
   background-color: #fff;
@@ -309,6 +309,41 @@ ul.topnav-user-dropdown:hover {
 
 ul.topnav-user-dropdown.active {
   display: block;
+}
+
+div.dropdown-triangle {
+  display: none;
+  position: relative;
+  bottom: -13px;
+  right: -7px;
+}
+
+div.dropdown-triangle.active {
+  display: block;
+}
+
+div.dropdown-triangle:after {
+  position: absolute;
+  z-index: 101;
+  bottom: 1px;
+  left: 1px;
+  content: "";
+  display: block;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+}
+
+div.dropdown-triangle:before {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  z-index: 99;
+  content: "";
+  display: block;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 11px solid #ccc;
 }
 
 ul.topnav-user-dropdown > li {
