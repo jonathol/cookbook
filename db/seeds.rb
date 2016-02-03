@@ -982,9 +982,17 @@ comments.each do |parent_comment|
 end
 
 comments.concat(child_notes).each do |comment|
-  User.all.each do |user|
-    if rand > 0.2
-      comment.likes.create!(user: user)
+  if rand > 0.7
+    User.all.each do |user|
+      if rand > 0.15
+        comment.likes.create!(user: user)
+      end
+    end
+  elsif rand > 0.5
+    User.all.each do |user|
+      if rand > 0.05
+        comment.likes.create!(user: user)
+      end
     end
   end
 end
