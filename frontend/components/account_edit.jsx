@@ -1,8 +1,9 @@
-var React = require('react');
+var React = require('react'),
+    SessionStore = require('../stores/session');
 
 var AccountEdit = React.createClass({
   getInitialState: function () {
-    return { imageFile: null, imageUrl: "" };
+    return { imageFile: null, imageUrl: "", user: SessionStore.currentUser() };
   },
 
   changeFile: function(e) {
@@ -24,10 +25,9 @@ var AccountEdit = React.createClass({
     e.preventDefault();
 
     var formData = new FormData();
-
     formData.append("user[photo]", this.state.imageFile);
 
-    ApiUtil.uploadUserPhoto(formData, this.resetForm);
+    ApiUtil.uploadUserPhoto(this.state.user.id, userData, this.resetForm);
   },
 
   resetForm: function() {

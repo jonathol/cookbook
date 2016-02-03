@@ -296,6 +296,21 @@ var ApiUtil = {
       }
     });
   },
+
+  uploadUserPhoto: function(userId, userData, callback) {
+    $.ajax({
+      url: '/api/users/' + userId,
+      type: 'PATCH',
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: userData,
+      success: function(updatedUserData) {
+        AuthActions.logInUser(updatedUserData);
+        callback && callback();
+      }
+    });
+  }
 };
 
 module.exports = ApiUtil;
