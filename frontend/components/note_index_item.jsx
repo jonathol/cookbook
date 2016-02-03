@@ -103,24 +103,31 @@ var NoteIndexItem = React.createClass({
 
     return (
       <li className={"note-index-item" + noteClass}>
-        <section className={"note" + noteClass}>
-          <div className="note-details group">
-            <img src={this.props.note.author.photo_url} />
-            <div className="note-author-name">
-              {this.props.note.author.name}
-            </div>
-            <div className="note-time">
-              {this.props.note.time_ago}
-            </div>
+        <section className={"note group" + noteClass}>
+          <div
+            className="note-left-col group">
+            <img
+              className="user-photo-thumb"
+              src={this.props.note.author.photo_url} />
           </div>
-          <p className="note-body">
-            {this.props.note.body}
-          </p>
-          <ul
-            className="note-interaction-links group">
-            {replyButton}
-            {likeButton}
-          </ul>
+          <div className="note-right-col group">
+            <div className="note-details group">
+              <div className="note-author-name">
+                {this.props.note.author.name}
+              </div>
+              <div className="note-time">
+                {this.props.note.time_ago}
+              </div>
+            </div>
+            <p className="note-body">
+              {this.props.note.body}
+            </p>
+            <ul
+              className="note-interaction-links group">
+              {replyButton}
+              {likeButton}
+            </ul>
+          </div>
         </section>
         {replyForm}
         <ul>

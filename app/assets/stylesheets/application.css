@@ -1064,6 +1064,22 @@ div.note-details {
   font-size: 14px;
 }
 
+div.note-left-col {
+  float: left;
+  width: 40px;
+  margin: 0 15px;
+  height: 100%;
+}
+
+div.note-right-col {
+  float: left;
+}
+
+img.user-photo-thumb {
+  height: 40px;
+  border-radius: 50%;
+}
+
 div.note-author-name {
   float: left;
   font-weight: 700;
