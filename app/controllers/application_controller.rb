@@ -40,6 +40,5 @@ class ApplicationController < ActionController::Base
         .where("private = FALSE")
         .order(created_at: :desc)
     end
-    debugger
   end
 end
