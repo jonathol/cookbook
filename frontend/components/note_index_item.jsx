@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'),
+    Icon = require('react-fontawesome');
 
 var NoteIndexItem = React.createClass({
   render: function () {
@@ -15,6 +16,17 @@ var NoteIndexItem = React.createClass({
         <p className="note-body">
           {this.props.note.body}
         </p>
+        <ul
+          className="note-interaction-links group">
+          <li>
+            <Icon name="reply" />
+            Reply
+          </li>
+          <li>
+            <Icon name="thumbs-up" />
+            Helpful
+          </li>
+        </ul>
       </li>
     );
   }

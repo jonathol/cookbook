@@ -911,6 +911,7 @@ li.notes-index-tab:hover {
 }
 
 li.notes-index-tab.active-index {
+  color: #000;
   font-weight: 700;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -951,10 +952,24 @@ div.note-author-name {
 div.note-time {
   float: left;
   margin-left: 12px;
-  color: #666;
+  color: #A1A1A1;
 }
 
 p.note-body {
   clear: both;
-  margin-top: 5px;
+  margin: 5px 0 8px 0;
+}
+
+ul.note-interaction-links > li {
+  float: left;
+  font-size: 13px;
+  color: #A1A1A1;
+}
+
+ul.note-interaction-links > li:first-child {
+  margin-right: 15px;
+}
+
+ul.note-interaction-links > li:hover {
+  cursor: pointer;
 }
