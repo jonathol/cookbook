@@ -973,3 +973,17 @@ ul.note-interaction-links > li:first-child {
 ul.note-interaction-links > li:hover {
   cursor: pointer;
 }
+
+ul.note-interaction-links > li > span {
+  margin-right: 5px;
+}
+
+ul.note-interaction-links > li:hover > span.fa-reply {
+  margin-right: 5px;
+  color: #e33d26;
+}
+
+ul.note-interaction-links > li:hover > span.fa-thumbs-up {
+  margin-right: 5px;
+  color: #ffb700;
+}
