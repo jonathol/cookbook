@@ -3,7 +3,8 @@ require 'session_token'
 class User < ActiveRecord::Base
   attr_reader :password
 
-  has_attached_file :photo, styles: { small: "180x180>", thumb: "40x40" }, default_url: :random_photo
+  has_attached_file :photo, default_url: :random_photo
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   after_create :create_recipe_box
   after_create :ensure_session_token
@@ -67,8 +68,8 @@ class User < ActiveRecord::Base
     end
 
     def random_photo
-      defaults = ["acovado", "donut", "fish", "lettuce", "wine"]
+      defaults = ["avocado", "donut", "fish", "lettuce", "wine"]
       random = defaults[rand(5)]
-      "/assets/avatars/#{random}.png"
+      "#{random}.png"
     end
 end
