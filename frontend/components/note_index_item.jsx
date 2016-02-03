@@ -27,11 +27,11 @@ var NoteIndexItem = React.createClass({
     ApiUtil.createNote(this.props.note.recipe_id, note);
   },
 
-  toggleLike: function (noteId) {
+  toggleLike: function () {
     if (!this.props.enforceAuth()) {
       return;
     } else {
-      ApiUtil.toggleNoteLike(noteId);
+      ApiUtil.toggleNoteLike(this.props.note.id);
     }
   },
 
@@ -49,51 +49,27 @@ var NoteIndexItem = React.createClass({
 
   render: function () {
     var toggleLike = this.toggleLike;
+    var isParent = !this.props.note.parent_id;
+    var noteClass = isParent ? "note" : "note child-note";
 
-    var createNote = function (note) {
-      var isParent = !note.parent_id;
-      var noteClass = isParent ? "note" : "note child-note";
-      var replyButton;
-      if (isParent) {
-        replyButton = (
-          <li
-            onClick={this.toggleReply}>
-            <Icon name="reply" />
-            Reply
-          </li>
-        );
-      }
-      var likeButton = (
+    var replyButton;
+    if (isParent) {
+      replyButton = (
         <li
-          onClick={toggleLike.bind(null, note.id)}>
-          <Icon name="thumbs-up" />
-          {note.likes.length} Helpful
+          onClick={this.toggleReply}>
+          <Icon name="reply" />
+          Reply
         </li>
       );
+    }
 
-      return (
-        <section className={noteClass}>
-          <div className="note-details group">
-            <div className="note-author-name">
-              {note.author.name}
-            </div>
-            <div className="note-time">
-              {note.time_ago}
-            </div>
-          </div>
-          <p className="note-body">
-            {note.body}
-          </p>
-          <ul
-            className="note-interaction-links group">
-            {replyButton}
-            {likeButton}
-          </ul>
-        </section>
-      );
-    };
-
-    var parentNote = createNote.call(this, this.props.note);
+    var likeButton = (
+      <li
+        onClick={this.toggleLike}>
+        <Icon name="thumbs-up" />
+        {this.props.note.likes.length} Helpful
+      </li>
+    );
 
     var replyForm;
     if (this.state.formActive) {
@@ -105,20 +81,29 @@ var NoteIndexItem = React.createClass({
       );
     }
 
-    var childNotes;
-    if (this.props.note.child_notes.length > 0) {
-      childNotes = this.props.note.child_notes.map(function (note, idx) {
-        var child_note = createNote(note);
-        return <li key={idx}>{child_note}</li>;
-      });
-    }
-
     return (
       <li className="note-index-item">
-        {parentNote}
+        <section className={noteClass}>
+          <div className="note-details group">
+            <div className="note-author-name">
+              {this.props.note.author.name}
+            </div>
+            <div className="note-time">
+              {this.props.note.time_ago}
+            </div>
+          </div>
+          <p className="note-body">
+            {this.props.note.body}
+          </p>
+          <ul
+            className="note-interaction-links group">
+            {replyButton}
+            {likeButton}
+          </ul>
+        </section>
         {replyForm}
         <ul>
-          {childNotes}
+          {this.props.childNotes}
         </ul>
       </li>
     );

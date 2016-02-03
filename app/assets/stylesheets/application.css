@@ -877,6 +877,10 @@ li.note-form-private {
   float: left;
 }
 
+li.note-form-private.reply-form {
+  display: none;
+}
+
 li.note-form-private > label > input {
   position: relative;
   bottom: 1.5px;

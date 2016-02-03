@@ -55,7 +55,7 @@ var NoteForm = React.createClass({
             valueLink={this.linkState('body')} />
           <ul
             className="note-form-bottom-options group">
-            <li className="note-form-private">
+            <li className={"note-form-private" + childClass}>
               <label>
                 <input
                   type="checkbox"

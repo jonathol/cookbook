@@ -7,11 +7,20 @@ var NotesIndex = React.createClass({
     var responseThread = this.props.isResponseThread ? " response-thread" : "";
     var enforceAuth = this.props.enforceAuth;
     var notes = this.props.notes.map(function(note, idx) {
+      var children = note.child_notes.map(function (childNote, childIdx) {
+        return (
+          <NoteIndexItem
+            note={childNote}
+            enforceAuth={enforceAuth}
+            key={childIdx} />
+        )
+      });
       return (
         <NoteIndexItem
           note={note}
           enforceAuth={enforceAuth}
-          key={idx} />
+          key={idx}
+          childNotes={children} />
       );
     });
     return (
