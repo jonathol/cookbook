@@ -15,7 +15,9 @@ var TopNav = React.createClass({
   },
 
   getInitialState: function () {
-    return this.getSessionState();
+    var state = this.getSessionState();
+    state.dropdownActive = false;
+    return state;
   },
 
   getSessionState: function () {
@@ -43,6 +45,10 @@ var TopNav = React.createClass({
     }
   },
 
+  toggleUserDropDown: function (e) {
+    this.setState({ dropdownActive: !this.state.dropdownActive });
+  },
+
   _sessionChanged: function () {
     this.setState(this.getSessionState());
   },
@@ -50,12 +56,23 @@ var TopNav = React.createClass({
   render: function () {
     var sticky = this.state.scrolled ? " sticky" : "";
     var userButton;
+
+    var active = this.state.dropdownActive ? " active" : "";
     if (this.state.loggedIn) {
       userButton = (
-        <Icon
-          name="cog"
-          className={"cog-icon button-icon" + sticky}
-          onClick={this.handleLogOut} />
+        <div className="topnav-user-button">
+          <Icon
+            name="cog"
+            className={"cog-icon button-icon" + sticky}
+            onClick={this.toggleUserDropDown} />
+          <ul
+            className={"topnav-user-dropdown" + active}>
+            <li>Edit Profile</li>
+            <li>Your Recipe Box</li>
+            <li>{this.state.user.email}</li>
+            <li onClick={this.handleLogOut}>Log Out</li>
+          </ul>
+        </div>
       );
     } else {
       userButton = (

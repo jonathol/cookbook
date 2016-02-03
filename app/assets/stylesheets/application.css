@@ -280,6 +280,35 @@ div.login-button {
   padding-top: 6px;
 }
 
+div.topnav-user-button {
+  position: relative;
+}
+
+ul.topnav-user-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  z-index: 100;
+  background-color: #fff;
+  padding: 20px;
+  color: #000;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+ul.topnav-user-dropdown.active {
+  display: block;
+}
+
+ul.topnav-user-dropdown > li {
+  padding: 10px 0;
+}
+
 /* SIGN IN / SIGN UP FORMS */
 .modal.active {
   display: block;
