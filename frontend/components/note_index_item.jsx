@@ -3,19 +3,27 @@ var React = require('react'),
     NoteForm = require('./note_form'),
     NotesIndex = require('./notes_index'),
     ApiUtil = require('../util/api_util'),
-    SessionStore = require('../stores/session');
+    SessionStore = require('../stores/session'),
+    LikeStore = require('../stores/like');
 
 var NoteIndexItem = React.createClass({
   getInitialState: function () {
-    return { formActive: false, currentUserId: SessionStore.currentUser().id };
+    return {
+      formActive: false,
+      currentUserId: SessionStore.currentUser().id,
+      numLikes: this.props.note.numLikes,
+      like: LikeStore.find(this.props.note.id)
+    };
   },
 
   componentDidMount: function () {
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
+    this.likeListener = LikeStore.addListener(this._likesChanged);
   },
 
   componentWillUnmount: function () {
     this.sessionListener.remove();
+    this.likeListener.remove();
   },
 
   cancelReply: function () {
@@ -30,8 +38,10 @@ var NoteIndexItem = React.createClass({
   toggleLike: function () {
     if (!this.props.enforceAuth()) {
       return;
+    } else if (this.state.like) {
+      ApiUtil.destroyNoteLike(this.state.like);
     } else {
-      ApiUtil.toggleNoteLike(this.props.note.id);
+      ApiUtil.createNoteLike(this.props.note.id);
     }
   },
 
@@ -45,6 +55,16 @@ var NoteIndexItem = React.createClass({
 
   _sessionChanged: function () {
     this.setState({ currentUserId: SessionStore.currentUser().id });
+  },
+
+  _likesChanged: function () {
+    var newLike = LikeStore.find(this.props.note.id);
+    if (newLike && !this.state.like) {
+      this.setState({ numLikes: this.state.numLikes + 1});
+    } else if (!newLike && this.state.like) {
+      this.setState({ numLikes: this.state.numLikes - 1});
+    }
+    this.setState({ like: newLike });
   },
 
   render: function () {
@@ -66,7 +86,7 @@ var NoteIndexItem = React.createClass({
       <li
         onClick={this.toggleLike}>
         <Icon name="thumbs-up" />
-        {this.props.note.likes.length} Helpful
+        {this.state.numLikes} Helpful
       </li>
     );
 

@@ -31,10 +31,10 @@ LikeStore.resetLikes = function (likes) {
 LikeStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case LikeConstants.LIKES_RECEIVED:
-      this.resetLikes(payload.likes);
+      this.resetLikes(payload.noteLikes);
       break;
     case LikeConstants.LIKE_RECEIVED:
-      this.addLike(payload.like);
+      this.addLike(payload.noteLike);
       break;
     case LikeConstants.DELETED_LIKE_NOTE_ID_RECEIVED:
       this.removeLike(payload.noteId);
