@@ -25,18 +25,21 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
-  
+
   def get_all_notes(recipe_id)
     if current_user
-      @notes = Recipe.find(recipe_id)
-        .notes
-        .where("private = FALSE OR author_id = (?)", current_user.id)
+      @notes = Note
+        .includes(:child_notes, :likes, :author)
+        .where(recipe_id: recipe_id)
+        .where("notes.private = FALSE OR notes.author_id = (?)", current_user.id)
         .order(created_at: :desc)
     else
-      @notes = Recipe.find(recipe_id)
-        .notes
+      @notes = Note
+        .includes(:child_notes, :likes, :author)
+        .where(recipe_id: recipe_id)
         .where("private = FALSE")
         .order(created_at: :desc)
     end
+    debugger
   end
 end

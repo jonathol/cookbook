@@ -1,6 +1,9 @@
 class Api::RecipesController < ApplicationController
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe
+      .includes(:author, :photo, :tags, :ingredients, :steps)
+      .where("recipes.id = (?)", params[:id])
+      .first
   end
 
   def index
