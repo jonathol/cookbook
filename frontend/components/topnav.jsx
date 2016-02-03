@@ -67,10 +67,20 @@ var TopNav = React.createClass({
             onClick={this.toggleUserDropDown} />
           <ul
             className={"topnav-user-dropdown" + active}>
-            <li>Edit Profile</li>
-            <li>Your Recipe Box</li>
-            <li>{this.state.user.email}</li>
-            <li onClick={this.handleLogOut}>Log Out</li>
+            <li>
+              <a href="#/account/edit">
+                Edit Profile
+              </a>
+            </li>
+            <li>
+              <a href={"#/users/" + this.state.user.id + "/recipe-box"}>
+                Your Recipe Box
+              </a>
+            </li>
+            <li className="topnav-user-email">
+              {this.state.user.email}
+            </li>
+            <li onClick={this.handleLogOut}><a href="#">Log Out</a></li>
           </ul>
         </div>
       );
