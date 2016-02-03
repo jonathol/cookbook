@@ -49,7 +49,7 @@ var NoteIndexItem = React.createClass({
 
   render: function () {
     var isParent = !this.props.note.parent_id;
-    var noteClass = isParent ? "note" : "note child-note";
+    var noteClass = isParent ? "" : " child-note";
 
     var replyButton;
     if (isParent) {
@@ -81,8 +81,8 @@ var NoteIndexItem = React.createClass({
     }
 
     return (
-      <li className="note-index-item">
-        <section className={noteClass}>
+      <li className={"note-index-item" + noteClass}>
+        <section className={"note" + noteClass}>
           <div className="note-details group">
             <div className="note-author-name">
               {this.props.note.author.name}

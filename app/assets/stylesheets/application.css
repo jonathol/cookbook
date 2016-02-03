@@ -940,16 +940,17 @@ ul.notes-index {
 }
 
 li.note-index-item {
-  padding-bottom: 20px;
+  padding: 20px 0;
   border-bottom: 1px solid #f4f4f4;
+}
+
+li.note-index-item.child-note {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 li.note-index-item:last-child {
   border-bottom: none;
-}
-
-section.note {
-  padding-top: 20px;
 }
 
 section.note.child-note {
