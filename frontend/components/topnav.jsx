@@ -82,6 +82,10 @@ var TopNav = React.createClass({
               {this.state.user.email}
             </li>
             <li onClick={this.handleLogOut}><a href="#">Log Out</a></li>
+            <div
+              className="dropdown-screen"
+              onClick={this.toggleUserDropDown}>
+            </div>
           </ul>
         </div>
       );
