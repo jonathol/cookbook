@@ -3,6 +3,8 @@ require 'session_token'
 class User < ActiveRecord::Base
   attr_reader :password
 
+  has_attached_file :photo, styles: { small: "180x180>", thumb: "40x40" }, default_url: :random_photo
+
   after_create :create_recipe_box
   after_create :ensure_session_token
 
@@ -62,5 +64,11 @@ class User < ActiveRecord::Base
 
     def create_recipe_box
       RecipeBox.create!(user: self)
+    end
+
+    def random_photo
+      defaults = ["acovado", "donut", "fish", "lettuce", "wine"]
+      random = defaults[rand(5)]
+      "/assets/avatars/#{random}.png"
     end
 end

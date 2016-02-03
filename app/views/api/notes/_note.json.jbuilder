@@ -10,4 +10,5 @@ json.numLikes note.likes.count
 json.author do
   json.id note.author.id
   json.name (note.author.name || note.author.email)
+  json.photo_url asset_path(note.author.photo.url)
 end
