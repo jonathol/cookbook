@@ -2,33 +2,33 @@ var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     RatingConstants = require('../constants/rating_constants');
 
-var _ratings = {};
+var _userRatings = {};
 var RatingStore = new Store(AppDispatcher);
 
-RatingStore.ratings = function () {
-  return $.extend({}, _ratings);
+RatingStore.recipeRating = function () {
+  return $.extend({}, _recipeRating);
 };
 
 RatingStore.addRating = function (rating) {
-  _ratings = {
-    average: Math.round(_ratings.average + (rating.score / _ratings.count + 1)),
-    count: _ratings.count + 1
-  };
-
+  $.extend(_userRatings, rating);
   this.__emitChange();
 };
 
-RatingStore.resetRatings = function (ratings) {
-  _ratings = ratings;
+RatingStore.find = function (recipeId) {
+  return _userRatings[recipeId];
+};
+
+RatingStore.resetUserRatings = function (ratings) {
+  _userRatings = ratings;
   this.__emitChange();
 };
 
 RatingStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-    case RatingConstants.RATINGS_RECEIVED:
-      this.resetRatings(payload.ratings);
+    case RatingConstants.USER_RATINGS_RECEIVED:
+      this.resetUserRatings(payload.ratings);
       break;
-    case RatingConstants.RATING_RECEIVED:
+    case RatingConstants.USER_RATING_RECEIVED:
       this.addRating(payload.rating);
       break;
   }

@@ -76,10 +76,24 @@ module.exports = {
     });
   },
 
-  receiveRatings: function (ratings) {
+  receiveRecipeRatings: function (ratings) {
     AppDispatcher.dispatch({
-      actionType: RatingConstants.RATINGS_RECEIVED,
+      actionType: RatingConstants.RECIPE_RATINGS_RECEIVED,
       ratings: ratings
+    });
+  },
+
+  receiveUserRatings: function (ratings) {
+    AppDispatcher.dispatch({
+      actionType: RatingConstants.USER_RATINGS_RECEIVED,
+      ratings: ratings
+    });
+  },
+
+  receiveUserRating: function (rating) {
+    AppDispatcher.dispatch({
+      actionType: RatingConstants.USER_RATING_RECEIVED,
+      rating: rating
     });
   },
 

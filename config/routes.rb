@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     resources :ratings, only: :create
     resources :recipes, only:[:index, :show] do
       resources :notes, only:[:index]
-      resources :ratings, only: :index
     end
     resources :notes, only: :create
     resources :note_likes, only: [:create, :destroy]

@@ -19,6 +19,11 @@ json.tags @recipe.tags do |tag|
   json.name tag.name
 end
 
+json.ratings do
+  json.average @ratings[0].round
+  json.count @ratings[1]
+end
+
 json.ingredients @recipe.ingredients do |ingredient|
   json.id ingredient.id
   json.quantity ingredient.quantity

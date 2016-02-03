@@ -12,4 +12,9 @@ class Recipe < ActiveRecord::Base
   has_many :tags, through: :taggings
   has_many :notes, dependent: :destroy
   has_one :photo, class_name: "RecipePhoto", dependent: :destroy
+
+
+  def avg_rating_score_and_count
+    self.ratings.pluck('AVG (score), COUNT(*)')[0]
+  end
 end

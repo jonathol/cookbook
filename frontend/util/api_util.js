@@ -29,6 +29,7 @@ var ApiUtil = {
       url: "api/recipes/" + recipeId,
       success: function (recipe) {
         ApiActions.receiveFeaturedRecipe(recipe);
+        ApiActions.receiveRecipeRatings(recipe.ratings);
       }
     });
   },
@@ -165,7 +166,7 @@ var ApiUtil = {
         score: score
       }},
       success: function (ratings) {
-        ApiActions.receiveRatings(ratings);
+        ApiActions.receiveUserRatings(ratings);
       },
       error: function (data) {
         console.log(data);
@@ -173,12 +174,12 @@ var ApiUtil = {
     });
   },
 
-  fetchRatings: function (recipeId) {
+  fetchRecipeRatings: function (recipeId) {
     $.ajax({
       type: "GET",
       url: "api/recipes/" + recipeId + "/ratings",
       success: function (ratings) {
-        ApiActions.receiveRatings(ratings);
+        ApiActions.receiveRecipeRatings(ratings);
       }
     });
   },
@@ -230,6 +231,7 @@ var ApiUtil = {
         AuthActions.logInUser(userData.user);
         ApiActions.receiveAllRecipeSaves(userData.recipe_saves);
         ApiActions.receiveAllCookedRecipes(userData.recipe_cooks);
+        ApiActions.receiveUserRatings(userData.ratings);
       },
       error: function (error) {
         console.log(error);
@@ -247,6 +249,7 @@ var ApiUtil = {
         AuthActions.logInUser(userData.user);
         ApiActions.receiveAllRecipeSaves(userData.recipe_saves);
         ApiActions.receiveAllCookedRecipes(userData.recipe_cooks);
+        ApiActions.receiveUserRatings(userData.ratings);
       },
       error: function (error) {
         console.log(error);
@@ -261,6 +264,9 @@ var ApiUtil = {
       dataType: "json",
       complete: function (response) {
         AuthActions.logOutUser();
+        ApiActions.receiveAllRecipeSaves({});
+        ApiActions.receiveAllCookedRecipes({});
+        ApiActions.receiveUserRatings({});
       }
     });
   },

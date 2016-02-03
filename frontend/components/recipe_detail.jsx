@@ -14,7 +14,7 @@ var RecipeDetail = React.createClass({
     this.cookListener = CookStore.addListener(this._cookChanged);
     this.ratingListener = RatingStore.addListener(this._ratingsChanged);
 
-    this.updateStateWithProps(this.props);
+    ApiUtil.fetchFeaturedRecipe(this.props.params.recipeId);
   },
 
   componentWillUnmount: function () {
@@ -25,7 +25,7 @@ var RecipeDetail = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    this.updateStateWithProps(newProps);
+    ApiUtil.fetchFeaturedRecipe(newProps.params.recipeId);
   },
 
   _cookChanged: function () {
@@ -33,7 +33,7 @@ var RecipeDetail = React.createClass({
   },
 
   _ratingsChanged: function () {
-    this.setState({ ratings: RatingStore.ratings() });
+    this.setState({ rating: RatingStore.find(this.props.params.recipeId) });
   },
 
   _recipeChanged: function () {
@@ -72,13 +72,8 @@ var RecipeDetail = React.createClass({
     }
   },
 
-  updateStateWithProps: function (props) {
-    ApiUtil.fetchFeaturedRecipe(props.params.recipeId);
-    ApiUtil.fetchRatings(props.params.recipeId);
-  },
-
   render: function () {
-    if (!this.state || !this.state.recipe || !this.state.ratings) {
+    if (!this.state || !this.state.recipe) {
       return (
         <section className="recipe-show missing-recipe"></section>
       );
@@ -122,7 +117,7 @@ var RecipeDetail = React.createClass({
     var checked = this.state.cooked ? " checked" : "";
 
     var ratingStars = [1,2,3,4,5].map(function (num) {
-      var filled = num <= this.state.ratings.average ? " filled" : "";
+      var filled = num <= this.state.recipe.ratings.average ? " filled" : "";
 
       return (
         <li
@@ -234,7 +229,7 @@ var RecipeDetail = React.createClass({
               <li className="recipe-ratings">
                 <div className="ratings-button">
                   <p className="ratings-text">
-                    {this.state.ratings.count} ratings
+                    {this.state.recipe.ratings.count} ratings
                   </p>
                   <ul
                     className="rating-stars group"
