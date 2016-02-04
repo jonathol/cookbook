@@ -2,19 +2,21 @@ var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     RecipeConstants = require('../constants/recipe_constants');
 
-var _recipes = [];
-var _featuredRecipe;
+var _recipes = [],
+    _featuredRecipe = {},
+    _detailedRecipe = {};
+
 var RecipeStore = new Store(AppDispatcher);
 
 RecipeStore.all = function () {
   return _recipes.slice(0);
 };
 
-RecipeStore.featured = function () {
-  return $.extend({}, _featuredRecipe);
+RecipeStore.detailed = function () {
+  return $.extend({}, _detailedRecipe);
 };
 
-RecipeStore.find = function () {
+RecipeStore.featured = function () {
   return $.extend({}, _featuredRecipe);
 };
 
@@ -28,6 +30,11 @@ RecipeStore.resetFeatured = function (recipe) {
   this.__emitChange();
 };
 
+RecipeStore.resetDetailed = function (recipe) {
+  _detailedRecipe = recipe;
+  this.__emitChange();
+}
+
 RecipeStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case RecipeConstants.RECIPES_RECEIVED:
@@ -35,6 +42,9 @@ RecipeStore.__onDispatch = function (payload) {
       break;
     case RecipeConstants.FEATURED_RECIPE_RECEIVED:
       this.resetFeatured(payload.recipe);
+      break;
+    case RecipeConstants.DETAILED_RECIPE_RECEIVED:
+      this.resetDetailed(payload.recipe);
       break;
     case RecipeConstants.RECIPE_BOX_RECEIVED:
       this.resetRecipes(payload.recipeBox);

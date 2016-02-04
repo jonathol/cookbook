@@ -21,6 +21,13 @@ module.exports = {
     });
   },
 
+  receiveRecipeDetails: function (recipe) {
+    AppDispatcher.dispatch({
+      actionType: RecipeConstants.DETAILED_RECIPE_RECEIVED,
+      recipe: recipe
+    });
+  },
+
   receiveSingleRecipe: function (recipes) {
     AppDispatcher.dispatch({
       actionType: RecipeConstants.RECIPES_RECEIVED,

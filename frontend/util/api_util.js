@@ -33,6 +33,16 @@ var ApiUtil = {
     });
   },
 
+  fetchRecipeDetails: function (recipeId) {
+    $.ajax({
+      type: "GET",
+      url: "api/recipes/" + recipeId,
+      success: function (recipe) {
+        ApiActions.receiveRecipeDetails(recipe);
+      }
+    });
+  },
+
   fetchRecipeBox: function (userId) {
     $.ajax({
       type: "GET",
