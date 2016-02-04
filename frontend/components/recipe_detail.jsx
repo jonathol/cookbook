@@ -20,6 +20,7 @@ var RecipeDetail = React.createClass({
     this.ratingListener = RatingStore.addListener(this._ratingsChanged);
     this.noteListener = NoteStore.addListener(this._notesChanged);
 
+    ApiUtil.fetchCurrentUser();
     ApiUtil.fetchRecipeDetails(this.props.params.recipeId);
     ApiUtil.fetchAllNotes(this.props.params.recipeId);
   },
@@ -33,8 +34,8 @@ var RecipeDetail = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    ApiUtil.fetchRecipeDetails(newProps.params.recipeId);
-    ApiUtil.fetchAllNotes(this.props.params.recipeId);
+    // ApiUtil.fetchRecipeDetails(newProps.params.recipeId);
+    // ApiUtil.fetchAllNotes(this.props.params.recipeId);
   },
 
   _cookChanged: function () {

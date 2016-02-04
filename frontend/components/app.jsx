@@ -1,9 +1,12 @@
 var React = require('react'),
     TopNav = require('./topnav'),
+    Auth = require('./auth'),
     ApiUtil = require('../util/api_util'),
     AuthActions = require('../actions/auth_actions'),
     SessionStore = require('../stores/session'),
-    Auth = require('./auth');
+    RecipeSaveStore = require('../stores/recipe_save'),
+    CookStore = require('../stores/cook'),
+    RatingStore = require('../stores/rating');
 
 var App = React.createClass({
   cancelAuth: function () {
@@ -12,15 +15,22 @@ var App = React.createClass({
 
   componentDidMount: function () {
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
+    // this.savesListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
+    // this.cooksListener = CookStore.addListener(this._cooksChanged);
+    // this.ratingsListener = RatingStore.addListener(this._ratingsChanged);
+
     ApiUtil.fetchCurrentUser();
   },
 
   componentWillReceiveProps: function (newProps) {
-    this.setState({ authAction: false });
+    // this.cancelAuth();
   },
 
   componentWillUnmount: function () {
     this.sessionListener.remove();
+    // this.savesListener.remove();
+    // this.cooksListener.remove();
+    // this.ratingsListener.remove();
   },
 
   enforceAuth: function () {
@@ -44,6 +54,18 @@ var App = React.createClass({
     this.setState(this.getSessionState());
     this.setState({ authAction: false });
   },
+
+  // _cooksChanged: function () {
+  //   this.setState({ cooks: CookStore.all() });
+  // },
+  //
+  // _ratingsChanged: function () {
+  //   this.setState({ ratings: RatingStore.all() });
+  // },
+  //
+  // _recipeSavesChanged: function () {
+  //   this.setState({ recipeSaves: RecipeSaveStore.all() });
+  // },
 
   newSession: function () {
     this.setState({ authAction: true });

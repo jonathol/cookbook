@@ -15,6 +15,7 @@ module.exports = React.createClass({
     this.savesListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
     this.cooksListener = CookStore.addListener(this._cooksChanged);
 
+    ApiUtil.fetchCurrentUser();
     this.updateRecipesWithProps(this.props);
   },
 
