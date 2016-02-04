@@ -1,27 +1,35 @@
 var React = require('react'),
-    RecipeStore = require('../stores/recipe');
+    RecipeStore = require('../stores/recipe')
+    ;
 
 var FeaturedRecipe = React.createClass({
+  handleWindowResize: function () {
+    var imageHeight = $('.featured-recipe-photo').height();
+    var windowHeight = $(window).height();
+
+    var recipePhotoAnchor = ((windowHeight * 0.85) - imageHeight);
+
+    if (recipePhotoAnchor >= 0 && imageHeight !== null) {
+      $(".featured-recipe").css('min-height', imageHeight + "px");
+      $('.featured-recipe-photo').css('top', "0px");
+    } else {
+      $('.featured-recipe').css('min-height', windowHeight * 0.85 + "px");
+      $('.featured-recipe-photo').css('top', recipePhotoAnchor + "px");
+    }
+  },
+
   componentDidMount: function () {
-    var handleWindowResize = function () {
-      var imageHeight = $('.featured-recipe-photo').height();
-      var windowHeight = $(window).height();
+    $(window).resize(this.handleWindowResize);
 
-      var recipePhotoAnchor = ((windowHeight * 0.85) - imageHeight);
-      if (recipePhotoAnchor >= 0) {
-        $(".featured-recipe").css('min-height', imageHeight + "px");
-        $('.featured-recipe-photo').css('top', "0px");
-      } else {
-        $('.featured-recipe').css('min-height', windowHeight * 0.85 + "px");
-        $('.featured-recipe-photo').css('top', recipePhotoAnchor + "px");
-      }
+    var recipePhoto = new Image();
+    recipePhoto.onload = function () {
+      this.handleWindowResize();
     }.bind(this);
-    $(window).resize(handleWindowResize);
-
-    handleWindowResize();
+    recipePhoto.src = this.props.recipe.photo.large_url;
   },
 
   componentWillUnmount: function () {
+    $(window).off('resize');
   },
 
   render: function () {
@@ -34,9 +42,7 @@ var FeaturedRecipe = React.createClass({
         className="featured-recipe group">
         <img
           className="featured-recipe-photo"
-          src={this.props.recipe.photo.large_url}
-          data-original-width={this.originalWidth}
-          data-original-height={this.originalHeight} />
+          src={this.props.recipe.photo.large_url} />
       </section>
     )
   }

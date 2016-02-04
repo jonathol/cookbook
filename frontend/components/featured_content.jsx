@@ -27,6 +27,10 @@ var FeaturedContent = React.createClass({
   },
 
   render: function () {
+    if (!this.state.recipe.id) {
+      return <section className="featured-content"></section>;
+    }
+
     return (
       <section
         className="featured-content">
