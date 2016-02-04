@@ -1072,7 +1072,17 @@ div.note-left-col {
 }
 
 div.note-right-col {
+  box-sizing: border-box;
+  max-width: 530px;
   float: left;
+}
+
+section.note.child-note > div.note-right-col {
+  max-width: 465px;
+}
+
+p.note-body {
+  word-wrap: break-word;;
 }
 
 img.user-photo-thumb {

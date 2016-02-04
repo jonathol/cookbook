@@ -105,12 +105,12 @@ var NoteIndexItem = React.createClass({
       <li className={"note-index-item" + noteClass}>
         <section className={"note group" + noteClass}>
           <div
-            className="note-left-col group">
+            className="note-left-col">
             <img
               className="user-photo-thumb"
               src={this.props.note.author.photo_url} />
           </div>
-          <div className="note-right-col group">
+          <div className="note-right-col">
             <div className="note-details group">
               <div className="note-author-name">
                 {this.props.note.author.name}
