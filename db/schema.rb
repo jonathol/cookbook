@@ -89,13 +89,14 @@ ActiveRecord::Schema.define(version: 20160204220123) do
   add_index "recipe_boxes", ["user_id"], name: "index_recipe_boxes_on_user_id", unique: true, using: :btree
 
   create_table "recipe_photos", force: :cascade do |t|
-    t.integer  "recipe_id",             null: false
+    t.integer  "recipe_id",       null: false
     t.string   "large_url"
-    t.string   "thumb_url",             null: false
+    t.string   "thumb_url",       null: false
     t.string   "credit"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "large_original_height"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "original_height"
+    t.integer  "original_width"
   end
 
   add_index "recipe_photos", ["recipe_id"], name: "index_recipe_photos_on_recipe_id", unique: true, using: :btree

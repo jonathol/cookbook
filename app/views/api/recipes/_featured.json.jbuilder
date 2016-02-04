@@ -11,5 +11,7 @@ json.description @recipe.description
 
 json.photo do
   json.large_url @recipe.photo.large_url
+  json.original_height @recipe.photo.original_height
+  json.original_width @recipe.photo.original_width
   json.credit @recipe.photo.credit
 end

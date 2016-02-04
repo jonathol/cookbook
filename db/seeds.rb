@@ -113,7 +113,8 @@ muffins = Recipe.create!(
 RecipePhoto.create!(
   recipe: muffins,
   large_url: "https://c1.staticflickr.com/7/6083/6150882978_e21655a053_o.jpg",
-  large_original_height: 1360,
+  original_height: 1360,
+  original_width: 2048,
   thumb_url: "https://c1.staticflickr.com/7/6083/6150882978_85047c479e_n.jpg",
   credit: "jeffreyw"
 )
