@@ -8,7 +8,7 @@ var ApiUtil = {
       type: "GET",
       url: "api/recipes",
       success: function (data) {
-        ApiActions.receiveAllRecipes(data.recipes);
+        ApiActions.receiveRecipesList(data.recipes);
       }
     });
   },
@@ -18,17 +18,18 @@ var ApiUtil = {
       type: "GET",
       url: "api/users/" + userId + "/recipes",
       success: function (recipes) {
-        ApiActions.receiveAllRecipes(recipes);
+        ApiActions.receiveRecipesList(recipes);
       }
     });
   },
 
-  fetchFeaturedRecipe: function (recipeId) {
+  fetchFeaturedRecipes: function () {
     $.ajax({
       type: "GET",
-      url: "api/recipes/" + recipeId,
-      success: function (recipe) {
-        ApiActions.receiveFeaturedRecipe(recipe);
+      url: "api/recipes?featured=true",
+      success: function (data) {
+        ApiActions.receiveFeaturedRecipe(data.recipe);
+        ApiActions.receiveRecipesList(data.recipes_list);
       }
     });
   },
@@ -48,7 +49,7 @@ var ApiUtil = {
       type: "GET",
       url: "api/users/" + userId + "/recipe_box",
       success: function (data) {
-        ApiActions.receiveRecipeBox(data.recipes);
+        ApiActions.receiveRecipesList(data.recipes);
       }
     });
   },

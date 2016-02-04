@@ -8,7 +8,11 @@ class Api::RecipesController < ApplicationController
   end
 
   def index
-    if (params[:user_id])
+    if params[:featured]
+      @recipes_list = Recipe.includes(:author, :photo)
+      @recipe = Recipe.first
+      render :featured
+    elsif params[:user_id]
       user = User.find(params[:user_id])
       @recipes = user ? user.recipes.includes(:author, :photo) : []
     else

@@ -7,7 +7,7 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
     LikeConstants = require('../constants/like_constants');
 
 module.exports = {
-  receiveAllRecipes: function (recipes) {
+  receiveRecipesList: function (recipes) {
     AppDispatcher.dispatch({
       actionType: RecipeConstants.RECIPES_RECEIVED,
       recipes: recipes
