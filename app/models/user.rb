@@ -70,6 +70,6 @@ class User < ActiveRecord::Base
     def random_photo
       defaults = ["avocado", "donut", "fish", "lettuce", "wine"]
       random = defaults[rand(5)]
-      "#{random}.png"
+      ActionController::Base.helpers.asset_path("#{random}.png")
     end
 end
