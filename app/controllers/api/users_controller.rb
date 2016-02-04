@@ -16,7 +16,14 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-
+    @user = current_user
+    @user.photo = params[:user][:photo]
+    if @user.save!
+      get_meta_data_for_current_user
+      render "api/sessions/show"
+    else
+      render json: { error: "Could not update user." }
+    end
   end
 
 private

@@ -1,5 +1,6 @@
 var React = require('react'),
-    SessionStore = require('../stores/session');
+    SessionStore = require('../stores/session'),
+    ApiUtil = require('../util/api_util');
 
 var AccountEdit = React.createClass({
   getInitialState: function () {
@@ -24,21 +25,22 @@ var AccountEdit = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
 
-    var formData = new FormData();
-    formData.append("user[photo]", this.state.imageFile);
+    var userData = new FormData();
+    userData.append("user[photo]", this.state.imageFile);
 
     ApiUtil.uploadUserPhoto(this.state.user.id, userData, this.resetForm);
   },
 
   resetForm: function() {
-    this.setState({title: "", imageFile: null, imageUrl: ""});
+    this.setState({ imageFile: null, imageUrl: "" });
   },
 
   render: function () {
     return (
       <section className="edit-account">
         <h4>Upload a new profile photo</h4>
-        <form>
+        <form
+          onSubmit={this.handleSubmit}>
           <label>
             <input type="file" onChange={this.changeFile} />
           </label>
