@@ -17,9 +17,13 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    @user.photo = params[:user][:photo]
-    if @user.save!
+    update_params = {}
+    user_params.each do |param, val|
+      sym = (param.to_s + "=").to_sym
+      current_user.send(sym, val) if val && val != "null"
+    end
+
+    if current_user.save!
       get_meta_data_for_current_user
       render "api/sessions/show"
     else

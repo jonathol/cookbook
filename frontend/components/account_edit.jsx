@@ -1,10 +1,19 @@
 var React = require('react'),
     SessionStore = require('../stores/session'),
-    ApiUtil = require('../util/api_util');
+    ApiUtil = require('../util/api_util'),
+    LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var AccountEdit = React.createClass({
+  mixins: [LinkedStateMixin],
+
   getInitialState: function () {
-    return { imageFile: null, imageUrl: "", user: SessionStore.currentUser() };
+    var user = SessionStore.currentUser();
+    return {
+      imageFile: null,
+      imageUrl: "",
+      userId: user.id,
+      userName: user.name
+    };
   },
 
   changeFile: function(e) {
@@ -27,20 +36,27 @@ var AccountEdit = React.createClass({
 
     var userData = new FormData();
     userData.append("user[photo]", this.state.imageFile);
+    userData.append("user[name]", this.state.userName);
 
-    ApiUtil.uploadUserPhoto(this.state.user.id, userData, this.resetForm);
+    ApiUtil.updateUserData(this.state.userId, userData, this.resetForm);
   },
 
   resetForm: function() {
-    this.setState({ imageFile: null, imageUrl: "" });
+    this.setState({ imageFile: null, imageUrl: "", userName: null });
   },
 
   render: function () {
     return (
       <section className="edit-account">
-        <h4>Upload a new profile photo</h4>
+        <h4>Your Profile</h4>
         <form
           onSubmit={this.handleSubmit}>
+          <label>
+            Name
+            <input
+              type="text"
+              valueLink={this.linkState('userName')} />
+          </label>
           <label>
             <input type="file" onChange={this.changeFile} />
           </label>

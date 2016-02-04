@@ -300,7 +300,7 @@ var ApiUtil = {
     });
   },
 
-  uploadUserPhoto: function(userId, userData, callback) {
+  updateUserData: function(userId, userData, callback) {
     $.ajax({
       url: '/api/users/' + userId,
       type: 'PATCH',
