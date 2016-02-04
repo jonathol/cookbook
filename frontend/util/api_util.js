@@ -289,7 +289,10 @@ var ApiUtil = {
       dataType: "json",
       data: { user: credentials },
       success: function (response) {
-        AuthActions.logInUser(response.session_token);
+        AuthActions.logOutUser();
+        ApiActions.receiveAllRecipeSaves({});
+        ApiActions.receiveAllCookedRecipes({});
+        ApiActions.receiveUserRatings({});
       },
       error: function (error) {
         console.log(error);
@@ -306,7 +309,7 @@ var ApiUtil = {
       dataType: 'json',
       data: userData,
       success: function(updatedUserData) {
-        AuthActions.logInUser(updatedUserData);
+        AuthActions.logInUser(updatedUserData.user);
         callback && callback();
       }
     });

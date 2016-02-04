@@ -4,7 +4,8 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       log_in!(@user)
-      render "api/sessions/token"
+      get_meta_data_for_current_user
+      render :show
     else
       render json: { error: "An error has occurred" }
     end
