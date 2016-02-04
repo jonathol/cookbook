@@ -53,6 +53,7 @@ class ApplicationController < ActionController::Base
     @user_info[:id] = current_user.id
     @user_info[:email] = current_user.email
     @user_info[:name] = current_user.name
+    @user_info[:photo_url] = current_user.photo.url
 
     current_user.recipe_saves.each do |recipe_save|
       @recipe_saves[recipe_save.recipe_id] = recipe_save.id

@@ -7,13 +7,15 @@ var AccountEdit = React.createClass({
   mixins: [LinkedStateMixin],
 
   getInitialState: function () {
-    var user = SessionStore.currentUser();
-    return {
-      imageFile: null,
-      imageUrl: "",
-      userId: user.id,
-      userName: user.name
-    };
+    return $.extend({ imageFile: null }, this.getSessionFromStore());
+  },
+
+  componentDidMount: function () {
+    this.sessionListener = SessionStore.addListener(this._sessionChanged);
+  },
+
+  componentWillUnmount: function () {
+    this.sessionListener.remove();
   },
 
   changeFile: function(e) {
@@ -31,6 +33,22 @@ var AccountEdit = React.createClass({
     }
   },
 
+  changesMade: function () {
+    var session = this.getSessionFromStore();
+    return this.state.imageUrl !== session.imageUrl ||
+      this.state.userId !== session.userId ||
+      this.state.userName !== session.userName;
+  },
+
+  getSessionFromStore: function () {
+    var user = SessionStore.currentUser();
+    return ({
+      imageUrl: user.photo_url,
+      userId: user.id,
+      userName: user.name
+    });
+  },
+
   handleSubmit: function(e) {
     e.preventDefault();
 
@@ -42,26 +60,43 @@ var AccountEdit = React.createClass({
   },
 
   resetForm: function() {
-    this.setState({ imageFile: null, imageUrl: "", userName: null });
+    this.setState($.extend({ imageFile: null }, this.getSessionFromStore()));
+  },
+
+  _sessionChanged: function () {
+    this.setState(this.getSessionFromStore());
   },
 
   render: function () {
+    var changed = this.changesMade() ? " changes-made" : "";
     return (
-      <section className="edit-account">
-        <h4>Your Profile</h4>
+      <section className="edit-account group">
         <form
+          className="edit-account-form"
           onSubmit={this.handleSubmit}>
-          <label>
-            Name
-            <input
-              type="text"
-              valueLink={this.linkState('userName')} />
-          </label>
-          <label>
-            <input type="file" onChange={this.changeFile} />
-          </label>
-          <img className="preview-image" src={this.state.imageUrl}/>
-          <button>Submit</button>
+          <h4>Your Profile</h4>
+          <ul className="fields">
+            <li className="group">
+              <label htmlFor="user_name">
+                Name
+              </label>
+              <input
+                id="user_name"
+                type="text"
+                valueLink={this.linkState('userName')} />
+            </li>
+            <li className="group">
+              <label htmlFor="user_photo">
+                Photo
+              </label>
+              <input
+                id="user_photo"
+                type="file"
+                onChange={this.changeFile} />
+            </li>
+            <img className="preview-image" src={this.state.imageUrl} />
+          </ul>
+          <button className={changed}>Save</button>
         </form>
       </section>
     );

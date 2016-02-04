@@ -1137,3 +1137,105 @@ ul.note-interaction-links > li:hover > span.fa-thumbs-up {
 ul.note-interaction-links > li > span.fa-thumbs-up.liked {
   color: #ffb700;
 }
+
+/* EDIT ACCOUNT */
+section.edit-account {
+  margin: 25px auto 0 auto;
+  padding: 15px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 499px) {
+  section.edit-account {
+    width: 300px;
+  }
+}
+
+@media (min-width: 500px) {
+  section.edit-account {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1000px) {
+  section.edit-account {
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1500px) {
+  section.edit-account {
+    width: 1500px;
+  }
+}
+
+form.edit-account-form {
+  margin: auto;
+  max-width: 460px;
+}
+
+form.edit-account-form > h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+form.edit-account-form > ul.fields {
+  padding: 5px 15px 8px 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  font-size: 12px;
+}
+
+form.edit-account-form > ul.fields > li {
+  margin: 6px 0;
+}
+
+form.edit-account-form label {
+  padding: 10px 0;
+  width: 100px;
+  display: block;
+  float: left;
+  font-weight: 700;
+}
+
+form.edit-account-form input {
+  width: 310px;
+  display: block;
+  float: right;
+  border: 1px solid #DBDBDB;
+  padding: 10px;
+  font-size: 14px;
+}
+
+img.preview-image {
+  display: block;
+  width: 100px;
+}
+
+form.edit-account-form > button {
+  padding: 15px 0;
+  width: 110px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #ccc;
+  text-align: center;
+  cursor: default;
+  transition: all 0.1s;
+}
+
+form.edit-account-form > button.changes-made {
+  border: 1px solid #E33C24;
+  background-color: #E33C24;
+  color: #fff;
+  transition: all 0.1s;
+}
+
+form.edit-account-form > button.changes-made:hover {
+  cursor: pointer;
+  border: 1px solid #BE1E05;
+  background-color: #BE1E05;
+  transition: all 0.1s;
+}
