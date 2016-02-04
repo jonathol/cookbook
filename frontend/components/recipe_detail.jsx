@@ -3,18 +3,25 @@ var React = require('react'),
     RecipeSaveStore = require('../stores/recipe_save'),
     CookStore = require('../stores/cook'),
     RatingStore = require('../stores/rating'),
+    NoteStore = require('../stores/note'),
     ApiUtil = require('../util/api_util'),
     Icon = require('react-fontawesome'),
     Notes = require('./notes');
 
 var RecipeDetail = React.createClass({
+  getInitialState: function () {
+    return { notes: NoteStore.all() };
+  },
+
   componentDidMount: function () {
     this.recipeListener = RecipeStore.addListener(this._recipeChanged);
     this.saveListener = RecipeSaveStore.addListener(this._recipeSaveChanged);
     this.cookListener = CookStore.addListener(this._cookChanged);
     this.ratingListener = RatingStore.addListener(this._ratingsChanged);
+    this.noteListener = NoteStore.addListener(this._notesChanged);
 
     ApiUtil.fetchFeaturedRecipe(this.props.params.recipeId);
+    ApiUtil.fetchAllNotes(this.props.params.recipeId);
   },
 
   componentWillUnmount: function () {
@@ -22,14 +29,20 @@ var RecipeDetail = React.createClass({
     this.saveListener.remove();
     this.cookListener.remove();
     this.ratingListener.remove();
+    this.noteListener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
     ApiUtil.fetchFeaturedRecipe(newProps.params.recipeId);
+    ApiUtil.fetchAllNotes(this.props.params.recipeId);
   },
 
   _cookChanged: function () {
     this.setState({ cooked: CookStore.find(this.props.params.recipeId) });
+  },
+
+  _notesChanged: function () {
+    this.setState({ notes: NoteStore.all() });
   },
 
   _ratingsChanged: function () {
@@ -265,7 +278,8 @@ var RecipeDetail = React.createClass({
                 </ul>
               </section>
               <Notes
-                recipeId={this.props.params.recipeId}
+                notes={this.state.notes}
+                recipeId={this.state.recipe.id}
                 enforceAuth={this.props.enforceAuth} />
             </section>
           </section>

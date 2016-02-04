@@ -2,10 +2,18 @@ var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     NoteConstants = require('../constants/note_constants');
 
+var _notes = {
+  public: [],
+  private: []
+};
 var _publicNotes = [];
 var _privateNotes = [];
 
 var NoteStore = new Store (AppDispatcher);
+
+NoteStore.all = function () {
+  return $.extend({}, _notes);
+};
 
 NoteStore.allPublic = function () {
   return _publicNotes.slice(0);
@@ -16,13 +24,15 @@ NoteStore.allPrivate = function () {
 };
 
 NoteStore.resetNotes = function (notes) {
-  _publicNotes = [];
-  _privateNotes = [];
+  _notes = {
+    public: [],
+    private: []
+  };
   notes.forEach(function (note) {
     if (note.private) {
-      _privateNotes.push(note);
+      _notes.private.push(note);
     } else {
-      _publicNotes.push(note);
+      _notes.public.push(note);
     }
   });
   this.__emitChange();

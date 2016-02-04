@@ -6,27 +6,28 @@ var React = require('react'),
 
 var Notes = React.createClass({
   getInitialState: function () {
-    var state = this.getNotesFromStore();
-    state.formActive = false;
-    state.activeIndex = 0;
-    return state;
+    // var state = this.getNotesFromStore();
+    // state.formActive = false;
+    // state.activeIndex = 0;
+    // return state;
+    return { formActive: false, activeIndex: 0 }
   },
 
-  componentDidMount: function () {
-    this.notesListener = NoteStore.addListener(this._notesChanged);
-    ApiUtil.fetchAllNotes(this.props.recipeId);
-  },
+  // componentDidMount: function () {
+  //   this.notesListener = NoteStore.addListener(this._notesChanged);
+  //   ApiUtil.fetchAllNotes(this.props.recipeId);
+  // },
 
-  componentWillUnmount: function () {
-    this.notesListener.remove();
-  },
+  // componentWillUnmount: function () {
+  //   this.notesListener.remove();
+  // },
 
-  getNotesFromStore: function () {
-    return {
-      publicNotes: NoteStore.allPublic(),
-      privateNotes: NoteStore.allPrivate()
-    };
-  },
+  // getNotesFromStore: function () {
+  //   return {
+  //     publicNotes: NoteStore.allPublic(),
+  //     privateNotes: NoteStore.allPrivate()
+  //   };
+  // },
 
   toggleForm: function () {
     if (!this.props.enforceAuth()) {
@@ -47,9 +48,9 @@ var Notes = React.createClass({
     this.setState({ activeIndex: idx });
   },
 
-  _notesChanged: function () {
-    this.setState(this.getNotesFromStore());
-  },
+  // _notesChanged: function () {
+  //   this.setState(this.getNotesFromStore());
+  // },
 
   render: function () {
     var noteForm;
@@ -72,14 +73,14 @@ var Notes = React.createClass({
       case 0:
         notesIndex = (
           <NotesIndex
-            notes={this.state.publicNotes}
+            notes={this.props.notes.public}
             enforceAuth={this.props.enforceAuth} />
         );
         break;
       case 1:
         notesIndex = (
           <NotesIndex
-            notes={this.state.privateNotes}
+            notes={this.props.notes.private}
             enforceAuth={this.props.enforceAuth} />
         );
         break;
@@ -87,32 +88,35 @@ var Notes = React.createClass({
 
     var activeIdx;
     var publicNotesTab;
-    if (this.state.publicNotes.length > 0) {
+    if (this.props.notes.public.length > 0) {
       activeIdx = this.state.activeIndex === 0 ? " active-index" : ""
       publicNotesTab = (
         <li
           className={"notes-index-tab" + activeIdx}
           onClick={this.toggleIndexTab.bind(this, 0)}>
-          All <span className="note-count">{this.state.publicNotes.length}</span>
+          All <span className="note-count">{this.props.notes.public.length}</span>
         </li>
       );
     }
-
+    
     var privateNotesTab;
-    if (this.state.privateNotes.length > 0) {
+    if (this.props.notes.private.length > 0) {
       activeIdx = this.state.activeIndex === 1 ? " active-index" : ""
       privateNotesTab = (
         <li
           className={"notes-index-tab" + activeIdx}
           onClick={this.toggleIndexTab.bind(this, 1)}>
-          Private <span className="note-count">{this.state.privateNotes.length}</span>
+          Private <span className="note-count">{this.props.notes.private.length}</span>
         </li>
       );
     }
 
     if (!publicNotesTab && !privateNotesTab) {
       notesIndex = (
-        <div>No one has left a note yet. Be the first!</div>
+        <div
+          className="zero-notes">
+          No one has left a note yet. Be the first!
+        </div>
       )
     }
 
