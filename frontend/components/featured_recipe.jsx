@@ -53,13 +53,20 @@ var FeaturedRecipe = React.createClass({
           className="featured-recipe-photo"
           src={this.props.recipe.photo.large_url} />
         <div
-          className="featured-recipe-info">
-          <h5>{this.props.recipe.title}</h5>
-          <p>{this.props.recipe.description}</p>
+          className="featured-recipe-card">
           <div
-            className="featured-recipe-author-info">
-            <img src={this.props.recipe.author.photo_url} />
-            <span>{this.props.recipe.author.name}</span>
+            className="featured-recipe-info">
+            <div
+              className="rotd-pin">
+              <span>Recipe<br /> of the Day</span>
+            </div>
+            <h5>{this.props.recipe.title}</h5>
+            <p>{this.props.recipe.description}</p>
+            <div
+              className="featured-recipe-author-info">
+              <img src={this.props.recipe.author.photo_url} />
+              <span>{this.props.recipe.author.name}</span>
+            </div>
           </div>
         </div>
       </section>
