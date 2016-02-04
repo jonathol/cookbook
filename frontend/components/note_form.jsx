@@ -59,7 +59,7 @@ var NoteForm = React.createClass({
               <label>
                 <input
                   type="checkbox"
-                  valueLink={this.linkState('private')}/>
+                  checkedLink={this.linkState('private')}/>
                 Make this note private?
               </label>
             </li>
