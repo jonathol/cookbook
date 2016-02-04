@@ -75,7 +75,7 @@ var AccountEdit = React.createClass({
           className="edit-account-form"
           onSubmit={this.handleSubmit}>
           <h4>Your Profile</h4>
-          <ul className="fields">
+          <ul className="fields group">
             <li className="group">
               <label htmlFor="user_name">
                 Name
@@ -85,14 +85,18 @@ var AccountEdit = React.createClass({
                 type="text"
                 valueLink={this.linkState('userName')} />
             </li>
-            <li className="group">
+            <li className="group photo">
               <label htmlFor="user_photo">
                 Photo
               </label>
-              <input
-                id="user_photo"
-                type="file"
-                onChange={this.changeFile} />
+              <div className="file-upload">
+                <span>Upload</span>
+                <input
+                  className="user-photo-input"
+                  id="user_photo"
+                  type="file"
+                  onChange={this.changeFile} />
+              </div>
             </li>
             <img className="preview-image" src={this.state.imageUrl} />
           </ul>
