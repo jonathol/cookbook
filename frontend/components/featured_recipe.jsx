@@ -3,7 +3,7 @@ var React = require('react'),
 
 var FeaturedRecipe = React.createClass({
   render: function () {
-    if (!this.props.photo) {
+    if (!this.props.recipe.photo) {
       return <section className="featured"></section>;
     }
 
