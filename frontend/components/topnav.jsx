@@ -77,7 +77,7 @@ var TopNav = React.createClass({
             </li>
             <li>
               <a
-                onClick={this.toggleUserDropDown} 
+                onClick={this.toggleUserDropDown}
                 href={"#/users/" + this.state.user.id + "/recipe-box"}>
                 Your Recipe Box
               </a>

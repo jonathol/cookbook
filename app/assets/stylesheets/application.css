@@ -69,6 +69,9 @@ li {
 
 /* HEADER */
 section.topnav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 20;
   background-color: white;
   text-transform: uppercase;
@@ -80,9 +83,9 @@ section.topnav {
 }
 
 section.topnav.sticky {
-  position: fixed;
+  /*position: fixed;
   width: 100%;
-  top: 0;
+  top: 0;*/
   background-color: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 0;
@@ -492,6 +495,21 @@ div.submit-buttons > button:hover {
   ul.recipes-index-list {
     width: 1500px;
   }
+}
+
+/* FEATURED RECIPE */
+section.featured-recipe {
+  width: 100%;
+  position: relative;
+  top: 0;
+  overflow: hidden;
+}
+
+img.featured-recipe-photo {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* RECIPE INDEX ITEM */
