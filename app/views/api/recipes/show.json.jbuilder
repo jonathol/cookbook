@@ -6,6 +6,7 @@ json.servings @recipe.servings
 json.author do
   json.name @recipe.author.name
   json.id @recipe.author.id
+  json.photo_url asset_path(@recipe.author.photo.url)
 end
 
 json.description @recipe.description

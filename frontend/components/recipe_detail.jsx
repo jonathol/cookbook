@@ -195,6 +195,7 @@ var RecipeDetail = React.createClass({
               <h3
                 className="recipe-detail-author">
                 <a href={"#/users/" + this.state.recipe.author.id}>
+                  <img src={this.state.recipe.author.photo_url} />
                   {this.state.recipe.author.name}
                 </a>
               </h3>
