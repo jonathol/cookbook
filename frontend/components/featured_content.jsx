@@ -22,6 +22,10 @@ var FeaturedContent = React.createClass({
     ApiUtil.fetchFeaturedRecipes();
   },
 
+  componentWillUnmount: function () {
+    this.recipesListener.remove();
+  },
+
   _recipesChanged: function () {
     this.setState(this.getStateFromStore());
   },

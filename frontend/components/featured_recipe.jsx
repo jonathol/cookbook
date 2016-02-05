@@ -49,6 +49,7 @@ var FeaturedRecipe = React.createClass({
     return (
       <section
         className="featured-recipe group">
+        <a href={"#/recipes/" + this.props.recipe.id}>
         <img
           className="featured-recipe-photo"
           src={this.props.recipe.photo.large_url} />
@@ -69,6 +70,7 @@ var FeaturedRecipe = React.createClass({
             </div>
           </div>
         </div>
+        </a>
       </section>
     )
   }

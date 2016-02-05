@@ -1,11 +1,11 @@
 var React = require('react'),
     ApiUtil = require('../util/api_util'),
     RecipeStore = require('../stores/recipe'),
-    RecipeIndexItem = require('./recipe_index_item');
+    RecipesIndex = require('./recipes_index');
 
-module.exports = React.createClass({
+var RecipeBox = React.createClass({
   getInitialState: function () {
-    return { recipes: [] };
+    return { recipeList: RecipeStore.all() };
   },
 
   componentDidMount: function () {
@@ -22,21 +22,19 @@ module.exports = React.createClass({
   },
 
   _recipesChanged: function () {
-    this.setState({ recipes: RecipeStore.all() });
+    this.setState({ recipeList: RecipeStore.all() });
   },
 
   render: function () {
-    var recipes = this.state.recipes.map(function(recipe, idx) {
-      return (
-        <RecipeIndexItem key={idx} recipe={recipe} />
-      );
-    });
-
     return (
-      <ul
-        className="recipes-index-list">
-        {recipes}
-      </ul>
+      <section
+        className="recipe-box">
+        <RecipesIndex
+          recipes={this.state.recipeList}
+          enforceAuth={this.props.enforceAuth} />
+      </section>
     );
   }
 });
+
+module.exports = RecipeBox;

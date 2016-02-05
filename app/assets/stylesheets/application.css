@@ -67,7 +67,7 @@ li {
   list-style: none;
 }
 
-/* HEADER */
+/* TOP NAV BAR */
 section.topnav {
   position: fixed;
   top: 0;
@@ -83,9 +83,6 @@ section.topnav {
 }
 
 section.topnav.sticky {
-  /*position: fixed;
-  width: 100%;
-  top: 0;*/
   background-color: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 0;
@@ -375,6 +372,15 @@ div.dropdown-screen {
   z-index: -1;
 }
 
+/* Body adjustments to header depending on content */
+div.cookbook {
+  margin-top: 130px;
+}
+
+section.featured-content {
+  margin-top: -130px;
+}
+
 /* SIGN IN / SIGN UP FORMS */
 .modal.active {
   display: block;
@@ -503,6 +509,10 @@ section.featured-recipe {
   position: relative;
   top: 0;
   overflow: hidden;
+}
+
+section.featured-recipe > a:hover {
+  text-decoration: none;
 }
 
 img.featured-recipe-photo {

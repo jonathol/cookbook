@@ -9,6 +9,7 @@ var React = require('react'),
     FeaturedContent = require('./components/featured_content'),
     RecipesIndex = require('./components/recipes_index.jsx'),
     RecipeDetail = require('./components/recipe_detail'),
+    RecipeBox = require('./components/recipe_box'),
     UserShow = require('./components/user_show'),
     AccountEdit = require('./components/account_edit');
 
@@ -18,7 +19,7 @@ var router = (
       <IndexRoute component={FeaturedContent} />
       <Route path="recipes/:recipeId" component={RecipeDetail} />
       <Route path="users/:userId" component={UserShow} >
-        <Route path="recipe-box" component={RecipesIndex} />
+        <Route path="recipe-box" component={RecipeBox} />
         <Route path="my-recipes" component={RecipesIndex} />
       </Route>
       <Route path="tags/:tagId" component={RecipesIndex} />
