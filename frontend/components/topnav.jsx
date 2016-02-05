@@ -2,6 +2,7 @@ var React = require('react'),
     SessionStore = require('../stores/session'),
     TagStore = require('../stores/tag'),
     Icon = require('react-fontawesome'),
+    SearchBar = require('./search_bar'),
     ApiUtil = require('../util/api_util');
 
 var TopNav = React.createClass({
@@ -22,6 +23,7 @@ var TopNav = React.createClass({
   getInitialState: function () {
     var state = this.getSessionState();
     state.dropdownActive = false;
+    state.searchBarActive = false;
     state.featuredTags = TagStore.featured();
     return state;
   },
@@ -49,6 +51,10 @@ var TopNav = React.createClass({
     } else {
       this.setState({ scrolled: false });
     }
+  },
+
+  toggleSearchBar: function (e) {
+    this.setState({ searchBarActive: !this.state.searchBarActive });
   },
 
   toggleUserDropDown: function (e) {
@@ -157,6 +163,11 @@ var TopNav = React.createClass({
       );
     }
 
+    var searchBar;
+    if (this.state.searchBarActive) {
+      searchBar = <SearchBar />
+    }
+
     return (
       <section className={"topnav group" + sticky}>
         <a href="#/">
@@ -186,7 +197,9 @@ var TopNav = React.createClass({
         </ul>
         <ul className={"topnav-right group" + sticky}>
           <li>
-            <div className={"topnav-button search" + sticky}>
+            <div
+              className={"topnav-button search" + sticky}
+              onClick={this.toggleSearchBar}>
               <Icon name='search' className={"search-icon button-icon" + sticky} />
               <span className={"search-button-text" + sticky}>Search 40+ recipes</span>
             </div>
@@ -197,6 +210,7 @@ var TopNav = React.createClass({
             </div>
           </li>
         </ul>
+        {searchBar}
       </section>
     );
   }
