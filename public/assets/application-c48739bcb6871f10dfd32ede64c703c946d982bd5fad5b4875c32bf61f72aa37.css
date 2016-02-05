@@ -10,11 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
 /* RESET */
+
 html, body, header, nav, h1, a, ul, li,
 strong, main, section, img, div, h2, h3, h4, h5, h6, p,
 form, fieldset, label, input, textarea,
