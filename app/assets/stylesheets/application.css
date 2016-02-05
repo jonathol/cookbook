@@ -212,15 +212,15 @@ div.sidebar-button {
 
 span.fa-angle-double-right.button-icon {
   color: #fff;
-  background-color: #e33d26;
-  border-color: #e33d26;
+  background-color: #E23E27;
+  border-color: #E23E27;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 div.sidebar-button:hover > span.fa-angle-double-right.button-icon {
-  background-color: #e33d26;
-  border-color: #e33d26;
+  background-color: #E23E27;
+  border-color: #E23E27;
 }
 
 span.fa-angle-double-right.button-icon.sticky {
@@ -260,8 +260,8 @@ div.topnav-button:hover .button-icon {
 }
 
 div.topnav-button.sticky:hover .button-icon {
-  background-color: #e33d26;
-  border-color: #e33d26;
+  background-color: #E23E27;
+  border-color: #E23E27;
   transition: all 0.2s;
 }
 
@@ -374,6 +374,38 @@ div.dropdown-screen {
   z-index: -1;
 }
 
+/* Search Bar */
+section.search-bar {
+  position: absolute;
+  bottom: -156px;
+  padding-top: 45px;
+  width: 100%;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+form.search-form {
+  width: 860px;
+  margin: auto;
+  font-size: 18px;
+  padding-bottom: 60px;
+}
+
+form.search-form > input {
+  width: 700px;
+  padding: 15px;
+  background-color: #fff;
+  color: #000;
+}
+
+form.search-form > button {
+  background-color: #E23E27;
+  color: #fff;
+  padding: 15px 22px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
 /* Body adjustments to header depending on content */
 div.cookbook {
   margin-top: 130px;
@@ -459,7 +491,7 @@ div.submit-buttons > button {
   display: inline-block;
   margin: 20px 10px;
   padding: 17px 40px;
-  background-color: #e33d26;
+  background-color: #E23E27;
   border-radius: 5px;
   color: #fff;
 }
@@ -474,7 +506,7 @@ div.submit-buttons > button:hover {
 }
 
 .user-form-footer .footer-link {
-  color: #e33d26;
+  color: #E23E27;
   cursor: pointer;
 }
 
@@ -797,12 +829,12 @@ div.recipe-button:hover {
 
 .fa-clock-o:before {
   margin: 0 6px 0 14px;
-  color: #e33d26;
+  color: #E23E27;
 }
 
 .fa-user:before {
   margin: 0 6px 0 14px;
-  color: #e33d26;
+  color: #E23E27;
 }
 
 p.recipe-description-text {
@@ -852,7 +884,7 @@ ul.recipe-tags > li {
 }
 
 ul.recipe-tags > li > a {
-  color: #e33d26;
+  color: #E23E27;
 }
 
 ul.recipe-ratings-cooked {
@@ -942,9 +974,9 @@ li.rating-star:active > span.fa-star  {
 }
 
 ul.rating-stars > li.filled {
-  color: #e33d26;
+  color: #E23E27;
   -webkit-text-stroke-width: 0;
-  -webkit-text-fill-color: #e33d26;
+  -webkit-text-fill-color: #E23E27;
 }
 
 ul.rating-stars > li.filled.rated {
@@ -1234,7 +1266,7 @@ ul.note-interaction-links > li > span {
 }
 
 ul.note-interaction-links > li:hover > span.fa-reply {
-  color: #e33d26;
+  color: #E23E27;
 }
 
 ul.note-interaction-links > li:hover > span.fa-thumbs-up {
