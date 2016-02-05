@@ -9,19 +9,14 @@ class Api::RecipesController < ApplicationController
 
   def index
     if params[:featured]
-      @recipes_list = Recipe.includes(:author, :photo)
+      @recipes_list = Recipe.includes(:author, :photo).order(created_at: :desc)
       @recipe = Recipe.first
       render :featured
     elsif params[:user_id]
       user = User.find(params[:user_id])
       @recipes = user ? user.recipes.includes(:author, :photo) : []
     else
-      @owner = {
-        type: "all",
-        name: "index"
-      }
-      @recipes = Recipe
-        .includes(:author, :photo);
+      @recipes = Recipe.includes(:author, :photo).order(created_at: :desc)
     end
   end
 end

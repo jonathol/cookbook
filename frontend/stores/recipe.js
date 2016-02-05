@@ -33,7 +33,7 @@ RecipeStore.resetFeatured = function (recipe) {
 RecipeStore.resetDetailed = function (recipe) {
   _detailedRecipe = recipe;
   this.__emitChange();
-}
+};
 
 RecipeStore.__onDispatch = function (payload) {
   switch (payload.actionType) {

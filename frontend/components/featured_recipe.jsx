@@ -12,7 +12,7 @@ var FeaturedRecipe = React.createClass({
     }
     var windowHeight = $(window).height();
 
-    var recipePhotoAnchor = ((windowHeight * 0.92) - imageHeight);
+    var recipePhotoAnchor = ((windowHeight * 0.9) - imageHeight);
 
     if (recipePhotoAnchor >= 0 && imageHeight !== null) {
       $(".featured-recipe").css('min-height', imageHeight + "px");
@@ -20,7 +20,7 @@ var FeaturedRecipe = React.createClass({
     } else if (imageHeight === null && this.origImageHeight) {
 
     } else {
-      $('.featured-recipe').css('min-height', windowHeight * 0.92 + "px");
+      $('.featured-recipe').css('min-height', windowHeight * 0.9 + "px");
       $('.featured-recipe-photo').css('top', recipePhotoAnchor + "px");
     }
   },

@@ -43,6 +43,7 @@ var FeaturedContent = React.createClass({
           enforceAuth={this.props.enforceAuth} />
         <RecipesIndex
           recipes={this.state.recipesList}
+          indexDescription="Latest Recipes"
           enforceAuth={this.props.enforceAuth} />
       </section>
     );

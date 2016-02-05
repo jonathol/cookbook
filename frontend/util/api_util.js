@@ -54,12 +54,23 @@ var ApiUtil = {
     });
   },
 
+  fetchFeaturedTags: function () {
+    $.ajax({
+      type: "GET",
+      url: "api/tags?featured=true",
+      success: function (tags) {
+        ApiActions.receiveFeaturedTags(tags);
+      }
+    });
+  },
+
   fetchTaggedRecipes: function (tagId) {
     $.ajax({
       type: "GET",
       url: "api/tags/" + tagId,
       success: function (data) {
-        ApiActions.receiveAllRecipes(data.recipes);
+        ApiActions.receiveRecipesList(data.recipes);
+        ApiActions.receiveIndexedTag(data.tag);
       }
     });
   },

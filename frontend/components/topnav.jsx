@@ -104,6 +104,7 @@ var TopNav = React.createClass({
     }
 
     var recipeBox;
+    var sideBar;
     if (this.state.loggedIn) {
       recipeBox = (
         <li>
@@ -111,7 +112,18 @@ var TopNav = React.createClass({
             href={"#/users/" + this.state.user.id + "/recipe-box"}
             className={"topnav-link" + sticky}>Recipe Box</a>
         </li>
-      )
+      );
+      sideBar = (
+        <li>
+          <a
+            href={"#/users/" + this.state.user.id + "/recipe-box"}>
+            <div
+              className={"topnav-button sidebar-button" + sticky}>
+              <Icon name='angle-double-right' className={"button-icon" + sticky} />
+            </div>
+          </a>
+        </li>
+      );
     } else {
       recipeBox = (
         <li>
@@ -120,7 +132,19 @@ var TopNav = React.createClass({
             onClick={this.handleLogIn}
             className={"topnav-link" + sticky}>Recipe Box</a>
         </li>
-      )
+      );
+      sideBar = (
+        <li>
+          <a
+            href="#"
+            onClick={this.handleLogIn}>
+            <div
+              className={"topnav-button sidebar-button" + sticky}>
+              <Icon name='angle-double-right' className={"button-icon" + sticky} />
+            </div>
+          </a>
+        </li>
+      );
     }
 
     return (
@@ -133,11 +157,7 @@ var TopNav = React.createClass({
           </h1>
         </a>
         <ul className={"topnav-left group" + sticky}>
-          <li>
-            <div className={"topnav-button sidebar-button" + sticky}>
-              <Icon name='angle-double-right' className={"button-icon" + sticky} />
-            </div>
-          </li>
+          {sideBar}
           {recipeBox}
           <li>
             <a className={"topnav-link" + sticky}>Healthy</a>

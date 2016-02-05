@@ -70,10 +70,14 @@ module.exports = React.createClass({
     }.bind(this));
 
     return (
-      <ul
-        className="recipes-index-list group">
-        {recipes}
-      </ul>
+      <section
+        className="recipes-index">
+        <h3>{this.props.indexDescription}</h3>
+        <ul
+          className="recipes-index-list group">
+          {recipes}
+        </ul>
+      </section>
     );
   }
 });

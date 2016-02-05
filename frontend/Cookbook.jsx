@@ -10,6 +10,7 @@ var React = require('react'),
     RecipesIndex = require('./components/recipes_index.jsx'),
     RecipeDetail = require('./components/recipe_detail'),
     RecipeBox = require('./components/recipe_box'),
+    TaggedRecipes = require('./components/tagged_recipes'),
     UserShow = require('./components/user_show'),
     AccountEdit = require('./components/account_edit');
 
@@ -22,7 +23,7 @@ var router = (
         <Route path="recipe-box" component={RecipeBox} />
         <Route path="my-recipes" component={RecipesIndex} />
       </Route>
-      <Route path="tags/:tagId" component={RecipesIndex} />
+      <Route path="tags/:tagId" component={TaggedRecipes} />
       <Route path="account/edit" component={AccountEdit} />
     </Route>
   </Router>

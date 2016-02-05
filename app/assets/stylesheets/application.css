@@ -480,35 +480,13 @@ div.submit-buttons > button:hover {
   text-decoration: underline;
 }
 
-/* RECIPES INDEX */
-.recipes-index-list {
-  margin: auto;
-}
-
-@media (min-width: 500px) {
-  ul.recipes-index-list {
-    width: 500px;
-  }
-}
-
-@media (min-width: 1000px) {
-  ul.recipes-index-list {
-    width: 1000px;
-  }
-}
-
-@media (min-width: 1500px) {
-  ul.recipes-index-list {
-    width: 1500px;
-  }
-}
-
 /* FEATURED RECIPE */
 section.featured-recipe {
   width: 100%;
   position: relative;
   top: 0;
   overflow: hidden;
+  margin-bottom: 30px;
 }
 
 section.featured-recipe > a:hover {
@@ -587,6 +565,38 @@ div.featured-recipe-author-info > img {
 
 div.featured-recipe-author-info > span {
   vertical-align: middle;
+}
+
+/* RECIPES INDEX */
+section.recipes-index {
+  margin: auto;
+}
+
+@media (min-width: 500px) {
+  section.recipes-index {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1000px) {
+  section.recipes-index {
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1500px) {
+  section.recipes-index {
+    width: 1500px;
+  }
+}
+
+section.recipes-index > h3 {
+  margin-left: 10px;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  /*text-transform: uppercase;*/
 }
 
 /* RECIPE INDEX ITEM */

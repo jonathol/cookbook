@@ -4,7 +4,8 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
     CookConstants = require('../constants/cook_constants'),
     RatingConstants = require('../constants/rating_constants'),
     NoteConstants = require('../constants/note_constants'),
-    LikeConstants = require('../constants/like_constants');
+    LikeConstants = require('../constants/like_constants'),
+    TagConstants = require('../constants/tag_constants');
 
 module.exports = {
   receiveRecipesList: function (recipes) {
@@ -39,6 +40,20 @@ module.exports = {
     AppDispatcher.dispatch({
       actionType: RecipeConstants.RECIPE_BOX_RECEIVED,
       recipeBox: recipeBox
+    });
+  },
+
+  receiveFeaturedTags: function (tags) {
+    AppDispatcher.dispatch({
+      actionType: TagConstants.FEATURED_TAGS_RECEIVED,
+      tags: tags
+    });
+  },
+
+  receiveIndexedTag: function (tag) {
+    AppDispatcher.dispatch({
+      actionType: TagConstants.INDEXED_TAG_RECEIVED,
+      tag: tag
     });
   },
 
