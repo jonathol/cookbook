@@ -5,7 +5,8 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
     RatingConstants = require('../constants/rating_constants'),
     NoteConstants = require('../constants/note_constants'),
     LikeConstants = require('../constants/like_constants'),
-    TagConstants = require('../constants/tag_constants');
+    TagConstants = require('../constants/tag_constants'),
+    SearchConstants = require('../constants/search_constants');
 
 module.exports = {
   receiveRecipesList: function (recipes) {
@@ -138,6 +139,20 @@ module.exports = {
     AppDispatcher.dispatch({
       actionType: NoteConstants.NOTES_RECEIVED,
       notes: notes
+    });
+  },
+
+  receiveInstantResults: function (results) {
+    AppDispatcher.dispatch({
+      actionType: SearchConstants.INSTANT_SEARCH_RESULTS_RECEIVED,
+      results: results
+    });
+  },
+
+  receiveFullResults: function (results) {
+    AppDispatcher.dispatch({
+      actionType: SearchConstants.FULL_PAGE_SEARCH_RESULTS_RECEIVED,
+      results: results
     });
   }
 };

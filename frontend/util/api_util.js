@@ -3,6 +3,30 @@ var ApiActions = require('../actions/api_actions'),
     SessionStore = require('../stores/session');
 
 var ApiUtil = {
+  instantSearch: function (query) {
+    $.ajax({
+      url: '/api/search?instant=true',
+      type: 'GET',
+      dataType: 'json',
+      data: { query: query },
+      success: function (data) {
+        SearchActions.receiveInstantResults(data);
+      }
+    });
+  },
+
+  fullSearch: function (query, page) {
+    $.ajax({
+      url: '/api/search',
+      type: 'GET',
+      dataType: 'json',
+      data: {query: query, page: page},
+      success: function (data) {
+        SearchActions.receiveFullResults(data);
+      }
+    });
+  },
+
   fetchAllRecipes: function () {
     $.ajax({
       type: "GET",
