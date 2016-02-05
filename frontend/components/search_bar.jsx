@@ -18,6 +18,10 @@ var SearchBar = React.createClass({
     return { query: "", instantResults: [] };
   },
 
+  clearSearch: function () {
+    this.setState({ query: "" });
+  },
+
   fullPageSearch: function (e) {
     e.preventDefault();
   },
@@ -78,13 +82,16 @@ var SearchBar = React.createClass({
         </ul>
       );
     }
-
+    var clearOff = !this.state.query ? " off" : "";
     return (
       <section
         className="search-bar">
         <form
           className="search-form"
           onSubmit={this.fullPageSearch}>
+          <div
+            onClick={this.clearSearch}
+            className={"clear-search" + clearOff}>&times;</div>
           <input
             type="text"
             placeholder="What do you feel like cooking?"
