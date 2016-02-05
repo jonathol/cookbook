@@ -404,6 +404,12 @@ form.search-form > button {
   padding: 15px 22px;
   border-radius: 5px;
   margin-left: 20px;
+  transition: all 0.1s;
+}
+
+form.search-form > button:hover {
+  background-color: #BD1F09;
+  transition: all 0.1s;
 }
 
 /* Body adjustments to header depending on content */
@@ -497,7 +503,7 @@ div.submit-buttons > button {
 }
 
 div.submit-buttons > button:hover {
-  background-color: #be1e08;
+  background-color: #BD1F09;
 }
 
 .user-form-footer {
@@ -792,8 +798,8 @@ div.recipe-button span.recipe-button-icon {
 
 div.recipe-button:hover {
   cursor: pointer;
-  background-color: #be1e08;
-  border-color: #be1e08;
+  background-color: #BD1F09;
+  border-color: #BD1F09;
   color: #fff;
   transition: all 0.1s;
 }

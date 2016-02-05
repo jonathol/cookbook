@@ -23,7 +23,9 @@ var SearchBar = React.createClass({
   },
 
   instantSearch: function (e) {
-    ApiUtil.instantSearch(this.state.query);
+    if (this.state.query) {
+      ApiUtil.instantSearch(this.state.query);
+    }
   },
 
   _resultsChanged: function () {
@@ -33,10 +35,11 @@ var SearchBar = React.createClass({
   render: function () {
     var tags = [];
     var recipes = [];
-    this.state.instantResults.forEach(function (result) {
+    this.state.instantResults.forEach(function (result, idx) {
       if (result._type === "Tag") {
         tags.push(
           <li
+            key={idx}
             className="tag-instant-result">
             <a href={"#/tags/" + result.id}>{result.name}</a>
           </li>
@@ -44,6 +47,7 @@ var SearchBar = React.createClass({
       } else {
         recipes.push(
           <li
+            key={idx}
             className="recipe-instant-result">
             <a href={"#/recipes/" + result.id}>{result.title}</a>
           </li>
@@ -61,6 +65,7 @@ var SearchBar = React.createClass({
     }
     var recipeResults;
     if (recipes[0]) {
+      debugger
       recipeResults = (
         <ul className="recipe-instant-result-list">
           {recipes.slice(0, 3)}

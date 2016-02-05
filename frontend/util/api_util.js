@@ -5,24 +5,20 @@ var ApiActions = require('../actions/api_actions'),
 var ApiUtil = {
   instantSearch: function (query) {
     $.ajax({
-      url: '/api/search?instant=true',
+      url: '/api/search?instant=true&query=' + query,
       type: 'GET',
-      dataType: 'json',
-      data: { query: query },
       success: function (data) {
-        SearchActions.receiveInstantResults(data);
+        ApiActions.receiveInstantResults(data);
       }
     });
   },
 
   fullSearch: function (query, page) {
     $.ajax({
-      url: '/api/search',
+      url: '/api/search?query=' + query + '&page=' + page,
       type: 'GET',
-      dataType: 'json',
-      data: {query: query, page: page},
       success: function (data) {
-        SearchActions.receiveFullResults(data);
+        ApiActions.receiveFullResults(data);
       }
     });
   },

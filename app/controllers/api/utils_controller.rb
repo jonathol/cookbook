@@ -4,6 +4,8 @@ class Api::UtilsController < ApplicationController
       @search_results = PgSearch
         .multisearch(params[:query])
         .includes(:searchable)
+        .page(1)
+      render :instant_search
     else
       @search_results = PgSearch
         .multisearch(params[:query])
