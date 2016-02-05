@@ -516,6 +516,9 @@ section.featured-content {
 
 .modal-screen {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
   z-index: 999;
   background: rgba(0, 0, 0, 0.7);
@@ -792,6 +795,32 @@ li.recipe-index-item:hover div.user-interaction-buttons {
   background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+}
+
+/**/
+/**/
+/* USER INTERACTION */
+/**/
+div.user-interaction-buttons span.fa-check {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}
+
+div.user-interaction-buttons span.fa-check.checked {
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}
+
+div.user-interacted-icons > span.fa-check {
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}
+
+div.index-item-button:active > span.ui-icon.index-item-button-icon {
+  text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
 }
 
 div.user-interacted-icons {

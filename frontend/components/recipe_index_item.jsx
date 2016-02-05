@@ -58,10 +58,9 @@ var RecipeIndexItem = React.createClass({
         {saveText}
       </div>
     );
-    var cookedButtonIcon;
-    if (this.state.cookedHover || this.props.cooked) {
-      cookedButtonIcon = <Icon name="check" className="index-item-button-icon ui-icon" />;
-    }
+
+    var checked = this.props.cooked || this.state.cookedHover ? " checked" : "";
+    var cookedButtonIcon = <Icon name="check" className={"index-item-button-icon ui-icon" + checked} />;
 
     var savedIcon;
     if (this.props.recipeSave) {
