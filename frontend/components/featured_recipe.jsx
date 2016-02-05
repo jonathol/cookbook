@@ -1,6 +1,5 @@
 var React = require('react'),
-    RecipeStore = require('../stores/recipe')
-    ;
+    RecipeStore = require('../stores/recipe');
 
 var FeaturedRecipe = React.createClass({
   handleWindowResize: function () {
@@ -17,8 +16,6 @@ var FeaturedRecipe = React.createClass({
     if (recipePhotoAnchor >= 0 && imageHeight !== null) {
       $(".featured-recipe").css('min-height', imageHeight + "px");
       $('.featured-recipe-photo').css('top', "0px");
-    } else if (imageHeight === null && this.origImageHeight) {
-
     } else {
       $('.featured-recipe').css('min-height', windowHeight * 0.9 + "px");
       $('.featured-recipe-photo').css('top', recipePhotoAnchor + "px");

@@ -7,7 +7,7 @@ var React = require('react'),
 
 module.exports = React.createClass({
   getInitialState: function () {
-    return { recipes: [], recipeSaves: {}, cooks: {} };
+    return { recipeSaves: {}, cooks: {} };
   },
 
   componentDidMount: function () {
@@ -15,7 +15,6 @@ module.exports = React.createClass({
     this.cooksListener = CookStore.addListener(this._cooksChanged);
 
     ApiUtil.fetchCurrentUser();
-    this.updateRecipesWithProps(this.props);
   },
 
   componentWillUnmount: function () {
@@ -29,22 +28,6 @@ module.exports = React.createClass({
 
   _recipeSavesChanged: function () {
     this.setState({ recipeSaves: RecipeSaveStore.all() });
-  },
-
-  updateRecipesWithProps: function (props) {
-    // switch (props.route.path) {
-    //   case "recipe-box":
-    //     ApiUtil.fetchRecipeBox(props.params.userId);
-    //     break;
-    //   case "my-recipes":
-    //     ApiUtil.fetchAuthoredRecipes(props.params.userId);
-    //     break;
-    //   case "tags/:tagId":
-    //     ApiUtil.fetchTaggedRecipes(props.params.tagId);
-    //     break;
-    //   default:
-    //     ApiUtil.fetchAllRecipes();
-    // }
   },
 
   render: function () {
