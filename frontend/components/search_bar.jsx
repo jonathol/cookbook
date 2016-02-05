@@ -23,9 +23,7 @@ var SearchBar = React.createClass({
   },
 
   instantSearch: function (e) {
-    if (this.state.query) {
-      ApiUtil.instantSearch(this.state.query);
-    }
+    ApiUtil.instantSearch(this.state.query);
   },
 
   _resultsChanged: function () {
@@ -40,7 +38,7 @@ var SearchBar = React.createClass({
         tags.push(
           <li
             key={idx}
-            className="tag-instant-result">
+            className="instant-result tag-instant-result">
             <a href={"#/tags/" + result.id}>{result.name}</a>
           </li>
         );
@@ -48,8 +46,14 @@ var SearchBar = React.createClass({
         recipes.push(
           <li
             key={idx}
-            className="recipe-instant-result">
-            <a href={"#/recipes/" + result.id}>{result.title}</a>
+            className="instant-result recipe-instant-result">
+            <a href={"#/recipes/" + result.id}>
+              <div
+                className="recipe-result-thumb">
+                <img src={result.thumb_url} />
+              </div>
+              {result.title}
+            </a>
           </li>
         );
       }
@@ -65,7 +69,6 @@ var SearchBar = React.createClass({
     }
     var recipeResults;
     if (recipes[0]) {
-      debugger
       recipeResults = (
         <ul className="recipe-instant-result-list">
           {recipes.slice(0, 3)}
@@ -85,12 +88,12 @@ var SearchBar = React.createClass({
             valueLink={this.linkState('query')}
             onKeyUp={this.instantSearch} />
           <button>Search</button>
+          <section
+            className="instant-search-results">
+            {tagResults}
+            {recipeResults}
+          </section>
         </form>
-        <section
-          className="instant-search-results">
-          {tagResults}
-          {recipeResults}
-        </section>
       </section>
     );
   }
