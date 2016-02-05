@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
   include PgSearch
-  multisearchable against: [:name]
+  multisearchable :against => [:name]
 
   validates :name, presence: true
 

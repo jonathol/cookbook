@@ -49,8 +49,10 @@ body {
   overflow-y: scroll;
 }
 
+/* CHANGE TO NONE LATER */
 a:hover {
   text-decoration: underline;
+  /*text-decoration: none;*/
 }
 
 button:hover {

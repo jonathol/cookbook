@@ -87,7 +87,7 @@ var NoteIndexItem = React.createClass({
       <li
         onClick={this.toggleLike}>
         <Icon name="thumbs-up" className={liked} />
-        {this.state.numLikes} Helpful
+        {(this.state.numLikes || "This is") + " " + "Helpful"}
       </li>
     );
 
@@ -106,14 +106,20 @@ var NoteIndexItem = React.createClass({
         <section className={"note group" + noteClass}>
           <div
             className="note-left-col">
-            <img
-              className="user-photo-thumb"
-              src={this.props.note.author.photo_url} />
+            <a
+              href={"#/users/" + this.props.note.author.id}>
+              <img
+                className="user-photo-thumb"
+                src={this.props.note.author.photo_url} />
+            </a>
           </div>
           <div className="note-right-col">
             <div className="note-details group">
               <div className="note-author-name">
-                {this.props.note.author.name}
+                <a
+                  href={"#/users/" + this.props.note.author.id}>
+                  {this.props.note.author.name}
+                </a>
               </div>
               <div className="note-time">
                 {this.props.note.time_ago}
