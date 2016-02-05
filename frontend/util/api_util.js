@@ -70,6 +70,7 @@ var ApiUtil = {
       url: "api/users/" + userId + "/recipe_box",
       success: function (data) {
         ApiActions.receiveRecipesList(data.recipes);
+        ApiActions.receiveUserInfo(data.user);
       }
     });
   },

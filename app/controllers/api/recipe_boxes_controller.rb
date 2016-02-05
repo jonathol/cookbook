@@ -4,11 +4,7 @@ class Api::RecipeBoxesController < ApplicationController
     @recipes = @user.recipe_box.saved_recipes
 
     if @recipes
-      @owner = {
-        type: "user",
-        name: @user.name || @user.email
-      }
-      render 'api/recipes/index'
+      render :show
     else
       render json: ["Could not find recipe box"]
     end
