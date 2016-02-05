@@ -2,7 +2,7 @@ var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     TagConstants = require('../constants/tag_constants');
 
-var _featuredTags = [],
+var _featuredTags = [ {}, {}, {} ],
     _indexedTag = {};
 
 var TagStore = new Store(AppDispatcher);
@@ -20,7 +20,7 @@ TagStore.resetIndexed = function (tag) {
   this.__emitChange();
 };
 
-TagStore.resetFeatured = function (tag) {
+TagStore.resetFeatured = function (tags) {
   _featuredTags = tags;
   this.__emitChange();
 };

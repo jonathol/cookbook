@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
     resources :notes, only: :create
     resources :note_likes, only: [:create, :destroy]
-    resources :tags, only: :show
+    resources :tags, only: [:index, :show]
     resource :session, only:[:create, :destroy, :show]
   end
 end

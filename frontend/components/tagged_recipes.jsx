@@ -15,13 +15,16 @@ var RecipeBox = React.createClass({
     ApiUtil.fetchTaggedRecipes(this.props.params.tagId);
   },
 
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchTaggedRecipes(newProps.params.tagId);
+  },
+
   componentWillUnmount: function () {
     this.tagListener.remove();
     this.recipesListener.remove();
   },
 
   _tagsChanged: function () {
-    // debugger
     this.setState({ tag: TagStore.indexed() });
   },
 

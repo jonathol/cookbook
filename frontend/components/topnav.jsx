@@ -1,22 +1,28 @@
 var React = require('react'),
     SessionStore = require('../stores/session'),
+    TagStore = require('../stores/tag'),
     Icon = require('react-fontawesome'),
     ApiUtil = require('../util/api_util');
 
 var TopNav = React.createClass({
   componentDidMount: function () {
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
+    this.tagsListener = TagStore.addListener(this._tagsChanged);
+
+    ApiUtil.fetchFeaturedTags();
     document.addEventListener('scroll', this.handleScroll);
   },
 
   componentWillUnmount: function () {
     this.sessionListener.remove();
+    this.tagsListener.remove();
     document.removeEventListener('scroll', this.handleScroll);
   },
 
   getInitialState: function () {
     var state = this.getSessionState();
     state.dropdownActive = false;
+    state.featuredTags = TagStore.featured();
     return state;
   },
 
@@ -51,6 +57,10 @@ var TopNav = React.createClass({
 
   _sessionChanged: function () {
     this.setState(this.getSessionState());
+  },
+
+  _tagsChanged: function () {
+    this.setState({ featuredTags: TagStore.featured() });
   },
 
   render: function () {
@@ -160,10 +170,18 @@ var TopNav = React.createClass({
           {sideBar}
           {recipeBox}
           <li>
-            <a className={"topnav-link" + sticky}>Healthy</a>
+            <a
+              href={"#/tags/" + this.state.featuredTags[0].id}
+              className={"topnav-link" + sticky}>
+              {this.state.featuredTags[0].name}
+            </a>
           </li>
           <li>
-            <a className={"topnav-link" + sticky}>Learn To Cook</a>
+            <a
+              href={"#/tags/" + this.state.featuredTags[1].id}
+              className={"topnav-link" + sticky}>
+              {this.state.featuredTags[1].name}
+            </a>
           </li>
         </ul>
         <ul className={"topnav-right group" + sticky}>

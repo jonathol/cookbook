@@ -11,7 +11,6 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function () {
-    this.recipesListener = RecipeStore.addListener(this._recipesChanged);
     this.savesListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
     this.cooksListener = CookStore.addListener(this._cooksChanged);
 
@@ -20,21 +19,12 @@ module.exports = React.createClass({
   },
 
   componentWillUnmount: function () {
-    this.recipesListener.remove();
     this.savesListener.remove();
     this.cooksListener.remove();
   },
 
-  componentWillReceiveProps: function (newProps) {
-    this.updateRecipesWithProps(newProps);
-  },
-
   _cooksChanged: function () {
     this.setState({ cooks: CookStore.all() });
-  },
-
-  _recipesChanged: function () {
-    this.setState({ recipes: RecipeStore.all() });
   },
 
   _recipeSavesChanged: function () {
