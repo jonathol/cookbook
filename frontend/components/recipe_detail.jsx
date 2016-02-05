@@ -97,7 +97,7 @@ var RecipeDetail = React.createClass({
       name="bookmark" className="save-button-icon recipe-button-icon" />;
     var notSavedIcon = <Icon
       name="bookmark-o" className="save-button-icon recipe-button-icon" />;
-    var saveIcon = this.state.recipe.recipeSave ? isSavedIcon : notSavedIcon;
+    var saveIcon = this.state.recipeSave ? isSavedIcon : notSavedIcon;
     var saveText = this.state.recipeSave ? "Saved" : "Save";
 
 

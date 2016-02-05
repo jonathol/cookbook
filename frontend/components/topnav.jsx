@@ -103,7 +103,7 @@ var TopNav = React.createClass({
             </li>
             <li onClick={this.handleLogOut}><a href="#">Log Out</a></li>
             <div
-              className="dropdown-screen"
+              className="screen dropdown-screen"
               onClick={this.toggleUserDropDown}>
             </div>
           </ul>
@@ -165,7 +165,7 @@ var TopNav = React.createClass({
 
     var searchBar;
     if (this.state.searchBarActive) {
-      searchBar = <SearchBar />
+      searchBar = <SearchBar endSearch={this.toggleSearchBar} />
     }
 
     return (

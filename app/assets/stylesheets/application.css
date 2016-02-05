@@ -365,7 +365,7 @@ ul.topnav-user-dropdown > li.topnav-user-email {
   color: #797979;
 }
 
-div.dropdown-screen {
+div.screen {
   position: fixed;
   top: 0;
   left: 0;
@@ -433,6 +433,10 @@ section.instant-search-results li a {
   padding: 15px;
 }
 
+section.instant-search-results li.recipe-instant-result > a {
+  padding: 10px 15px;
+}
+
 section.instant-search-results li:hover {
   background-color: #A6A6A6;
   color: #fff;
@@ -444,6 +448,14 @@ section.instant-search-results ul {
 
 section.instant-search-results ul:first-child + ul {
   border-top: none;
+}
+
+ul.recipe-instant-result-list > span.suggested-recipes {
+  font-size: 10px;
+  display: block;
+  text-transform: uppercase;
+  color: #9B9B9B;
+  margin: 10px 10px 3px 10px;
 }
 
 div.recipe-result-thumb {
@@ -459,6 +471,7 @@ section.search-bar a:hover {
   text-decoration: none;
 }
 
+/* Change this to be IE compatible */
 div.recipe-result-thumb > img {
   width: 100%;
   height: 100%;

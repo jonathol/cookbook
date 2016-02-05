@@ -38,7 +38,8 @@ var SearchBar = React.createClass({
         tags.push(
           <li
             key={idx}
-            className="instant-result tag-instant-result">
+            onClick={this.props.endSearch}
+            className="tag-instant-result">
             <a href={"#/tags/" + result.id}>{result.name}</a>
           </li>
         );
@@ -46,7 +47,8 @@ var SearchBar = React.createClass({
         recipes.push(
           <li
             key={idx}
-            className="instant-result recipe-instant-result">
+            onClick={this.props.endSearch}
+            className="recipe-instant-result">
             <a href={"#/recipes/" + result.id}>
               <div
                 className="recipe-result-thumb">
@@ -57,7 +59,7 @@ var SearchBar = React.createClass({
           </li>
         );
       }
-    });
+    }.bind(this));
 
     var tagResults;
     if (tags[0]) {
@@ -71,6 +73,7 @@ var SearchBar = React.createClass({
     if (recipes[0]) {
       recipeResults = (
         <ul className="recipe-instant-result-list">
+          <span className="suggested-recipes">Suggestions</span>
           {recipes.slice(0, 3)}
         </ul>
       );
@@ -94,6 +97,10 @@ var SearchBar = React.createClass({
             {recipeResults}
           </section>
         </form>
+        <div
+          className="screen search-screen"
+          onClick={this.props.endSearch}>
+        </div>
       </section>
     );
   }
