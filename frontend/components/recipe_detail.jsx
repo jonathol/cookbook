@@ -101,24 +101,18 @@ var RecipeDetail = React.createClass({
     var saveText = this.state.recipeSave ? "Saved" : "Save";
 
 
-    var recipeDescription = (
-      <section className="recipe-description">
+    var recipeDescription;
+    var noDescription;
+    if (this.state.recipe.description) {
+      recipeDescription = (
         <p
           className="recipe-description-text">
           {this.state.recipe.description}
         </p>
-        <div className="recipe-photo-box">
-          <div className="photo-container">
-            <img src={this.state.recipe.photo.large_url} />
-          </div>
-          <a
-            className="recipe-photo-credit"
-            href={this.state.recipe.photo.large_url}>
-            {this.state.recipe.photo.credit}
-          </a>
-        </div>
-      </section>
-    );
+      )
+    } else {
+      noDescription = " no-description-text"
+    }
 
     var tags = this.state.recipe.tags.map(function (tag, idx) {
       if (idx === this.state.recipe.tags.length - 1) {
@@ -214,7 +208,7 @@ var RecipeDetail = React.createClass({
               </p>
             </div>
             <section className="recipe-description group">
-              <div className="recipe-photo-box group">
+              <div className={"recipe-photo-box group" + noDescription}>
                 <div className="photo-container">
                   <img src={this.state.recipe.photo.large_url} />
                 </div>
@@ -224,10 +218,7 @@ var RecipeDetail = React.createClass({
                   Photo from {this.state.recipe.photo.credit} on Flickr
                 </a>
               </div>
-              <p
-                className="recipe-description-text">
-                {this.state.recipe.description}
-              </p>
+              {recipeDescription}
             </section>
           </section>
           <section className="recipe-middle-details group">

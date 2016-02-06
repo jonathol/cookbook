@@ -979,6 +979,11 @@ div.recipe-photo-box {
   max-width: 650px;
 }
 
+div.recipe-photo-box.no-description-text {
+  float: none;
+  margin: auto;
+}
+
 div.photo-container {
   max-height: 450px;
   overflow: hidden;
