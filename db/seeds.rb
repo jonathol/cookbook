@@ -102,253 +102,6 @@ user10 = User.create!(
   password: "cupcakes"
 )
 
-muffins = Recipe.create!(
-  title: "Banana Nut Muffins",
-  description: "These banana nut muffins make for a healthy breakfast or snack, and are easy to make. Adding cinnamon and other spices gives it a more complex flavor, and adding more banana in place of sugar makes them healthier while keeping them delicious.",
-  author: will,
-  cook_time: "40 minutes",
-  servings: "12 muffins"
-)
-
-RecipePhoto.create!(
-  recipe: muffins,
-  large_url: "https://c1.staticflickr.com/7/6083/6150882978_e21655a053_o.jpg",
-  original_height: 1360,
-  original_width: 2048,
-  thumb_url: "https://c1.staticflickr.com/7/6083/6150882978_85047c479e_n.jpg",
-  credit: "jeffreyw"
-)
-
-Ingredient.create!(
-  name: "cups whole wheat flour",
-  quantity: "2 1/2",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "cup sugar",
-  quantity: "1/2",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "cups pureed banana",
-  quantity: "2",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "teaspoons baking powder",
-  quantity: "2",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "cup melted butter",
-  quantity: "1/2",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "cup buttermilk",
-  quantity: "1/2",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "eggs",
-  quantity: "2",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "cup pecans",
-  quantity: "1/2",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "teaspoon cinnamon",
-  quantity: "1",
-  recipe: muffins
-)
-
-Ingredient.create!(
-  name: "teaspoon cloves",
-  quantity: "1/2",
-  recipe: muffins
-)
-
-PreparationStep.create!(
-  description: "Preheat oven to 350 degrees and grease muffin tin. Mix together flour, sugar, baking powder, cinnamon, cloves, and pecans in a large bowl. Mix together remaining ingredients separately.",
-  step_number: 1,
-  recipe: muffins
-)
-
-PreparationStep.create!(
-  description: "Gently fold wet ingredients into dry ingredients. Fill muffin tins with batter.",
-  step_number: 2,
-  recipe: muffins
-)
-
-PreparationStep.create!(
-  description: "Place in oven and bake for about 25 minutes, or tops begin to look golden-brown.",
-  step_number: 3,
-  recipe: muffins
-)
-
-mayo = Recipe.create!(
-  title: "Quick Mayonnaise",
-  description: "Mayonnaise takes almost no time to make and tastes much better than anything from the store.",
-  author: maureen,
-  cook_time: "5 minutes",
-  servings: "1 cup"
-)
-
-RecipePhoto.create!(
-  recipe: mayo,
-  large_url: "https://c1.staticflickr.com/5/4099/4795862818_ac2c47cde2_z.jpg",
-  thumb_url: "https://c1.staticflickr.com/5/4099/4795862818_ac2c47cde2_n.jpg",
-  credit: "jules:stonesoup"
-)
-
-Ingredient.create!(
-name: "teaspoons Dijon",
-quantity: "1 1/2",
-recipe: mayo
-)
-
-Ingredient.create!(
-name: "tablespoon lemon juice",
-quantity: "1",
-recipe: mayo
-)
-
-Ingredient.create!(
-  name: "egg yolk",
-  quantity: "1",
-  recipe: mayo
-)
-
-Ingredient.create!(
-  name: "teaspoon salt",
-  quantity: "1/4",
-  recipe: mayo
-)
-
-Ingredient.create!(
-  name: "cup canola oil",
-  quantity: "1",
-  recipe: mayo
-)
-
-PreparationStep.create!(
-  description: "Mix together all the ingredients except for the oil in a large bowl.",
-  step_number: 1,
-  recipe: mayo
-)
-
-PreparationStep.create!(
-  description: "While whisking the other ingredients, slowly pour the oil into the bowl.",
-  step_number: 2,
-  recipe: mayo
-)
-
-hot_sauce = Recipe.create!(
-  title: "Spicy Salsa",
-  author_id: will.id,
-  cook_time: "5 minutes",
-  servings: "3 cups"
-)
-
-RecipePhoto.create!(
-  recipe: hot_sauce,
-  large_url: "https://c2.staticflickr.com/8/7035/6637805197_74bae4838e_o.jpg",
-  thumb_url: "https://c2.staticflickr.com/8/7035/6637805197_b50e7a6b36_n.jpg",
-  credit: "jeffreyw"
-)
-
-Ingredient.create!(
-name: "ounce can of jalapenos",
-quantity: "8",
-recipe: hot_sauce
-)
-
-Ingredient.create!(
-name: "ounce can of tomatoes",
-quantity: "16",
-recipe: hot_sauce
-)
-
-Ingredient.create!(
-  name: "ounce can of tomato paste",
-  quantity: "8",
-  recipe: hot_sauce
-)
-
-Ingredient.create!(
-  name: "teaspoon salt",
-  quantity: "1/2",
-  recipe: hot_sauce
-)
-
-Ingredient.create!(
-  name: "tablespoon cumin",
-  quantity: "1",
-  recipe: hot_sauce
-)
-
-Ingredient.create!(
-  name: "teaspoons Tobasco",
-  quantity: "2",
-  recipe: hot_sauce
-)
-
-PreparationStep.create!(
-  description: "Put ingredients in blender and blend until well mixed.",
-  step_number: 1,
-  recipe: hot_sauce
-)
-
-smoothie = Recipe.create!(
-  title: "Strawberry-Banana Smoothie",
-  author: maureen,
-  cook_time: "5 minutes",
-  servings: "3 cups"
-)
-
-RecipePhoto.create!(
-  recipe: smoothie,
-  large_url: "https://c1.staticflickr.com/9/8542/8699152877_1d524027c1_z.jpg",
-  thumb_url: "https://c1.staticflickr.com/9/8542/8699152877_1d524027c1.jpg",
-  credit: "q3studio"
-)
-
-
-Ingredient.create!(
-name: "cups frozen strawberries",
-quantity: "2",
-recipe: smoothie
-)
-
-Ingredient.create!(
-name: "frozen banana",
-quantity: "1",
-recipe: smoothie
-)
-
-Ingredient.create!(
-  name: "cup yogurt",
-  quantity: "1",
-  recipe: smoothie
-)
-
-PreparationStep.create!(
-  description: "Put ingredients in blender and blend until well mixed. Add more yogurt or water to reach desired consistency.",
-  step_number: 1,
-  recipe: smoothie
-)
-
 udon = Recipe.create!(
   title: "Udon Noodle Soup",
   author: maureen,
@@ -666,11 +419,953 @@ RecipePhoto.create!(
   credit: "Tim Sackton"
 )
 
+mayo = Recipe.create!(
+  title: "Quick Mayonnaise",
+  description: "Mayonnaise takes almost no time to make and tastes much better than anything from the store.",
+  author: maureen,
+  cook_time: "5 minutes",
+  servings: "1 cup"
+)
+
+RecipePhoto.create!(
+  recipe: mayo,
+  large_url: "https://c1.staticflickr.com/5/4099/4795862818_ac2c47cde2_z.jpg",
+  thumb_url: "https://c1.staticflickr.com/5/4099/4795862818_ac2c47cde2_n.jpg",
+  credit: "jules:stonesoup"
+)
+
+Ingredient.create!(
+name: "teaspoons Dijon",
+quantity: "1 1/2",
+recipe: mayo
+)
+
+Ingredient.create!(
+name: "tablespoon lemon juice",
+quantity: "1",
+recipe: mayo
+)
+
+Ingredient.create!(
+  name: "egg yolk",
+  quantity: "1",
+  recipe: mayo
+)
+
+Ingredient.create!(
+  name: "teaspoon salt",
+  quantity: "1/4",
+  recipe: mayo
+)
+
+Ingredient.create!(
+  name: "cup canola oil",
+  quantity: "1",
+  recipe: mayo
+)
+
+PreparationStep.create!(
+  description: "Mix together all the ingredients except for the oil in a large bowl.",
+  step_number: 1,
+  recipe: mayo
+)
+
+PreparationStep.create!(
+  description: "While whisking the other ingredients, slowly pour the oil into the bowl.",
+  step_number: 2,
+  recipe: mayo
+)
+
+creme_brulee = Recipe.create!(
+  title: "Irish Cream Crème Brûlée",
+  description: "This creme brulee is a great twist on a classic english recipe with the irish cream giving it a distinctive creamy flavor. Once the custard has been baked, I like to use a butane torch to broil the sugar. This gives the dessert a crispy texture on the surface. Serve with whipping cream and berries.",
+  author: maureen,
+  cook_time: "1 hour, 25 minutes",
+  servings: "1 cup"
+)
+
+Ingredient.create!(
+  name: "cups heavy cream",
+  quantity: "2",
+  recipe: creme_brulee
+)
+
+Ingredient.create!(
+  name: "cup sugar",
+  quantity: "1/3",
+  recipe: creme_brulee
+)
+
+Ingredient.create!(
+  name: "egg yolks",
+  quantity: "6",
+  recipe: creme_brulee
+)
+
+Ingredient.create!(
+  name: "teaspoon vanilla extract",
+  quantity: "1",
+  recipe: creme_brulee
+)
+
+Ingredient.create!(
+  name: "tablespoons Irish cream liqueur",
+  quantity: "3",
+  recipe: creme_brulee
+)
+
+Ingredient.create!(
+  name: "superfine sugar as needed",
+  quantity: "",
+  recipe: creme_brulee
+)
+
+PreparationStep.create!(
+  description: "Preheat oven to 300 degrees F (150 degrees C). Place 6 ramekins on a towel set in a roasting pan at least 3 inches deep.",
+  step_number: 1,
+  recipe: creme_brulee
+)
+
+PreparationStep.create!(
+  description: "Stir together cream and sugar in a saucepan over medium heat, and cook until very hot, stirring until the sugar dissolves. Whisk together egg yolks, vanilla, and Irish cream until combined. Slowly add 1/3 of the hot cream, whisking it in 2 tablespoons at a time until incorporated. Once you have incorporated 1/3 of the cream, you can stir in the remaining hot cream without fear of the mixture curdling.",
+  step_number: 2,
+  recipe: creme_brulee
+)
+
+PreparationStep.create!(
+  description: "Pour custard into the ramekins, then fill roasting pan with boiling hot water to come halfway up the sides of the ramekins. Bake in preheated oven until set, 50 to 60 minutes.",
+  step_number: 3,
+  recipe: creme_brulee
+)
+
+PreparationStep.create!(
+  description: "Once the custard has set, place ramekins on a wire rack, and allow to cool to room temperature, about 1 hour. Cover, and refrigerate until cold, about 4 hours. Custards may remain refrigerated until ready to serve.",
+  step_number: 4,
+  recipe: creme_brulee
+)
+
+PreparationStep.create!(
+  description: "Unwrap the custards, and sprinkle about 1 teaspoon of superfine sugar onto each. Gently shake the custards so the sugar coats the entire top surface, then tip the custards to a 45 degree angle and shake off excess sugar.",
+  step_number: 5,
+  recipe: creme_brulee
+)
+
+PreparationStep.create!(
+  description: "Using a small hand torch, melt the sugar by making short passes over top of the custards with the flame not quite touching. Continue melting the sugar until it turns deep brown. Once the sugar has melted and turned to caramel, the cold custard underneath will harden the sugar into a crispy crust. Serve immediately. Alternatively, the sugar-dusted custards may be browned underneath the broiler in the oven.",
+  step_number: 6,
+  recipe: creme_brulee
+)
+
+# original photo https://c2.staticflickr.com/2/1321/1056410969_9f042e9306_o.jpg
+RecipePhoto.create!(
+  recipe: creme_brulee,
+  large_url: "https://c2.staticflickr.com/2/1321/1056410969_d042cc3179_z.jpg",
+  thumb_url: "https://c2.staticflickr.com/2/1321/1056410969_d042cc3179_n.jpg",
+  credit: "Sebastian Mary"
+)
+
+african_soup = Recipe.create!(
+  title: "African Peanut Soup",
+  description: "Made with familiar ingredients you likely have on hand, this unique soup is irresistibly rich, cream and ready in only 30 minutes.",
+  author: will,
+  cook_time: "30 minutes",
+  servings: "8 servings"
+)
+
+Ingredient.create!(
+  name: "tablespoon extra-virgin olive oil",
+  quantity: "1",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "tablespoons fresh ginger, grated",
+  quantity: "1 1/2",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "cloves garlic, minced",
+  quantity: "2",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "shallots, diced",
+  quantity: "2",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "cups sweet potatoes, peeled",
+  quantity: "3",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "teaspoon ground cumin",
+  quantity: "1",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "teaspoon ground coriander",
+  quantity: "1",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "28-ounces can diced tomatoes",
+  quantity: "1",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "cup natural creamy peanut butter",
+  quantity: "1/2",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "cups vegetable broth",
+  quantity: "5",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "cup quinoa, dry",
+  quantity: "1/4",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "teapsoon sea salt",
+  quantity: "1/2",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "cup fresh cilantro, chopped, for garnish",
+  quantity: "1/4",
+  recipe: african_soup
+)
+
+Ingredient.create!(
+  name: "cup unsalted roasted peanuts, for garnish",
+  quantity: "1/2",
+  recipe: african_soup
+)
+
+PreparationStep.create!(
+  description: "In a large pot, heat oil over medium heat. Add ginger, garlic and shallots. Sauté for 4 minutes or until soft and fragrant.",
+  step_number: 1,
+  recipe: african_soup
+)
+
+PreparationStep.create!(
+  description: "Add sweet potato, cumin and corriander. Stir to combine, then add diced tomatoes and peanut butter. Stir until ingredients are evenly combined. Add broth and stir again. Bring to boil, reduce heat to low and simmer 10 minutes.",
+  step_number: 2,
+  recipe: african_soup
+)
+
+PreparationStep.create!(
+  description: "Add quinoa and simmer 15 minutes, or until sweet potatoes are very soft and quinoa is cooked.",
+  step_number: 3,
+  recipe: african_soup
+)
+
+PreparationStep.create!(
+  description: "Add salt and stir to combine. If you prefer a cream soup, use a blender or immersion blender to puree. Serve with cilantro and peanuts as garnish.",
+  step_number: 4,
+  recipe: african_soup
+)
+
+# original url: https://c1.staticflickr.com/3/2693/4098420855_d63c1756bc_o.jpg
+RecipePhoto.create!(
+  recipe: african_soup,
+  large_url: "https://c1.staticflickr.com/3/2693/4098420855_35cfed29e0.jpg",
+  thumb_url: "https://c1.staticflickr.com/3/2693/4098420855_35cfed29e0_n.jpg",
+  credit: "Bunches and Bits {Karina}"
+)
+
+best_ever_cookies = Recipe.create!(
+  title: "Best Ever Cookies",
+  author: david,
+  cook_time: "20 minutes",
+  servings: "24 cookies"
+)
+
+Ingredient.create!(
+  name: "cup butter",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "cup sugar",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "cup packed brown sugar",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "teaspoon vanilla",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "egg",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "cup oil",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "cup oatmeal",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "cup crushed cornflakes",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "cup shredded coconut",
+  quantity: "1/2",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "cup chopped pecans",
+  quantity: "1/2",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "cups sifted flour",
+  quantity: "3-1/2",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "teaspoon baking soda",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+Ingredient.create!(
+  name: "teaspoon salt",
+  quantity: "1",
+  recipe: best_ever_cookies
+)
+
+PreparationStep.create!(
+  description: "Preheat oven to 325 degrees. Cream butter and sugars, add vanilla and egg, then oil, oats, cornflakes, coconut, and pecans and stir well. Next add flour, salt and baking soda.",
+  step_number: 1,
+  recipe: best_ever_cookies
+)
+
+PreparationStep.create!(
+  description: "Form dough into balls and then flatten them with a fork that has been dipped in water.",
+  step_number: 2,
+  recipe: best_ever_cookies
+)
+
+PreparationStep.create!(
+  description: "Place dough on cookie sheets and bake for about 12 minutes.",
+  step_number: 3,
+  recipe: best_ever_cookies
+)
+
+# original url: https://c2.staticflickr.com/8/7170/6827104103_8544ee2fd9_o.jpg
+RecipePhoto.create!(
+  recipe: best_ever_cookies,
+  large_url: "https://c2.staticflickr.com/8/7170/6827104103_37c5b76004_z.jpg",
+  thumb_url: "https://c2.staticflickr.com/8/7170/6827104103_37c5b76004_n.jpg",
+  credit: "jeffreyw"
+)
+
+chevre_spread = Recipe.create!(
+  title: "Warm Chèvre Spread w/ Tomatoes and Basil",
+  author: sophie,
+  cook_time: "20 minutes",
+  servings: "1 1/2 cup"
+)
+
+Ingredient.create!(
+  name: "teaspoon olive oil",
+  quantity: "1",
+  recipe: chevre_spread
+)
+
+Ingredient.create!(
+  name: "ounces chèvre",
+  quantity: "4",
+  recipe: chevre_spread
+)
+
+Ingredient.create!(
+  name: "ounces cream cheese",
+  quantity: "3",
+  recipe: chevre_spread
+)
+
+Ingredient.create!(
+  name: "cup drained, chopped, oil-packed sundried tomatoes",
+  quantity: "1/3",
+  recipe: chevre_spread
+)
+
+Ingredient.create!(
+  name: "cup chopped fresh basil",
+  quantity: "1/4",
+  recipe: chevre_spread
+)
+
+Ingredient.create!(
+  name: "teaspoon chopped garlic",
+  quantity: "1/2",
+  recipe: chevre_spread
+)
+
+PreparationStep.create!(
+  description: "Preheat oven to 400 degrees. Lightly coat a small oven proof serving dish with oil. Crumble chèvre into dish and add chunks of cream cheese. Bake for 10-12 minutes or until soft and melting.",
+  step_number: 1,
+  recipe: chevre_spread
+)
+
+PreparationStep.create!(
+  description: "Meanwhile, combine the tomatoes, basil and garlic. Remove dish from the oven and stir cheeses together. Top with tomato mixture and serve hot with crackers.",
+  step_number: 2,
+  recipe: chevre_spread
+)
+
+RecipePhoto.create!(
+  recipe: chevre_spread,
+  large_url: "https://c2.staticflickr.com/6/5057/5445479136_f3b1f9dd66_z.jpg",
+  thumb_url: "https://c2.staticflickr.com/6/5057/5445479136_f3b1f9dd66_n.jpg",
+  credit: "B*2"
+)
+
+corn_dip = Recipe.create!(
+  title: "Baked Corn Dip",
+  author: maureen,
+  description: "This corn is great for parties, and will leave you time to focus on other dishes.",
+  cook_time: "30 minutes",
+  servings: "5 cups"
+)
+
+Ingredient.create!(
+  name: "15-ounce can corn, drained",
+  quantity: "1",
+  recipe: corn_dip
+)
+
+Ingredient.create!(
+  name: "ounces cream cheese",
+  quantity: "8",
+  recipe: corn_dip
+)
+
+Ingredient.create!(
+  name: "4-ounce can diced green chilies",
+  quantity: "1",
+  recipe: corn_dip
+)
+
+Ingredient.create!(
+  name: "4-ounce can chopped jalapeños",
+  quantity: "1",
+  recipe: corn_dip
+)
+
+Ingredient.create!(
+  name: "cup grated cheddar cheese",
+  quantity: "1",
+  recipe: corn_dip
+)
+
+PreparationStep.create!(
+  description: "Preheat oven to 350 degrees. Combine all ingredients except for 1/2 cup of the cheddar cheese.",
+  step_number: 1,
+  recipe: corn_dip
+)
+
+PreparationStep.create!(
+  description: "Put dip in baking dish and top with the remaining cheese. Bake for 20-25 minutes or until bubbly Serve with chips.",
+  step_number: 2,
+  recipe: corn_dip
+)
+
+RecipePhoto.create!(
+  recipe: corn_dip,
+  large_url: "https://c1.staticflickr.com/9/8090/8557343104_6897abdb69_z.jpg",
+  thumb_url: "https://c1.staticflickr.com/9/8090/8557343104_6897abdb69_n.jpg",
+  credit: "I Believe I Can Fry"
+)
+
+hot_sauce = Recipe.create!(
+  title: "Spicy Salsa",
+  author_id: will.id,
+  cook_time: "5 minutes",
+  servings: "3 cups"
+)
+
+RecipePhoto.create!(
+  recipe: hot_sauce,
+  large_url: "https://c2.staticflickr.com/8/7035/6637805197_74bae4838e_o.jpg",
+  thumb_url: "https://c2.staticflickr.com/8/7035/6637805197_b50e7a6b36_n.jpg",
+  credit: "jeffreyw"
+)
+
+Ingredient.create!(
+name: "ounce can of jalapenos",
+quantity: "8",
+recipe: hot_sauce
+)
+
+Ingredient.create!(
+name: "ounce can of tomatoes",
+quantity: "16",
+recipe: hot_sauce
+)
+
+Ingredient.create!(
+  name: "ounce can of tomato paste",
+  quantity: "8",
+  recipe: hot_sauce
+)
+
+Ingredient.create!(
+  name: "teaspoon salt",
+  quantity: "1/2",
+  recipe: hot_sauce
+)
+
+Ingredient.create!(
+  name: "tablespoon cumin",
+  quantity: "1",
+  recipe: hot_sauce
+)
+
+Ingredient.create!(
+  name: "teaspoons Tobasco",
+  quantity: "2",
+  recipe: hot_sauce
+)
+
+PreparationStep.create!(
+  description: "Put ingredients in blender and blend until well mixed.",
+  step_number: 1,
+  recipe: hot_sauce
+)
+
+smoothie = Recipe.create!(
+  title: "Strawberry-Banana Smoothie",
+  author: maureen,
+  cook_time: "5 minutes",
+  servings: "3 cups"
+)
+
+RecipePhoto.create!(
+  recipe: smoothie,
+  large_url: "https://c1.staticflickr.com/9/8542/8699152877_1d524027c1_z.jpg",
+  thumb_url: "https://c1.staticflickr.com/9/8542/8699152877_1d524027c1.jpg",
+  credit: "q3studio"
+)
+
+
+Ingredient.create!(
+name: "cups frozen strawberries",
+quantity: "2",
+recipe: smoothie
+)
+
+Ingredient.create!(
+name: "frozen banana",
+quantity: "1",
+recipe: smoothie
+)
+
+Ingredient.create!(
+  name: "cup yogurt",
+  quantity: "1",
+  recipe: smoothie
+)
+
+PreparationStep.create!(
+  description: "Put ingredients in blender and blend until well mixed. Add more yogurt or water to reach desired consistency.",
+  step_number: 1,
+  recipe: smoothie
+)
+
+chocolate_cookies = Recipe.create!(
+  title: "Easy Chocolate Cookies",
+  description: "Cookies don't have to take a lot of time to be delicious. These are ready in under a half hour.",
+  author: will,
+  cook_time: "20 minutes",
+  servings: "24 cookies"
+)
+
+Ingredient.create!(
+  name: "12 ounce bag semi-sweet chocolate chips",
+  quantity: "1",
+  recipe: chocolate_cookies
+)
+
+Ingredient.create!(
+  name: "can sweetened condensed milk",
+  quantity: "1",
+  recipe: chocolate_cookies
+)
+
+Ingredient.create!(
+  name: "cup chopped pecans",
+  quantity: "1",
+  recipe: chocolate_cookies
+)
+
+Ingredient.create!(
+  name: "cup flour",
+  quantity: "1",
+  recipe: chocolate_cookies
+)
+
+Ingredient.create!(
+  name: "teaspoon vanilla extract",
+  quantity: "1",
+  recipe: chocolate_cookies
+)
+
+PreparationStep.create!(
+  description: "Preheat oven to 350 degrees. Melt chocolate chips and condensed milk together over the stove or in the microwave.",
+  step_number: 1,
+  recipe: chocolate_cookies
+)
+
+PreparationStep.create!(
+  description: "Mix chocolate and milk together with the remaining ingredients. Place teaspoon size balls on a greased cookie sheet. Bake for 7-9 minutes.",
+  step_number: 2,
+  recipe: chocolate_cookies
+)
+
+RecipePhoto.create!(
+  recipe: chocolate_cookies,
+  large_url: "https://c1.staticflickr.com/9/8677/16090458382_9f4f3be980_z.jpg",
+  thumb_url: "https://c1.staticflickr.com/9/8677/16090458382_9f4f3be980_n.jpg",
+  credit: "p3nnylan3"
+)
+
+roasted_pork = Recipe.create!(
+  title: "Garlic and Rosemary Roasted Pork",
+  author: david,
+  cook_time: "4 hours",
+  servings: "6 servings"
+)
+
+Ingredient.create!(
+  name: "14-16 ounces pork tenderloin",
+  quantity: "1",
+  recipe: roasted_pork
+)
+
+Ingredient.create!(
+  name: "cup olive oil",
+  quantity: "1/2",
+  recipe: roasted_pork
+)
+
+Ingredient.create!(
+  name: "cup balsamic vinegar",
+  quantity: "1/4",
+  recipe: roasted_pork
+)
+
+Ingredient.create!(
+  name: "tablespoons cider vinegar",
+  quantity: "2",
+  recipe: roasted_pork
+)
+
+Ingredient.create!(
+  name: "tablespoons honey",
+  quantity: "2",
+  recipe: roasted_pork
+)
+
+Ingredient.create!(
+  name: "large garlic cloves",
+  quantity: "3",
+  recipe: roasted_pork
+)
+
+Ingredient.create!(
+  name: "tablespoon chopped fresh rosemary",
+  quantity: "1",
+  recipe: roasted_pork
+)
+
+Ingredient.create!(
+  name: "tablespoon Dijon mustard",
+  quantity: "1",
+  recipe: roasted_pork
+)
+
+PreparationStep.create!(
+  description: "In a food processor, blend together all the ingredients except for the pork.",
+  step_number: 1,
+  recipe: roasted_pork
+)
+
+PreparationStep.create!(
+  description: "Place the pork in a heavy plastic bag and pour 1/2 of the marinade over it. Refrigerate the rest of the marinade and put the pork in the fridge for a few hours or overnight.",
+  step_number: 2,
+  recipe: roasted_pork
+)
+
+PreparationStep.create!(
+  description: "Put the pork on a baking sheet and spread the rest of the marinade over it. Bake for 40 minutes.",
+  step_number: 3,
+  recipe: roasted_pork
+)
+
+RecipePhoto.create!(
+  recipe: roasted_pork,
+  large_url: "https://c2.staticflickr.com/6/5243/5290330328_5016f0d222_z.jpg",
+  thumb_url: "https://c2.staticflickr.com/6/5243/5290330328_5016f0d222_n.jpg",
+  credit: "ugod"
+)
+
+pumpkin_bread = Recipe.create!(
+  title: "Pumpkin Bread",
+  description: "Pumpkin bread is a classic that should be enjoyed every fall. This makes enough to give you plenty to share.",
+  author: will,
+  cook_time: "1 hour 10 minutes",
+  servings: "3 loaves"
+)
+
+Ingredient.create!(
+  name: "cups sugar",
+  quantity: "3",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "cup canola oil",
+  quantity: "1",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "teaspoon vanilla",
+  quantity: "1",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "eggs",
+  quantity: "3",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "15-ounce can pumpkin",
+  quantity: "1",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "teaspoon cinnamon",
+  quantity: "1",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "teaspoon allspice",
+  quantity: "1",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "teaspoon nutmeg",
+  quantity: "1",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "teaspoon cloves",
+  quantity: "1",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "baking powder",
+  quantity: "1",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "teaspoon baking soda",
+  quantity: "1/2",
+  recipe: pumpkin_bread
+)
+
+Ingredient.create!(
+  name: "cups flour",
+  quantity: "3",
+  recipe: pumpkin_bread
+)
+
+PreparationStep.create!(
+  description: "Preheat oven to 350 degrees. Mix together wet ingredients and dry ingredients separately. Then mix the two together. Be careful not to overwork.",
+  step_number: 1,
+  recipe: pumpkin_bread
+)
+
+PreparationStep.create!(
+  description: "Put batter into three baking pans and bake for an hour. Let cool before removing from pan.",
+  step_number: 2,
+  recipe: pumpkin_bread
+)
+
+
+muffins = Recipe.create!(
+  title: "Banana Nut Muffins",
+  description: "These banana nut muffins make for a healthy breakfast or snack, and are easy to make. Adding cinnamon and other spices gives it a more complex flavor, and adding more banana in place of sugar makes them healthier while keeping them delicious.",
+  author: will,
+  cook_time: "40 minutes",
+  servings: "12 muffins"
+)
+
+RecipePhoto.create!(
+  recipe: muffins,
+  large_url: "https://c1.staticflickr.com/7/6083/6150882978_e21655a053_o.jpg",
+  original_height: 1360,
+  original_width: 2048,
+  thumb_url: "https://c1.staticflickr.com/7/6083/6150882978_85047c479e_n.jpg",
+  credit: "jeffreyw"
+)
+
+Ingredient.create!(
+  name: "cups whole wheat flour",
+  quantity: "2 1/2",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "cup sugar",
+  quantity: "1/2",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "cups pureed banana",
+  quantity: "2",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "teaspoons baking powder",
+  quantity: "2",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "cup melted butter",
+  quantity: "1/2",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "cup buttermilk",
+  quantity: "1/2",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "eggs",
+  quantity: "2",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "cup pecans",
+  quantity: "1/2",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "teaspoon cinnamon",
+  quantity: "1",
+  recipe: muffins
+)
+
+Ingredient.create!(
+  name: "teaspoon cloves",
+  quantity: "1/2",
+  recipe: muffins
+)
+
+PreparationStep.create!(
+  description: "Preheat oven to 350 degrees and grease muffin tin. Mix together flour, sugar, baking powder, cinnamon, cloves, and pecans in a large bowl. Mix together remaining ingredients separately.",
+  step_number: 1,
+  recipe: muffins
+)
+
+PreparationStep.create!(
+  description: "Gently fold wet ingredients into dry ingredients. Fill muffin tins with batter.",
+  step_number: 2,
+  recipe: muffins
+)
+
+PreparationStep.create!(
+  description: "Place in oven and bake for about 25 minutes, or tops begin to look golden-brown.",
+  step_number: 3,
+  recipe: muffins
+)
+
+# xl url: https://c1.staticflickr.com/9/8469/8095027893_3d53bb5fc3_k.jpg
+RecipePhoto.create!(
+  recipe: pumpkin_bread,
+  large_url: "https://c1.staticflickr.com/9/8469/8095027893_3d53bb5fc3_k.jpg",
+  thumb_url: "https://c1.staticflickr.com/9/8469/8095027893_9b110b7eac_n.jpg",
+  credit: "grongar"
+)
+
 RecipeSave.destroy_all
 
 RecipeSave.create!(
   recipe_box: will.recipe_box,
   recipe: muffins
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: pumpkin_bread
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: african_soup
+)
+
+RecipeSave.create!(
+  recipe_box: will.recipe_box,
+  recipe: roasted_pork
 )
 
 RecipeSave.create!(
@@ -760,6 +1455,21 @@ RecipeSave.create!(
 
 RecipeSave.create!(
   recipe_box: maureen.recipe_box,
+  recipe: best_ever_cookies
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: african_soup
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
+  recipe: chocolate_cookies
+)
+
+RecipeSave.create!(
+  recipe_box: maureen.recipe_box,
   recipe: popcorn
 )
 
@@ -801,7 +1511,7 @@ RecipeSave.create!(
 User.all.each.with_index do |user, i|
   next if i < 2
   Recipe.all.each.with_index do |recipe, j|
-    if rand > 0.75
+    if rand > 0.62
       RecipeSave.create!(
         recipe_box: user.recipe_box,
         recipe: recipe
@@ -825,11 +1535,14 @@ end
 
 User.all.each.with_index do |user, i|
   Recipe.all.each.with_index do |recipe, j|
-    if rand > 0.66
+    if rand > 0.7
+      score = rand(5) + 1
+      score += 1 if rand > 0.5 && score < 5
+      score += 1 if rand > 0.5 && score < 5
       Rating.create!(
         user: user,
         recipe: recipe,
-        score: rand(5) + 1
+        score: score
       )
     end
   end
@@ -840,6 +1553,7 @@ healthy = Tag.create!(name: "Healthy")
 vegetarian = Tag.create!(name: "Vegetarian")
 muffins_tag = Tag.create!(name: "Muffins")
 rice = Tag.create!(name: "Rice")
+cheese = Tag.create!(name: "Cheese")
 dumplings = Tag.create!(name: "Dumplings")
 pork = Tag.create!(name: "Pork")
 pie = Tag.create!(name: "Pie")
@@ -866,6 +1580,8 @@ dessert = Tag.create!(name: "Dessert")
 snack = Tag.create!(name: "Snack")
 drink = Tag.create!(name: "Drink")
 alcohol = Tag.create!(name: "Alcohol")
+kosher = Tag.create!(name: "Kosher")
+nut_free = Tag.create!(name: "Nut Free")
 
 
 Tagging.create!(recipe: muffins, tag: healthy)
@@ -873,6 +1589,26 @@ Tagging.create!(recipe: muffins, tag: vegetarian)
 Tagging.create!(recipe: muffins, tag: muffins_tag)
 Tagging.create!(recipe: muffins, tag: snack)
 Tagging.create!(recipe: mayo, tag: condiment)
+Tagging.create!(recipe: african_soup, tag: healthy)
+Tagging.create!(recipe: african_soup, tag: vegetarian)
+Tagging.create!(recipe: african_soup, tag: soup)
+Tagging.create!(recipe: best_ever_cookies, tag: dessert)
+Tagging.create!(recipe: best_ever_cookies, tag: sweet)
+Tagging.create!(recipe: chocolate_cookies, tag: sweet)
+Tagging.create!(recipe: chocolate_cookies, tag: dessert)
+Tagging.create!(recipe: chevre_spread, tag: snack)
+Tagging.create!(recipe: chevre_spread, tag: cheese)
+Tagging.create!(recipe: chevre_spread, tag: french)
+Tagging.create!(recipe: roasted_pork, tag: pork)
+Tagging.create!(recipe: roasted_pork, tag: dinner)
+Tagging.create!(recipe: pumpkin_bread, tag: vegetarian)
+Tagging.create!(recipe: pumpkin_bread, tag: sweet)
+Tagging.create!(recipe: pumpkin_bread, tag: breakfast)
+Tagging.create!(recipe: corn_dip, tag: snack)
+Tagging.create!(recipe: creme_brulee, tag: dessert)
+Tagging.create!(recipe: creme_brulee, tag: vegetarian)
+Tagging.create!(recipe: creme_brulee, tag: kosher)
+Tagging.create!(recipe: creme_brulee, tag: nut_free)
 Tagging.create!(recipe: hot_sauce, tag: spicy)
 Tagging.create!(recipe: hot_sauce, tag: sauce)
 Tagging.create!(recipe: hot_sauce, tag: condiment)

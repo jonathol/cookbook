@@ -10,7 +10,7 @@ class Api::RecipesController < ApplicationController
   def index
     if params[:featured]
       @recipes_list = Recipe.includes(:author, :photo).order(created_at: :desc)
-      @recipe = Recipe.first
+      @recipe = Recipe.last
       render :featured
     elsif params[:user_id]
       user = User.find(params[:user_id])

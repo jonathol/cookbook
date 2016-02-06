@@ -4,6 +4,7 @@ var Store = require('flux/utils').Store,
 
 var _instantSearchResuls = [];
 var _fullPageSearchResults = [];
+var _query = "";
 
 var SearchStore = new Store (AppDispatcher);
 
@@ -15,13 +16,18 @@ SearchStore.fullPageResults = function () {
   return _fullPageSearchResults.slice(0);
 };
 
+SearchStore.query = function () {
+  return _query;
+};
+
 SearchStore.resetInstantResults = function (results) {
   _instantSearchResuls = results;
   this.__emitChange();
 };
 
-SearchStore.resetFullPageResults = function (results) {
-  _fullPageSearchResults = [];
+SearchStore.resetFullPageResults = function (search) {
+  _query = search.query;
+  _fullPageSearchResults = search.results;
   this.__emitChange();
 };
 
@@ -31,7 +37,7 @@ SearchStore.__onDispatch = function (payload) {
       this.resetInstantResults(payload.results);
       break;
     case SearchConstants.FULL_PAGE_SEARCH_RESULTS_RECEIVED:
-      this.resetFullPageResults(payload.results);
+      this.resetFullPageResults(payload.search);
       break;
   }
 };
