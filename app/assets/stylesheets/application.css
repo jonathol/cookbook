@@ -73,8 +73,11 @@ li {
 section.topnav {
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: 20;
+  width: 100%;
+}
+
+section.main-nav-section {
   background-color: #fff;
   text-transform: uppercase;
   font-size: 11.5px;
@@ -84,14 +87,14 @@ section.topnav {
   transition: all 0.4s;
 }
 
-section.topnav.sticky {
+section.main-nav-section.sticky {
   background-color: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 0;
   transition: all 0.4s;
 }
 
-section.topnav > a > h1 {
+section.main-nav-section > a > h1 {
   color: #000;
   position: absolute;
   top: -35px;
@@ -109,7 +112,7 @@ h1:hover {
   text-decoration: none;
 }
 
-section.topnav > a > h1.sticky {
+section.main-nav-section > a > h1.sticky {
   color: #fff;
   position: absolute;
   top: 0;
@@ -118,7 +121,7 @@ section.topnav > a > h1.sticky {
   margin-top: 3px;
 }
 
-section.topnav > a > h1 > logo {
+section.main-nav-section > a > h1 > logo {
   font-family: 'Martel', 'Times New Roman', serif;
   font-weight: 800;
   text-transform: none;
@@ -141,19 +144,19 @@ logo.sticky:after {
   display: inline;
 }
 
-section.topnav > a > h1 > span {
+section.main-nav-section > a > h1 > span {
   display: block;
   transform: translateY(-45px);
   font-size: 60px;
   letter-spacing: 0;
 }
 
-section.topnav > a > h1 > span.sticky {
+section.main-nav-section > a > h1 > span.sticky {
   display: inline;
   font-size: 24px;
 }
 
-section.topnav > a > h1 > span.sticky:before {
+section.main-nav-section > a > h1 > span.sticky:before {
   content: "";
   position: absolute;
   height: 20px;
@@ -166,7 +169,7 @@ ul.topnav-left {
   float: left;
 }
 
-section.topnav li {
+section.main-nav-section li {
   float: left;
   padding: 0 15px;
 }
@@ -382,7 +385,7 @@ section.search-bar {
 }
 
 section.search-bar.fixed-pos {
-  z-index: 5;
+  z-index: -1;
   position: absolute;
   bottom: -156px;
   padding-top: 45px;

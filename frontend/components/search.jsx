@@ -1,6 +1,7 @@
 var React = require('react'),
     SearchStore = require('../stores/search'),
     SearchBar = require('./search_bar'),
+    ApiUtil = require('../util/api_util'),
     RecipesIndex = require('./recipes_index');
 
 var Search = React.createClass({
@@ -10,6 +11,10 @@ var Search = React.createClass({
 
   componentDidMount: function () {
     this.resultsListener = SearchStore.addListener(this._resultsChanged);
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fullSearch(newProps.location.query.string, 1);
   },
 
   componentWillUnmount: function () {
@@ -35,6 +40,7 @@ var Search = React.createClass({
     return (
       <section className="search">
         <SearchBar
+          location={this.props.location}
           history={this.props.history}
           endSearch={this.endSearch}
           fullPage={true} />

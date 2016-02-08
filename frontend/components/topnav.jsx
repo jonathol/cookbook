@@ -14,6 +14,13 @@ var TopNav = React.createClass({
     document.addEventListener('scroll', this.handleScroll);
   },
 
+  componentWillReceiveProps: function () {
+    this.setState({
+      searchBarActive: false,
+      dropdownActive: false
+    });
+  },
+
   componentWillUnmount: function () {
     this.sessionListener.remove();
     this.tagsListener.remove();
@@ -170,6 +177,7 @@ var TopNav = React.createClass({
     if (this.state.searchBarActive) {
       searchBar = (
         <SearchBar
+          location={this.props.location}
           history={this.props.history}
           endSearch={this.toggleSearchBar} />
       )
@@ -177,46 +185,48 @@ var TopNav = React.createClass({
 
     return (
       <section className={"topnav group" + sticky}>
-        <a href="#/">
-          <h1
-            className={"cookbook-main-header" + sticky}>
-            <logo className={"logo" + sticky}></logo>
-            <span className={"cookbook-topnav-text" + sticky}>Cookbook</span>
-          </h1>
-        </a>
-        <ul className={"topnav-left group" + sticky}>
-          {sideBar}
-          {recipeBox}
-          <li>
-            <a
-              href={"#/tags/" + this.state.featuredTags[0].id}
-              className={"topnav-link" + sticky}>
-              {this.state.featuredTags[0].name}
-            </a>
-          </li>
-          <li>
-            <a
-              href={"#/tags/" + this.state.featuredTags[1].id}
-              className={"topnav-link" + sticky}>
-              {this.state.featuredTags[1].name}
-            </a>
-          </li>
-        </ul>
-        <ul className={"topnav-right group" + sticky}>
-          <li>
-            <div
-              className={"topnav-button search" + sticky}
-              onClick={this.toggleSearchBar}>
-              <Icon name='search' className={"search-icon button-icon" + sticky} />
-              <span className={"search-button-text" + sticky}>Search 40+ recipes</span>
-            </div>
-          </li>
-          <li>
-            <div className={"topnav-button user-control" + sticky}>
-              {userButton}
-            </div>
-          </li>
-        </ul>
+        <section className={"main-nav-section group" + sticky}>
+          <a href="#/">
+            <h1
+              className={"cookbook-main-header" + sticky}>
+              <logo className={"logo" + sticky}></logo>
+              <span className={"cookbook-topnav-text" + sticky}>Cookbook</span>
+            </h1>
+          </a>
+          <ul className={"topnav-left group" + sticky}>
+            {sideBar}
+            {recipeBox}
+            <li>
+              <a
+                href={"#/tags/" + this.state.featuredTags[0].id}
+                className={"topnav-link" + sticky}>
+                {this.state.featuredTags[0].name}
+              </a>
+            </li>
+            <li>
+              <a
+                href={"#/tags/" + this.state.featuredTags[1].id}
+                className={"topnav-link" + sticky}>
+                {this.state.featuredTags[1].name}
+              </a>
+            </li>
+          </ul>
+          <ul className={"topnav-right group" + sticky}>
+            <li>
+              <div
+                className={"topnav-button search" + sticky}
+                onClick={this.toggleSearchBar}>
+                <Icon name='search' className={"search-icon button-icon" + sticky} />
+                <span className={"search-button-text" + sticky}>Search 40+ recipes</span>
+              </div>
+            </li>
+            <li>
+              <div className={"topnav-button user-control" + sticky}>
+                {userButton}
+              </div>
+            </li>
+          </ul>
+        </section>
         {searchBar}
       </section>
     );

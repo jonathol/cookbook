@@ -30,9 +30,7 @@ var SearchBar = React.createClass({
 
   fullPageSearch: function (e) {
     e.preventDefault();
-    ApiUtil.fullSearch(this.state.query, 1);
-    this.props.history.pushState(null, '/search');
-    this.props.endSearch();
+    this.props.history.pushState(null, '/search?string=' + this.state.query);
     this.clearSearch();
   },
 
@@ -43,7 +41,6 @@ var SearchBar = React.createClass({
   tagSearch: function (name) {
     ApiUtil.fullSearch(name, 1);
     this.props.history.pushState(null, '/search');
-    this.props.endSearch();
     this.clearSearch();
   },
 
@@ -154,7 +151,6 @@ var SearchBar = React.createClass({
           <li>Popular: </li>
           {popularTags}
         </ul>
-        {searchScreen}
       </section>
     );
   }

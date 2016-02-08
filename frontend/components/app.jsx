@@ -15,22 +15,11 @@ var App = React.createClass({
 
   componentDidMount: function () {
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
-    // this.savesListener = RecipeSaveStore.addListener(this._recipeSavesChanged);
-    // this.cooksListener = CookStore.addListener(this._cooksChanged);
-    // this.ratingsListener = RatingStore.addListener(this._ratingsChanged);
-
     ApiUtil.fetchCurrentUser();
-  },
-
-  componentWillReceiveProps: function (newProps) {
-    // this.cancelAuth();
   },
 
   componentWillUnmount: function () {
     this.sessionListener.remove();
-    // this.savesListener.remove();
-    // this.cooksListener.remove();
-    // this.ratingsListener.remove();
   },
 
   enforceAuth: function () {
@@ -55,18 +44,6 @@ var App = React.createClass({
     this.setState({ authAction: false });
   },
 
-  // _cooksChanged: function () {
-  //   this.setState({ cooks: CookStore.all() });
-  // },
-  //
-  // _ratingsChanged: function () {
-  //   this.setState({ ratings: RatingStore.all() });
-  // },
-  //
-  // _recipeSavesChanged: function () {
-  //   this.setState({ recipeSaves: RecipeSaveStore.all() });
-  // },
-
   newSession: function () {
     this.setState({ authAction: true });
   },
@@ -75,7 +52,8 @@ var App = React.createClass({
     return React.Children.map(this.props.children, function (child) {
       return React.cloneElement(child, {
         enforceAuth: this.enforceAuth,
-        history: this.props.history
+        history: this.props.history,
+        location:this.props.location
       });
     }.bind(this));
   },
