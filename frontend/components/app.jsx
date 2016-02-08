@@ -73,7 +73,10 @@ var App = React.createClass({
 
   renderChildren: function () {
     return React.Children.map(this.props.children, function (child) {
-      return React.cloneElement(child, { enforceAuth: this.enforceAuth });
+      return React.cloneElement(child, {
+        enforceAuth: this.enforceAuth,
+        history: this.props.history
+      });
     }.bind(this));
   },
 

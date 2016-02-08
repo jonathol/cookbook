@@ -21,7 +21,7 @@ SearchStore.query = function () {
 };
 
 SearchStore.resetInstantResults = function (results) {
-  _instantSearchResuls = results;
+  _instantSearchResults = results;
   this.__emitChange();
 };
 

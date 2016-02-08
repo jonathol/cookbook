@@ -19,8 +19,8 @@ var SearchBar = React.createClass({
   },
 
   clearSearch: function () {
-    this.setState({ query: "" });
-    this.instantSearch();
+    this.setState({ query: "", instantResults: [] });
+    ApiUtil.instantSearch("");
   },
 
   fullPageSearch: function (e) {
@@ -28,6 +28,7 @@ var SearchBar = React.createClass({
     ApiUtil.fullSearch(this.state.query, 1);
     this.props.history.pushState(null, '/search');
     this.props.endSearch();
+    this.clearSearch();
   },
 
   instantSearch: function (e) {
@@ -39,6 +40,18 @@ var SearchBar = React.createClass({
   },
 
   render: function () {
+    var positioning = this.props.fullPage ? " relative-pos" : " fixed-pos";
+    var searchScreen;
+    if (!this.props.fullPage) {
+      searchScreen = (
+        <div
+          className="screen search-screen"
+          onClick={this.props.endSearch}>
+        </div>
+      );
+    }
+
+
     var tags = [];
     var recipes = [];
     this.state.instantResults.forEach(function (result, idx) {
@@ -89,7 +102,7 @@ var SearchBar = React.createClass({
     var clearOff = !this.state.query ? " off" : "";
     return (
       <section
-        className="search-bar">
+        className={"search-bar" + positioning}>
         <form
           className="search-form"
           onSubmit={this.fullPageSearch}>
@@ -108,10 +121,7 @@ var SearchBar = React.createClass({
             {recipeResults}
           </section>
         </form>
-        <div
-          className="screen search-screen"
-          onClick={this.props.endSearch}>
-        </div>
+        {searchScreen}
       </section>
     );
   }

@@ -16,6 +16,10 @@ var Search = React.createClass({
     this.resultsListener.remove();
   },
 
+  endSearch: function () {
+    return;
+  },
+
   getSearchFromStore: function () {
     return {
       results: SearchStore.fullPageResults(),
@@ -29,10 +33,16 @@ var Search = React.createClass({
 
   render: function () {
     return (
-      <RecipesIndex
-        recipes={this.state.results}
-        indexDescription={"Results for '" + this.state.query + "'"}
-        enforceAuth={this.props.enforceAuth} />
+      <section className="search">
+        <SearchBar
+          history={this.props.history}
+          endSearch={this.endSearch}
+          fullPage={true} />
+        <RecipesIndex
+          recipes={this.state.results}
+          indexDescription={"Results for '" + this.state.query + "'"}
+          enforceAuth={this.props.enforceAuth} />
+      </section>
     );
   }
 });

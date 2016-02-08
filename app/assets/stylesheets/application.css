@@ -376,13 +376,22 @@ div.screen {
 
 /* Search Bar */
 section.search-bar {
+  width: 100%;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+section.search-bar.fixed-pos {
   z-index: 5;
   position: absolute;
   bottom: -156px;
   padding-top: 45px;
-  width: 100%;
-  font-weight: 400;
-  background-color: rgba(0, 0, 0, 0.75);
+}
+
+section.search-bar.relative-pos {
+  padding-top: 45px;
+  position: relative;
+  margin: -20px 0 20px 0;
 }
 
 form.search-form {
