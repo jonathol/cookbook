@@ -399,7 +399,7 @@ form.search-form {
   width: 860px;
   margin: auto;
   font-size: 18px;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
   color: #000;
 }
 
@@ -407,6 +407,37 @@ form.search-form > input {
   width: 700px;
   padding: 15px;
   background-color: #fff;
+}
+
+section.search-bar > ul.popular {
+  width: 860px;
+  margin: auto;
+  border: none;
+  padding-bottom: 30px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+ul.popular > li:first-child {
+  border: none;
+  padding: 0;
+  color: #9B9B9B;
+}
+
+ul.popular > li:last-child {
+  border: none;
+}
+
+ul.popular > li {
+  font-size: 13px;
+  padding: 0 8px;
+  border-right: 1px solid #6D6D6D;
+  color: #fff;
+  float: left;
+}
+
+ul.popular > li > a:hover {
+  text-decoration: underline;
 }
 
 div.clear-search {

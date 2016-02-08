@@ -52,6 +52,13 @@ module.exports = {
     });
   },
 
+  receivePopularTags: function (tags) {
+    AppDispatcher.dispatch({
+      actionType: TagConstants.POPULAR_TAGS_RECEIVED,
+      tags: tags
+    });
+  },
+
   receiveIndexedTag: function (tag) {
     AppDispatcher.dispatch({
       actionType: TagConstants.INDEXED_TAG_RECEIVED,

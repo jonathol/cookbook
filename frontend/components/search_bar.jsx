@@ -1,5 +1,6 @@
 var React = require('react'),
     SearchStore = require('../stores/search'),
+    TagStore = require('../stores/tag'),
     LinkedStateMixin = require('react-addons-linked-state-mixin'),
     ApiUtil = require('../util/api_util');
 
@@ -8,14 +9,18 @@ var SearchBar = React.createClass({
 
   componentDidMount: function () {
     this.searchListener = SearchStore.addListener(this._resultsChanged);
+    this.tagsListener = TagStore.addListener(this._tagsChanged);
+
+    ApiUtil.fetchPopularTags();
   },
 
   componentWillUnmount: function () {
     this.searchListener.remove();
+    this.tagsListener.remove();
   },
 
   getInitialState: function () {
-    return { query: "", instantResults: [] };
+    return { query: "", instantResults: [], popularTags: [] };
   },
 
   clearSearch: function () {
@@ -37,6 +42,10 @@ var SearchBar = React.createClass({
 
   _resultsChanged: function () {
     this.setState({ instantResults: SearchStore.instantResults() });
+  },
+
+  _tagsChanged: function () {
+    this.setState({ popularTags: TagStore.popular() });
   },
 
   render: function () {
@@ -99,6 +108,20 @@ var SearchBar = React.createClass({
         </ul>
       );
     }
+
+    var popularTags = this.state.popularTags.map(function (tag, idx) {
+      return (
+        <li
+          className="popular-search-tag"
+          key={idx}>
+          <a
+            href={"#/tags/" + tag.id}>
+            {tag.name}
+          </a>
+        </li>
+      )
+    });
+
     var clearOff = !this.state.query ? " off" : "";
     return (
       <section
@@ -121,6 +144,11 @@ var SearchBar = React.createClass({
             {recipeResults}
           </section>
         </form>
+        <ul
+          className="popular group">
+          <li>Popular: </li>
+          {popularTags}
+        </ul>
         {searchScreen}
       </section>
     );

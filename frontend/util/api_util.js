@@ -96,6 +96,16 @@ var ApiUtil = {
     });
   },
 
+  fetchPopularTags: function () {
+    $.ajax({
+      type: "GET",
+      url: "api/tags?popular=true",
+      success: function (tags) {
+        ApiActions.receivePopularTags(tags);
+      }
+    });
+  },
+
   createRecipeSave: function (recipeId) {
     $.ajax({
       type: "POST",

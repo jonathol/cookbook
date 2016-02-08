@@ -13,6 +13,9 @@ class Api::TagsController < ApplicationController
     if params[:featured]
       @tags = Tag.first(2)
       render json: @tags
+    elsif params[:popular]
+      @tags = Tag.first(5)
+      render json: @tags
     else
       @tags = Tag.all
       render json: @tags
