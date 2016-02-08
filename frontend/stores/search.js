@@ -2,14 +2,14 @@ var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     SearchConstants = require('../constants/search_constants');
 
-var _instantSearchResuls = [];
+var _instantSearchResults = [];
 var _fullPageSearchResults = [];
 var _query = "";
 
 var SearchStore = new Store (AppDispatcher);
 
 SearchStore.instantResults = function () {
-  return _instantSearchResuls.slice(0);
+  return _instantSearchResults.slice(0);
 };
 
 SearchStore.fullPageResults = function () {

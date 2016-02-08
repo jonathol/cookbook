@@ -913,8 +913,8 @@ PreparationStep.create!(
 
 RecipePhoto.create!(
   recipe: corn_dip,
-  large_url: "https://c1.staticflickr.com/9/8090/8557343104_6897abdb69_z.jpg",
-  thumb_url: "https://c1.staticflickr.com/9/8090/8557343104_6897abdb69_n.jpg",
+  large_url: "https://c1.staticflickr.com/1/85/264165847_d55d5a9c87.jpg",
+  thumb_url: "https://c1.staticflickr.com/1/85/264165847_d55d5a9c87_m.jpg",
   credit: "I Believe I Can Fry"
 )
 
@@ -925,10 +925,12 @@ hot_sauce = Recipe.create!(
   servings: "3 cups"
 )
 
+
+# extra-large: https://c2.staticflickr.com/8/7035/6637805197_74bae4838e_o.jpg
 RecipePhoto.create!(
   recipe: hot_sauce,
-  large_url: "https://c1.staticflickr.com/1/85/264165847_d55d5a9c87.jpg",
-  thumb_url: "https://c1.staticflickr.com/1/85/264165847_d55d5a9c87_m.jpg",
+  large_url: "https://c2.staticflickr.com/8/7035/6637805197_b50e7a6b36_z.jpg",
+  thumb_url: "https://c2.staticflickr.com/8/7035/6637805197_b50e7a6b36_n.jpg",
   credit: "vanesscipes"
 )
 

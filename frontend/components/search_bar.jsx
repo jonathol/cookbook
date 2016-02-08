@@ -20,6 +20,7 @@ var SearchBar = React.createClass({
 
   clearSearch: function () {
     this.setState({ query: "" });
+    this.instantSearch();
   },
 
   fullPageSearch: function (e) {
