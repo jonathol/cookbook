@@ -40,6 +40,13 @@ var SearchBar = React.createClass({
     ApiUtil.instantSearch(this.state.query);
   },
 
+  tagSearch: function (name) {
+    ApiUtil.fullSearch(name, 1);
+    this.props.history.pushState(null, '/search');
+    this.props.endSearch();
+    this.clearSearch();
+  },
+
   _resultsChanged: function () {
     this.setState({ instantResults: SearchStore.instantResults() });
   },
@@ -113,14 +120,12 @@ var SearchBar = React.createClass({
       return (
         <li
           className="popular-search-tag"
+          onClick={this.tagSearch.bind(this, tag.name)}
           key={idx}>
-          <a
-            href={"#/tags/" + tag.id}>
-            {tag.name}
-          </a>
+          {tag.name}
         </li>
-      )
-    });
+      );
+    }.bind(this));
 
     var clearOff = !this.state.query ? " off" : "";
     return (

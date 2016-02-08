@@ -11,6 +11,7 @@ var AccountEdit = React.createClass({
   },
 
   componentDidMount: function () {
+    this.redirectIfNoUser();
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
   },
 
@@ -63,8 +64,15 @@ var AccountEdit = React.createClass({
     this.setState($.extend({ imageFile: null }, this.getSessionFromStore()));
   },
 
+  redirectIfNoUser: function () {
+    if (!SessionStore.loggedIn()) {
+      this.props.history.pushState(null, '/');
+    }
+  },
+
   _sessionChanged: function () {
     this.setState(this.getSessionFromStore());
+    this.redirectIfNoUser();
   },
 
   render: function () {

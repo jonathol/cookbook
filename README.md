@@ -17,14 +17,6 @@ New York Thyme's Cookbook is a clone of [New York Times Cooking](http://www.cook
 * Find recipes by tag
 * Look at recipe boxes of other users
 
-## Languages, Frameworks, Libraries, Etc.
-
-* Ruby on Rails
-* PostgreSQL
-* React
-* Flux
-* jQuery
-
 ## Code Guide
 
 If you'd like to take a closer look at the code behind the Cookbook App, the best folders to look in are:
@@ -37,3 +29,17 @@ If you'd like to take a closer look at the code behind the Cookbook App, the bes
 * [Api Util](./frontend/util/api_util.js)
 * [DB Schema](./db/schema.rb)
 * [Rails Routes](./config/routes.rb)
+
+## Languages, Frameworks, Libraries, Etc.
+
+* Ruby on Rails
+* PostgreSQL
+* React
+* Flux
+* jQuery
+* Gems
+  * Paperclip
+  * pg_search
+  * jwt
+  * Jbuilder
+  * BCrypt
