@@ -83,6 +83,7 @@ var App = React.createClass({
       <div className="cookbook">
         <TopNav
           history={this.props.history}
+          location={this.props.location}
           newSessionClick={this.newSession} />
         {auth}
         {this.renderChildren()}

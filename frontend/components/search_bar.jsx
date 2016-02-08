@@ -27,6 +27,7 @@ var SearchBar = React.createClass({
     e.preventDefault();
     ApiUtil.fullSearch(this.state.query, 1);
     this.props.history.pushState(null, '/search');
+    this.props.endSearch();
   },
 
   instantSearch: function (e) {

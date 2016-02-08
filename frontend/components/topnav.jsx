@@ -54,6 +54,9 @@ var TopNav = React.createClass({
   },
 
   toggleSearchBar: function (e) {
+    if (this.props.location.pathname === "/search") {
+      return;
+    }
     this.setState({ searchBarActive: !this.state.searchBarActive });
   },
 
