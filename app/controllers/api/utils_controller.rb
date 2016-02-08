@@ -7,8 +7,8 @@ class Api::UtilsController < ApplicationController
         .page(1)
       render :instant_search
     else
-      @search_results = PgSearch
-        .multisearch(params[:query])
+      @search_results = Recipe
+        .search_title(params[:query])
         .includes(:searchable)
         .page(params[:page])
     end

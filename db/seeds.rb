@@ -927,9 +927,9 @@ hot_sauce = Recipe.create!(
 
 RecipePhoto.create!(
   recipe: hot_sauce,
-  large_url: "https://c2.staticflickr.com/8/7035/6637805197_74bae4838e_o.jpg",
-  thumb_url: "https://c2.staticflickr.com/8/7035/6637805197_b50e7a6b36_n.jpg",
-  credit: "jeffreyw"
+  large_url: "https://c1.staticflickr.com/1/85/264165847_d55d5a9c87.jpg",
+  thumb_url: "https://c1.staticflickr.com/1/85/264165847_d55d5a9c87_m.jpg",
+  credit: "vanesscipes"
 )
 
 Ingredient.create!(

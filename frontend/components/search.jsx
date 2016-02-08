@@ -1,6 +1,7 @@
 var React = require('react'),
     SearchStore = require('../stores/search'),
-    SearchBar = require('./search_bar');
+    SearchBar = require('./search_bar'),
+    RecipesIndex = require('./recipe_index');
 
 var Search = React.createClass({
   getInitialState: function () {
@@ -23,7 +24,12 @@ var Search = React.createClass({
   },
 
   render: function () {
-    
+    return (
+      <RecipesIndex
+        recipes={this.state.results}
+        indexDescription={"Results for '" + this.state.query + "'"}
+        enforceAuth={this.props.enforceAuth} />
+    );
   }
 });
 

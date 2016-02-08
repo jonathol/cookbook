@@ -1,6 +1,8 @@
 class Recipe < ActiveRecord::Base
   include PgSearch
   multisearchable :against => [:title]
+  pg_search_scope :search_title,
+                  :against => :title
 
   validates :title, :author, presence: true
 
