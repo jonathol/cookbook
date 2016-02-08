@@ -31,7 +31,9 @@ If you'd like to take a closer look at the code behind the Cookbook App, the bes
 
 * [Cookbook.jsx](./frontend/Cookbook.jsx)
 * [React components](./frontend/components)
+  * [App](.frontend/components/app.jsx)
 * [Rails controllers](./app/controllers/api)
 * [Flux Stores](./frontend/stores)
 * [Api Util](./util/api_util.js)
 * [DB Schema](./db/schema.rb)
+* [Rails Routes](./config/routes.rb)
