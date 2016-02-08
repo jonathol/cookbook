@@ -19,7 +19,19 @@ New York Thyme's Cookbook is a clone of [New York Times Cooking](http://www.cook
 
 ## Languages, Frameworks, Libraries, Etc.
 
-* Ruby on Rails (backend)
-* JavaScript
-* React / Flux
+* Ruby on Rails
+* PostgreSQL
+* React
+* Flux
 * jQuery
+
+## Code Guide
+
+If you'd like to take a closer look at the code behind the Cookbook App, the best folders to look in are:
+
+* [Cookbook.jsx](./frontend/Cookbook.jsx)
+* [React components](./frontend/components)
+* [Rails controllers](./app/controllers/api)
+* [Flux Stores](./frontend/stores)
+* [Api Util](./util/api_util.js)
+* [DB Schema](./db/schema.rb)
