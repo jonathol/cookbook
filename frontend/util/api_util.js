@@ -18,7 +18,7 @@ var ApiUtil = {
       url: '/api/search?query=' + query + '&page=' + page,
       type: 'GET',
       success: function (data) {
-        ApiActions.receiveFullResults(data);
+        ApiActions.receiveFullSearch(data);
       }
     });
   },

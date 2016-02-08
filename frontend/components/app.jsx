@@ -81,7 +81,9 @@ var App = React.createClass({
     var auth = this.state.authAction ? <Auth cancel={this.cancelAuth} /> : "";
     return (
       <div className="cookbook">
-        <TopNav newSessionClick={this.newSession} />
+        <TopNav
+          history={this.props.history}
+          newSessionClick={this.newSession} />
         {auth}
         {this.renderChildren()}
       </div>

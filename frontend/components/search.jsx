@@ -1,15 +1,19 @@
 var React = require('react'),
     SearchStore = require('../stores/search'),
     SearchBar = require('./search_bar'),
-    RecipesIndex = require('./recipe_index');
+    RecipesIndex = require('./recipes_index');
 
 var Search = React.createClass({
   getInitialState: function () {
-    return getSearchFromStore();
+    return this.getSearchFromStore();
   },
 
   componentDidMount: function () {
     this.resultsListener = SearchStore.addListener(this._resultsChanged);
+  },
+
+  componentWillUnmount: function () {
+    this.resultsListener.remove();
   },
 
   getSearchFromStore: function () {

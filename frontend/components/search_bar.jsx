@@ -24,6 +24,8 @@ var SearchBar = React.createClass({
 
   fullPageSearch: function (e) {
     e.preventDefault();
+    ApiUtil.fullSearch(this.state.query, 1);
+    this.props.history.pushState(null, '/search');
   },
 
   instantSearch: function (e) {

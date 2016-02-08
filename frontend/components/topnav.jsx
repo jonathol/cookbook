@@ -165,7 +165,11 @@ var TopNav = React.createClass({
 
     var searchBar;
     if (this.state.searchBarActive) {
-      searchBar = <SearchBar endSearch={this.toggleSearchBar} />
+      searchBar = (
+        <SearchBar
+          history={this.props.history}
+          endSearch={this.toggleSearchBar} />
+      )
     }
 
     return (

@@ -150,10 +150,10 @@ module.exports = {
     });
   },
 
-  receiveFullResults: function (results) {
+  receiveFullSearch: function (search) {
     AppDispatcher.dispatch({
       actionType: SearchConstants.FULL_PAGE_SEARCH_RESULTS_RECEIVED,
-      results: results
+      search: search
     });
   },
 
