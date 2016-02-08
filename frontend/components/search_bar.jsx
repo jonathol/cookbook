@@ -39,8 +39,7 @@ var SearchBar = React.createClass({
   },
 
   tagSearch: function (name) {
-    ApiUtil.fullSearch(name, 1);
-    this.props.history.pushState(null, '/search');
+    this.props.history.pushState(null, '/search?string=' + name);
     this.clearSearch();
   },
 

@@ -21,6 +21,7 @@ var router = (
       <IndexRoute component={FeaturedContent} />
       <Route path="recipes/:recipeId" component={RecipeDetail} />
       <Route path="users/:userId" component={UserShow} >
+        <IndexRoute component={RecipeBox} />
         <Route path="recipe-box" component={RecipeBox} />
         <Route path="my-recipes" component={RecipesIndex} />
       </Route>
