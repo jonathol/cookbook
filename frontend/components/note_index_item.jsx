@@ -21,6 +21,13 @@ var NoteIndexItem = React.createClass({
     this.likeListener = LikeStore.addListener(this._likesChanged);
   },
 
+  componentWillReceiveProps: function (newProps) {
+    this.setState({
+      numLikes: newProps.note.numLikes,
+      like: LikeStore.find(newProps.note.id)
+    });
+  },
+
   componentWillUnmount: function () {
     this.sessionListener.remove();
     this.likeListener.remove();
