@@ -43,3 +43,17 @@ If you'd like to take a closer look at the code behind the Cookbook App, the bes
   * jwt
   * Jbuilder
   * BCrypt
+
+## Screenshots
+
+Home page:
+![home page](./screenshots/homepage.jpg)
+
+Recipe detail page:
+![recipe detail](./screenshots/recipe-detail.jpg)
+
+Recipe notes:
+![recipe detail](./screenshots/comments.jpg)
+
+Search bar:
+![search bar](./screenshots/search.jpg)
