@@ -4,7 +4,7 @@ var React = require('react'),
     TagStore = require('../stores/tag'),
     RecipesIndex = require('./recipes_index');
 
-var RecipeBox = React.createClass({
+var TaggedRecipes = React.createClass({
   getInitialState: function () {
     return { tag: TagStore.indexed(), recipeList: RecipeStore.all() };
   },
@@ -45,4 +45,4 @@ var RecipeBox = React.createClass({
   }
 });
 
-module.exports = RecipeBox;
+module.exports = TaggedRecipes;
