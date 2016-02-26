@@ -386,8 +386,8 @@ section.search-bar {
 
 section.search-bar.fixed-pos {
   z-index: -1;
-  position: absolute;
-  bottom: -156px;
+  transition: all 0.1s;
+  bottom: -161px;
   padding-top: 45px;
 }
 
@@ -929,7 +929,6 @@ div.recipe-button {
   position: absolute;
   top: 5px;
   right: 5px;
-  /*width: 115px;*/
   padding: 15px 18px;
   background-color: #f2f3ef;
   font-size: 13.5px;
@@ -944,8 +943,6 @@ div.recipe-button-icon-text {
 }
 
 span.recipe-button-text {
-  /*position: absolute;
-  left: 20px;*/
   position: relative;
   left: 5px;
   top: -1px;
