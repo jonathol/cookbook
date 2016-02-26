@@ -33,6 +33,10 @@ var RecipeDetail = React.createClass({
     this.noteListener.remove();
   },
 
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchRecipeDetails(newProps.params.recipeId);
+  },
+
   _cookChanged: function () {
     this.setState({ cooked: CookStore.find(this.props.params.recipeId) });
   },
