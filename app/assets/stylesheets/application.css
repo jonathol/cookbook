@@ -97,10 +97,9 @@ section.main-nav-section.sticky {
 section.main-nav-section > a > h1 {
   color: #000;
   position: absolute;
-  top: -35px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  margin-top: 3px;
+  transform: translateX(-50%) translateY(-50%);
   text-transform: capitalize;
   text-align: center;
   font-family: 'Open Sans Condensed', Helvetica, sans-serif;
@@ -115,10 +114,6 @@ h1:hover {
 section.main-nav-section > a > h1.sticky {
   color: #fff;
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 3px;
 }
 
 section.main-nav-section > a > h1 > logo {
@@ -129,12 +124,42 @@ section.main-nav-section > a > h1 > logo {
   padding-right: 5px;
 }
 
-logo:after {
-  content: "New York Thyme's";
-  font-size: 16px;
-  letter-spacing: 0.1px;
-  display: block;
+@media (max-width: 1000px) {
+  li.topnav-tag {
+    display: none;
+  }
+
+  logo:after {
+    content: "nyt";
+    font-size: 20px;
+    vertical-align: middle;
+    letter-spacing: 0;
+    display: inline;
+  }
+
+  section.main-nav-section > a > h1 > span {
+    display: inline;
+    font-size: 24px;
+  }
+
 }
+
+@media (min-width: 1001px) {
+  logo:after {
+    content: "New York Thyme's";
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    display: block;
+  }
+
+  section.main-nav-section > a > h1 > span {
+    display: block;
+    transform: translateY(-45px);
+    font-size: 60px;
+    letter-spacing: 0;
+  }
+}
+
 
 logo.sticky:after {
   content: "nyt";
@@ -142,13 +167,6 @@ logo.sticky:after {
   vertical-align: middle;
   letter-spacing: 0;
   display: inline;
-}
-
-section.main-nav-section > a > h1 > span {
-  display: block;
-  transform: translateY(-45px);
-  font-size: 60px;
-  letter-spacing: 0;
 }
 
 section.main-nav-section > a > h1 > span.sticky {
@@ -193,9 +211,7 @@ a.topnav-link:hover {
 }
 
 a.topnav-link.sticky:hover {
-  cursor: pointer;
   border-bottom: 3px solid #fff;
-  padding-bottom: 12px;
 }
 
 ul.topnav-right {
