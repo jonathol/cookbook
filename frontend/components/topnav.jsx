@@ -133,7 +133,7 @@ var TopNav = React.createClass({
     var sideBar;
     if (this.state.loggedIn) {
       recipeBox = (
-        <li>
+        <li className="topnav-recipe-box">
           <a
             href={"#/users/" + this.state.user.id + "/recipe-box"}
             className={"topnav-link" + sticky}>Recipe Box</a>

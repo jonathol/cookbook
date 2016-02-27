@@ -83,7 +83,6 @@ section.main-nav-section {
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 1.5px;
-  padding: 55px 0 10px 0;
   transition: all 0.4s;
 }
 
@@ -124,8 +123,49 @@ section.main-nav-section > a > h1 > logo {
   padding-right: 5px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 500px) {
+  li.topnav-recipe-box {
+    display: none;
+  }
+
+  ul.topnav-right {
+    margin-right: 5px;
+  }
+}
+
+@media (min-width: 501px) {
+  ul.topnav-right {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  span.search-button-text {
+    display: none;
+  }
+
   li.topnav-tag {
+    display: none;
+  }
+
+  section.main-nav-section li {
+    padding: 0 5px;
+  }
+}
+
+@media (min-width: 801px) {
+  section.main-nav-section li {
+    padding: 0 15px;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  div.cookbook {
+    margin-top: 70px;
+  }
+
+  li.topnav-tag:last-child {
     display: none;
   }
 
@@ -141,10 +181,17 @@ section.main-nav-section > a > h1 > logo {
     display: inline;
     font-size: 24px;
   }
-
 }
 
 @media (min-width: 1001px) {
+  div.cookbook {
+    margin-top: 130px;
+  }
+
+  section.main-nav-section {
+    padding: 55px 0 10px 0;
+  }
+
   logo:after {
     content: "New York Thyme's";
     font-size: 16px;
@@ -184,12 +231,12 @@ section.main-nav-section > a > h1 > span.sticky:before {
 }
 
 ul.topnav-left {
+  min-height: 46px;
   float: left;
 }
 
 section.main-nav-section li {
   float: left;
-  padding: 0 15px;
 }
 
 ul.topnav-left > li:first-child {
@@ -216,7 +263,6 @@ a.topnav-link.sticky:hover {
 
 ul.topnav-right {
   float: right;
-  margin-right: 15px;
 }
 
 span.fa-angle-double-right:before {
@@ -289,10 +335,7 @@ span.search-button-text {
   font-size: 14px;
   font-weight: 200;
   letter-spacing: 1px;
-}
-
-span.search-icon {
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 div.login-button {
@@ -561,10 +604,6 @@ div.recipe-result-thumb > img {
 }
 
 /* Body adjustments to header depending on content */
-div.cookbook {
-  margin-top: 130px;
-}
-
 section.featured-content {
   margin-top: -130px;
 }
