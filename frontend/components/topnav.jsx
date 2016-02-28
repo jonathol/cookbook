@@ -124,7 +124,11 @@ var TopNav = React.createClass({
         <div
           className={"login-button button-icon" + sticky}
           onClick={this.handleLogIn}>
-          Log In
+          <Icon
+            name="cog"
+            className={"login-icon" + sticky}
+            onClick={this.toggleUserDropDown} />
+          <span className="login-text">Log In</span>
         </div>
       );
     }
@@ -152,7 +156,7 @@ var TopNav = React.createClass({
       );
     } else {
       recipeBox = (
-        <li>
+        <li className="topnav-recipe-box">
           <a
             href="#"
             onClick={this.handleLogIn}
