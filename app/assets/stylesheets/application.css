@@ -83,7 +83,6 @@ section.main-nav-section {
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 1.5px;
-  padding: 55px 0 10px 0;
   transition: all 0.4s;
 }
 
@@ -97,10 +96,9 @@ section.main-nav-section.sticky {
 section.main-nav-section > a > h1 {
   color: #000;
   position: absolute;
-  top: -35px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  margin-top: 3px;
+  transform: translateX(-50%) translateY(-50%);
   text-transform: capitalize;
   text-align: center;
   font-family: 'Open Sans Condensed', Helvetica, sans-serif;
@@ -115,10 +113,6 @@ h1:hover {
 section.main-nav-section > a > h1.sticky {
   color: #fff;
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 3px;
 }
 
 section.main-nav-section > a > h1 > logo {
@@ -129,12 +123,90 @@ section.main-nav-section > a > h1 > logo {
   padding-right: 5px;
 }
 
-logo:after {
-  content: "New York Thyme's";
-  font-size: 16px;
-  letter-spacing: 0.1px;
-  display: block;
+@media (max-width: 500px) {
+  li.topnav-recipe-box {
+    display: none;
+  }
+
+  ul.topnav-right {
+    margin-right: 5px;
+  }
 }
+
+@media (min-width: 501px) {
+  ul.topnav-right {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  span.search-button-text {
+    display: none;
+  }
+
+  li.topnav-tag {
+    display: none;
+  }
+
+  section.main-nav-section li {
+    padding: 0 5px;
+  }
+}
+
+@media (min-width: 801px) {
+  section.main-nav-section li {
+    padding: 0 15px;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  div.cookbook {
+    margin-top: 70px;
+  }
+
+  li.topnav-tag:last-child {
+    display: none;
+  }
+
+  logo:after {
+    content: "nyt";
+    font-size: 20px;
+    vertical-align: middle;
+    letter-spacing: 0;
+    display: inline;
+  }
+
+  section.main-nav-section > a > h1 > span {
+    display: inline;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1001px) {
+  div.cookbook {
+    margin-top: 130px;
+  }
+
+  section.main-nav-section {
+    padding: 55px 0 10px 0;
+  }
+
+  logo:after {
+    content: "New York Thyme's";
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    display: block;
+  }
+
+  section.main-nav-section > a > h1 > span {
+    display: block;
+    transform: translateY(-45px);
+    font-size: 60px;
+    letter-spacing: 0;
+  }
+}
+
 
 logo.sticky:after {
   content: "nyt";
@@ -142,13 +214,6 @@ logo.sticky:after {
   vertical-align: middle;
   letter-spacing: 0;
   display: inline;
-}
-
-section.main-nav-section > a > h1 > span {
-  display: block;
-  transform: translateY(-45px);
-  font-size: 60px;
-  letter-spacing: 0;
 }
 
 section.main-nav-section > a > h1 > span.sticky {
@@ -166,12 +231,12 @@ section.main-nav-section > a > h1 > span.sticky:before {
 }
 
 ul.topnav-left {
+  min-height: 46px;
   float: left;
 }
 
 section.main-nav-section li {
   float: left;
-  padding: 0 15px;
 }
 
 ul.topnav-left > li:first-child {
@@ -193,14 +258,11 @@ a.topnav-link:hover {
 }
 
 a.topnav-link.sticky:hover {
-  cursor: pointer;
   border-bottom: 3px solid #fff;
-  padding-bottom: 12px;
 }
 
 ul.topnav-right {
   float: right;
-  margin-right: 15px;
 }
 
 span.fa-angle-double-right:before {
@@ -273,10 +335,7 @@ span.search-button-text {
   font-size: 14px;
   font-weight: 200;
   letter-spacing: 1px;
-}
-
-span.search-icon {
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 div.login-button {
@@ -545,10 +604,6 @@ div.recipe-result-thumb > img {
 }
 
 /* Body adjustments to header depending on content */
-div.cookbook {
-  margin-top: 130px;
-}
-
 section.featured-content {
   margin-top: -130px;
 }
@@ -667,17 +722,42 @@ section.featured-recipe > a:hover {
 
 img.featured-recipe-photo {
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
+}
+
+@media (max-width: 850px) {
+  div.featured-recipe-card {
+    padding: 55px 35px 35px 35px;
+  }
+
+  div.rotd-pin {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -105px;
+  }
+}
+
+@media (min-width: 851px) {
+  div.featured-recipe-card {
+    position: absolute;
+    padding: 25px 35px 35px 35px;
+    width: 250px;
+    left: 85px;
+    bottom: 75px;
+  }
+
+  img.featured-recipe-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  div.rotd-pin {
+    left: -75px;
+    top: -75px;
+  }
 }
 
 div.featured-recipe-card {
-  position: absolute;
-  width: 250px;
-  padding: 25px 35px 35px 35px;
-  left: 85px;
-  bottom: 75px;
   text-align: center;
   background-color: #fff;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
@@ -693,8 +773,6 @@ div.rotd-pin {
   position: absolute;
   width: 100px;
   height: 100px;
-  left: -75px;
-  top: -75px;
   border-radius: 50%;
   background-color: #E33E27;
 }

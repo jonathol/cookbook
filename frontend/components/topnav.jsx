@@ -133,7 +133,7 @@ var TopNav = React.createClass({
     var sideBar;
     if (this.state.loggedIn) {
       recipeBox = (
-        <li>
+        <li className="topnav-recipe-box">
           <a
             href={"#/users/" + this.state.user.id + "/recipe-box"}
             className={"topnav-link" + sticky}>Recipe Box</a>
@@ -196,14 +196,14 @@ var TopNav = React.createClass({
           <ul className={"topnav-left group" + sticky}>
             {sideBar}
             {recipeBox}
-            <li>
+            <li className="topnav-tag">
               <a
                 href={"#/tags/" + this.state.featuredTags[0].id}
                 className={"topnav-link" + sticky}>
                 {this.state.featuredTags[0].name}
               </a>
             </li>
-            <li>
+            <li className="topnav-tag">
               <a
                 href={"#/tags/" + this.state.featuredTags[1].id}
                 className={"topnav-link" + sticky}>
