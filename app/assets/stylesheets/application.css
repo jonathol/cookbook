@@ -503,6 +503,14 @@ section.search-bar.relative-pos {
     width: 21px;
     height: 21px;
   }
+
+  ul.popular > li:nth-child(n+5) {
+    display: none;
+  }
+
+  ul.popular > li:nth-child(3) {
+    border-right:
+  }
 }
 
 @media (min-width: 651px) {
@@ -568,11 +576,10 @@ form.search-form > input {
   background-color: #fff;
 }
 
-section.search-bar > ul.popular {
-  width: 860px;
+ul.popular {
   margin: auto;
   border: none;
-  padding-bottom: 30px;
+  padding: 15px 0;
   text-transform: none;
   letter-spacing: normal;
 }
@@ -583,16 +590,16 @@ ul.popular > li:first-child {
   color: #9B9B9B;
 }
 
-ul.popular > li:last-child {
-  border: none;
-}
-
 ul.popular > li {
   font-size: 13px;
   padding: 0 8px;
-  border-right: 1px solid #6D6D6D;
+  border-left: 1px solid #6D6D6D;
   color: #fff;
   float: left;
+}
+
+ul.popular > li:nth-child(2) {
+  border: none;
 }
 
 ul.popular > li:first-child ~ li:hover {

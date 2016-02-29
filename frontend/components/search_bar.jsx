@@ -144,12 +144,12 @@ var SearchBar = React.createClass({
             {tagResults}
             {recipeResults}
           </section>
+          <ul
+            className="popular group">
+            <li>Popular: </li>
+            {popularTags}
+          </ul>
         </form>
-        <ul
-          className="popular group">
-          <li>Popular: </li>
-          {popularTags}
-        </ul>
       </section>
     );
   }
