@@ -140,6 +140,10 @@ section.main-nav-section > a > h1 > logo {
   span.login-icon {
     font-size: 16px;
   }
+
+  div.login-button.button-icon {
+    padding: 5px 10px;
+  }
 }
 
 @media (min-width: 501px) {

@@ -126,8 +126,7 @@ var TopNav = React.createClass({
           onClick={this.handleLogIn}>
           <Icon
             name="cog"
-            className={"login-icon" + sticky}
-            onClick={this.toggleUserDropDown} />
+            className={"login-icon" + sticky} />
           <span className="login-text">Log In</span>
         </div>
       );
