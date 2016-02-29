@@ -511,6 +511,10 @@ section.search-bar.relative-pos {
   ul.popular > li:nth-child(3) {
     border-right:
   }
+
+  span.large-search-text {
+    display: none;
+  }
 }
 
 @media (min-width: 651px) {
@@ -531,6 +535,10 @@ section.search-bar.relative-pos {
     padding: 0 0.75px;
     width: 23px;
     height: 25px;
+  }
+
+  span.small-search-text {
+    display: none;
   }
 }
 

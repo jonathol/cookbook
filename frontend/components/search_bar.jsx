@@ -138,7 +138,10 @@ var SearchBar = React.createClass({
             placeholder="What do you feel like cooking?"
             valueLink={this.linkState('query')}
             onKeyUp={this.instantSearch} />
-          <button>Search</button>
+          <button>
+            <span className="large-search-text">Search</span>
+            <span className="small-search-text">Go</span>
+          </button>
           <section
             className="instant-search-results">
             {tagResults}
