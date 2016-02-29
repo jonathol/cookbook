@@ -695,6 +695,7 @@ section.instant-search-results li a {
   display: block;
   width: 100%;
   padding: 15px;
+  box-sizing: border-box;
 }
 
 section.instant-search-results li.recipe-instant-result > a {
@@ -734,13 +735,17 @@ div.recipe-result-thumb {
 }
 
 div.recipe-result-title-container {
+  min-height: 45px;
+  position: relative;
   float: left;
   width: calc( 100% - 75px );
   vertical-align: middle;
 }
 
 div.recipe-result-title-container span {
-  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 section.search-bar a:hover {
