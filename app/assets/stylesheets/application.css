@@ -78,6 +78,7 @@ section.topnav {
 }
 
 section.main-nav-section {
+  position: relative;
   background-color: #fff;
   text-transform: uppercase;
   font-size: 11.5px;
@@ -468,9 +469,22 @@ section.search-bar.relative-pos {
   margin: -20px 0 20px 0;
 }
 
+@media (max-width: 1000px) {
+
+}
+
+@media (min-width: 1001px) {
+  form.search-form {
+    width: 860px;
+  }
+
+  form.search-form > input {
+    width: 700px;
+  }
+}
+
 form.search-form {
   position: relative;
-  width: 860px;
   margin: auto;
   font-size: 18px;
   padding-bottom: 20px;
@@ -478,7 +492,6 @@ form.search-form {
 }
 
 form.search-form > input {
-  width: 700px;
   padding: 15px;
   background-color: #fff;
 }
