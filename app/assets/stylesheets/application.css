@@ -154,6 +154,31 @@ section.main-nav-section > a > h1 > logo {
   span.login-icon {
     display: none;
   }
+
+  logo:after {
+    content: "nyt";
+    font-size: 20px;
+    vertical-align: middle;
+    letter-spacing: 0;
+    display: inline;
+  }
+
+  logo.sticky:after {
+    content: "nyt";
+    font-size: 20px;
+    vertical-align: middle;
+    letter-spacing: 0;
+    display: inline;
+  }
+
+  section.main-nav-section > a > h1 > span.sticky:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    transform: translateX(-3px) translateY(8.5px);
+    border-left: 1px solid rgb(255, 255, 255);
+    border-left: 1px solid rgba(255, 255, 255, .25);
+  }
 }
 
 @media (max-width: 800px) {
@@ -186,14 +211,6 @@ section.main-nav-section > a > h1 > logo {
     display: none;
   }
 
-  logo:after {
-    content: "nyt";
-    font-size: 20px;
-    vertical-align: middle;
-    letter-spacing: 0;
-    display: inline;
-  }
-
   section.main-nav-section > a > h1 > span {
     display: inline;
     font-size: 24px;
@@ -224,27 +241,9 @@ section.main-nav-section > a > h1 > logo {
   }
 }
 
-
-logo.sticky:after {
-  content: "nyt";
-  font-size: 20px;
-  vertical-align: middle;
-  letter-spacing: 0;
-  display: inline;
-}
-
 section.main-nav-section > a > h1 > span.sticky {
   display: inline;
   font-size: 24px;
-}
-
-section.main-nav-section > a > h1 > span.sticky:before {
-  content: "";
-  position: absolute;
-  height: 20px;
-  transform: translateX(-3px) translateY(8.5px);
-  border-left: 1px solid rgb(255, 255, 255);
-  border-left: 1px solid rgba(255, 255, 255, .25);
 }
 
 ul.topnav-left {
