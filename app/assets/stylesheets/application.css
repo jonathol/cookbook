@@ -719,11 +719,13 @@ ul.recipe-instant-result-list > span.suggested-recipes {
   display: block;
   text-transform: uppercase;
   color: #9B9B9B;
-  margin: 10px 10px 3px 10px;
+  padding-top: 10px;
+  margin: 0 10px 3px 10px;
 }
 
 div.recipe-result-thumb {
-  display: inline-block;
+  display: block;
+  float: left;
   vertical-align: middle;
   width: 45px;
   height: 45px;
@@ -731,8 +733,14 @@ div.recipe-result-thumb {
   overflow: hidden;
 }
 
-div.recipe-result-title {
-  
+div.recipe-result-title-container {
+  float: left;
+  width: calc( 100% - 75px );
+  vertical-align: middle;
+}
+
+div.recipe-result-title-container span {
+  vertical-align: middle;
 }
 
 section.search-bar a:hover {

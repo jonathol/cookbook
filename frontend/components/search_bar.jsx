@@ -81,13 +81,18 @@ var SearchBar = React.createClass({
           <li
             key={idx}
             onClick={this.props.endSearch}
-            className="recipe-instant-result">
-            <a href={"#/recipes/" + result.id}>
+            className="recipe-instant-result group">
+            <a
+              className="group"
+              href={"#/recipes/" + result.id}>
               <div
                 className="recipe-result-thumb">
                 <img src={result.thumb_url} />
               </div>
-              {result.title}
+              <div
+                className="recipe-result-title-container">
+                <span>{result.title}</span>
+              </div>
             </a>
           </li>
         );
