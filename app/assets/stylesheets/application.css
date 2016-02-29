@@ -484,6 +484,7 @@ section.search-bar.relative-pos {
 
   section.instant-search-results {
     width: 207px;
+    top: 45px;
   }
 
   div.clear-search {
@@ -505,6 +506,7 @@ section.search-bar.relative-pos {
 
   section.instant-search-results {
     width: 240px;
+    top: 47px;
   }
 
   div.clear-search {
@@ -573,6 +575,7 @@ section.search-bar.relative-pos {
 
   section.instant-search-results {
     width: 430px;
+    top: 51px;
   }
 }
 
@@ -680,7 +683,6 @@ form.search-form > button:hover {
 
 section.instant-search-results {
   position: absolute;
-  top: 51px;
   letter-spacing: normal;
   text-transform: none;
   background-color: #F1F1F1;
