@@ -781,15 +781,26 @@ section.featured-content {
   background: rgba(0, 0, 0, 0.7);
 }
 
+@media (max-width: 650px) {
+  .user-form-modal {
+    width: 90%;
+  }
+}
+
+@media (min-width: 651px) {
+  .user-form-modal {
+    width: 475px;
+  }
+}
+
 .user-form-modal {
   position: fixed;
   z-index: 1000;
   top: 50%;
   left: 50%;
-  margin-left: -237px;
-  transform: translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  margin: auto;
   box-sizing: border-box;
-  width: 475px;
   padding: 30px;
   border-radius: 3px;
   background-color: #f2f3ef;
