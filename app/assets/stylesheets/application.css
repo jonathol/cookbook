@@ -781,15 +781,46 @@ section.featured-content {
   background: rgba(0, 0, 0, 0.7);
 }
 
-@media (max-width: 650px) {
+@media (max-width: 400px) {
+  .user-form-modal {
+    font-size: 13px;
+  }
+
+  div.submit-buttons > button {
+    margin: 5px 5px;
+    padding: 11px 22px;
+  }
+}
+
+@media (min-width: 401px) {
+  .user-form-modal {
+    font-size: 14px;
+  }
+
+  div.submit-buttons > button {
+    padding: 15px 32px;
+    margin: 15px 5px;
+  }
+}
+
+@media (max-width: 651px) {
   .user-form-modal {
     width: 90%;
+  }
+
+  div.submit-buttons > button {
   }
 }
 
 @media (min-width: 651px) {
   .user-form-modal {
     width: 475px;
+    font-size: 16px;
+  }
+
+  div.submit-buttons > button {
+    margin: 20px 10px;
+    padding: 17px 40px;
   }
 }
 
@@ -851,8 +882,6 @@ div.submit-buttons {
 
 div.submit-buttons > button {
   display: inline-block;
-  margin: 20px 10px;
-  padding: 17px 40px;
   background-color: #E23E27;
   border-radius: 5px;
   color: #fff;
