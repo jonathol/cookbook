@@ -221,10 +221,10 @@ var RecipeDetail = React.createClass({
             </section>
           </section>
           <section className="recipe-middle-details group">
-            <ul className="recipe-tags">
+            <ul className="recipe-tags recipe-meta-data group">
               {tags}
             </ul>
-            <ul className="recipe-ratings-cooked">
+            <ul className="recipe-ratings-cooked recipe-meta-data group">
               <li
                 className="recipe-cooked">
                 <div

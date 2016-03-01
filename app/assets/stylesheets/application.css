@@ -1282,6 +1282,28 @@ div.index-item-cooked-button {
     display: block;
     margin-bottom: 15px;
   }
+
+  ul.recipe-meta-data {
+    text-align: center;
+  }
+
+  ul.recipe-meta-data > li {
+    display: inline-block;
+    margin: auto;
+  }
+
+  ul.recipe-tags {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  ul.recipe-ratings-cooked {
+    padding-top: 15px;
+  }
+
+  section.recipe-middle-details {
+    padding: 15px 0;
+  }
 }
 
 @media (min-width: 781px) {
@@ -1297,6 +1319,18 @@ div.index-item-cooked-button {
     display: inline;
     padding-right: 14px;
     border-right: 1px solid #cccccc;
+  }
+
+  ul.recipe-tags {
+    float: left;
+  }
+
+  ul.recipe-ratings-cooked {
+    float: right;
+  }
+
+  section.recipe-middle-details {
+    padding: 20px 0;
   }
 }
 
@@ -1463,29 +1497,22 @@ section.recipe-top-details {
 }
 
 section.recipe-middle-details {
-  padding: 20px 0;
   border-bottom: 1px solid #ccc;
 }
 
-ul.recipe-tags {
-  float: left;
+ul.recipe-meta-data > li {
+  display: inline-block;
 }
 
 ul.recipe-tags > li {
-  float: left;
-  margin-right: 4px;
+  padding: 4px 4px 0 0;
 }
 
 ul.recipe-tags > li > a {
   color: #E23E27;
 }
 
-ul.recipe-ratings-cooked {
-  float: right;
-}
-
 ul.recipe-ratings-cooked > li {
-  float: left;
   padding: 0 15px 0 0;
 }
 
