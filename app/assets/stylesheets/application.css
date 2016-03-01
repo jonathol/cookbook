@@ -1243,12 +1243,32 @@ div.index-item-cooked-button {
 }
 
 /* RECIPE DETAIL */
-@media (min-width: 100px) {
+@media (max-width: 550px) {
+  .recipe-show {
+    width: 100%;
+  }
+}
 
+@media (min-width: 551px) {
+  .recipe-show {
+    width: 500px;
+  }
+}
+
+@media (min-width: 780px) {
+  .recipe-show {
+    width: 750px;
+  }
+}
+
+@media (min-width: 1050px) {
+  .recipe-show {
+    width: 1000px;
+  }
 }
 
 .recipe-show {
-  width: 950px;
+  box-sizing: border-box;
   margin: 20px auto;
   padding: 24px;
   background-color: #fff;
