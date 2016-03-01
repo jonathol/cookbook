@@ -305,11 +305,6 @@ div.sidebar-button:hover {
   transition: all 0.2s;
 }
 
-li.topnav-recipe-box:hover ~ div.sidebar-button {
-  transform: translateX(0);
-  transition: all 0.2s;
-}
-
 div.topnav-button {
   margin-top: 8px;
 }
