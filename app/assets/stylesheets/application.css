@@ -1791,27 +1791,39 @@ section.edit-account {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 499px) {
+@media (max-width: 400px) {
+  section.edit-account {
+    width: 250px;
+  }
+}
+
+@media (min-width: 401px) {
   section.edit-account {
     width: 300px;
   }
 }
 
+@media (max-width: 500px) {
+  form.edit-account-form > button {
+    margin: auto;
+  }
+}
+
 @media (min-width: 500px) {
   section.edit-account {
-    width: 500px;
+    width: 460px;
   }
 }
 
 @media (min-width: 1000px) {
   section.edit-account {
-    width: 1000px;
+    width: 950px;
   }
 }
 
 @media (min-width: 1500px) {
   section.edit-account {
-    width: 1500px;
+    width: 1400px;
   }
 }
 
@@ -1845,7 +1857,7 @@ form.edit-account-form label {
 }
 
 form.edit-account-form input {
-  width: 310px;
+  width: calc(100% - 130px);
   display: block;
   float: right;
   border: 1px solid #DBDBDB;
@@ -1911,6 +1923,7 @@ img.preview-image {
 }
 
 form.edit-account-form > button {
+  display: block;
   padding: 15px 0;
   width: 110px;
   border: 1px solid #ccc;
