@@ -49,7 +49,7 @@ var RecipeBox = React.createClass({
       );
     }
 
-    var name = /(\w+)(\s|@)/.exec(this.props.user.name);
+    var name = /(\w+)(\s|@)*/.exec(this.props.user.name);
     var active = (this.state.tab === "saved") ? " active" : "";
     var savedButton = (
       <div
