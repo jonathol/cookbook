@@ -1247,17 +1247,29 @@ div.index-item-cooked-button {
   .recipe-show {
     width: 100%;
   }
+
+  .recipe-top-details > h2 {
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 551px) {
   .recipe-show {
     width: 500px;
   }
+
+  .recipe-top-details > h2 {
+    font-size: 28px;
+  }
 }
 
 @media (min-width: 780px) {
   .recipe-show {
     width: 750px;
+  }
+
+  .recipe-top-details > h2 {
+    font-size: 32px;
   }
 }
 
@@ -1267,6 +1279,10 @@ div.index-item-cooked-button {
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 25px;
+  }
+
+  .basic-recipe-info {
+    margin: 15px auto;
   }
 }
 
@@ -1279,6 +1295,14 @@ div.index-item-cooked-button {
     position: absolute;
     top: 5px;
     right: 5px;
+  }
+
+  .basic-recipe-info {
+    margin: 20px auto 30px auto;
+  }
+
+  .recipe-top-details > h2 {
+    font-size: 40px;
   }
 }
 
@@ -1329,13 +1353,10 @@ div.recipe-button:hover {
   max-width: 80%;
   margin: auto;
   font-family: georgia;
-  font-size: 40px;
   text-align: center;
 }
 
-.recipe-top-details > .basic-recipe-info {
-  margin: 20px auto 30px auto;
-  width: 100%;
+.basic-recipe-info {
   text-align: center;
 }
 
