@@ -6,28 +6,8 @@ var React = require('react'),
 
 var Notes = React.createClass({
   getInitialState: function () {
-    // var state = this.getNotesFromStore();
-    // state.formActive = false;
-    // state.activeIndex = 0;
-    // return state;
     return { formActive: false, activeIndex: 0 }
   },
-
-  // componentDidMount: function () {
-  //   this.notesListener = NoteStore.addListener(this._notesChanged);
-  //   ApiUtil.fetchAllNotes(this.props.recipeId);
-  // },
-
-  // componentWillUnmount: function () {
-  //   this.notesListener.remove();
-  // },
-
-  // getNotesFromStore: function () {
-  //   return {
-  //     publicNotes: NoteStore.allPublic(),
-  //     privateNotes: NoteStore.allPrivate()
-  //   };
-  // },
 
   toggleForm: function () {
     if (!this.props.enforceAuth()) {
@@ -47,10 +27,6 @@ var Notes = React.createClass({
   toggleIndexTab: function (idx) {
     this.setState({ activeIndex: idx });
   },
-
-  // _notesChanged: function () {
-  //   this.setState(this.getNotesFromStore());
-  // },
 
   render: function () {
     var noteForm;
@@ -98,7 +74,7 @@ var Notes = React.createClass({
         </li>
       );
     }
-    
+
     var privateNotesTab;
     if (this.props.notes.private.length > 0) {
       activeIdx = this.state.activeIndex === 1 ? " active-index" : ""
