@@ -9,6 +9,10 @@ json.numLikes note.likes.count
 
 json.author do
   json.id note.author.id
-  json.name (note.author.name || note.author.email)
+  if note.author.name
+    json.name /(\w+)/.match(note.author.name)[1]
+  else
+    json.name /(.+)@.+/.match(note.author.email)[1]
+  end
   json.photo_url asset_path(note.author.photo.url)
 end
