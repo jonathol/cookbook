@@ -55,7 +55,7 @@ var RecipeIndexItem = React.createClass({
         onMouseLeave={this.handleButtonLeave.bind(this, "save")}
         onClick={this.handleClickSave}>
         <Icon name={saveIcon} className="index-item-button-icon ui-icon" />
-        {saveText}
+        <span className="index-item-button-text">{saveText}</span>
       </div>
     );
 
@@ -91,7 +91,7 @@ var RecipeIndexItem = React.createClass({
               onMouseLeave={this.handleButtonLeave.bind(this, "cooked")}
               onClick={this.handleClickCooked}>
               {cookedButtonIcon}
-              Cooked
+              <span className="index-item-button-text">Cooked</span>
             </div>
           </div>
         </div>

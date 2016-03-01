@@ -1079,6 +1079,10 @@ section.recipes-index > h3 {
   .recipe-index-item-info > p {
     font-size: 9px;
   }
+
+  span.index-item-button-text {
+    display: none;
+  }
 }
 
 @media (min-width: 500px) {
@@ -1239,6 +1243,10 @@ div.index-item-cooked-button {
 }
 
 /* RECIPE DETAIL */
+@media (min-width: 100px) {
+
+}
+
 .recipe-show {
   width: 950px;
   margin: 20px auto;
