@@ -1261,6 +1261,10 @@ div.index-item-cooked-button {
     margin: 0 6px 0 0;
     color: #E23E27;
   }
+
+  ul.preparation-steps-list {
+    font-size: 15px;
+  }
 }
 
 @media (min-width: 551px) {
@@ -1274,6 +1278,10 @@ div.index-item-cooked-button {
 
   span.fa.detail-icon:before {
     margin: 0 6px 0 14px;
+  }
+
+  ul.preparation-steps-list {
+    font-size: 16px;
   }
 }
 
@@ -1345,6 +1353,10 @@ div.index-item-cooked-button {
   section.details-bottom-right-column {
     width: 66.66%;
     float: right;
+  }
+
+  ul.preparation-steps-list {
+    font-size: 17.5px;
   }
 }
 
@@ -1665,10 +1677,6 @@ span.ingredient-name {
 
 li.ingredient {
   margin-bottom: 15px;
-}
-
-ul.preparation-steps-list {
-  font-size: 17.5px;
 }
 
 span.step-number {
