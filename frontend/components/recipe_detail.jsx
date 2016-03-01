@@ -169,15 +169,6 @@ var RecipeDetail = React.createClass({
       <section
         className="recipe-show">
         <article className="recipe-article">
-          <div
-            className="recipe-save-button recipe-button"
-            onClick={this.handleClickSave}>
-            <div
-              className="recipe-button-icon-text">
-              {saveIcon}
-              <span className="recipe-button-text">{saveText}</span>
-            </div>
-          </div>
           <section className="recipe-top-details">
             <h2
               className="recipe-feature-title">
@@ -205,6 +196,15 @@ var RecipeDetail = React.createClass({
                   {this.state.recipe.servings}
                 </span>
               </p>
+            </div>
+            <div
+              className="recipe-save-button recipe-button"
+              onClick={this.handleClickSave}>
+              <div
+                className="recipe-button-icon-text">
+                {saveIcon}
+                <span className="recipe-button-text">{saveText}</span>
+              </div>
             </div>
             <section className="recipe-description group">
               <div className={"recipe-photo-box group" + noDescription}>

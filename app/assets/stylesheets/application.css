@@ -1261,9 +1261,24 @@ div.index-item-cooked-button {
   }
 }
 
-@media (min-width: 1050px) {
+@media (max-width: 1050px) {
+  div.recipe-save-button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 25px;
+  }
+}
+
+@media (min-width: 1051px) {
   .recipe-show {
     width: 1000px;
+  }
+
+  div.recipe-save-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
   }
 }
 
@@ -1279,10 +1294,8 @@ article.recipe-article {
   position: relative;
 }
 
-div.recipe-button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
+div.recipe-save-button {
+  display: inline-block;
   padding: 15px 18px;
   background-color: #f2f3ef;
   font-size: 13.5px;
@@ -1290,10 +1303,6 @@ div.recipe-button {
   border-radius: 5px;
   border: 1px solid #e6e6e6;
   transition: all 0.1s;
-}
-
-div.recipe-button-icon-text {
-  /*position: relative*/
 }
 
 span.recipe-button-text {
