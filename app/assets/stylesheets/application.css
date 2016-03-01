@@ -1013,11 +1013,27 @@ div.featured-recipe-author-info > span {
 }
 
 /* USER SHOW */
+main.user-show {
+  margin: auto;
+}
+
 section.user-information {
+  text-align: center;
+}
+
+section.recipe-index-tabs {
   margin: auto;
   text-align: center;
-  padding-bottom: 20px;
+  padding: 20px 0;
   border-bottom: 3px solid #000000;
+}
+
+div.recipe-box-tab-button {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #e0e0d6;
+  font-size: 14px;
 }
 
 h3.recipes-index-title {
@@ -1044,7 +1060,7 @@ section.recipes-index {
     width: 310px;
   }
 
-  section.user-information {
+  main.user-show {
     width: 310px;
   }
 }
@@ -1054,7 +1070,7 @@ section.recipes-index {
     width: 500px;
   }
 
-  section.user-information {
+  main.user-show {
     width: 500px;
   }
 }
@@ -1064,7 +1080,7 @@ section.recipes-index {
     width: 750px;
   }
 
-  section.user-information {
+  main.user-show {
     width: 750px;
   }
 }
@@ -1074,8 +1090,7 @@ section.recipes-index {
     width: 1000px;
   }
 
-
-  section.user-information {
+  main.user-show {
     width: 1000px;
   }
 }
@@ -1085,7 +1100,7 @@ section.recipes-index {
     width: 1500px;
   }
 
-  section.user-information {
+  main.user-show {
     width: 1500px;
   }
 }

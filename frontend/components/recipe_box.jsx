@@ -31,24 +31,31 @@ var RecipeBox = React.createClass({
   switchToAuthored: function () {
     if (this.state.tab !== "authored") {
       this.setState({ tab: "authored" });
-      ApiUtil.fetchAuthoredRecipes();
+      ApiUtil.fetchAuthoredRecipes(this.props.user.id);
     }
   },
 
   switchToSaved: function () {
     if (this.state.tab !== "saved") {
       this.setState({ tab: "saved" });
-      ApiUtil.fetchSavedRecipes();
+      ApiUtil.fetchSavedRecipes(this.props.user.id);
     }
   },
 
   render: function () {
+    if (!this.props.user.name) {
+      return (
+        <section className="recipe-box"></section>
+      );
+    }
+
+    var name = /(\w+)(\s|@)/.exec(this.props.user.name);
     var active = (this.state.tab !== "saved") ? " active" : "";
     var savedButton = (
       <div
         onClick={this.switchToSaved}
-        class={active}>
-        Recipes By {this.props.user.name.split(" ")[0]}
+        className={"recipe-box-tab-button" + active}>
+        {name[1] + "'s Saved Recipes"}
       </div>
     );
 
@@ -58,8 +65,8 @@ var RecipeBox = React.createClass({
       authoredButton = (
         <div
           onClick={this.switchToAuthored}
-          class={active}>
-          Recipes By {this.props.user.name.split(" ")[0]}
+          className={"recipe-box-tab-button" + active}>
+          Recipes By {name[1]}
         </div>
       );
     }
@@ -69,6 +76,8 @@ var RecipeBox = React.createClass({
         className="recipe-box">
         <section
           className="recipe-index-tabs">
+          {savedButton}
+          {authoredButton}
         </section>
         <RecipesIndex
           recipes={this.state.recipeList}

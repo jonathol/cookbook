@@ -43,12 +43,12 @@ module.exports = React.createClass({
   render: function () {
     if (!this.state.user) {
       return (
-        <main className="recipe-box"></main>
+        <main className="user-show"></main>
       );
     }
 
     return (
-      <main className="recipe-box">
+      <main className="user-show">
         <section className="user-information group">
           <img
             className="user-recipe-box-photo"
