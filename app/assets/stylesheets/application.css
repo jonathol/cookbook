@@ -1692,6 +1692,18 @@ p.step-body {
 
 /* NOTES */
 /* Note Form */
+@media (max-width: 450px) {
+  span.large-private-text {
+    display: none;
+  }
+}
+
+@media (min-width: 451px) {
+  span.small-private-text {
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
   div.note-user-image {
     display: none;
