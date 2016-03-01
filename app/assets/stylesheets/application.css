@@ -49,10 +49,8 @@ body {
   overflow-y: scroll;
 }
 
-/* CHANGE TO NONE LATER */
 a:hover {
   text-decoration: underline;
-  /*text-decoration: none;*/
 }
 
 button:hover {
@@ -1369,6 +1367,10 @@ div.index-item-cooked-button {
   ul.preparation-steps-list {
     font-size: 15px;
   }
+
+  p.ratings-text {
+    display: none;
+  }
 }
 
 @media (min-width: 551px) {
@@ -1390,6 +1392,10 @@ div.index-item-cooked-button {
 }
 
 @media (max-width: 780px) {
+  section.recipe-top-details {
+    padding: 8px 0 30px 0;
+  }
+
   .basic-recipe-info > h3 {
     display: block;
     margin-bottom: 15px;
@@ -1423,6 +1429,10 @@ div.index-item-cooked-button {
 }
 
 @media (min-width: 781px) {
+  section.recipe-top-details {
+    padding: 20px 0px 40px 0;
+  }
+
   .recipe-show {
     width: 750px;
   }
@@ -1470,10 +1480,6 @@ div.index-item-cooked-button {
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 25px;
-  }
-
-  section.recipe-top-details {
-    padding: 22px 0px 42px 0;
   }
 
   .basic-recipe-info {

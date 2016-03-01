@@ -13,6 +13,7 @@ module.exports = React.createClass({
 
   componentDidMount: function () {
     this.userListener = UserStore.addListener(this._userChanged);
+    ApiUtil.fetchUserInfo(this.props.params.userId);
   },
 
   componentWillUnmount: function () {
@@ -24,7 +25,7 @@ module.exports = React.createClass({
   },
 
   getInitialState: function () {
-    return { user: UserStore.user() };
+    return { user: {} };
   },
 
   _userChanged: function () {
@@ -41,7 +42,7 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    if (!this.state.user) {
+    if (!this.state.user.name) {
       return (
         <main className="user-show"></main>
       );
