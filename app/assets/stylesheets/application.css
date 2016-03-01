@@ -1159,8 +1159,31 @@ section.recipes-index > h3 {
   color: #b3b3b3;
 }
 
+/**/
+/**/
+/* USER INTERACTION */
+/**/
+@media (max-width: 500px) {
+  div.index-item-button {
+    display: none;
+  }
+
+  li.recipe-index-item:hover div.user-interaction-buttons {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 501px) {
+  li.recipe-index-item:hover div.user-interaction-buttons {
+    visibility: visible;
+  }
+
+  li.recipe-index-item:hover div.user-interacted-icons {
+    visibility: hidden;
+  }
+}
+
 li.recipe-index-item:hover div.user-interaction-buttons {
-  visibility: visible;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -1171,10 +1194,6 @@ li.recipe-index-item:hover div.user-interaction-buttons {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 }
 
-/**/
-/**/
-/* USER INTERACTION */
-/**/
 div.user-interaction-buttons span.fa-check {
   color: transparent;
   -webkit-text-stroke-width: 1px;
@@ -1212,10 +1231,6 @@ span.ui-icon:before {
 div.user-interacted-icons .interacted-icon {
   padding: 7px;
   float: left;
-}
-
-li.recipe-index-item:hover div.user-interacted-icons {
-  visibility: hidden;
 }
 
 div.user-interaction-buttons {
