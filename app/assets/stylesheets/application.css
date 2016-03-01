@@ -1871,12 +1871,8 @@ div.note-left-col {
 
 div.note-right-col {
   box-sizing: border-box;
-  max-width: 530px;
+  width: calc(100% - 70px);
   float: left;
-}
-
-section.note.child-note > div.note-right-col {
-  max-width: 465px;
 }
 
 p.note-body {
