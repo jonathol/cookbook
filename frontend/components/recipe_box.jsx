@@ -55,7 +55,7 @@ var RecipeBox = React.createClass({
       <div
         onClick={this.switchToSaved}
         className={"recipe-box-tab-button" + active}>
-        {name[1] + "'s Saved Recipes"}
+        <span className="large-tab-text">{name[1] + "'s"}</span> Saved Recipes
       </div>
     );
 
@@ -76,8 +76,11 @@ var RecipeBox = React.createClass({
         className="recipe-box">
         <section
           className="recipe-index-tabs">
-          {savedButton}
-          {authoredButton}
+          <div
+            className="index-tab-buttons">
+            {savedButton}
+            {authoredButton}
+          </div>
         </section>
         <RecipesIndex
           recipes={this.state.recipeList}
