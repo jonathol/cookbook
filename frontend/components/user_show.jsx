@@ -50,18 +50,12 @@ module.exports = React.createClass({
     return (
       <main className="recipe-box">
         <section className="user-information group">
-          <div
-            className="recipe-box-photo-container">
             <img
               className="user-recipe-box-photo"
               src={this.state.user.photo_url} />
-          </div>
-          <div className="recipe-box-title">
             <h3 className="recipes-index-title">
               {this.state.user.name + "'s Recipe Box"}
             </h3>
-          </div>
-
         </section>
         {this.renderChildren()}
       </main>

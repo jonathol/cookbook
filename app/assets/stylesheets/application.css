@@ -1015,20 +1015,25 @@ div.featured-recipe-author-info > span {
 /* USER SHOW */
 section.user-information {
   margin: auto;
+  text-align: center;
 }
 
 div.recipe-box-photo-container {
   width: 100px;
-  float: left;
+  display: inline-block;
 }
 
 div.recipe-box-title {
   width: 600px;
-  float: left;
+  display: inline-block;
+}
+
+h3.recipes-index-title {
+  display: inline-block;
 }
 
 img.user-recipe-box-photo {
-  display: block;
+  display: inline-block;
   max-width: 100px;
   max-height: 100px;
   border: 3px solid #E8E8E8;
