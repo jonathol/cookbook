@@ -74,7 +74,7 @@ var RecipeIndexItem = React.createClass({
     return (
       <li
         className="recipe-index-item">
-        <a href={"#/recipes/" + this.props.recipe.id}>
+        <a className="recipe-index-item-link" href={"#/recipes/" + this.props.recipe.id}>
         <div className="recipe-index-item-thumb">
           <img
             className="thumb-image"
