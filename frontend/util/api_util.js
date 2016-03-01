@@ -37,8 +37,8 @@ var ApiUtil = {
     $.ajax({
       type: "GET",
       url: "api/users/" + userId + "/recipes",
-      success: function (recipes) {
-        ApiActions.receiveRecipesList(recipes);
+      success: function (data) {
+        ApiActions.receiveRecipesList(data.recipes);
       }
     });
   },

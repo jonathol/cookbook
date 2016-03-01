@@ -1,7 +1,7 @@
 class Api::RecipeBoxesController < ApplicationController
   def show
     @user = User.find(params[:user_id])
-    @recipes = @user.recipe_box.saved_recipes
+    @recipes = @user.recipe_box.saved_recipes.includes(:author, :photo)
 
     if @recipes
       render :show
