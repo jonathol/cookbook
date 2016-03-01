@@ -50,7 +50,7 @@ var RecipeBox = React.createClass({
     }
 
     var name = /(\w+)(\s|@)/.exec(this.props.user.name);
-    var active = (this.state.tab !== "saved") ? " active" : "";
+    var active = (this.state.tab === "saved") ? " active" : "";
     var savedButton = (
       <div
         onClick={this.switchToSaved}
@@ -61,7 +61,7 @@ var RecipeBox = React.createClass({
 
     var authoredButton;
     if (this.props.user && this.props.user.author) {
-      active = (this.state.tab !== "authored") ? " active" : "";
+      active = (this.state.tab === "authored") ? " active" : "";
       authoredButton = (
         <div
           onClick={this.switchToAuthored}
