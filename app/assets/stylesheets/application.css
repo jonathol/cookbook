@@ -1317,6 +1317,8 @@ div.recipe-button:hover {
 }
 
 .recipe-top-details > h2 {
+  max-width: 80%;
+  margin: auto;
   font-family: georgia;
   font-size: 40px;
   text-align: center;
@@ -1397,7 +1399,7 @@ a.recipe-photo-credit:hover {
 }
 
 section.recipe-top-details {
-  padding: 35px 0px 42px 0;
+  padding: 45px 0px 42px 0;
   border-bottom: 2px solid #000;
 }
 
