@@ -33,7 +33,6 @@ var RecipeBox = React.createClass({
         className="recipe-box">
         <RecipesIndex
           recipes={this.state.recipeList}
-          indexDescription={this.props.user.name + "'s saved recipes"}
           enforceAuth={this.props.enforceAuth} />
       </section>
     );

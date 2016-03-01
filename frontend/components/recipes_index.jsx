@@ -45,7 +45,7 @@ module.exports = React.createClass({
     return (
       <section
         className="recipes-index">
-        <h3>{this.props.indexDescription}</h3>
+        <h3 className="recipes-index-title">{this.props.indexDescription}</h3>
         <ul
           className="recipes-index-list group">
           {recipes}
