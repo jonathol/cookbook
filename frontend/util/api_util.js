@@ -74,7 +74,7 @@ var ApiUtil = {
     });
   },
 
-  fetchRecipeBox: function (userId) {
+  fetchSavedRecipes: function (userId) {
     $.ajax({
       type: "GET",
       url: "api/users/" + userId + "/recipe_box",

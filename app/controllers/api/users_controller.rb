@@ -13,6 +13,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @author = !!Recipe.find_by(author: @user)
     render :show
   end
 
