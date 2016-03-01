@@ -16,6 +16,10 @@ var App = React.createClass({
   componentDidMount: function () {
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
     ApiUtil.fetchCurrentUser();
+
+    $('a').click(function (e) {
+      $(window).scrollTop(0);
+    });
   },
 
   componentWillUnmount: function () {
