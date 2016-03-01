@@ -38,8 +38,8 @@ var SearchBar = React.createClass({
     ApiUtil.instantSearch(this.state.query);
   },
 
-  tagSearch: function (name) {
-    this.props.history.pushState(null, '/search?string=' + name);
+  tagSearch: function (id) {
+    this.props.history.pushState(null, '/tags/' + id);
     this.clearSearch();
   },
 
@@ -121,7 +121,7 @@ var SearchBar = React.createClass({
       return (
         <li
           className="popular-search-tag"
-          onClick={this.tagSearch.bind(this, tag.name)}
+          onClick={this.tagSearch.bind(this, tag.id)}
           key={idx}>
           {tag.name}
         </li>
@@ -154,7 +154,7 @@ var SearchBar = React.createClass({
           </section>
           <ul
             className="popular group">
-            <li>Popular: </li>
+            <li>Ideas: </li>
             {popularTags}
           </ul>
         </form>
