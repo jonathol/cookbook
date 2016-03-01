@@ -1804,6 +1804,18 @@ li.note-form-finish > button:first-child {
 }
 
 /* Notes Index */
+@media (max-width: 550px) {
+  section.note {
+    font-size: 12.5px;
+  }
+}
+
+@media (min-width: 551px) {
+  section.note {
+    font-size: 14px;
+  }
+}
+
 ul.notes-index-tabs {
   margin-top: 50px;
   border-bottom: 1px solid #ccc;
@@ -1858,20 +1870,16 @@ section.note.child-note {
   margin-left: 65px;
 }
 
-div.note-details {
-  font-size: 14px;
-}
-
 div.note-left-col {
   float: left;
   width: 40px;
-  margin: 0 15px;
+  margin: 0 15px 0 0;
   height: 100%;
 }
 
 div.note-right-col {
   box-sizing: border-box;
-  width: calc(100% - 70px);
+  width: calc(100% - 55px);
   float: left;
 }
 
