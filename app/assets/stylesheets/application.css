@@ -1018,24 +1018,15 @@ section.user-information {
   text-align: center;
 }
 
-div.recipe-box-photo-container {
-  width: 100px;
-  display: inline-block;
-}
-
-div.recipe-box-title {
-  width: 600px;
-  display: inline-block;
-}
-
 h3.recipes-index-title {
   display: inline-block;
 }
 
 img.user-recipe-box-photo {
   display: inline-block;
-  max-width: 100px;
-  max-height: 100px;
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
   border: 3px solid #E8E8E8;
   border-radius: 50%;
 }
