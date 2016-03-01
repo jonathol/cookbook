@@ -1251,6 +1251,16 @@ div.index-item-cooked-button {
   .recipe-top-details > h2 {
     font-size: 24px;
   }
+
+  p.recipe-detail-more-info > span {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  span.fa.detail-icon:before {
+    margin: 0 6px 0 0;
+    color: #E23E27;
+  }
 }
 
 @media (min-width: 551px) {
@@ -1260,6 +1270,10 @@ div.index-item-cooked-button {
 
   .recipe-top-details > h2 {
     font-size: 28px;
+  }
+
+  span.fa.detail-icon:before {
+    margin: 0 6px 0 14px;
   }
 }
 
@@ -1404,13 +1418,7 @@ div.recipe-button:hover {
   font-size: 14px;
 }
 
-.fa-clock-o:before {
-  margin: 0 6px 0 14px;
-  color: #E23E27;
-}
-
-.fa-user:before {
-  margin: 0 6px 0 14px;
+span.fa.detail-icon:before {
   color: #E23E27;
 }
 
