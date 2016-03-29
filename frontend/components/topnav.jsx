@@ -53,7 +53,7 @@ var TopNav = React.createClass({
   },
 
   handleScroll: function (e) {
-    if ($(window).scrollTop() > 1) {
+    if (window.scrollY > 1) {
       this.setState({ scrolled: true });
     } else {
       this.setState({ scrolled: false });
