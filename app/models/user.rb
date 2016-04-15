@@ -23,6 +23,28 @@ class User < ActiveRecord::Base
   has_many :notes, dependent: :destroy, foreign_key: :author_id
   has_many :note_likes
 
+  def self.find_or_create_by_auth_hash(auth_hash)
+    provider = auth_hash[:provider]
+    uid = auth_hash[:uid]
+    email = auth_hash[:info][:email]
+    name = auth_hash[:info][:name]
+
+    user = User.find_by(provider: provider, uid: uid)
+
+    if user
+      return user
+    else
+      User.create(
+        provider: provider,
+        uid: uid,
+        email: email,
+        name: name,
+        password: SecureRandom::urlsafe_base64
+      )
+    end
+  end
+
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     if user.try(:is_password?, password)

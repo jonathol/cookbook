@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "static_pages#root"
+  get "/auth/:provider/callback", defaults: { format: :json }, to: "sessions#create"
 
   namespace :api, defaults: { format: :json } do
     get "search", to: "utils#search"
