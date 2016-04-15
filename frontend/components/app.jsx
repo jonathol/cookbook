@@ -17,9 +17,14 @@ var App = React.createClass({
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
     ApiUtil.fetchCurrentUser();
 
-    $('a').click(function (e) {
-      $(window).scrollTop(0);
+
+    var links = document.getElementsByTagName('a');
+    links.addEventListener('click', function (e) {
+      window.scrollTop(0);
     });
+    // $('a').click(function (e) {
+    //   $(window).scrollTop(0);
+    // });
   },
 
   componentWillUnmount: function () {
