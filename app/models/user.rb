@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
     name = auth_hash[:info][:name]
 
     user = User.find_by(provider: provider, uid: uid)
+    user ||= User.find_by_email(email)
 
     if user
       return user

@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_or_create_by_auth_hash(auth_hash)
     log_in!(@user)
-    redirect_to root_url
+    redirect_to root_url + '#/'
   end
 
   private

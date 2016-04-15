@@ -73,7 +73,7 @@ var Auth = React.createClass({
       auth = newUser;
       auth.footerText = (
         <p>
-          Already have a NYTimes account? <span className="footer-link" onClick={this.toggleAuthAction}>Log In</span>
+          Already have a NYThyme's account? <span className="footer-link" onClick={this.toggleAuthAction}>Log In</span>
         </p>
       );
     }
@@ -105,6 +105,12 @@ var Auth = React.createClass({
                 onClick={this.handleDemo}>
                 Demo
               </button>
+              <br />
+              <a
+                href="/auth/facebook"
+                className="facebook-login oauth">
+                Sign in with Facebook
+              </a>
             </div>
           </form>
           <div className="user-form-footer">

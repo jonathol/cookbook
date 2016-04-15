@@ -780,6 +780,10 @@ section.featured-content {
     margin: 5px 5px;
     padding: 11px 22px;
   }
+
+  .facebook-login {
+    padding: 11px 22px;
+  }
 }
 
 @media (min-width: 401px) {
@@ -791,6 +795,23 @@ section.featured-content {
     padding: 15px 32px;
     margin: 15px 5px;
   }
+
+  .facebook-login {
+    padding: 15px 32px;
+  }
+}
+
+.facebook-login {
+  display: inline-block;
+  margin: 5px auto;
+  background-color: #4068bd;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.facebook-login:hover {
+  text-decoration: none;
+  background-color: #334f8b;
 }
 
 @media (max-width: 651px) {
@@ -807,6 +828,10 @@ section.featured-content {
 
   div.submit-buttons > button {
     margin: 20px 10px;
+    padding: 17px 40px;
+  }
+
+  .facebook-login {
     padding: 17px 40px;
   }
 }
