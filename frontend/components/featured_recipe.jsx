@@ -3,11 +3,23 @@ var React = require('react'),
 
 var FeaturedRecipe = React.createClass({
   handleWindowResize: function () {
-    var imageHeight = $('.featured-recipe-photo').height();
+    var recipePhoto = $('.featured-recipe-photo');
+    var photoContainer = $('.featured-recipe-photo-container');
+
+    var imageHeight = recipePhoto.height();
     if (imageHeight === null) {
       var origHeight = this.props.recipe.photo.original_height;
       var origWidth = this.props.recipe.photo.original_width;
       imageHeight = ($(window).width() / origWidth) * origHeight;
+    }
+
+    var cardHeight = $('.featured-recipe-card').outerHeight();
+
+    if (imageHeight < 375 && photoContainer.width() >= $(window).width()) {
+      // recipePhoto.css('min-height', '375px');
+      photoContainer.css('width', recipePhoto.outerWidth());
+    } else {
+      photoContainer.css('width', '100%');
     }
     var windowHeight = $(window).height();
 
@@ -15,10 +27,10 @@ var FeaturedRecipe = React.createClass({
 
     if (recipePhotoAnchor >= 0 && imageHeight !== null) {
       $(".featured-recipe").css('min-height', imageHeight + "px");
-      $('.featured-recipe-photo').css('top', "0px");
+      recipePhoto.css('top', "0px");
     } else {
       $('.featured-recipe').css('min-height', windowHeight * 0.9 + "px");
-      $('.featured-recipe-photo').css('top', recipePhotoAnchor + "px");
+      recipePhoto.css('top', recipePhotoAnchor + "px");
     }
   },
 
@@ -47,9 +59,12 @@ var FeaturedRecipe = React.createClass({
       <section
         className="featured-recipe group">
         <a href={"#/recipes/" + this.props.recipe.id}>
-        <img
-          className="featured-recipe-photo"
-          src={this.props.recipe.photo.large_url} />
+        <div
+          className="featured-recipe-photo-container">
+          <img
+            className="featured-recipe-photo"
+            src={this.props.recipe.photo.large_url} />
+        </div>
         <div
           className="featured-recipe-card">
           <div

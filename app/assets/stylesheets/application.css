@@ -930,7 +930,12 @@ section.featured-recipe > a:hover {
   text-decoration: none;
 }
 
+.featured-recipe-photo-container {
+  overflow: hidden;
+}
+
 img.featured-recipe-photo {
+  width: 100%;
   display: block;
 }
 
